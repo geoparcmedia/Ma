@@ -1,11 +1,11 @@
 import json, re, hashlib, sys
 sys.path.insert(0, '.')
 from tours import tours_html, schema
-from anim import SCENE, STATS, CSS, JS_EARLY, JS, add_bikes, add_reveal, SPRITE
+from anim import SPLIT, SCENE, STATS, CSS, JS_EARLY, JS, add_bikes, add_reveal, SPRITE
 body1 = None
 
 style = open('style.html').read()
-body1 = open('body1.html').read().replace('HERO2SCENE', "<div class='wgm-hero2 h2a' aria-hidden='true'><b>From the Atlas to the Sahara</b><span>Mountains · Oases · Berber villages · Desert dunes</span></div><div class='wgm-hero2 h2b' aria-hidden='true'><b>Ride the Dust – Live the Adventure</b><span>Guided gravel bike tours with local experts</span></div><div class='wgm-cue' aria-hidden='true'></div>" + SCENE).replace('STATSBAND', STATS)
+body1 = open('body1.html').read().replace('HERO2SCENE', "<div class='wgm-hero2 h2a' aria-hidden='true'><b>From the Atlas to the Sahara</b><span>Mountains · Oases · Berber villages · Desert dunes</span></div><div class='wgm-hero2 h2b' aria-hidden='true'><b>Ride the Dust – Live the Adventure</b><span>Guided gravel bike tours with local experts</span></div><div class='wgm-cue' aria-hidden='true'></div><div class='wgm-idx' aria-hidden='true'><i><b>01</b>Atlas</i><i><b>02</b>Gravel</i><i><b>03</b>Sahara</i></div>" + SPLIT + SCENE).replace('STATSBAND', STATS)
 style = style.replace('</style>', CSS + '</style>') + JS_EARLY + SPRITE
 part3 = open('part3.html').read()
 part5 = open('part5.html').read().replace('</div>\n', '', 0)

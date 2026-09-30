@@ -40,16 +40,36 @@ CSS = """
 .wgm-hero-in>*{animation:wgmUp 1s cubic-bezier(.2,.7,.2,1) both}
 .wgm-hero-in>:nth-child(2){animation-delay:.12s}.wgm-hero-in>:nth-child(3){animation-delay:.24s}.wgm-hero-in>:nth-child(4){animation-delay:.36s}.wgm-hero-in>:nth-child(5){animation-delay:.48s}
 @keyframes wgmUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-.wgm-slides{position:absolute;inset:0;transform:scale(1.12);will-change:transform}
-.wgm .wgm-slide{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;opacity:0}
-.wgm-slide:first-child{opacity:1}
+.wgm-hero{perspective:1200px}
+.wgm-hero:after{z-index:1;opacity:var(--ov,1);background:linear-gradient(90deg,rgba(12,14,20,.55) 0%,rgba(12,14,20,.25) 45%,rgba(12,14,20,0) 75%),linear-gradient(180deg,rgba(12,14,20,.25) 0%,rgba(12,14,20,0) 30%,rgba(12,14,20,0) 60%,rgba(12,14,20,.45) 100%)!important}
+.wgm .wgm-slide{filter:saturate(1.18) contrast(1.05) brightness(1.05)}
+.wgm-hero h1,.wgm-hero p,.wgm-hero .wgm-eyebrow,.wgm-trust{text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.wgm-slides{position:absolute;inset:-3%;will-change:transform;transform:scale(1.08)}
+.wgm-sl{position:absolute;inset:0;overflow:hidden;will-change:transform}
+.wgm-sl+.wgm-sl{clip-path:circle(0px at 50% 58%)}
+.wgm .wgm-slide{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;animation:wgmKB 18s ease-in-out infinite alternate}
+.wgm-sl:nth-child(2) .wgm-slide{animation-name:wgmKB2;animation-duration:22s}
+.wgm-sl:nth-child(3) .wgm-slide{animation-duration:20s;animation-direction:alternate-reverse}
+@keyframes wgmKB{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.16) translate(-2%,-1.5%)}}
+@keyframes wgmKB2{from{transform:scale(1.14) translate(2%,1%)}to{transform:scale(1.02) translate(-1%,0)}}
+.wgm-ring{position:absolute;left:50%;top:58%;width:0;height:0;border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);box-shadow:0 0 0 4px #E77717,0 0 60px 14px rgba(231,119,23,.75),inset 0 0 50px 10px rgba(231,119,23,.6)}
+.wgm-fx{position:absolute;inset:0;width:100%;height:100%;z-index:2;mix-blend-mode:screen;pointer-events:none}
+.wgm-hero-in>h1.wgm-h1s{animation:none}
+.wgm-hero h1 .wgm-w{color:inherit}.wgm-w{display:inline-block;animation:wgmFlip 1s cubic-bezier(.2,.7,.2,1) both;transform-origin:50% 100%}
+@keyframes wgmFlip{from{opacity:0;transform:perspective(700px) rotateX(-90deg) translateY(40px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.wgm-idx{position:absolute;right:30px;top:50%;z-index:3;transform:translateY(-50%);display:flex;flex-direction:column;gap:20px;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.wgm-idx i{font-style:normal;display:flex;align-items:center;gap:10px;justify-content:flex-end;transition:color .4s,transform .4s}
+.wgm-idx i:after{content:'';width:18px;height:2px;background:currentColor;transition:width .4s}
+.wgm-idx b{font-size:15px}
+.wgm-idx i.on{color:#fff;transform:translateX(-6px)}
+.wgm-idx i.on b{color:#E77717}.wgm-idx i.on:after{width:42px;background:#E77717}
 .wgm-hero .wgm-wrap{z-index:3}
 .wgm-hero{padding-bottom:120px}
 .wgm-pin{position:relative}
 .wgm-pin>.wgm-hero{position:relative;height:100vh;min-height:620px;max-height:1100px}
 .wgm-pin.pinned{height:300vh}
 .wgm-pin.pinned>.wgm-hero{position:sticky;top:0;max-height:none}
-.wgm-hero2{position:absolute;left:0;right:0;top:30%;z-index:3;text-align:center;color:#fff;opacity:0;pointer-events:none;padding:0 20px}
+.wgm-hero2{will-change:transform,opacity,filter;position:absolute;left:0;right:0;top:30%;z-index:3;text-align:center;color:#fff;opacity:0;pointer-events:none;padding:0 20px}
 .wgm-hero2 b{display:block;font-size:clamp(34px,6vw,84px);font-weight:800;line-height:1.05;letter-spacing:-.02em;text-shadow:0 10px 40px rgba(0,0,0,.4)}
 .wgm-hero2 span{display:inline-block;margin-top:14px;font-size:clamp(15px,1.4vw,19px);letter-spacing:.2em;text-transform:uppercase;color:#ffb56b;font-weight:700}
 .wgm-cue{position:absolute;left:50%;bottom:150px;z-index:3;width:26px;height:42px;margin-left:-13px;border:2px solid rgba(255,255,255,.8);border-radius:14px}
@@ -102,8 +122,9 @@ CSS = """
 .wgm-media img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
 .wgm-media:hover img{transform:scale(1.05)}
 @media (max-width:767px) and (max-height:800px){.wgm-trust{display:none}}
+@media (max-width:1100px){.wgm-idx{display:none}}
 @media (max-width:767px){.wgm-pin>.wgm-hero{height:auto;min-height:0;max-height:none}.wgm-pin.pinned{height:250vh}.wgm-pin.pinned>.wgm-hero{height:100vh}.wgm-cue{display:none}.wgm-hero .wgm-wrap{padding-top:40px!important}.wgm-trust{margin-top:24px}.wgm-scene{height:130px}.wgm-road{bottom:36px}.wgm-rider{bottom:34px;width:64px}.wgm-hero{padding-bottom:90px}.wgm-stats-in{grid-template-columns:1fr 1fr;padding:22px 12px}.wgm-stats-in>div:nth-child(2){border-right:0}.wgm-btn:hover{padding-left:28px}.wgm-bk{display:none}}
-@media (prefers-reduced-motion:reduce){.wgm *,.wgm *:before,.wgm *:after{animation:none!important;transition:none!important}.wgm-js .wgm-rv{opacity:1;transform:none}.wgm-rider,.wgm-cue,.wgm-hero2{display:none}.wgm-pin.pinned{height:auto}.wgm-pin.pinned>.wgm-hero{position:relative}}
+@media (prefers-reduced-motion:reduce){.wgm *,.wgm *:before,.wgm *:after{animation:none!important;transition:none!important}.wgm-js .wgm-rv{opacity:1;transform:none}.wgm-rider,.wgm-cue,.wgm-hero2,.wgm-fx,.wgm-ring,.wgm-idx{display:none}.wgm-sl+.wgm-sl{display:none}.wgm-pin.pinned{height:auto}.wgm-pin.pinned>.wgm-hero{position:relative}}
 """
 
 JS_EARLY = SPRITE_PLACE = None
@@ -114,19 +135,29 @@ JS = ("<script>(function(){var d=document,w=window,rm=w.matchMedia('(prefers-red
       "var cs=d.querySelectorAll('.wgm-count');function run(el){var to=+el.getAttribute('data-to'),t0=null;if(rm){el.textContent=to;return}function st(t){if(!t0)t0=t;var p=Math.min((t-t0)/1600,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(st)}requestAnimationFrame(st)}"
       "if('IntersectionObserver' in w){var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io2.unobserve(e.target)}})});cs.forEach(function(el){el.textContent='0';io2.observe(el)})}"
       "if(!rm&&w.matchMedia('(hover: hover) and (pointer: fine)').matches){d.querySelectorAll('.wgm-card,.wgm-val').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateY('+(x*12)+'deg) rotateX('+(-y*12)+'deg) translateY(-6px)';c.style.setProperty('--mx',(x+.5)*100+'%');c.style.setProperty('--my',(y+.5)*100+'%')});c.addEventListener('pointerleave',function(){c.style.transform=''})})}"
-      "var pin=d.querySelector('.wgm-pin'),hero=pin&&pin.querySelector('.wgm-hero'),sw=hero&&hero.querySelector('.wgm-slides'),sl=hero?hero.querySelectorAll('.wgm-slide'):[],ms=d.querySelectorAll('.wgm-m'),hi=d.querySelector('.wgm-hero-in'),ha=d.querySelector('.h2a'),hb=d.querySelector('.h2b'),cue=d.querySelector('.wgm-cue'),rd=d.querySelector('.wgm-rider'),tk=false,to=null,pinned=false;"
-      "function cl(x){return Math.min(Math.max(x,0),1)}function band(p,a,b,c,e){return cl((p-a)/(b-a))*cl((e-p)/(e-c))}"
+      "var pin=d.querySelector('.wgm-pin'),hero=pin&&pin.querySelector('.wgm-hero'),sw=hero&&hero.querySelector('.wgm-slides'),sl=hero?hero.querySelectorAll('.wgm-sl'):[],ring=hero&&hero.querySelector('.wgm-ring'),ix=d.querySelectorAll('.wgm-idx i'),ms=d.querySelectorAll('.wgm-m'),hi=d.querySelector('.wgm-hero-in'),ha=d.querySelector('.h2a'),hb=d.querySelector('.h2b'),cue=d.querySelector('.wgm-cue'),rd=d.querySelector('.wgm-rider'),tk=false,to=null,pinned=false,act=-1,fxb=0,mx=0,my=0,cx0=0,cy0=0,ml=false;"
+      "function cl(x){return Math.min(Math.max(x,0),1)}function band(p,a,b,c,e){return cl((p-a)/(b-a))*cl((e-p)/(e-c))}function ez(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}"
       "if(pin&&!rm&&w.CSS&&CSS.supports('overflow','clip')){for(var el=pin.parentElement;el&&el!==d.documentElement;el=el.parentElement){var cs2=getComputedStyle(el);if(cs2.overflowX==='hidden'||cs2.overflowY==='hidden'||cs2.overflowX==='auto'||cs2.overflowY==='auto'){el.style.overflow='clip'}}pin.classList.add('pinned');pinned=true}"
       "function px(){tk=false;if(!hero)return;var vh=w.innerHeight,vw=w.innerWidth,H=hero.offsetHeight,p,shift=0;"
       "if(pinned){var pr=pin.getBoundingClientRect(),hr=hero.getBoundingClientRect();if(pr.top<-20&&pr.bottom>vh+20&&Math.abs(hr.top)>20){pin.classList.remove('pinned');pinned=false;return px()}p=cl(-pr.top/(pin.offsetHeight-vh))}else{p=cl(-hero.getBoundingClientRect().top/H);shift=p*H}"
-      "if(sw)sw.style.transform='translate3d(0,'+(shift*0.45)+'px,0) scale('+(1.12-0.12*p)+')';"
-      "if(sl.length>2){sl[1].style.opacity=cl((p-0.28)/0.14);sl[2].style.opacity=cl((p-0.62)/0.14)}"
+      "if(sw)sw.style.transform='translate3d('+(cx0*-26)+'px,'+(shift*0.45+cy0*-18)+'px,0) scale('+(1.08-0.04*p)+') rotateY('+(cx0*5)+'deg) rotateX('+(cy0*-4)+'deg)';"
+      "if(sl.length>2&&sw){var W=sw.offsetWidth,SH=sw.offsetHeight,Rm=Math.sqrt(W*W/4+SH*SH*0.3364)+30,t1=ez(cl((p-0.2)/0.2)),t2=ez(cl((p-0.54)/0.2)),ts=[1,t1,t2],rg=0,rt=0;"
+      "for(var k=0;k<3;k++){var tin=ts[k],tout=k<2?ts[k+1]:0,s=(k?1.35-0.35*tin:1)*(1+0.3*tout);sl[k].style.transform='scale('+s+')';if(k){sl[k].style.clipPath=tin>=1?'none':'circle('+(tin*Rm)+'px at 50% 58%)';if(tin>0&&tin<1){rg=tin;rt=tin*Rm}}}"
+      "if(ring){ring.style.opacity=Math.sin(rg*Math.PI);ring.style.width=ring.style.height=(2*rt)+'px'}"
+      "var a2=p<0.32?0:p<0.66?1:2;if(a2!==act){act=a2;for(var n=0;n<ix.length;n++)ix[n].classList.toggle('on',n===a2)}}"
       "ms.forEach(function(m,i){m.style.transform='translate3d(0,'+(p*[70,35,0][i])+'px,0)'});"
       "if(rd)rd.style.transform='translateX('+(vw*0.06+p*(vw*0.94-40))+'px)';"
-      "if(hi){hi.style.opacity=cl(1-p*4);hi.style.transform='translate3d(0,'+(shift*0.3-p*80)+'px,0)'}"
-      "[[ha,0.3,0.4,0.55,0.62],[hb,0.66,0.76,1.1,1.2]].forEach(function(x){if(!x[0])return;var q=band(p,x[1],x[2],x[3],x[4]);x[0].style.opacity=q;x[0].style.transform='translate3d(0,'+(shift*0.5+(1-q)*30)+'px,0)'});"
-      "if(cue)cue.style.opacity=cl(1-p*8)}"
-"if(!rm){w.addEventListener('scroll',function(){if(rd){rd.classList.add('moving');clearTimeout(to);to=setTimeout(function(){rd.classList.remove('moving')},160)}if(!tk){tk=true;requestAnimationFrame(px)}},{passive:true});w.addEventListener('resize',px);px()}})();</script>")
+      "if(hi){hi.style.opacity=cl(1-p*4);hi.style.transform='translate3d('+(cx0*14)+'px,'+(shift*0.3-p*80+cy0*10)+'px,0)'}"
+      "[[ha,0.34,0.42,0.52,0.58],[hb,0.7,0.78,1.1,1.2]].forEach(function(x){if(!x[0])return;var q=band(p,x[1],x[2],x[3],x[4]);x[0].style.opacity=q;x[0].style.filter=q<1?'blur('+((1-q)*10)+'px)':'none';x[0].style.transform='translate3d('+(cx0*-10)+'px,'+(shift*0.5+(1-q)*40)+'px,0) scale('+(0.92+0.08*q)+')'});"
+      "if(cue)cue.style.opacity=cl(1-p*8);hero.style.setProperty('--ov',1-0.6*cl(p*4))}"
+      "function ml2(){cx0+=(mx-cx0)*0.08;cy0+=(my-cy0)*0.08;px();if(Math.abs(mx-cx0)+Math.abs(my-cy0)>0.002){requestAnimationFrame(ml2)}else{ml=false}}"
+      "if(hero&&!rm&&w.matchMedia('(hover: hover) and (pointer: fine)').matches){hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;if(!ml){ml=true;requestAnimationFrame(ml2)}});hero.addEventListener('pointerleave',function(){mx=0;my=0;if(!ml){ml=true;requestAnimationFrame(ml2)}})}"
+      "var cv=hero&&hero.querySelector('.wgm-fx');if(cv&&cv.getContext&&!rm){var g=cv.getContext('2d'),P=[],N=w.innerWidth<768?22:55,vis=true,dpr=Math.min(w.devicePixelRatio||1,1.5);"
+      "function sz(){cv.width=cv.offsetWidth*dpr;cv.height=cv.offsetHeight*dpr}sz();w.addEventListener('resize',sz);"
+      "for(var q0=0;q0<N;q0++)P.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*2.2,s:.2+Math.random()*.8,a:.25+Math.random()*.55,o:Math.random()*6.3});"
+      "if('IntersectionObserver' in w)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(hero);"
+      "function fr(t){requestAnimationFrame(fr);if(!vis||d.hidden)return;var W=cv.width,H=cv.height;g.clearRect(0,0,W,H);fxb*=.94;P.forEach(function(q){q.x+=q.s*(1+fxb)*0.0009;q.y-=q.s*0.0004*(1+fxb*.5)-Math.sin(t/1500+q.o)*0.0003;if(q.x>1.02){q.x=-.02;q.y=Math.random()}if(q.y<-.02)q.y=1.02;g.beginPath();g.arc(q.x*W,q.y*H,q.r*dpr,0,6.283);g.fillStyle='rgba(255,196,130,'+(q.a*(.6+.4*Math.sin(t/700+q.o)))+')';g.fill()})}requestAnimationFrame(fr)}"
+"if(!rm){w.addEventListener('scroll',function(){fxb=Math.min(fxb+0.5,6);if(rd){rd.classList.add('moving');clearTimeout(to);to=setTimeout(function(){rd.classList.remove('moving')},160)}if(!tk){tk=true;requestAnimationFrame(px)}},{passive:true});w.addEventListener('resize',px);px()}})();</script>")
 
 
 SPRITE = ("<svg width='0' height='0' style='position:absolute' aria-hidden='true'><symbol id='wgm-b' viewBox='0 0 44 28'>"
@@ -144,3 +175,7 @@ def add_reveal(html):
         html = re.sub(r"class='(%s)'" % cls, r"class='\1 wgm-rv'", html)
     html = re.sub(r"<details", "<details class='wgm-rv'", html)
     return html
+
+SPLIT = ("<script>(function(){var d=document,h=d.querySelector('.wgm-hero h1');if(!h||!d.documentElement.classList.contains('wgm-js'))return;var n=0;"
+         "function sp(el){[].slice.call(el.childNodes).forEach(function(c){if(c.nodeType===3){var f=d.createDocumentFragment();c.textContent.split(' ').forEach(function(wd,i,a){if(wd){var s=d.createElement('span');s.className='wgm-w';s.style.animationDelay=(0.15+n++*0.1)+'s';s.textContent=wd;f.appendChild(s)}if(i<a.length-1)f.appendChild(d.createTextNode(' '))});el.replaceChild(f,c)}else if(c.nodeType===1)sp(c)})}"
+         "sp(h);h.classList.add('wgm-h1s')})();</script>")
