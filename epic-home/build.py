@@ -127,10 +127,14 @@ CSS = """
 .etm-band{height:28px;background:ZBAND;background-size:28px 28px}
 .etm-band-thin{height:14px;background:ZBAND;background-size:14px 14px;opacity:.9}
 /* hero */
-.etm-hero{position:relative;min-height:min(92vh,820px);display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink)}
+.etm-hero{position:sticky;top:0;z-index:0;height:100vh;height:100svh;min-height:560px;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink)}
 .etm-hero-bg{position:absolute;inset:0}
 .etm-hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.6s ease,transform 9s linear}
 .etm-hero-bg img.on{opacity:1;transform:scale(1)}
+.etm-hero ~ *{position:relative;z-index:2}
+.etm-hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.etm-hero.has-vid .etm-hero-vid{opacity:1}
+.etm-hero-in{will-change:transform,opacity}
 .etm-hero:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,24,31,.86) 0%,rgba(5,24,31,.55) 45%,rgba(5,24,31,.15) 100%)}
 .etm-hero:after{content:'';position:absolute;z-index:1;top:0;bottom:0;right:0;width:34%;background:ZDARK;background-size:120px 120px;-webkit-mask:linear-gradient(90deg,transparent,#000 70%);mask:linear-gradient(90deg,transparent,#000 70%);opacity:.7}
 .etm-hero-in{position:relative;z-index:2;padding:150px 24px 110px;width:100%}
@@ -246,6 +250,11 @@ r.setProperty('--zd',z('rgba(209,164,123,.22)','rgba(92,130,143,.35)',0,1.2,96,0
 JS = """<script>(function(){var d=document,W=window;d.documentElement.classList.add('etm-js');
 function ready(f){if(d.readyState!=='loading')f();else d.addEventListener('DOMContentLoaded',f)}
 ready(function(){
+var hero=d.querySelector('.etm-hero'),vid=d.querySelector('.etm-hero-vid'),hin=d.querySelector('.etm-hero-in');
+if(vid&&W.fetch&&!(W.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+fetch('/wp-json/wp/v2/media?search=hero-video&media_type=video&per_page=1&_fields=source_url').then(function(r){return r.ok?r.json():[]}).then(function(a){
+if(!a||!a[0]||!a[0].source_url)return;vid.src=a[0].source_url;vid.addEventListener('canplay',function(){hero.classList.add('has-vid')},{once:true});var p=vid.play();if(p&&p.catch)p.catch(function(){})}).catch(function(){})}
+if(hin){var tk=0;W.addEventListener('scroll',function(){if(tk)return;tk=1;requestAnimationFrame(function(){tk=0;var y=Math.min(W.pageYOffset/(W.innerHeight||800),1);hin.style.transform='translateY('+(y*-60)+'px)';hin.style.opacity=1-y*1.1})},{passive:true})}
 var imgs=d.querySelectorAll('.etm-hero-bg img'),i=0;if(imgs.length>1)setInterval(function(){imgs[i].classList.remove('on');i=(i+1)%imgs.length;imgs[i].classList.add('on')},6500);
 var els=d.querySelectorAll('.etm-head,.etm-welcome>*,.etm-tour,.etm-why-c,.etm-gal figure,.etm-contact-in>*');
 if(!('IntersectionObserver' in W)){return}
@@ -260,7 +269,9 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
 def section1():
     hero_imgs = ''.join('<img src="%s%s" alt=""%s%s>' % (U, p, ' class="on" fetchpriority="high"' if k == 0 else ' loading="lazy"', '')
                         for k, p in enumerate(HERO))
-    hero = ('<section class="etm-hero"><div class="etm-hero-bg">' + hero_imgs + '</div>'
+    # the video is found at run time: any Media item titled "hero-video" (see JS)
+    hero = ('<section class="etm-hero"><div class="etm-hero-bg">' + hero_imgs +
+            '<video class="etm-hero-vid" muted loop playsinline preload="none" aria-hidden="true"></video></div>'
             '<div class="etm-wrap etm-hero-in"><span class="etm-eyebrow">Epic Travel Morocco</span>'
             '<h1>Where every journey becomes an <em>epic story</em></h1>'
             '<p class="etm-lead">Private tours across Morocco with local guides, from the souks of Marrakech to the golden dunes of the Sahara and the peaks of the Atlas.</p>'

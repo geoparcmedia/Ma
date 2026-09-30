@@ -6,3 +6,6 @@
 - Zellij tiles (8-point khatam) are drawn by a small inline script into CSS variables `--zb --zc --zt --zd`.
 - The HTML has no double quotes or backslashes on purpose (WordPress unslashes meta on save).
 - Tours, photos, texts and contacts come from the live site. Reviews: `[trustindex no-registration=tripadvisor]`.
+- Banner: stays fixed (sticky) while the page slides over it. Video: upload an MP4 to Media with the title
+  "hero-video"; the page finds it through the REST API (`/wp-json/wp/v2/media?search=hero-video`) and plays it
+  muted in a loop over the photos. No video → the two photos keep cross-fading.
