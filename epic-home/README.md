@@ -9,3 +9,6 @@
 - Banner: stays fixed (sticky) while the page slides over it. Video: upload an MP4 to Media with the title
   "hero-video"; the page finds it through the REST API (`/wp-json/wp/v2/media?search=hero-video`) and plays it
   muted in a loop over the photos. No video → the two photos keep cross-fading.
+- Banner "film": 6 site photos with slow zoom/drift (Ken Burns), cross-fading every 6.5 s, with place captions and
+  progress bars. Header: own fixed header (logo PDF-2-1.png, menu, phone, "Plan my trip", mobile drawer); on load
+  the script hides the theme header (elements near the top of the page with the destination/contact links).

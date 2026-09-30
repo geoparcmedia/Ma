@@ -66,7 +66,13 @@ TOURS = [  # 6 highlighted tours (the Destination page lists all of them)
     ('The Magic of Morocco', 'the-magic-of-morocco', '2025/11/pexels-micklatter-18375222-scaled.jpg', '9 days', 'Casablanca to Marrakech'),
     ('Moroccan Odyssey', 'moroccan-odyssey-15-day-grand-tour', '2025/07/IMG_5641.jpg', '15 days', 'The grand tour'),
 ]
-HERO = ['2025/08/pexels-ed-duvico-530456-29107895-scaled.jpg', '2025/11/pexels-mographe-3581916-scaled.jpg']
+HERO = ['2025/08/pexels-ed-duvico-530456-29107895-scaled.jpg', '2025/11/pexels-zakariahanif-12214734-scaled.jpg',
+        '2025/11/pexels-henrik-le-botos-1588507-3878114-scaled.jpg', '2025/11/pexels-mographe-3581916-scaled.jpg',
+        '2025/11/pexels-micklatter-18375222-scaled.jpg', '2025/11/pexels-abdel-achkouk-2861018-22717119-scaled.jpg']
+HERO_CAP = ['Marrakech', 'Sahara · Merzouga', 'Kasbahs & valleys', 'Atlas Mountains', 'Imperial cities', 'Northern Morocco']
+LOGO = U + '2025/08/PDF-2-1.png'
+NAV = [('Home', SITE + '/'), ('Tours', SITE + '/destination/'), ('Our fleet', SITE + '/fleet/'),
+       ('About us', SITE + '/about-us/'), ('Contact', SITE + '/contact-2/')]
 WELCOME_IMG = '2025/11/pexels-taryn-elliott-3889826-scaled.jpg'
 GALLERY = ['2025/11/IMG_5183.jpg', '2025/11/IMG_5469.jpg', '2025/11/VXKA2253.jpg',
            '2025/11/WhatsApp-Image-2023-03-02-at-22.42.12.jpeg', '2025/11/WhatsApp-Image-2023-03-02-at-22.42.13-1.jpeg',
@@ -129,8 +135,52 @@ CSS = """
 /* hero */
 .etm-hero{position:sticky;top:0;z-index:0;height:100vh;height:100svh;min-height:560px;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink)}
 .etm-hero-bg{position:absolute;inset:0}
-.etm-hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.6s ease,transform 9s linear}
-.etm-hero-bg img.on{opacity:1;transform:scale(1)}
+.etm-hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.8s ease}
+.etm-hero-bg img.on{opacity:1;animation:etmkb 7.5s linear forwards}
+.etm-hero-bg img:nth-child(2n).on{animation-name:etmkb2}
+@keyframes etmkb{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.16) translate(-2.5%,-1.5%)}}
+@keyframes etmkb2{from{transform:scale(1.16) translate(2%,1%)}to{transform:scale(1.03) translate(0,0)}}
+.etm-reel{position:absolute;z-index:3;left:0;right:0;bottom:34px}
+.etm-reel .etm-wrap{display:flex;align-items:center;gap:18px}
+.etm-reel-cap{font:500 13px/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);min-width:180px}
+.etm-reel-bars{display:flex;gap:8px;flex:1;max-width:360px}
+.etm-reel-bars i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.28);overflow:hidden;position:relative}
+.etm-reel-bars i:after{content:'';position:absolute;inset:0;background:var(--sand);transform:scaleX(0);transform-origin:left}
+.etm-reel-bars i.done:after{transform:scaleX(1)}
+.etm-reel-bars i.on:after{animation:etmbar 6.5s linear forwards}
+@keyframes etmbar{to{transform:scaleX(1)}}
+.etm-hero.has-vid .etm-reel{display:none}
+/* header */
+.etm.etm-top{position:fixed;left:0;right:0;top:0;z-index:9999;overflow:visible;font-family:var(--fb);transition:background .35s,box-shadow .35s,padding .35s;padding:14px 0}
+.admin-bar .etm-top{top:32px}
+.etm-top.solid{background:rgba(5,24,31,.94);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px 0}
+.etm-top.solid:after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:6px;background:var(--zb);background-size:6px 6px;opacity:.9}
+.etm-top-in{display:flex;align-items:center;gap:26px;height:64px}
+.etm-logo{display:flex;align-items:center;height:100%}
+.etm-logo img{max-height:58px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.25))}
+.etm-logo span{font:400 24px/1 var(--fh);color:#fff;letter-spacing:.04em}
+.etm-menu{display:flex;gap:4px;margin-left:auto}
+.etm-menu a{position:relative;padding:10px 14px;color:#fff!important;font-weight:500;font-size:15.5px;letter-spacing:.03em;opacity:.9;transition:opacity .2s}
+.etm-menu a:after{content:'';position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--sand);transform:scaleX(0);transition:transform .25s}
+.etm-menu a:hover,.etm-menu a.cur{opacity:1}
+.etm-menu a:hover:after,.etm-menu a.cur:after{transform:scaleX(1)}
+.etm-top-cta{display:flex;align-items:center;gap:16px}
+.etm-top-tel{display:inline-flex;align-items:center;gap:8px;color:#fff!important;font-weight:500;font-size:15px;white-space:nowrap}
+.etm-top-tel .etm-i{width:18px;height:18px;color:var(--sand)}
+.etm-top .etm-btn{padding:12px 20px;font-size:14.5px}
+.etm-burger{display:none;width:46px;height:46px;border:0;border-radius:12px;background:rgba(255,255,255,.12);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:6px;margin-left:auto}
+.etm-burger span{display:block;width:22px;height:2px;background:#fff;transition:transform .25s}
+.etm-burger[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}
+.etm-burger[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+.etm-drawer{position:fixed;inset:0;z-index:9998;background:#05181f;display:flex;flex-direction:column;justify-content:center;padding:90px 30px 40px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.etm-drawer:before{content:'';position:absolute;inset:0;background:var(--zd);background-size:110px 110px;opacity:.6;pointer-events:none}
+.etm-drawer.open{opacity:1;visibility:visible}
+.etm-drawer a{position:relative;display:block;padding:14px 0;color:#fff!important;font:400 30px/1.2 var(--fh);border-bottom:1px solid rgba(255,255,255,.1)}
+.etm-drawer .etm-btn{display:flex;margin-top:26px;justify-content:center;font:600 16px/1 var(--fb);border:0}
+.etm-drawer .etm-top-tel{display:flex;margin-top:18px;justify-content:center;font-size:17px;border:0}
+@media (max-width:1100px){.etm-top-tel{display:none}}
+@media (max-width:900px){.etm-menu,.etm-top-cta{display:none}.etm-burger{display:flex}.etm-logo img{max-height:46px}.etm-top-in{height:56px}.etm-reel-cap{min-width:0}}
+@media (max-width:782px){.admin-bar .etm-top{top:46px}}
 .etm-hero ~ *{position:relative;z-index:2}
 .etm-hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .etm-hero.has-vid .etm-hero-vid{opacity:1}
@@ -255,7 +305,22 @@ if(vid&&W.fetch&&!(W.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').
 fetch('/wp-json/wp/v2/media?search=hero-video&media_type=video&per_page=1&_fields=source_url').then(function(r){return r.ok?r.json():[]}).then(function(a){
 if(!a||!a[0]||!a[0].source_url)return;vid.src=a[0].source_url;vid.addEventListener('canplay',function(){hero.classList.add('has-vid')},{once:true});var p=vid.play();if(p&&p.catch)p.catch(function(){})}).catch(function(){})}
 if(hin){var tk=0;W.addEventListener('scroll',function(){if(tk)return;tk=1;requestAnimationFrame(function(){tk=0;var y=Math.min(W.pageYOffset/(W.innerHeight||800),1);hin.style.transform='translateY('+(y*-60)+'px)';hin.style.opacity=1-y*1.1})},{passive:true})}
-var imgs=d.querySelectorAll('.etm-hero-bg img'),i=0;if(imgs.length>1)setInterval(function(){imgs[i].classList.remove('on');i=(i+1)%imgs.length;imgs[i].classList.add('on')},6500);
+var imgs=d.querySelectorAll('.etm-hero-bg img'),bars=d.querySelectorAll('.etm-reel-bars i'),cap=d.querySelector('.etm-reel-cap'),i=0;
+if(imgs.length>1)setInterval(function(){imgs[i].classList.remove('on');bars[i]&&bars[i].classList.replace('on','done');i=(i+1)%imgs.length;
+if(!i)bars.forEach(function(b){b.classList.remove('done')});var im=imgs[i];im.loading='eager';void im.offsetWidth;im.classList.add('on');
+bars[i]&&bars[i].classList.add('on');if(cap)cap.textContent=im.getAttribute('data-cap')},6500);
+imgs.forEach(function(im,k){if(k)setTimeout(function(){im.loading='eager'},1500)});
+var top=d.getElementById('etm-top'),dr=d.getElementById('etm-drawer'),bg=top&&top.querySelector('.etm-burger');
+if(top){d.body.appendChild(top);d.body.appendChild(dr);
+var ss=function(){top.classList.toggle('solid',W.pageYOffset>60||dr.classList.contains('open'))};W.addEventListener('scroll',ss,{passive:true});ss();
+bg.addEventListener('click',function(){var o=!dr.classList.contains('open');dr.classList.toggle('open',o);bg.setAttribute('aria-expanded',o);d.documentElement.style.overflow=o?'hidden':'';ss()});
+dr.addEventListener('click',function(e){if(e.target.closest('a')){dr.classList.remove('open');bg.setAttribute('aria-expanded','false');d.documentElement.style.overflow=''}});
+var hide=function(){var cand=[].slice.call(d.querySelectorAll('header,nav,div,section')).filter(function(el){
+if(el===top||top.contains(el)||el===dr||dr.contains(el)||el.closest('.etm')||el.querySelector('.etm')||el.closest('footer')||el.querySelector('footer')||el.closest('.elementor-location-footer'))return false;
+var rc=el.getBoundingClientRect();if(rc.top+W.pageYOffset>300)return false;
+return el.querySelector('a[href*=destination]')&&el.querySelector('a[href*=contact],a[href*=about]')});
+cand.filter(function(el){return !cand.some(function(o){return o!==el&&o.contains(el)})}).forEach(function(el){el.style.setProperty('display','none','important')})};
+hide();W.addEventListener('load',hide)}
 var els=d.querySelectorAll('.etm-head,.etm-welcome>*,.etm-tour,.etm-why-c,.etm-gal figure,.etm-contact-in>*');
 if(!('IntersectionObserver' in W)){return}
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
@@ -267,8 +332,10 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
 
 
 def section1():
-    hero_imgs = ''.join('<img src="%s%s" alt=""%s%s>' % (U, p, ' class="on" fetchpriority="high"' if k == 0 else ' loading="lazy"', '')
+    hero_imgs = ''.join('<img src="%s%s" alt="" data-cap="%s"%s>' % (U, p, HERO_CAP[k], ' class="on" fetchpriority="high"' if k == 0 else ' loading="lazy"')
                         for k, p in enumerate(HERO))
+    reel = ('<div class="etm-reel" aria-hidden="true"><div class="etm-wrap"><span class="etm-reel-cap">' + HERO_CAP[0] + '</span>'
+            '<span class="etm-reel-bars">' + ''.join('<i%s></i>' % (' class="on"' if k == 0 else '') for k in range(len(HERO))) + '</span></div></div>')
     # the video is found at run time: any Media item titled "hero-video" (see JS)
     hero = ('<section class="etm-hero"><div class="etm-hero-bg">' + hero_imgs +
             '<video class="etm-hero-vid" muted loop playsinline preload="none" aria-hidden="true"></video></div>'
@@ -278,7 +345,7 @@ def section1():
             '<div class="etm-cta"><a class="etm-btn" href="' + SITE + '/destination/">Explore our tours ' + ic('arrow') + '</a>'
             '<a class="etm-btn etm-btn-line" href="' + SITE + '/contact-2/">Plan my trip</a></div>'
             '<div class="etm-trust"><span>' + ic('pin') + 'Local guides</span><span>' + ic('route') + 'Tailor-made itineraries</span>'
-            '<span>' + ic('shield') + '24/7 support</span></div></div></section>')
+            '<span>' + ic('shield') + '24/7 support</span></div></div>' + reel + '</section>')
     item = '<span>Plan smarter<i></i>Travel better<i></i>Epic Travel Morocco<i></i></span>'
     marq = '<div class="etm-band"></div><div class="etm-marq" aria-hidden="true"><div class="etm-marq-t">' + item * 4 + '</div></div>'
     welcome = ('<section class="etm-sec etm-cream"><div class="etm-wrap etm-welcome">'
@@ -306,7 +373,19 @@ def section1():
            '</div></div></section>')
     rev = ('<section class="etm-rev etm-white"><div class="etm-wrap"><div class="etm-head" style="margin-bottom:10px"><span class="etm-eyebrow">Reviews</span>'
            '<h2>Hear it from our happy travelers</h2></div></div></section>')
-    return FONTS + '<style>' + ' '.join(CSS.split()) + '</style><script>' + ZJS + '</script><div class="etm">' + hero + marq + welcome + tours + why + gal + rev + '</div>'
+    menu = ''.join('<a href="%s"%s>%s</a>' % (u, ' class="cur"' if t == 'Home' else '', t) for t, u in NAV)
+    top = ('<header class="etm etm-top" id="etm-top"><div class="etm-wrap etm-top-in">'
+           '<a class="etm-logo" href="' + SITE + '/" aria-label="Epic Travel Morocco"><img src="' + LOGO + '" alt="Epic Travel Morocco" '
+           'onerror="this.outerHTML=&#39;<span>Epic Travel Morocco</span>&#39;"></a>'
+           '<nav class="etm-menu" aria-label="Main menu">' + menu + '</nav>'
+           '<div class="etm-top-cta"><a class="etm-top-tel" href="tel:' + PHONE1 + '">' + ic('phone') + PHONE1_T + '</a>'
+           '<a class="etm-btn" href="' + SITE + '/contact-2/">Plan my trip</a></div>'
+           '<button class="etm-burger" type="button" aria-expanded="false" aria-controls="etm-drawer" aria-label="Menu"><span></span><span></span></button>'
+           '</div></header>'
+           '<div class="etm etm-drawer" id="etm-drawer">' + ''.join('<a href="%s">%s</a>' % (u, t) for t, u in NAV) +
+           '<a class="etm-btn" href="' + SITE + '/contact-2/">Plan my trip</a>'
+           '<a class="etm-top-tel" href="tel:' + PHONE1 + '">' + ic('phone') + PHONE1_T + '</a></div>')
+    return FONTS + '<style>' + ' '.join(CSS.split()) + '</style><script>' + ZJS + '</script><div class="etm">' + top + hero + marq + welcome + tours + why + gal + rev + '</div>'
 
 
 def section2():
