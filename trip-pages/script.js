@@ -6,13 +6,7 @@ function $$(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s))}
 // booking card goes into the WP Travel Engine sidebar, under the booking form
 var side=$('#secondary'),card=$('.wgt-aside',root);
 if(side&&card){side.appendChild(card)}
-// "Book" buttons scroll to the booking form and make it glow
-function bookBox(){return $('#secondary .wpte-bf-outer')||$('#secondary .widget')||side}
-$$('.wgt-go-book').forEach(function(a){a.addEventListener('click',function(ev){
- var b=bookBox();if(!b)return;ev.preventDefault();
- var y=b.getBoundingClientRect().top+W.pageYOffset-110;W.scrollTo({top:y,behavior:'smooth'});
- b.classList.remove('wgt-flash');void b.offsetWidth;b.classList.add('wgt-flash');
-})});
+function bookBox(){return null}
 // mobile bar: show after the key facts, hide when the booking form is on screen
 var bar=$('.wgt-mbar',root);
 if(bar){d.body.appendChild(bar);var facts=$('.wgt-facts',root),bb=bookBox(),seenB=false,past=false;
@@ -41,14 +35,56 @@ var R=JSON.parse(raw.textContent),map=null,dayLayers=[],pending=null,
 // always use our own Leaflet 1.9.4: another plugin can put an older Leaflet on window.L,
 // which breaks the route lines (bindTooltip / flyToBounds missing)
 var L=null,LV='1.9.4',CDN=['https://unpkg.com/leaflet@'+LV+'/dist/','https://cdnjs.cloudflare.com/ajax/libs/leaflet/'+LV+'/'];
-function fail(){box.innerHTML='<div class="wgt-map-err">The map could not load. The route is listed below.</div>'}
+// static route map (plain SVG, no outside files): shows at once and stays if Leaflet can't load
+function staticMap(){
+ var NS='http://www.w3.org/2000/svg',Wd=800,Ht=500,pad=60,pts=[R.at];
+ R.days.forEach(function(D){D.l.forEach(function(l){pts=pts.concat(l.p)})});
+ var lat0=0;pts.forEach(function(p){lat0+=p[0]});lat0/=pts.length;var k=Math.cos(lat0*Math.PI/180);
+ var xs=pts.map(function(p){return p[1]*k}),ys=pts.map(function(p){return -p[0]});
+ var x0=Math.min.apply(0,xs),x1=Math.max.apply(0,xs),y0=Math.min.apply(0,ys),y1=Math.max.apply(0,ys);
+ var w=Math.max(x1-x0,1e-3),h=Math.max(y1-y0,1e-3),sc=Math.min((Wd-2*pad)/w,(Ht-2*pad)/h),
+  ox=(Wd-w*sc)/2-x0*sc,oy=(Ht-h*sc)/2-y0*sc;
+ function xy(p){return [p[1]*k*sc+ox,-p[0]*sc+oy]}
+ function el(n,a,p){var e=d.createElementNS(NS,n);for(var i in a)e.setAttribute(i,a[i]);(p||svg).appendChild(e);return e}
+ var svg=d.createElementNS(NS,'svg');svg.setAttribute('class','wgt-smap');svg.setAttribute('viewBox','0 0 '+Wd+' '+Ht);
+ svg.setAttribute('role','img');svg.setAttribute('aria-label','Route map');
+ el('rect',{width:Wd,height:Ht,fill:'#efe8dc'});
+ var g='';for(var gx=0;gx<=Wd;gx+=50)g+='M'+gx+' 0V'+Ht;for(var gy=0;gy<=Ht;gy+=50)g+='M0 '+gy+'H'+Wd;
+ el('path',{d:g,stroke:'#e4dccd','stroke-width':1,fill:'none'});
+ [true,false].forEach(function(cas){R.days.forEach(function(D){D.l.forEach(function(l){
+  var pl=l.p.map(function(p){return xy(p).join(',')}).join(' '),dr=l.m==='drive';
+  var a={points:pl,fill:'none','stroke-linecap':'round','stroke-linejoin':'round'};
+  if(cas){a.stroke='#fff';a['stroke-width']=dr?6:8;a.opacity=.9}
+  else{a.stroke=CLR[l.m];a['stroke-width']=dr?3:5;if(DASH[l.m])a['stroke-dasharray']=DASH[l.m]}
+  var e=el('polyline',a);if(!cas)el('title',{},e).textContent='Day '+D.d+': '+D.t})})});
+ var stops={},order=[],sk=R.at.join(','),placed=[],labels=[];
+ R.days.forEach(function(D){var s=D.at.join(',');if(!stops[s]){stops[s]={at:D.at,name:D.end,days:[]};order.push(s)}stops[s].days.push(D.d)});
+ var F='Plus Jakarta Sans,system-ui,sans-serif';
+ function txt(x,y,t,a){var e=el('text',a);e.setAttribute('x',x);e.setAttribute('y',y);e.setAttribute('font-family',F);e.textContent=t;return e}
+ function label(p,t,off,force){var x=p[0],y=p[1];
+  if(!force&&placed.some(function(q){return Math.abs(x-q[0])<90&&Math.abs(y-q[1])<24}))return;placed.push(p);
+  var st=x<Wd-170;labels.push([st?x+off:x-off,y+5,t,st?'start':'end'])}
+ var S0=xy(R.at);placed.push(S0);
+ order.forEach(function(s){if(s===sk)return;var S=stops[s],p=xy(S.at);
+  el('circle',{cx:p[0],cy:p[1],r:14,fill:'#1d2330',stroke:'#fff','stroke-width':3});
+  txt(p[0],p[1]+4,S.days.join(','),{'text-anchor':'middle','font-size':11,'font-weight':800,fill:'#fff'});
+  label(p,S.name,20)});
+ el('circle',{cx:S0[0],cy:S0[1],r:18,fill:'#E77717',stroke:'#fff','stroke-width':3});
+ txt(S0[0],S0[1]+4,'Start',{'text-anchor':'middle','font-size':10,'font-weight':800,fill:'#fff'});
+ label(S0,R.start,24,true);
+ labels.forEach(function(L2){txt(L2[0],L2[1],L2[2],{'text-anchor':L2[3],'font-size':14,'font-weight':700,fill:'#1d2330',
+  stroke:'#fff','stroke-width':4,'paint-order':'stroke'})});
+ box.innerHTML='';box.appendChild(svg)}
+try{staticMap()}catch(e){if(W.console)console.error('wgt static map',e)}
+function fail(){}
 function load(cb,i){i=i||0;if(W.L&&W.L.version===LV){L=W.L;return cb()}
  if(i>=CDN.length)return fail();
  var c=d.createElement('link');c.rel='stylesheet';c.href=CDN[i]+'leaflet.css';d.head.appendChild(c);
  var s=d.createElement('script');s.src=CDN[i]+'leaflet.js';
  s.onload=function(){var x=W.L;if(!x||x.version!==LV)return load(cb,i+1);L=x.noConflict?x.noConflict():x;cb()};
  s.onerror=function(){load(cb,i+1)};d.head.appendChild(s)}
-function safe(f){return function(){try{f.apply(this,arguments)}catch(e){if(W.console)console.error('wgt map',e)}}}
+function safe(f){return function(){var stat=box.innerHTML;try{f.apply(this,arguments)}catch(e){if(W.console)console.error('wgt map',e);
+ try{map&&map.remove()}catch(x){}map=null;box.className='wgt-map';box.innerHTML=stat}}}
 function pin(txt,cls){return L.divIcon({className:'',html:'<div class="wgt-pin '+(cls||'')+'">'+txt+'</div>',iconSize:[30,30],iconAnchor:[15,15]})}
 function init(){
  box.innerHTML='';

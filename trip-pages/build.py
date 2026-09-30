@@ -198,7 +198,7 @@ def sec_map(tid, rj):
     data = json.dumps(rj, ensure_ascii=False, separators=(',', ':'))
     return ('<section class="wgt-sec">' + head('Where you’ll go', 'Route map', 'route') +
             '<div class="wgt-legend">' + legend + '</div>'
-            '<div class="wgt-map-wrap"><div class="wgt-map" id="wgt-map" role="region" aria-label="Map of the tour route">'
+            '<div class="wgt-map-wrap"><div class="wgt-map" id="wgt-map" role="region" aria-label="Map of the tour route">' +
             '<div class="wgt-map-ph">' + ic('map') + '<span>Loading map…</span></div></div></div>'
             '<p class="wgt-note">The line shows the approximate route. Tap a day in the itinerary to zoom in on it.</p>' +
             chain + '<script type="application/json" id="wgt-data">' + data.replace('</', '<\\/') + '</script></section>')
@@ -245,10 +245,9 @@ def sec_included(s):
 def cta(price, verb, mail):
     return ('<section class="wgt-cta" id="wgt-book"><div><span class="wgt-eyebrow">Ready to %s?</span>'
             '<h2>Book this tour or ask us anything</h2>'
-            '<p>Pick your dates in the booking form, or message our team in Marrakech. We reply within 24 hours '
+            '<p>Send us your dates on WhatsApp or by email. Our team in Marrakech replies within 24 hours '
             'and can adapt the tour to your group, level and dates.</p></div>'
             '<div class="wgt-cta-b"><div class="wgt-price"><small>From</small><b>%s €</b><small>per person</small></div>'
-            '<a class="wgt-btn wgt-btn-o wgt-go-book" href="#secondary">Check dates &amp; book</a>'
             '<a class="wgt-btn wgt-btn-wa" href="%s" target="_blank" rel="noopener">%sWhatsApp us</a>'
             '<a class="wgt-btn wgt-btn-l" href="%s">%sEmail us</a></div></section>'
             % (verb, price, WA, WA_SVG, mail, ic('mail')))
@@ -260,7 +259,6 @@ def aside(price, facts, days, mail):
             ('users', f.get('Group size', '')), ('pin', 'Start / finish: ' + f.get('Start / finish', 'Marrakech'))]
     return ('<aside class="wgt-aside" aria-label="Book this tour"><div class="wgt-aside-top"><small>From</small>'
             '<b>%s €</b><small>per person</small></div><ul>%s</ul>'
-            '<a class="wgt-btn wgt-btn-o wgt-go-book" href="#secondary">Check dates &amp; book</a>'
             '<a class="wgt-btn wgt-btn-wa" href="%s" target="_blank" rel="noopener">%sWhatsApp +212 660 435 569</a>'
             '<a class="wgt-btn wgt-btn-l" href="%s">%sEmail us</a>'
             '<div class="wgt-trust"><span>%sLocal guides from Morocco</span><span>%sReply within 24 hours</span>'
@@ -271,8 +269,7 @@ def aside(price, facts, days, mail):
 
 def mbar(price):
     return ('<div class="wgt-mbar"><div><small>From</small><b>%s €</b></div>'
-            '<a class="wgt-btn wgt-btn-wa wgt-sq" href="%s" target="_blank" rel="noopener" aria-label="WhatsApp">%s</a>'
-            '<a class="wgt-btn wgt-btn-o wgt-go-book" href="#secondary">Book now</a></div>' % (price, WA, WA_SVG))
+            '<a class="wgt-btn wgt-btn-wa" href="%s" target="_blank" rel="noopener">%sBook on WhatsApp</a></div>' % (price, WA, WA_SVG))
 
 
 CSS = open(os.path.join(HERE, 'style.css')).read()
