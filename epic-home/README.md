@@ -14,3 +14,4 @@
   the script hides the theme header (elements near the top of the page with the destination/contact links).
 - Zellij kept subtle: plain cream sections, thin tile bands (10px / 6px), very faint pattern on teal and dark sections, none over the banner.
 - After changing `_elementor_data` directly, delete `_elementor_element_cache` and `_elementor_css` on the page (Elementor caches the rendered page for 24 h), then save the post so LiteSpeed purges it.
+- `footer.py` → `footer-3433.json` (main footer template: new footer + the new header, injected on every page that has no home banner) and `copyright-3436.json`. Old versions: `backups/epictravelmorocco/footer-templates-before-redesign.md`.
