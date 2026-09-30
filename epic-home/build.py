@@ -130,8 +130,8 @@ CSS = """
 .etm-btn-dark{background:var(--ink);color:#fff!important}
 .etm-btn-dark:hover{background:var(--teal2)}
 /* zellij borders */
-.etm-band{height:28px;background:ZBAND;background-size:28px 28px}
-.etm-band-thin{height:14px;background:ZBAND;background-size:14px 14px;opacity:.9}
+.etm-band{height:10px;background:ZBAND;background-size:10px 10px}
+.etm-band-thin{height:6px;background:ZBAND;background-size:6px 6px;opacity:.8}
 /* hero */
 .etm-hero{position:sticky;top:0;z-index:0;height:100vh;height:100svh;min-height:560px;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink)}
 .etm-hero-bg{position:absolute;inset:0}
@@ -186,7 +186,7 @@ CSS = """
 .etm-hero.has-vid .etm-hero-vid{opacity:1}
 .etm-hero-in{will-change:transform,opacity}
 .etm-hero:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,24,31,.86) 0%,rgba(5,24,31,.55) 45%,rgba(5,24,31,.15) 100%)}
-.etm-hero:after{content:'';position:absolute;z-index:1;top:0;bottom:0;right:0;width:34%;background:ZDARK;background-size:120px 120px;-webkit-mask:linear-gradient(90deg,transparent,#000 70%);mask:linear-gradient(90deg,transparent,#000 70%);opacity:.7}
+.etm-hero:after{display:none;content:'';position:absolute;z-index:1;top:0;bottom:0;right:0;width:34%;background:ZDARK;background-size:120px 120px;-webkit-mask:linear-gradient(90deg,transparent,#000 70%);mask:linear-gradient(90deg,transparent,#000 70%);opacity:.7}
 .etm-hero-in{position:relative;z-index:2;padding:150px 24px 110px;width:100%}
 .etm-hero .etm-eyebrow{color:var(--sand)}
 .etm-hero h1{font-size:clamp(42px,6.6vw,84px);max-width:13ch;color:#fff}
@@ -204,7 +204,7 @@ CSS = """
 @keyframes etmscroll{to{transform:translateX(-50%)}}
 /* sections */
 .etm-sec{padding:clamp(70px,9vw,120px) 0;position:relative}
-.etm-cream{background-color:var(--cream);background-image:ZCREAM;background-size:96px 96px}
+.etm-cream{background:var(--cream)}
 .etm-cream-plain{background:var(--cream)}
 .etm-white{background:#fff}
 /* welcome */
@@ -294,8 +294,8 @@ return 'url('+q+'data:image/svg+xml,'+encodeURIComponent(svg)+q+')'}
 var r=document.documentElement.style;
 r.setProperty('--zb',z('#5c828f','#d1a47b','#05181f',1,56,1));
 r.setProperty('--zc',z('rgba(209,164,123,.38)','rgba(92,130,143,.24)',0,1.2,96,0));
-r.setProperty('--zt',z('rgba(255,255,255,.16)','rgba(209,164,123,.35)',0,1.3,96,0));
-r.setProperty('--zd',z('rgba(209,164,123,.22)','rgba(92,130,143,.35)',0,1.2,96,0));})();""").replace('\n', '')
+r.setProperty('--zt',z('rgba(255,255,255,.05)','rgba(209,164,123,.1)',0,1,96,0));
+r.setProperty('--zd',z('rgba(209,164,123,.07)','rgba(92,130,143,.12)',0,1,96,0));})();""").replace('\n', '')
 
 JS = """<script>(function(){var d=document,W=window;d.documentElement.classList.add('etm-js');
 function ready(f){if(d.readyState!=='loading')f();else d.addEventListener('DOMContentLoaded',f)}
