@@ -27,125 +27,74 @@ links.forEach(function(a){a.addEventListener('click',function(ev){var s=$(a.getA
 var days=$$('.wgt-day',root),ex=$('.wgt-expand',root);
 if(ex)ex.addEventListener('click',function(){var open=ex.getAttribute('aria-pressed')!=='true';
  days.forEach(function(x){x.open=open});ex.setAttribute('aria-pressed',open);ex.textContent=open?'Collapse all days':'Expand all days'});
-// ---------- route map (Leaflet, loaded when the map comes near the screen) ----------
+// ---------- route map: a map picture (tiles) with the route lines drawn on top, no map library ----------
 var box=$('div.wgt-map',root),raw=$('#wgt-data');if(!box||!raw)return;
-var R=JSON.parse(raw.textContent),map=null,dayLayers=[],pending=null,
- CLR={ride:'#E77717',hike:'#2f7d4f',drive:'#6b7280'},
- DASH={ride:null,hike:'1 9',drive:'7 9'};
-// always use our own Leaflet 1.9.4: another plugin can put an older Leaflet on window.L,
-// which breaks the route lines (bindTooltip / flyToBounds missing)
-var L=null,LV='1.9.4',CDN=['https://unpkg.com/leaflet@'+LV+'/dist/','https://cdnjs.cloudflare.com/ajax/libs/leaflet/'+LV+'/'];
-// static route map (plain SVG, no outside files): shows at once and stays if Leaflet can't load
-function staticMap(){
- var NS='http://www.w3.org/2000/svg',Wd=800,Ht=500,pad=60,pts=[R.at];
+var R=JSON.parse(raw.textContent),NS='http://www.w3.org/2000/svg',
+ CLR={ride:'#E77717',hike:'#2f7d4f',drive:'#6b7280'},DASH={ride:null,hike:'1 9',drive:'7 9'},
+ TILE='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png',F='Plus Jakarta Sans,system-ui,sans-serif',
+ dayLines=[],info=null;
+// Web Mercator, world size 256 at zoom 0
+function merc(p){var s=Math.sin(p[0]*Math.PI/180);return [(p[1]+180)/360*256,(.5-Math.log((1+s)/(1-s))/(4*Math.PI))*256]}
+function el(n,a,p){var e=d.createElementNS(NS,n);for(var i in a)e.setAttribute(i,a[i]);if(p)p.appendChild(e);return e}
+function draw(){
+ var Wd=box.clientWidth||800,Ht=box.clientHeight||500,pad=Math.min(60,Wd*.08),pts=[R.at];
  R.days.forEach(function(D){D.l.forEach(function(l){pts=pts.concat(l.p)})});
- var lat0=0;pts.forEach(function(p){lat0+=p[0]});lat0/=pts.length;var k=Math.cos(lat0*Math.PI/180);
- var xs=pts.map(function(p){return p[1]*k}),ys=pts.map(function(p){return -p[0]});
+ var m=pts.map(merc),xs=m.map(function(p){return p[0]}),ys=m.map(function(p){return p[1]});
  var x0=Math.min.apply(0,xs),x1=Math.max.apply(0,xs),y0=Math.min.apply(0,ys),y1=Math.max.apply(0,ys);
- var w=Math.max(x1-x0,1e-3),h=Math.max(y1-y0,1e-3),sc=Math.min((Wd-2*pad)/w,(Ht-2*pad)/h),
-  ox=(Wd-w*sc)/2-x0*sc,oy=(Ht-h*sc)/2-y0*sc;
- function xy(p){return [p[1]*k*sc+ox,-p[0]*sc+oy]}
- function el(n,a,p){var e=d.createElementNS(NS,n);for(var i in a)e.setAttribute(i,a[i]);(p||svg).appendChild(e);return e}
- var svg=d.createElementNS(NS,'svg');svg.setAttribute('class','wgt-smap');svg.setAttribute('viewBox','0 0 '+Wd+' '+Ht);
- svg.setAttribute('role','img');svg.setAttribute('aria-label','Route map');
- el('rect',{width:Wd,height:Ht,fill:'#efe8dc'});
- var g='';for(var gx=0;gx<=Wd;gx+=50)g+='M'+gx+' 0V'+Ht;for(var gy=0;gy<=Ht;gy+=50)g+='M0 '+gy+'H'+Wd;
- el('path',{d:g,stroke:'#e4dccd','stroke-width':1,fill:'none'});
+ var sc=Math.min((Wd-2*pad)/Math.max(x1-x0,1e-6),(Ht-2*pad)/Math.max(y1-y0,1e-6));
+ sc=Math.min(sc,256*Math.pow(2,13)/256);
+ var zf=Math.log(sc)/Math.LN2,z=Math.max(0,Math.min(18,Math.floor(zf))),ts=256*sc/Math.pow(2,z),
+  ox=Wd/2-(x0+x1)/2*sc,oy=Ht/2-(y0+y1)/2*sc;
+ function xy(p){var q=merc(p);return [q[0]*sc+ox,q[1]*sc+oy]}
+ box.innerHTML='';box.style.position='relative';box.style.overflow='hidden';box.style.background='#efe8dc';
+ // map picture
+ var tl=d.createElement('div');tl.className='wgt-tiles';box.appendChild(tl);
+ var n=Math.pow(2,z),tx0=Math.floor(-ox/ts),tx1=Math.floor((Wd-ox)/ts),ty0=Math.max(0,Math.floor(-oy/ts)),ty1=Math.min(n-1,Math.floor((Ht-oy)/ts)),sub='abcd';
+ for(var tx=tx0;tx<=tx1;tx++)for(var ty=ty0;ty<=ty1;ty++){var im=d.createElement('img'),wx=((tx%n)+n)%n;
+  im.alt='';im.decoding='async';im.src=TILE.replace('{s}',sub[(wx+ty)%4]).replace('{z}',z).replace('{x}',wx).replace('{y}',ty);
+  im.style.cssText='left:'+(tx*ts+ox)+'px;top:'+(ty*ts+oy)+'px;width:'+(ts+.5)+'px;height:'+(ts+.5)+'px';
+  im.onerror=function(){this.style.visibility='hidden'};tl.appendChild(im)}
+ // route lines
+ var svg=el('svg',{'class':'wgt-smap',viewBox:'0 0 '+Wd+' '+Ht,width:Wd,height:Ht,role:'img','aria-label':'Route map'});
+ dayLines=[];
  [true,false].forEach(function(cas){R.days.forEach(function(D){D.l.forEach(function(l){
-  var pl=l.p.map(function(p){return xy(p).join(',')}).join(' '),dr=l.m==='drive';
-  var a={points:pl,fill:'none','stroke-linecap':'round','stroke-linejoin':'round'};
+  var dr=l.m==='drive',a={points:l.p.map(function(p){return xy(p).join(',')}).join(' '),fill:'none','stroke-linecap':'round','stroke-linejoin':'round'};
   if(cas){a.stroke='#fff';a['stroke-width']=dr?6:8;a.opacity=.9}
   else{a.stroke=CLR[l.m];a['stroke-width']=dr?3:5;if(DASH[l.m])a['stroke-dasharray']=DASH[l.m]}
-  var e=el('polyline',a);if(!cas)el('title',{},e).textContent='Day '+D.d+': '+D.t})})});
+  var e=el('polyline',a,svg);e.setAttribute('data-day',D.d);dayLines.push(e);
+  if(!cas)el('title',{},e).textContent='Day '+D.d+': '+D.t})})});
+ // overnight stops and names
  var stops={},order=[],sk=R.at.join(','),placed=[],labels=[];
  R.days.forEach(function(D){var s=D.at.join(',');if(!stops[s]){stops[s]={at:D.at,name:D.end,days:[]};order.push(s)}stops[s].days.push(D.d)});
- var F='Plus Jakarta Sans,system-ui,sans-serif';
- function txt(x,y,t,a){var e=el('text',a);e.setAttribute('x',x);e.setAttribute('y',y);e.setAttribute('font-family',F);e.textContent=t;return e}
+ function txt(x,y,t,a){var e=el('text',a,svg);e.setAttribute('x',x);e.setAttribute('y',y);e.setAttribute('font-family',F);e.textContent=t;return e}
  function label(p,t,off,force){var x=p[0],y=p[1];
   if(!force&&placed.some(function(q){return Math.abs(x-q[0])<90&&Math.abs(y-q[1])<24}))return;placed.push(p);
-  var st=x<Wd-170;labels.push([st?x+off:x-off,y+5,t,st?'start':'end'])}
+  var st=x<Wd-150;labels.push([st?x+off:x-off,y+5,t,st?'start':'end'])}
  var S0=xy(R.at);placed.push(S0);
  order.forEach(function(s){if(s===sk)return;var S=stops[s],p=xy(S.at);
-  el('circle',{cx:p[0],cy:p[1],r:14,fill:'#1d2330',stroke:'#fff','stroke-width':3});
+  el('circle',{cx:p[0],cy:p[1],r:14,fill:'#1d2330',stroke:'#fff','stroke-width':3},svg);
   txt(p[0],p[1]+4,S.days.join(','),{'text-anchor':'middle','font-size':11,'font-weight':800,fill:'#fff'});
   label(p,S.name,20)});
- el('circle',{cx:S0[0],cy:S0[1],r:18,fill:'#E77717',stroke:'#fff','stroke-width':3});
+ el('circle',{cx:S0[0],cy:S0[1],r:18,fill:'#E77717',stroke:'#fff','stroke-width':3},svg);
  txt(S0[0],S0[1]+4,'Start',{'text-anchor':'middle','font-size':10,'font-weight':800,fill:'#fff'});
  label(S0,R.start,24,true);
- labels.forEach(function(L2){txt(L2[0],L2[1],L2[2],{'text-anchor':L2[3],'font-size':14,'font-weight':700,fill:'#1d2330',
+ labels.forEach(function(q){txt(q[0],q[1],q[2],{'text-anchor':q[3],'font-size':14,'font-weight':700,fill:'#1d2330',
   stroke:'#fff','stroke-width':4,'paint-order':'stroke'})});
- box.innerHTML='';box.appendChild(svg)}
-try{staticMap()}catch(e){if(W.console)console.error('wgt static map',e)}
-function fail(){}
-function load(cb,i){i=i||0;if(W.L&&W.L.version===LV){L=W.L;return cb()}
- if(i>=CDN.length)return fail();
- var c=d.createElement('link');c.rel='stylesheet';c.href=CDN[i]+'leaflet.css';d.head.appendChild(c);
- var s=d.createElement('script');s.src=CDN[i]+'leaflet.js';
- s.onload=function(){var x=W.L;if(!x||x.version!==LV)return load(cb,i+1);L=x.noConflict?x.noConflict():x;cb()};
- s.onerror=function(){load(cb,i+1)};d.head.appendChild(s)}
-function safe(f){return function(){var stat=box.innerHTML;try{f.apply(this,arguments)}catch(e){if(W.console)console.error('wgt map',e);
- try{map&&map.remove()}catch(x){}map=null;box.className='wgt-map';box.innerHTML=stat}}}
-function pin(txt,cls){return L.divIcon({className:'',html:'<div class="wgt-pin '+(cls||'')+'">'+txt+'</div>',iconSize:[30,30],iconAnchor:[15,15]})}
-function init(){
- box.innerHTML='';
- // canvas renderer: theme CSS on svg/path can't hide the route lines
- map=L.map(box,{scrollWheelZoom:false,zoomSnap:.25,preferCanvas:true,renderer:L.canvas({padding:.5,tolerance:6})});
- var base={
-  'Map':L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}),
-  'Terrain':L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenStreetMap contributors, SRTM | &copy; OpenTopoMap (CC-BY-SA)'}),
-  'Satellite':L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Tiles &copy; Esri'})};
- base['Map'].addTo(map);L.control.layers(base,null,{position:'topright'}).addTo(map);
- map.once('focus',function(){map.scrollWheelZoom.enable()});
- var all=[],stops={};
- R.days.forEach(function(D){var g=L.featureGroup();
-  D.l.forEach(function(l){
-   L.polyline(l.p,{color:'#fff',weight:l.m==='drive'?6:8,opacity:.9,lineCap:'round',lineJoin:'round'}).addTo(g);
-   L.polyline(l.p,{color:CLR[l.m],weight:l.m==='drive'?3:5,dashArray:DASH[l.m],lineCap:'round',lineJoin:'round'})
-    .bindTooltip('Day '+D.d+': '+D.t,{sticky:true,className:'wgt-tt'}).addTo(g);
-   all=all.concat(l.p);
-   l.n.forEach(function(n,i){var p=l.p[i+1];if(n===D.end)return;
-    L.marker(p,{icon:L.divIcon({className:'',html:'<div class="wgt-dot"></div>',iconSize:[10,10],iconAnchor:[5,5]})})
-     .bindTooltip(n,{direction:'top',offset:[0,-6],className:'wgt-tt'}).addTo(g)});
-  });
-  g.addTo(map);dayLayers[D.d]=g;
-  var k=D.at.join(',');(stops[k]=stops[k]||{at:D.at,name:D.end,days:[]}).days.push(D);
- });
- var sk=R.at.join(',');
- L.marker(R.at,{icon:pin('Start','s'),zIndexOffset:1000}).bindPopup('<small>Start &amp; finish</small><b>'+R.start+'</b>').addTo(map);
- Object.keys(stops).forEach(function(k){if(k===sk)return;var S=stops[k],n=S.days.map(function(x){return x.d});
-  L.marker(S.at,{icon:pin(n.join(',')),zIndexOffset:500})
-   .bindPopup('<small>Night '+n.join(' &amp; ')+'</small><b>'+S.name+'</b>'+S.days.map(function(x){return 'Day '+x.d+': '+x.t}).join('<br>'))
-   .bindTooltip(S.name,{direction:'top',offset:[0,-16],className:'wgt-tt'}).addTo(map)});
- var info=d.createElement('div');info.className='wgt-mapday';info.innerHTML='<span></span><button type="button">Show whole route</button>';
- box.parentNode.appendChild(info);
- // on treks the walking area is tiny next to the drive from Marrakech: start zoomed on it
- var wb=L.latLngBounds(all.length?all:[R.at]),act=[];
- R.days.forEach(function(D){D.l.forEach(function(l){if(l.m!=='drive')act=act.concat(l.p)})});
- function span(b){return Math.max(b.getNorth()-b.getSouth(),b.getEast()-b.getWest())}
- var ab=act.length?L.latLngBounds(act):null;
- if(ab&&span(ab)<span(wb)*.3){map.fitBounds(ab,{paddingTopLeft:[40,40],paddingBottomRight:[40,90],maxZoom:12});
-  info.querySelector('span').textContent=(R.days.some(function(D){return D.l.some(function(l){return l.m==='ride'})})?'Riding':'Trekking')+' area';info.classList.add('on')}
- else map.fitBounds(wb,{padding:[30,30]});
- info.querySelector('button').addEventListener('click',function(){info.classList.remove('on');
-  dayLayers.forEach(function(g){g&&g.setStyle&&g.eachLayer(function(x){x.setStyle&&x.setStyle({opacity:x.options.color==='#fff'?.9:1})})});
-  map.flyToBounds(wb,{padding:[30,30],duration:.8})});
- map._wgtInfo=info;
- // the map box can change size after load (fonts, sidebar, rotation): redraw
- W.addEventListener('resize',function(){map.invalidateSize()});
- setTimeout(function(){map.invalidateSize()},400);
- if(pending)showDay(pending);
+ box.appendChild(svg);
+ var at=d.createElement('div');at.className='wgt-attr';at.innerHTML='&copy; OpenStreetMap contributors &copy; CARTO';box.appendChild(at);
+ if(!info){info=d.createElement('div');info.className='wgt-mapday';info.innerHTML='<span></span><button type="button">Show whole route</button>';
+  box.parentNode.appendChild(info);info.querySelector('button').addEventListener('click',function(){showDay(0)})}
 }
+// "Show on map": highlight that day's lines
 function showDay(n){
- var g=dayLayers[n];if(!g){return}
- dayLayers.forEach(function(x,i){x&&x.eachLayer(function(y){y.setStyle&&y.setStyle({opacity:i==n?(y.options.color==='#fff'?.9:1):.22})})});
- map.flyToBounds(g.getBounds(),{padding:[50,50],maxZoom:12,duration:.8});
- var D=R.days[n-1];map._wgtInfo.querySelector('span').textContent='Day '+D.d+' · '+D.t;map._wgtInfo.classList.add('on');
+ dayLines.forEach(function(e){e.style.opacity=(!n||+e.getAttribute('data-day')===n)?'':'.2'});
+ var D=R.days[n-1];if(n&&D){info.querySelector('span').textContent='Day '+D.d+' · '+D.t;info.classList.add('on')}else info.classList.remove('on');
 }
-var started=false;function go(){if(started)return;started=true;load(safe(init))}
-if('IntersectionObserver' in W){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();go()}},{rootMargin:'400px'});io.observe(box)}else go();
-$$('.wgt-onmap',root).forEach(function(b){b.addEventListener('click',function(){var n=+b.getAttribute('data-day');
- W.scrollTo({top:box.getBoundingClientRect().top+W.pageYOffset-90,behavior:'smooth'});
- if(map)showDay(n);else{pending=n;go()}})});
+try{draw()}catch(e){if(W.console)console.error('wgt map',e)}
+var rt,lw=box.clientWidth;W.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){
+ if(box.clientWidth!==lw){lw=box.clientWidth;try{draw()}catch(e){}}},200)});
+$$('.wgt-onmap',root).forEach(function(b){b.addEventListener('click',function(){
+ W.scrollTo({top:box.getBoundingClientRect().top+W.pageYOffset-90,behavior:'smooth'});showDay(+b.getAttribute('data-day'))})});
 }
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',run);else run();
 })();
