@@ -1,9 +1,12 @@
 import json, re, hashlib, sys
 sys.path.insert(0, '.')
 from tours import tours_html, schema
+from anim import SCENE, STATS, CSS, JS_EARLY, JS, add_bikes, add_reveal, SPRITE
+body1 = None
 
 style = open('style.html').read()
-body1 = open('body1.html').read()
+body1 = open('body1.html').read().replace('HERO2SCENE', "<div class='wgm-hero2' aria-hidden='true'><b>From the Atlas to the Sahara</b><span>Mountains · Oases · Berber villages · Desert dunes</span></div><div class='wgm-cue' aria-hidden='true'></div>" + SCENE).replace('STATSBAND', STATS)
+style = style.replace('</style>', CSS + '</style>') + JS_EARLY + SPRITE
 part3 = open('part3.html').read()
 part5 = open('part5.html').read().replace('</div>\n', '', 0)
 # part5 ends with the closing </div> of the old .wgm wrapper; drop it
@@ -44,7 +47,7 @@ widgets = [
     ('html', W(part3) + weather_js),
     ('html', W(reviews_head)),
     ('shortcode', '[trustindex no-registration=tripadvisor]'),
-    ('html', W(part5) + ldjs([json.loads(schema()[35:-9]), faq_ld])),
+    ('html', W(part5) + JS + ldjs([json.loads(schema()[35:-9]), faq_ld])),
 ]
 
 
@@ -57,6 +60,7 @@ for i, (t, c) in enumerate(widgets):
     c = c.replace('\n', ' ')
     if t == 'html':
         c = re.sub(r'(<script type="application/ld\+json">.*?</script>)|="([^"\']*)"', lambda m: m.group(1) or "='" + m.group(2) + "'", c, flags=re.S)
+        c = add_reveal(add_bikes(c))
     st = {'html': c} if t == 'html' else {'shortcode': c}
     els.append({"id": eid('w%d' % i), "elType": "widget", "settings": st, "elements": [], "widgetType": t})
 data = [{"id": "a1b2c3d", "elType": "section",
@@ -76,7 +80,7 @@ def ph(m):
     u = m.group(0)
     h = int(hashlib.md5(u.encode()).hexdigest()[:6], 16)
     return 'https://ph.local/%06x' % h
-page = ''.join(c if t == 'html' else '<div style="height:260px;background:#eee;display:flex;align-items:center;justify-content:center;font:20px sans-serif;color:#888">[Tripadvisor reviews widget]</div>' for t, c in widgets)
+page = ''.join(e['settings']['html'] if e['widgetType'] == 'html' else '<div style="height:260px;background:#eee;display:flex;align-items:center;justify-content:center;font:20px sans-serif;color:#888">[Tripadvisor reviews widget]</div>' for e in els)
 page = page.replace(' loading="lazy"','')
 page = re.sub(r"https://wegravelmorocco\.com/wp-content/uploads/[^\"' ,]+", ph, page)
 html = ('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
