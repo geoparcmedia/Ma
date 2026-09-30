@@ -5,7 +5,7 @@ from anim import SCENE, STATS, CSS, JS_EARLY, JS, add_bikes, add_reveal, SPRITE
 body1 = None
 
 style = open('style.html').read()
-body1 = open('body1.html').read().replace('HERO2SCENE', "<div class='wgm-hero2' aria-hidden='true'><b>From the Atlas to the Sahara</b><span>Mountains · Oases · Berber villages · Desert dunes</span></div><div class='wgm-cue' aria-hidden='true'></div>" + SCENE).replace('STATSBAND', STATS)
+body1 = open('body1.html').read().replace('HERO2SCENE', "<div class='wgm-hero2 h2a' aria-hidden='true'><b>From the Atlas to the Sahara</b><span>Mountains · Oases · Berber villages · Desert dunes</span></div><div class='wgm-hero2 h2b' aria-hidden='true'><b>Ride the Dust – Live the Adventure</b><span>Guided gravel bike tours with local experts</span></div><div class='wgm-cue' aria-hidden='true'></div>" + SCENE).replace('STATSBAND', STATS)
 style = style.replace('</style>', CSS + '</style>') + JS_EARLY + SPRITE
 part3 = open('part3.html').read()
 part5 = open('part5.html').read().replace('</div>\n', '', 0)
@@ -85,5 +85,5 @@ page = page.replace(' loading="lazy"','')
 page = re.sub(r"https://wegravelmorocco\.com/wp-content/uploads/[^\"' ,]+", ph, page)
 html = ('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         '<style>body{margin:0;font-family:Poppins,Arial,sans-serif}.hdr{height:120px;background:#313041;color:#fff;display:flex;align-items:center;padding:0 30px;font:bold 20px sans-serif}</style></head>'
-        '<body><div class="hdr">[site header]</div>' + page + '</body></html>')
+        '<body><div class="hdr">[site header]</div><div style="overflow:hidden">' + page + '</div></body></html>')
 open('preview.html', 'w').write(html)
