@@ -52,7 +52,7 @@ CSS = """
 .wgm-sl:nth-child(3) .wgm-slide{animation-duration:20s;animation-direction:alternate-reverse}
 @keyframes wgmKB{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.16) translate(-2%,-1.5%)}}
 @keyframes wgmKB2{from{transform:scale(1.14) translate(2%,1%)}to{transform:scale(1.02) translate(-1%,0)}}
-.wgm-ring{position:absolute;left:50%;top:58%;width:0;height:0;border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);box-shadow:0 0 0 4px #E77717,0 0 60px 14px rgba(231,119,23,.75),inset 0 0 50px 10px rgba(231,119,23,.6)}
+.wgm-ring{z-index:3;position:absolute;left:50%;top:58%;width:0;height:0;border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);box-shadow:0 0 0 4px #E77717,0 0 60px 14px rgba(231,119,23,.75),inset 0 0 50px 10px rgba(231,119,23,.6)}
 .wgm-fx{position:absolute;inset:0;width:100%;height:100%;z-index:2;mix-blend-mode:screen;pointer-events:none}
 .wgm-hero-in>h1.wgm-h1s{animation:none}
 .wgm-hero h1 .wgm-w{color:inherit}.wgm-w{display:inline-block;animation:wgmFlip 1s cubic-bezier(.2,.7,.2,1) both;transform-origin:50% 100%}
@@ -123,7 +123,7 @@ CSS = """
 .wgm-media:hover img{transform:scale(1.05)}
 @media (max-width:767px) and (max-height:800px){.wgm-trust{display:none}}
 @media (max-width:1100px){.wgm-idx{display:none}}
-@media (max-width:767px){.wgm-pin>.wgm-hero{height:auto;min-height:0;max-height:none}.wgm-pin.pinned{height:250vh}.wgm-pin.pinned>.wgm-hero{height:100vh}.wgm-cue{display:none}.wgm-hero .wgm-wrap{padding-top:40px!important}.wgm-trust{margin-top:24px}.wgm-scene{height:130px}.wgm-road{bottom:36px}.wgm-rider{bottom:34px;width:64px}.wgm-hero{padding-bottom:90px}.wgm-stats-in{grid-template-columns:1fr 1fr;padding:22px 12px}.wgm-stats-in>div:nth-child(2){border-right:0}.wgm-btn:hover{padding-left:28px}.wgm-bk{display:none}}
+@media (max-width:767px){.wgm-pin>.wgm-hero{height:auto;min-height:0;max-height:none}.wgm-hero2{display:none}.wgm-hero p{font-size:15.5px;line-height:1.6}.wgm-hero h1{font-size:34px}.wgm-cue{display:none}.wgm-hero .wgm-wrap{padding-top:40px!important}.wgm-trust{margin-top:24px}.wgm-scene{height:130px}.wgm-road{bottom:36px}.wgm-rider{bottom:34px;width:64px}.wgm-hero{padding-bottom:90px}.wgm-stats-in{grid-template-columns:1fr 1fr;padding:22px 12px}.wgm-stats-in>div:nth-child(2){border-right:0}.wgm-btn:hover{padding-left:28px}.wgm-bk{display:none}}
 @media (prefers-reduced-motion:reduce){.wgm *,.wgm *:before,.wgm *:after{animation:none!important;transition:none!important}.wgm-js .wgm-rv{opacity:1;transform:none}.wgm-rider,.wgm-cue,.wgm-hero2,.wgm-fx,.wgm-ring,.wgm-idx{display:none}.wgm-sl+.wgm-sl{display:none}.wgm-pin.pinned{height:auto}.wgm-pin.pinned>.wgm-hero{position:relative}}
 """
 
@@ -137,11 +137,11 @@ JS = ("<script>(function(){var d=document,w=window,rm=w.matchMedia('(prefers-red
       "if(!rm&&w.matchMedia('(hover: hover) and (pointer: fine)').matches){d.querySelectorAll('.wgm-card,.wgm-val').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateY('+(x*12)+'deg) rotateX('+(-y*12)+'deg) translateY(-6px)';c.style.setProperty('--mx',(x+.5)*100+'%');c.style.setProperty('--my',(y+.5)*100+'%')});c.addEventListener('pointerleave',function(){c.style.transform=''})})}"
       "var pin=d.querySelector('.wgm-pin'),hero=pin&&pin.querySelector('.wgm-hero'),sw=hero&&hero.querySelector('.wgm-slides'),sl=hero?hero.querySelectorAll('.wgm-sl'):[],ring=hero&&hero.querySelector('.wgm-ring'),ix=d.querySelectorAll('.wgm-idx i'),ms=d.querySelectorAll('.wgm-m'),hi=d.querySelector('.wgm-hero-in'),ha=d.querySelector('.h2a'),hb=d.querySelector('.h2b'),cue=d.querySelector('.wgm-cue'),rd=d.querySelector('.wgm-rider'),tk=false,to=null,pinned=false,act=-1,fxb=0,mx=0,my=0,cx0=0,cy0=0,ml=false;"
       "function cl(x){return Math.min(Math.max(x,0),1)}function band(p,a,b,c,e){return cl((p-a)/(b-a))*cl((e-p)/(e-c))}function ez(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}"
-      "if(pin&&!rm&&w.CSS&&CSS.supports('overflow','clip')){for(var el=pin.parentElement;el&&el!==d.documentElement;el=el.parentElement){var cs2=getComputedStyle(el);if(cs2.overflowX==='hidden'||cs2.overflowY==='hidden'||cs2.overflowX==='auto'||cs2.overflowY==='auto'){el.style.overflow='clip'}}pin.classList.add('pinned');pinned=true}"
+      "var auto=w.innerWidth<768;if(pin&&!rm&&!auto&&w.CSS&&CSS.supports('overflow','clip')){for(var el=pin.parentElement;el&&el!==d.documentElement;el=el.parentElement){var cs2=getComputedStyle(el);if(cs2.overflowX==='hidden'||cs2.overflowY==='hidden'||cs2.overflowX==='auto'||cs2.overflowY==='auto'){el.style.overflow='clip'}}pin.classList.add('pinned');pinned=true}"
       "function px(){tk=false;if(!hero)return;var vh=w.innerHeight,vw=w.innerWidth,H=hero.offsetHeight,p,shift=0;"
       "if(pinned){var pr=pin.getBoundingClientRect(),hr=hero.getBoundingClientRect();if(pr.top<-20&&pr.bottom>vh+20&&Math.abs(hr.top)>20){pin.classList.remove('pinned');pinned=false;return px()}p=cl(-pr.top/(pin.offsetHeight-vh))}else{p=cl(-hero.getBoundingClientRect().top/H);shift=p*H}"
       "if(sw)sw.style.transform='translate3d('+(cx0*-26)+'px,'+(shift*0.45+cy0*-18)+'px,0) scale('+(1.08-0.04*p)+') rotateY('+(cx0*5)+'deg) rotateX('+(cy0*-4)+'deg)';"
-      "if(sl.length>2&&sw){var W=sw.offsetWidth,SH=sw.offsetHeight,Rm=Math.sqrt(W*W/4+SH*SH*0.3364)+30,t1=ez(cl((p-0.2)/0.2)),t2=ez(cl((p-0.54)/0.2)),ts=[1,t1,t2],rg=0,rt=0;"
+      "if(sl.length>2&&sw&&!auto){var W=sw.offsetWidth,SH=sw.offsetHeight,Rm=Math.sqrt(W*W/4+SH*SH*0.3364)+30,t1=ez(cl((p-0.2)/0.2)),t2=ez(cl((p-0.54)/0.2)),ts=[1,t1,t2],rg=0,rt=0;"
       "for(var k=0;k<3;k++){var tin=ts[k],tout=k<2?ts[k+1]:0,s=(k?1.35-0.35*tin:1)*(1+0.3*tout);sl[k].style.transform='scale('+s+')';if(k){sl[k].style.clipPath=tin>=1?'none':'circle('+(tin*Rm)+'px at 50% 58%)';if(tin>0&&tin<1){rg=tin;rt=tin*Rm}}}"
       "if(ring){ring.style.opacity=Math.sin(rg*Math.PI);ring.style.width=ring.style.height=(2*rt)+'px'}"
       "var a2=p<0.32?0:p<0.66?1:2;if(a2!==act){act=a2;for(var n=0;n<ix.length;n++)ix[n].classList.toggle('on',n===a2)}}"
@@ -157,6 +157,9 @@ JS = ("<script>(function(){var d=document,w=window,rm=w.matchMedia('(prefers-red
       "for(var q0=0;q0<N;q0++)P.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*2.2,s:.2+Math.random()*.8,a:.25+Math.random()*.55,o:Math.random()*6.3});"
       "if('IntersectionObserver' in w)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(hero);"
       "function fr(t){requestAnimationFrame(fr);if(!vis||d.hidden)return;var W=cv.width,H=cv.height;g.clearRect(0,0,W,H);fxb*=.94;P.forEach(function(q){q.x+=q.s*(1+fxb)*0.0009;q.y-=q.s*0.0004*(1+fxb*.5)-Math.sin(t/1500+q.o)*0.0003;if(q.x>1.02){q.x=-.02;q.y=Math.random()}if(q.y<-.02)q.y=1.02;g.beginPath();g.arc(q.x*W,q.y*H,q.r*dpr,0,6.283);g.fillStyle='rgba(255,196,130,'+(q.a*(.6+.4*Math.sin(t/700+q.o)))+')';g.fill()})}requestAnimationFrame(fr)}"
+"if(auto&&!rm&&sl.length>2&&sw){var cur=0;function show(n){var el=sl[n],pv=sl[cur],t0=null,W=sw.offsetWidth,SH=sw.offsetHeight,Rm=Math.sqrt(W*W/4+SH*SH*0.3364)+30;for(var i=0;i<sl.length;i++){sl[i].style.zIndex=i===n?2:(i===cur?1:0)}el.style.clipPath='circle(0px at 50% 58%)';"
+      "function st(t){if(!t0)t0=t;var k=Math.min((t-t0)/1400,1),e=ez(k);el.style.clipPath=k>=1?'none':'circle('+(e*Rm)+'px at 50% 58%)';el.style.transform='scale('+(1.3-0.3*e)+')';pv.style.transform='scale('+(1+0.25*e)+')';if(ring){ring.style.opacity=k<1?Math.sin(e*Math.PI):0;ring.style.width=ring.style.height=(2*e*Rm)+'px'}if(k<1){requestAnimationFrame(st)}else{pv.style.transform='';cur=n}}requestAnimationFrame(st)}"
+      "setInterval(function(){if(!d.hidden)show((cur+1)%sl.length)},5000)}"
 "if(!rm){w.addEventListener('scroll',function(){fxb=Math.min(fxb+0.5,6);if(rd){rd.classList.add('moving');clearTimeout(to);to=setTimeout(function(){rd.classList.remove('moving')},160)}if(!tk){tk=true;requestAnimationFrame(px)}},{passive:true});w.addEventListener('resize',px);px()}})();</script>")
 
 
