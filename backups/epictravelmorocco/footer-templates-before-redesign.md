@@ -73,3 +73,9 @@ sidebars_widgets before:
 {"wp_inactive_widgets":[],"sidebar-1":["block-2","block-3","block-4","search-1","travelor_popular_posts-1","travelor_category-1","travelor_tags-1"],"footer-widget":["custom_html-2"],"footer-widget-two":["custom_html-2"],"footer-widget-three":["custom_html-2"],"wte-sidebar-id":["block-5","block-6"],"array_version":3}
 Undo: wp-admin > Appearance > Themes > activate "Travelor" (or set the three options back).
 If the site shows a critical error: use the recovery-mode link WordPress emails to the admin, then activate Travelor.
+
+### INCIDENT 2026-10-01 10:21 UTC
+`template` was set to twentytwentyfive; the following `stylesheet` update returned 502 and the whole site
+(and the MCP endpoint) has answered 502 since. Restore from the hosting panel > phpMyAdmin:
+    UPDATE wp_options SET option_value='travelor' WHERE option_name IN ('template','stylesheet');
+(table prefix may differ from `wp_`). Then purge LiteSpeed.
