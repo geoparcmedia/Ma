@@ -1,0 +1,452 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Studio22 1.0.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: studio22\n"
+
+msgid "Accent colour"
+msgstr "اللون المميز"
+
+msgid "Add a project"
+msgstr "أضف مشروعًا"
+
+msgid "Add new project"
+msgstr "إضافة مشروع جديد"
+
+msgid "Add the founder photo"
+msgstr "أضف صورة المؤسس"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "All projects"
+msgstr "كل المشاريع"
+
+msgid "All rights reserved."
+msgstr "جميع الحقوق محفوظة."
+
+msgid "Arabic"
+msgstr "العربية"
+
+msgid "Back to home"
+msgstr "العودة إلى الرئيسية"
+
+msgid "Back to top"
+msgstr "العودة إلى الأعلى"
+
+msgid "Banner button"
+msgstr "زر الشريط"
+
+msgid "Banner text"
+msgstr "نص الشريط"
+
+msgid "Banner title"
+msgstr "عنوان الشريط"
+
+msgid "Biography"
+msgstr "السيرة"
+
+msgid "Book a session"
+msgstr "احجز جلسة"
+
+msgid "Button text"
+msgstr "نص الزر"
+
+msgid "Camera"
+msgstr "كاميرا"
+
+msgid "Chat on WhatsApp"
+msgstr "تواصل عبر واتساب"
+
+msgid "Client"
+msgstr "العميل"
+
+msgid "Client %d"
+msgstr "العميل %d"
+
+msgid "Clients"
+msgstr "العملاء"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Colours & sections"
+msgstr "الألوان والأقسام"
+
+msgid "Contact"
+msgstr "تواصل معنا"
+
+msgid "Contact & booking"
+msgstr "التواصل والحجز"
+
+msgid "Contact form shortcode (optional)"
+msgstr "رمز نموذج التواصل (اختياري)"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Drone"
+msgstr "درون"
+
+msgid "E.g. a Contact Form 7 or WPForms shortcode. When empty, the form sends the request on WhatsApp."
+msgstr "مثل رمز Contact Form 7 أو WPForms. إذا تُرك فارغًا، يُرسل النموذج الطلب عبر واتساب."
+
+msgid "Each text has an English and an Arabic field. The Arabic one is shown when the page language is Arabic (site language, Polylang or WPML)."
+msgstr "لكل نص حقل بالإنجليزية وآخر بالعربية. يظهر النص العربي عندما تكون لغة الصفحة العربية (لغة الموقع أو Polylang أو WPML)."
+
+msgid "Edit project"
+msgstr "تعديل المشروع"
+
+msgid "Editing"
+msgstr "مونتاج"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "English"
+msgstr "الإنجليزية"
+
+msgid "Event"
+msgstr "فعالية"
+
+msgid "Explore"
+msgstr "استكشف"
+
+msgid "Extra widgets shown in the footer."
+msgstr "ودجات إضافية تظهر في التذييل."
+
+msgid "Filter projects"
+msgstr "تصفية المشاريع"
+
+msgid "Footer"
+msgstr "التذييل"
+
+msgid "Footer menu"
+msgstr "قائمة التذييل"
+
+msgid "Footer text"
+msgstr "نص التذييل"
+
+msgid "Founder (About page)"
+msgstr "المؤسس (صفحة من نحن)"
+
+msgid "Founder photo"
+msgstr "صورة المؤسس"
+
+msgid "Google Maps place or address"
+msgstr "المكان أو العنوان على خرائط جوجل"
+
+msgid "Hero video (MP4)"
+msgstr "فيديو البانر (MP4)"
+
+msgid "Hero video banner"
+msgstr "بانر الفيديو الرئيسي"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "Horse"
+msgstr "حصان"
+
+msgid "Image"
+msgstr "الصورة"
+
+msgid "Introduction"
+msgstr "مقدمة"
+
+msgid "Journal"
+msgstr "المدونة"
+
+msgid "Language"
+msgstr "اللغة"
+
+msgid "Link to the About page"
+msgstr "رابط صفحة من نحن"
+
+msgid "Main button"
+msgstr "الزر الرئيسي"
+
+msgid "Main menu"
+msgstr "القائمة الرئيسية"
+
+msgid "Map"
+msgstr "الخريطة"
+
+msgid "Media viewer"
+msgstr "عارض الوسائط"
+
+msgid "Menu"
+msgstr "القائمة"
+
+msgid "Moving strip words (comma separated)"
+msgstr "كلمات الشريط المتحرك (مفصولة بفواصل)"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Next project"
+msgstr "المشروع التالي"
+
+msgid "No projects yet."
+msgstr "لا توجد مشاريع بعد."
+
+msgid "No projects yet. Add your work from Dashboard → Projects → Add new (title, featured image and an optional video link)."
+msgstr "لا توجد مشاريع بعد. أضف أعمالك من لوحة التحكم ← المشاريع ← إضافة جديد (العنوان، الصورة البارزة ورابط فيديو اختياري)."
+
+msgid "Normal banner — video loops, no pinning"
+msgstr "بانر عادي — الفيديو يتكرر بدون تثبيت"
+
+msgid "Nothing found here yet."
+msgstr "لا يوجد شيء هنا بعد."
+
+msgid "Number %d"
+msgstr "الرقم %d"
+
+msgid "Opening hours"
+msgstr "ساعات العمل"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Pinned — the video plays as you scroll"
+msgstr "مثبّت — الفيديو يتحرك مع التمرير"
+
+msgid "Pinned — the video plays on its own (loop)"
+msgstr "مثبّت — الفيديو يعمل تلقائيًا (تكرار)"
+
+msgid "Portfolio"
+msgstr "الأعمال"
+
+msgid "Poster image"
+msgstr "صورة الغلاف"
+
+msgid "Pre-filled WhatsApp message"
+msgstr "رسالة واتساب الجاهزة"
+
+msgid "Previous"
+msgstr "السابق"
+
+msgid "Previous project"
+msgstr "المشروع السابق"
+
+msgid "Process"
+msgstr "طريقة العمل"
+
+msgid "Product"
+msgstr "منتج"
+
+msgid "Project"
+msgstr "مشروع"
+
+msgid "Project details"
+msgstr "تفاصيل المشروع"
+
+msgid "Project type"
+msgstr "نوع المشروع"
+
+msgid "Project types"
+msgstr "أنواع المشاريع"
+
+msgid "Projects"
+msgstr "المشاريع"
+
+msgid "Projects are added from the \"Projects\" menu in the dashboard."
+msgstr "تُضاف المشاريع من قائمة \"المشاريع\" في لوحة التحكم."
+
+msgid "Projects shown on the home page"
+msgstr "عدد المشاريع في الصفحة الرئيسية"
+
+msgid "Quote"
+msgstr "اقتباس"
+
+msgid "Role"
+msgstr "المنصب"
+
+msgid "Scroll"
+msgstr "مرّر"
+
+msgid "Scroll down"
+msgstr "مرّر للأسفل"
+
+msgid "Scroll length of the pinned banner (% of screen height)"
+msgstr "طول تمرير البانر المثبت (% من ارتفاع الشاشة)"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Search for:"
+msgstr "البحث عن:"
+
+msgid "Search…"
+msgstr "بحث…"
+
+msgid "Second button"
+msgstr "الزر الثاني"
+
+msgid "Second line (appears while scrolling)"
+msgstr "السطر الثاني (يظهر أثناء التمرير)"
+
+msgid "Send by email"
+msgstr "أرسل عبر البريد"
+
+msgid "Send on WhatsApp"
+msgstr "أرسل عبر واتساب"
+
+msgid "Service"
+msgstr "الخدمة"
+
+msgid "Service %d"
+msgstr "الخدمة %d"
+
+msgid "Services"
+msgstr "الخدمات"
+
+msgid "Show call-to-action banner"
+msgstr "إظهار شريط الدعوة للتواصل"
+
+msgid "Show clients"
+msgstr "إظهار العملاء"
+
+msgid "Show contact"
+msgstr "إظهار التواصل"
+
+msgid "Show floating WhatsApp button"
+msgstr "إظهار زر واتساب العائم"
+
+msgid "Show logos in their original colours (otherwise they are shown in white)"
+msgstr "إظهار الشعارات بألوانها الأصلية (وإلا تظهر باللون الأبيض)"
+
+msgid "Show portfolio"
+msgstr "إظهار الأعمال"
+
+msgid "Show process"
+msgstr "إظهار طريقة العمل"
+
+msgid "Show services"
+msgstr "إظهار الخدمات"
+
+msgid "Show studio section"
+msgstr "إظهار قسم الاستوديو"
+
+msgid "Show the moving services strip"
+msgstr "إظهار شريط الخدمات المتحرك"
+
+msgid "Shown on pages using the \"About Studio22\" template."
+msgstr "يظهر في الصفحات التي تستخدم قالب \"About Studio22\"."
+
+msgid "Shown while the video loads, and on its own when there is no video."
+msgstr "تظهر أثناء تحميل الفيديو، ووحدها عند عدم وجود فيديو."
+
+msgid "Skip to content"
+msgstr "انتقل إلى المحتوى"
+
+msgid "Small line above the title"
+msgstr "سطر صغير فوق العنوان"
+
+msgid "Small title"
+msgstr "عنوان صغير"
+
+msgid "Social networks & footer"
+msgstr "الشبكات الاجتماعية والتذييل"
+
+msgid "Step %d"
+msgstr "الخطوة %d"
+
+msgid "Studio"
+msgstr "الاستوديو"
+
+msgid "Studio & numbers"
+msgstr "الاستوديو والأرقام"
+
+msgid "Studio22 theme"
+msgstr "قالب ستوديو 22"
+
+msgid "Subtitle"
+msgstr "العنوان الفرعي"
+
+msgid "Tell us about your project"
+msgstr "حدّثنا عن مشروعك"
+
+msgid "Text"
+msgstr "النص"
+
+msgid "The featured image is used as the cover. With a video link, the cover opens the video."
+msgstr "تُستخدم الصورة البارزة كغلاف. مع رابط فيديو، يفتح الغلاف الفيديو."
+
+msgid "The page you are looking for does not exist or has moved."
+msgstr "الصفحة التي تبحث عنها غير موجودة أو تم نقلها."
+
+msgid "Third line (appears while scrolling)"
+msgstr "السطر الثالث (يظهر أثناء التمرير)"
+
+msgid "This frame is missing."
+msgstr "هذه اللقطة مفقودة."
+
+msgid "Tip for a smooth scroll effect: export the video as MP4 (H.264), 1920px wide, without sound, 10–20 seconds, with a keyframe every few frames, e.g. ffmpeg -i in.mov -vf scale=1920:-2 -c:v libx264 -crf 24 -g 6 -an -movflags +faststart hero.mp4"
+msgstr "لحركة تمرير سلسة: صدّر الفيديو بصيغة MP4 (H.264)، بعرض 1920 بكسل، بدون صوت، من 10 إلى 20 ثانية، مع إطار مفتاحي كل بضعة إطارات، مثال: ffmpeg -i in.mov -vf scale=1920:-2 -c:v libx264 -crf 24 -g 6 -an -movflags +faststart hero.mp4"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Upload each client logo (PNG or SVG with a transparent background works best). Until a logo is uploaded, the client name is shown instead. Leave the name empty to hide a client."
+msgstr "ارفع شعار كل عميل (يفضّل PNG أو SVG بخلفية شفافة). إلى أن يُرفع الشعار، يظهر اسم العميل بدلًا منه. اترك الاسم فارغًا لإخفاء العميل."
+
+msgid "Video"
+msgstr "فيديو"
+
+msgid "Video behaviour"
+msgstr "سلوك الفيديو"
+
+msgid "Video link (YouTube, Vimeo or .mp4)"
+msgstr "رابط الفيديو (YouTube أو Vimeo أو ‎.mp4)"
+
+msgid "WhatsApp number with country code (e.g. +974 5555 5555)"
+msgstr "رقم واتساب مع رمز الدولة (مثال ‎+974 5555 5555)"
+
+msgid "Work"
+msgstr "أعمالنا"
+
+msgid "Year"
+msgstr "السنة"
+
+msgid "icon"
+msgstr "الأيقونة"
+
+msgid "label"
+msgstr "الوصف"
+
+msgid "logo"
+msgstr "الشعار"
+
+msgid "name"
+msgstr "الاسم"
+
+msgid "text"
+msgstr "النص"
+
+msgid "title"
+msgstr "العنوان"
+
+msgid "website (optional)"
+msgstr "الموقع (اختياري)"
+
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] "%s تعليق"
+msgstr[1] "%s تعليقات"

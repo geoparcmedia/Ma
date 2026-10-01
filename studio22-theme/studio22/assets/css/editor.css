@@ -1,0 +1,17 @@
+/* Block editor: dark background and theme fonts, close to the front end. */
+body {
+	background: #0c0a0b;
+	color: #f3eee8;
+	font-family: "Inter", "IBM Plex Sans Arabic", system-ui, sans-serif;
+	font-size: 17px;
+	line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+	font-family: "Syne", "Cairo", system-ui, sans-serif;
+	line-height: 1.15;
+}
+
+a {
+	color: #e04b78;
+}

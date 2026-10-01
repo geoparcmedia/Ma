@@ -1,0 +1,448 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Studio22 1.0.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Domain: studio22\n"
+
+msgid "Accent colour"
+msgstr ""
+
+msgid "Add a project"
+msgstr ""
+
+msgid "Add new project"
+msgstr ""
+
+msgid "Add the founder photo"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "All projects"
+msgstr ""
+
+msgid "All rights reserved."
+msgstr ""
+
+msgid "Arabic"
+msgstr ""
+
+msgid "Back to home"
+msgstr ""
+
+msgid "Back to top"
+msgstr ""
+
+msgid "Banner button"
+msgstr ""
+
+msgid "Banner text"
+msgstr ""
+
+msgid "Banner title"
+msgstr ""
+
+msgid "Biography"
+msgstr ""
+
+msgid "Book a session"
+msgstr ""
+
+msgid "Button text"
+msgstr ""
+
+msgid "Camera"
+msgstr ""
+
+msgid "Chat on WhatsApp"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "Client %d"
+msgstr ""
+
+msgid "Clients"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Colours & sections"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Contact & booking"
+msgstr ""
+
+msgid "Contact form shortcode (optional)"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Drone"
+msgstr ""
+
+msgid "E.g. a Contact Form 7 or WPForms shortcode. When empty, the form sends the request on WhatsApp."
+msgstr ""
+
+msgid "Each text has an English and an Arabic field. The Arabic one is shown when the page language is Arabic (site language, Polylang or WPML)."
+msgstr ""
+
+msgid "Edit project"
+msgstr ""
+
+msgid "Editing"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Explore"
+msgstr ""
+
+msgid "Extra widgets shown in the footer."
+msgstr ""
+
+msgid "Filter projects"
+msgstr ""
+
+msgid "Footer"
+msgstr ""
+
+msgid "Footer menu"
+msgstr ""
+
+msgid "Footer text"
+msgstr ""
+
+msgid "Founder (About page)"
+msgstr ""
+
+msgid "Founder photo"
+msgstr ""
+
+msgid "Google Maps place or address"
+msgstr ""
+
+msgid "Hero video (MP4)"
+msgstr ""
+
+msgid "Hero video banner"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Horse"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Introduction"
+msgstr ""
+
+msgid "Journal"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Link to the About page"
+msgstr ""
+
+msgid "Main button"
+msgstr ""
+
+msgid "Main menu"
+msgstr ""
+
+msgid "Map"
+msgstr ""
+
+msgid "Media viewer"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Moving strip words (comma separated)"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Next project"
+msgstr ""
+
+msgid "No projects yet."
+msgstr ""
+
+msgid "No projects yet. Add your work from Dashboard → Projects → Add new (title, featured image and an optional video link)."
+msgstr ""
+
+msgid "Normal banner — video loops, no pinning"
+msgstr ""
+
+msgid "Nothing found here yet."
+msgstr ""
+
+msgid "Number %d"
+msgstr ""
+
+msgid "Opening hours"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Pinned — the video plays as you scroll"
+msgstr ""
+
+msgid "Pinned — the video plays on its own (loop)"
+msgstr ""
+
+msgid "Portfolio"
+msgstr ""
+
+msgid "Poster image"
+msgstr ""
+
+msgid "Pre-filled WhatsApp message"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Previous project"
+msgstr ""
+
+msgid "Process"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Project"
+msgstr ""
+
+msgid "Project details"
+msgstr ""
+
+msgid "Project type"
+msgstr ""
+
+msgid "Project types"
+msgstr ""
+
+msgid "Projects"
+msgstr ""
+
+msgid "Projects are added from the \"Projects\" menu in the dashboard."
+msgstr ""
+
+msgid "Projects shown on the home page"
+msgstr ""
+
+msgid "Quote"
+msgstr ""
+
+msgid "Role"
+msgstr ""
+
+msgid "Scroll"
+msgstr ""
+
+msgid "Scroll down"
+msgstr ""
+
+msgid "Scroll length of the pinned banner (% of screen height)"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Search for:"
+msgstr ""
+
+msgid "Search…"
+msgstr ""
+
+msgid "Second button"
+msgstr ""
+
+msgid "Second line (appears while scrolling)"
+msgstr ""
+
+msgid "Send by email"
+msgstr ""
+
+msgid "Send on WhatsApp"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Service %d"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Show call-to-action banner"
+msgstr ""
+
+msgid "Show clients"
+msgstr ""
+
+msgid "Show contact"
+msgstr ""
+
+msgid "Show floating WhatsApp button"
+msgstr ""
+
+msgid "Show logos in their original colours (otherwise they are shown in white)"
+msgstr ""
+
+msgid "Show portfolio"
+msgstr ""
+
+msgid "Show process"
+msgstr ""
+
+msgid "Show services"
+msgstr ""
+
+msgid "Show studio section"
+msgstr ""
+
+msgid "Show the moving services strip"
+msgstr ""
+
+msgid "Shown on pages using the \"About Studio22\" template."
+msgstr ""
+
+msgid "Shown while the video loads, and on its own when there is no video."
+msgstr ""
+
+msgid "Skip to content"
+msgstr ""
+
+msgid "Small line above the title"
+msgstr ""
+
+msgid "Small title"
+msgstr ""
+
+msgid "Social networks & footer"
+msgstr ""
+
+msgid "Step %d"
+msgstr ""
+
+msgid "Studio"
+msgstr ""
+
+msgid "Studio & numbers"
+msgstr ""
+
+msgid "Studio22 theme"
+msgstr ""
+
+msgid "Subtitle"
+msgstr ""
+
+msgid "Tell us about your project"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "The featured image is used as the cover. With a video link, the cover opens the video."
+msgstr ""
+
+msgid "The page you are looking for does not exist or has moved."
+msgstr ""
+
+msgid "Third line (appears while scrolling)"
+msgstr ""
+
+msgid "This frame is missing."
+msgstr ""
+
+msgid "Tip for a smooth scroll effect: export the video as MP4 (H.264), 1920px wide, without sound, 10–20 seconds, with a keyframe every few frames, e.g. ffmpeg -i in.mov -vf scale=1920:-2 -c:v libx264 -crf 24 -g 6 -an -movflags +faststart hero.mp4"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Upload each client logo (PNG or SVG with a transparent background works best). Until a logo is uploaded, the client name is shown instead. Leave the name empty to hide a client."
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "Video behaviour"
+msgstr ""
+
+msgid "Video link (YouTube, Vimeo or .mp4)"
+msgstr ""
+
+msgid "WhatsApp number with country code (e.g. +974 5555 5555)"
+msgstr ""
+
+msgid "Work"
+msgstr ""
+
+msgid "Year"
+msgstr ""
+
+msgid "icon"
+msgstr ""
+
+msgid "label"
+msgstr ""
+
+msgid "logo"
+msgstr ""
+
+msgid "name"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "title"
+msgstr ""
+
+msgid "website (optional)"
+msgstr ""
+
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
