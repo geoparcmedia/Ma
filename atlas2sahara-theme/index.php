@@ -1,6 +1,5 @@
 <?php get_header(); ?>
-<section class="page-hero media-hiking">
-	<div class="hero-overlay"></div>
+<section class="page-hero" style="background-image:url(<?php echo esc_url( is_singular() ? a2s_post_photo( get_the_ID(), '', 'full' ) : a2s_img( 'culture.jpg' ) ); ?>)">
 	<div class="container page-hero-content">
 		<h1><?php echo is_singular() ? esc_html( get_the_title() ) : esc_html( wp_strip_all_tags( get_the_archive_title() ) ); ?></h1>
 	</div>

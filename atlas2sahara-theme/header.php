@@ -7,9 +7,9 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<header class="site-header<?php echo is_front_page() ? ' is-transparent' : ''; ?>" id="top">
-	<div class="container header-inner">
-		<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">Atlas<span>2</span>Sahara</a>
+<header class="site-header" id="top">
+	<div class="header-inner">
+		<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">Atlas<b>2</b>Sahara</a>
 		<button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
 		<nav class="site-nav" id="site-nav">
 			<?php
@@ -19,7 +19,7 @@
 				'fallback_cb'    => 'a2s_fallback_menu',
 			) );
 			?>
-			<a class="btn btn-sm" href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">Plan your trip</a>
+			<a class="btn" href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">Get in touch</a>
 		</nav>
 	</div>
 </header>

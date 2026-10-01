@@ -1,16 +1,6 @@
 ( function () {
 	document.documentElement.classList.add( 'js' );
 
-	// Header turns solid after scrolling past the hero.
-	var header = document.querySelector( '.site-header' );
-	function onScroll() {
-		if ( header ) {
-			header.classList.toggle( 'is-scrolled', window.scrollY > 60 );
-		}
-	}
-	window.addEventListener( 'scroll', onScroll, { passive: true } );
-	onScroll();
-
 	// Mobile menu.
 	var toggle = document.querySelector( '.nav-toggle' );
 	var nav = document.getElementById( 'site-nav' );
@@ -26,6 +16,23 @@
 				document.body.classList.remove( 'nav-open' );
 				toggle.setAttribute( 'aria-expanded', 'false' );
 			}
+		} );
+	}
+
+	// Reviews slider: one page of three cards (one on mobile) at a time.
+	var track = document.querySelector( '.review-track' );
+	var count = document.querySelector( '.slider-count' );
+	if ( track ) {
+		var page = 0;
+		document.querySelectorAll( '.slider-nav [data-dir]' ).forEach( function ( btn ) {
+			btn.addEventListener( 'click', function () {
+				var pages = Math.max( 1, Math.ceil( track.scrollWidth / track.clientWidth - 0.01 ) );
+				page = ( page + parseInt( btn.getAttribute( 'data-dir' ), 10 ) + pages ) % pages;
+				track.scrollLeft = page * ( track.clientWidth + 24 );
+				if ( count ) {
+					count.textContent = ( page + 1 ) + ' / ' + pages;
+				}
+			} );
 		} );
 	}
 

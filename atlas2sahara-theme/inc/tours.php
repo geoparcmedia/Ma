@@ -85,12 +85,28 @@ add_action( 'save_post_tour', function ( $post_id ) {
 } );
 
 /**
- * On activation: create the tour types and a set of starter tours
- * (only if no tours exist yet), so the homepage is populated right away.
+ * Starter content, created once per seed version so a theme update
+ * (which does not re-run activation hooks) still adds new content.
  */
-add_action( 'after_switch_theme', function () {
-	// WordPress fires this hook on `init` (priority 99) of the first request
-	// after activation, so the post type and taxonomy are already registered.
+define( 'A2S_SEED_VERSION', 2 );
+
+add_action( 'init', function () {
+	$done = (int) get_option( 'a2s_seed_version', 0 );
+	if ( $done >= A2S_SEED_VERSION ) {
+		return;
+	}
+	update_option( 'a2s_seed_version', A2S_SEED_VERSION );
+	if ( $done < 1 ) {
+		a2s_seed_tours();
+	}
+	if ( $done < 2 ) {
+		a2s_seed_stories();
+	}
+	flush_rewrite_rules();
+}, 20 );
+
+/** Tour types and six starter tours (skipped if tours already exist). */
+function a2s_seed_tours() {
 	$types = array(
 		'biking' => 'Biking',
 		'hiking' => 'Hiking',
@@ -103,7 +119,6 @@ add_action( 'after_switch_theme', function () {
 	}
 
 	if ( get_posts( array( 'post_type' => 'tour', 'post_status' => 'any', 'numberposts' => 1 ) ) ) {
-		flush_rewrite_rules();
 		return;
 	}
 
@@ -170,6 +185,53 @@ add_action( 'after_switch_theme', function () {
 			update_post_meta( $post_id, $key, $tour['meta'][ $k ] );
 		}
 	}
+}
 
-	flush_rewrite_rules();
+/** Three starter blog posts for the "Our Stories" section. */
+function a2s_seed_stories() {
+	$stories = array(
+		array(
+			'title'   => 'Riding the Palmeraie: Gravel Biking Around Marrakech',
+			'excerpt' => 'Dusty tracks, thousands of palm trees and a sunset you will not forget – our favourite easy ride from the city.',
+			'content' => "Just outside the walls of Marrakech, the Palmeraie offers kilometres of flat gravel tracks between date palms, small farms and earthen villages.\n\nThe best time to ride is late afternoon, when the light turns gold and the Atlas peaks glow on the horizon. Bring water, a light layer for the evening and plenty of curiosity.",
+		),
+		array(
+			'title'   => 'A Taste of Morocco: Dishes to Try on Your Trip',
+			'excerpt' => 'From slow-cooked tagine to Berber bread baked in the sand, here is what to look forward to after a long day outdoors.',
+			'content' => "Food is one of the great joys of travelling in Morocco. In the mountains, try a vegetable tagine cooked over charcoal. In the desert, ask for medfouna – the \"Berber pizza\" baked in hot sand.\n\nAnd of course, mint tea: poured from high above the glass, served with every welcome.",
+		),
+		array(
+			'title'   => 'From the Atlas to the Sahara: What to Expect',
+			'excerpt' => 'Mountain passes, kasbahs, palm valleys and the dunes of Merzouga – a guide to Morocco\'s most spectacular journey.',
+			'content' => "The road from Marrakech to the Sahara crosses the High Atlas at the Tizi n'Tichka pass, then winds past the kasbahs of Aït Benhaddou and Ouarzazate, through the Dadès and Todra gorges, before the dunes of Erg Chebbi rise from the horizon.\n\nWhether you ride, hike or travel by 4x4, plan for changing temperatures: cool mornings in the mountains, warm afternoons in the desert.",
+		),
+	);
+	foreach ( $stories as $story ) {
+		if ( get_posts( array( 'post_type' => 'post', 'post_status' => 'any', 'title' => $story['title'], 'numberposts' => 1 ) ) ) {
+			continue;
+		}
+		wp_insert_post( array(
+			'post_type'    => 'post',
+			'post_status'  => 'publish',
+			'post_title'   => $story['title'],
+			'post_excerpt' => $story['excerpt'],
+			'post_content' => $story['content'],
+		) );
+	}
+}
+
+/** Guest reviews: title = guest name, content = review, excerpt = tour taken. */
+add_action( 'init', function () {
+	register_post_type( 'review', array(
+		'labels'       => array(
+			'name'          => __( 'Reviews', 'atlas2sahara' ),
+			'singular_name' => __( 'Review', 'atlas2sahara' ),
+			'add_new_item'  => __( 'Add new review (title = guest name, excerpt = tour)', 'atlas2sahara' ),
+		),
+		'public'       => false,
+		'show_ui'      => true,
+		'menu_icon'    => 'dashicons-format-quote',
+		'supports'     => array( 'title', 'editor', 'excerpt' ),
+		'show_in_rest' => true,
+	) );
 } );
