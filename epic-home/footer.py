@@ -196,6 +196,7 @@ function at(k,v){return ' '+k+'='+q+v+q}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function tc(s){var small=['of','to','and','the','from','in','a','de','el'];return s.toLowerCase().trim().split(' ').filter(Boolean).map(function(w,i){return i&&small.indexOf(w)>-1?w:w.charAt(0).toUpperCase()+w.slice(1)}).join(' ')}
 var SITE='SITEURL',WA='WAURL',TEL='TELNUM',TELT='TELTEXT';
+function cls(el){return (el.getAttribute&&el.getAttribute('class'))||''}function footy(c){return c.tagName==='FOOTER'||/footer|subscribe|newsletter|copyright/i.test(cls(c))||!!c.querySelector('footer,[class*=footer],[class*=copyright],[class*=subscribe]')}function place(ft,a){while(a.parentNode&&a.parentNode!==d.body){var par=a.parentNode,me=a;if([].some.call(par.children,function(c){return c!==me&&!mine(c)&&c.tagName!=='SCRIPT'&&footy(c)}))break;a=par}if(a.parentNode===d.body){d.body.appendChild(ft);return}var s=a.nextElementSibling;while(s){var nx=s.nextElementSibling;if(!mine(s)&&['SCRIPT','STYLE','LINK','NOSCRIPT'].indexOf(s.tagName)<0&&s.id!=='wpadminbar'&&getComputedStyle(s).position!=='fixed')hideEl(s);s=nx}a.parentNode.insertBefore(ft,a.nextSibling)}
 function tour(w){var it=d.querySelector('.itinerary');if(!it||!it.querySelector('.day-title'))return;
 var root=it.closest('section')||it.parentNode,img=root.querySelector('img'),h=root.querySelector('h2,h1'),p=root.querySelector('header p');
 var days=[].slice.call(it.querySelectorAll('.day-title')).map(function(t){var c=t.nextElementSibling,s=t.textContent.trim(),i=s.indexOf(':'),n='';
@@ -232,7 +233,7 @@ ready(function(){var ws=[].slice.call(d.querySelectorAll('.chw'));if(!ws.length)
 var cb=w.querySelector('#chh-t'),top=w.querySelector('.chh'),dr=w.querySelector('.chh-dr'),ft=w.querySelector('.chf'),home=d.getElementById('etm-top');
 d.body.insertBefore(cb,d.body.firstChild);d.body.appendChild(top);d.body.appendChild(dr);dr.insertBefore(ft.querySelector('.ch-ros').cloneNode(true),dr.firstChild);
 try{tour(w)}catch(e){}
-d.body.appendChild(ft);
+var anchor=d.querySelector('.tp')?d.querySelector('.tp').nextElementSibling:(d.querySelector('[data-elementor-type=wp-page]')||w);place(ft,anchor||w);
 var path=location.pathname.replace(/[/]+$/,'')||'/';[].forEach.call(d.querySelectorAll('.chh-menu a,.chh-dr a'),function(a){var pp=a.pathname.replace(/[/]+$/,'')||'/';if(pp===path||(pp==='/destination'&&path.indexOf('/all-tour')===0))a.classList.add('cur')});
 dr.addEventListener('click',function(e){if(e.target.closest('a'))cb.checked=false});
 if(home){var tr=function(){top.classList.toggle('chh-tr',W.pageYOffset<40)};tr();W.addEventListener('scroll',tr,{passive:true})}
