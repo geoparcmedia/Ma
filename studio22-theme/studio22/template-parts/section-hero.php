@@ -7,8 +7,34 @@
  */
 
 $s22_mode   = studio22_opt( 'hero_mode' );
-$s22_video  = absint( studio22_opt( 'hero_video' ) ) ? wp_get_attachment_url( absint( studio22_opt( 'hero_video' ) ) ) : '';
+$s22_vid_id = absint( studio22_opt( 'hero_video' ) );
 $s22_poster = studio22_image_url( 'hero_poster' );
+$s22_theme  = get_template_directory_uri() . '/assets';
+
+// Video sources: the one picked in the Customizer, or the Studio22 reel shipped with the theme.
+if ( $s22_vid_id && wp_get_attachment_url( $s22_vid_id ) ) {
+	$s22_sources = array(
+		array(
+			'src'  => wp_get_attachment_url( $s22_vid_id ),
+			'type' => get_post_mime_type( $s22_vid_id ) ? get_post_mime_type( $s22_vid_id ) : 'video/mp4',
+		),
+	);
+} else {
+	$s22_sources = array(
+		array(
+			'src'  => $s22_theme . '/media/hero.mp4',
+			'type' => 'video/mp4',
+		),
+		array(
+			'src'  => $s22_theme . '/media/hero.webm',
+			'type' => 'video/webm',
+		),
+	);
+	if ( ! $s22_poster ) {
+		$s22_poster = $s22_theme . '/img/hero-poster.jpg';
+	}
+}
+$s22_video = ! empty( $s22_sources );
 $s22_length = max( 150, min( 600, absint( studio22_opt( 'hero_length' ) ) ) );
 $s22_pinned = in_array( $s22_mode, array( 'scrub', 'loop' ), true );
 $s22_lines  = array_filter( array( studio22_text( 'hero_line2' ), studio22_text( 'hero_line3' ) ) );
@@ -22,7 +48,9 @@ $s22_style   = $s22_pinned ? '--hero-length:' . $s22_length . 'vh;' : '';
 		<div class="hero__media">
 			<?php if ( $s22_video ) : ?>
 				<video class="hero__video" muted playsinline preload="auto" <?php echo 'scrub' === $s22_mode ? '' : 'autoplay loop'; ?> <?php echo $s22_poster ? 'poster="' . esc_url( $s22_poster ) . '"' : ''; ?> aria-hidden="true">
-					<source src="<?php echo esc_url( $s22_video ); ?>" type="<?php echo esc_attr( get_post_mime_type( absint( studio22_opt( 'hero_video' ) ) ) ? get_post_mime_type( absint( studio22_opt( 'hero_video' ) ) ) : 'video/mp4' ); ?>">
+					<?php foreach ( $s22_sources as $s22_source ) : ?>
+						<source src="<?php echo esc_url( $s22_source['src'] ); ?>" type="<?php echo esc_attr( $s22_source['type'] ); ?>">
+					<?php endforeach; ?>
 				</video>
 			<?php elseif ( $s22_poster ) : ?>
 				<img class="hero__image" src="<?php echo esc_url( $s22_poster ); ?>" alt="" fetchpriority="high">

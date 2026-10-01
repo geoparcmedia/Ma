@@ -14,6 +14,10 @@ $s22_photo = studio22_image_url( 'founder_photo', 'large' );
 if ( ! $s22_photo && has_post_thumbnail() ) {
 	$s22_photo = get_the_post_thumbnail_url( null, 'large' );
 }
+if ( ! $s22_photo ) {
+	$s22_photo = studio22_theme_image( 'founder.jpg' );
+}
+$s22_quote = studio22_text( 'founder_quote' );
 $s22_name = studio22_text( 'founder_name' );
 
 while ( have_posts() ) :
@@ -48,8 +52,10 @@ while ( have_posts() ) :
 				<?php if ( $s22_name ) : ?>
 					<p class="founder__role reveal"><?php studio22_e( 'founder_role' ); ?></p>
 				<?php endif; ?>
-				<blockquote class="founder__quote reveal"><p><?php studio22_e( 'founder_quote' ); ?></p></blockquote>
-				<p class="lead reveal"><?php studio22_e( 'founder_bio' ); ?></p>
+				<?php if ( $s22_quote ) : ?>
+					<blockquote class="founder__quote reveal"><p><?php echo esc_html( $s22_quote ); ?></p></blockquote>
+				<?php endif; ?>
+				<div class="founder__bio lead reveal"><?php echo wp_kses_post( wpautop( esc_html( studio22_text( 'founder_bio' ) ) ) ); ?></div>
 			</div>
 		</div>
 	</section>

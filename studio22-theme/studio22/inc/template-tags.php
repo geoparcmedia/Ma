@@ -51,6 +51,10 @@ function studio22_menu_fallback() {
 	echo '<ul class="menu">';
 	foreach ( $items as $anchor => $label ) {
 		echo '<li class="menu-item"><a href="' . esc_url( $base . $anchor ) . '">' . esc_html( $label ) . '</a></li>';
+		if ( '#studio' === $anchor && studio22_about_page_id() ) {
+			$about = studio22_about_page_id();
+			echo '<li class="menu-item' . ( is_page( $about ) ? ' current-menu-item' : '' ) . '"><a href="' . esc_url( get_permalink( $about ) ) . '">' . esc_html__( 'About', 'studio22' ) . '</a></li>';
+		}
 	}
 	echo '</ul>';
 }
@@ -137,6 +141,16 @@ function studio22_image_url( $key, $size = 'full' ) {
 	}
 	$src = wp_get_attachment_image_url( $id, $size );
 	return $src ? $src : '';
+}
+
+/**
+ * URL of an image shipped with the theme (assets/img).
+ *
+ * @param string $file File name.
+ * @return string
+ */
+function studio22_theme_image( $file ) {
+	return get_template_directory_uri() . '/assets/img/' . $file;
 }
 
 /**

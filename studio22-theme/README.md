@@ -15,7 +15,7 @@ Dark premium theme for Studio22 (photo & video production, Doha). English + Arab
   `ffmpeg -i in.mov -vf scale=1920:-2 -c:v libx264 -crf 24 -g 6 -an -movflags +faststart hero.mp4`
 - **Clients**: upload the logos of Katara, Al Shaqab, Arabians Tour, Doha Bank, ACTA, KIAF
   (names are already filled; until a logo is uploaded the name is shown).
-- **Founder (About page)**: upload the owner photo, name, role, bio.
+- **Founder (About page)**: Abdulaziz Al Ajmi, photo and bio are built in (EN + AR). The "About us" page is created automatically.
   Create a page "About us" and choose the template **About Studio22**.
 - **Contact & booking**: WhatsApp number, phone, email, map.
 - Portfolio: Dashboard → **Projects** → Add new (title, featured image, optional YouTube/Vimeo/MP4 link, project type).

@@ -7,21 +7,9 @@
 
 $s22_image = studio22_image_url( 'studio_image', 'large' );
 if ( ! $s22_image ) {
-	$s22_image = studio22_image_url( 'founder_photo', 'large' );
+	$s22_image = studio22_theme_image( 'work-show.jpg' );
 }
-$s22_about = get_pages(
-	array(
-		'meta_key'   => '_wp_page_template',
-		'meta_value' => 'page-templates/about.php',
-		'number'     => 1,
-	)
-);
-if ( $s22_about && function_exists( 'pll_get_post' ) ) {
-	$s22_translated = pll_get_post( $s22_about[0]->ID );
-	if ( $s22_translated ) {
-		$s22_about = array( get_post( $s22_translated ) );
-	}
-}
+$s22_about = studio22_about_page_id() ? array( get_post( studio22_about_page_id() ) ) : array();
 ?>
 <section class="section studio" id="studio" aria-labelledby="studio-title">
 	<div class="container studio__grid">

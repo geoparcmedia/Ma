@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STUDIO22_VERSION', '1.0.0' );
+define( 'STUDIO22_VERSION', '1.1.0' );
 define( 'STUDIO22_CLIENTS', 10 );
 
 require get_template_directory() . '/inc/helpers.php';
@@ -241,3 +241,56 @@ function studio22_excerpt_more() {
 	return '…';
 }
 add_filter( 'excerpt_more', 'studio22_excerpt_more' );
+
+/**
+ * Create the "About us" page (About Studio22 template) once, if the site has none.
+ */
+function studio22_create_about_page() {
+	if ( get_option( 'studio22_about_page_checked' ) || ! current_user_can( 'publish_pages' ) ) {
+		return;
+	}
+	update_option( 'studio22_about_page_checked', 1 );
+
+	if ( studio22_about_page_id() ) {
+		return;
+	}
+	$page_id = wp_insert_post(
+		array(
+			'post_type'   => 'page',
+			'post_status' => 'publish',
+			'post_title'  => __( 'About us', 'studio22' ),
+			'post_name'   => 'about-us',
+		)
+	);
+	if ( $page_id && ! is_wp_error( $page_id ) ) {
+		update_post_meta( $page_id, '_wp_page_template', 'page-templates/about.php' );
+	}
+}
+add_action( 'admin_init', 'studio22_create_about_page' );
+
+/**
+ * ID of the first page using the About template (translated with Polylang when available).
+ *
+ * @return int
+ */
+function studio22_about_page_id() {
+	$pages = get_posts(
+		array(
+			'post_type'        => 'page',
+			'post_status'      => 'publish',
+			'meta_key'         => '_wp_page_template',
+			'meta_value'       => 'page-templates/about.php',
+			'numberposts'      => 1,
+			'fields'           => 'ids',
+			'suppress_filters' => false,
+		)
+	);
+	if ( ! $pages ) {
+		return 0;
+	}
+	$id = (int) $pages[0];
+	if ( function_exists( 'pll_get_post' ) && pll_get_post( $id ) ) {
+		$id = (int) pll_get_post( $id );
+	}
+	return $id;
+}

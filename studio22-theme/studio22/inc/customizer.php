@@ -165,20 +165,20 @@ function studio22_text_defaults() {
 			'ar' => 'المؤسس',
 		),
 		'founder_name'   => array(
+			'en' => 'Abdulaziz Al Ajmi',
+			'ar' => 'عبدالعزيز العجمي',
+		),
+		'founder_role'   => array(
+			'en' => 'Founder · Qatari photographer & visual artist',
+			'ar' => 'المؤسس · مصوّر وفنان بصري قطري',
+		),
+		'founder_quote'  => array(
 			'en' => '',
 			'ar' => '',
 		),
-		'founder_role'   => array(
-			'en' => 'Founder & Creative Director',
-			'ar' => 'المؤسس والمدير الإبداعي',
-		),
-		'founder_quote'  => array(
-			'en' => 'A great image is patience, light and respect for the story in front of you.',
-			'ar' => 'الصورة العظيمة صبرٌ وضوءٌ واحترامٌ للقصة التي أمامك.',
-		),
 		'founder_bio'    => array(
-			'en' => 'Born and raised in Qatar, our founder grew up between the desert, the sea and the stables. That love for our land, its people and its horses became Studio22: a studio that tells Gulf stories with the craft of cinema.',
-			'ar' => 'نشأ مؤسسنا في قطر بين الصحراء والبحر والإسطبلات، ومن حبّه لهذه الأرض وأهلها وخيلها وُلد ستوديو 22: استوديو يروي قصص الخليج بحرفية السينما.',
+			'en' => "Abdulaziz Al Ajmi is a Qatari photographer and visual artist with extensive experience in professional photography and visual production. His work reflects a strong passion for capturing people, events, culture, and memorable moments through creative and authentic imagery.\n\nOver the years, Abdulaziz has developed his expertise across photography and video production, working on a variety of professional and cultural projects in Qatar. His creative approach combines technical skills with a distinctive visual style, allowing him to tell stories through powerful images.\n\nThrough his work and experience in the Qatari creative industry, Abdulaziz Al Ajmi has established himself as a dedicated photographer committed to quality, creativity, and visual storytelling.",
+			'ar' => "عبدالعزيز العجمي مصوّر وفنان بصري قطري يمتلك خبرة واسعة في التصوير الاحترافي والإنتاج البصري. تعكس أعماله شغفًا كبيرًا بتوثيق الناس والفعاليات والثقافة واللحظات التي لا تُنسى من خلال صور إبداعية وأصيلة.\n\nعلى مرّ السنين، طوّر عبدالعزيز خبرته في التصوير الفوتوغرافي وإنتاج الفيديو، وعمل على مجموعة متنوعة من المشاريع المهنية والثقافية في قطر. ويجمع أسلوبه الإبداعي بين المهارة التقنية وهوية بصرية مميزة تتيح له رواية القصص من خلال صور مؤثرة.\n\nومن خلال أعماله وخبرته في القطاع الإبداعي القطري، رسّخ عبدالعزيز العجمي مكانته كمصوّر ملتزم بالجودة والإبداع وفن السرد البصري.",
 		),
 
 		// Clients.
@@ -335,6 +335,8 @@ function studio22_option_defaults() {
 		'client5_url'      => 'https://acta.qa',
 		'client6_url'      => '',
 		'clients_color'    => false,
+		'instagram_feed'   => '',
+		'social_instagram' => 'https://www.instagram.com/alajmiofficial/',
 		'whatsapp'         => '',
 		'phone'            => '',
 		'email'            => '',
@@ -605,6 +607,14 @@ function studio22_customize_register( $wp_customize ) {
 				'max' => 24,
 			),
 		)
+	);
+
+	$add_option(
+		'studio22_work',
+		'instagram_feed',
+		__( 'Instagram feed shortcode (optional)', 'studio22' ),
+		'text',
+		array( 'description' => __( 'Install the free "Smash Balloon Instagram Feed" plugin, connect the Instagram account and paste its shortcode here, e.g. [instagram-feed]. The latest Instagram posts are then shown under the portfolio.', 'studio22' ) )
 	);
 
 	/*

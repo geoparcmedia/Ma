@@ -1,8 +1,14 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Studio22 1.0.0\n"
+"Project-Id-Version: Studio22 1.1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Domain: studio22\n"
+
+msgid "About"
+msgstr ""
+
+msgid "About us"
+msgstr ""
 
 msgid "Accent colour"
 msgstr ""
@@ -26,6 +32,9 @@ msgid "All projects"
 msgstr ""
 
 msgid "All rights reserved."
+msgstr ""
+
+msgid "Arabian horse show, Doha"
 msgstr ""
 
 msgid "Arabic"
@@ -109,13 +118,22 @@ msgstr ""
 msgid "English"
 msgstr ""
 
+msgid "Equestrian"
+msgstr ""
+
 msgid "Event"
+msgstr ""
+
+msgid "Event portraits"
 msgstr ""
 
 msgid "Explore"
 msgstr ""
 
 msgid "Extra widgets shown in the footer."
+msgstr ""
+
+msgid "Film"
 msgstr ""
 
 msgid "Filter projects"
@@ -139,6 +157,9 @@ msgstr ""
 msgid "Google Maps place or address"
 msgstr ""
 
+msgid "Heritage"
+msgstr ""
+
 msgid "Hero video (MP4)"
 msgstr ""
 
@@ -151,7 +172,16 @@ msgstr ""
 msgid "Horse"
 msgstr ""
 
+msgid "Horse & owner portrait"
+msgstr ""
+
 msgid "Image"
+msgstr ""
+
+msgid "Instagram feed shortcode (optional)"
+msgstr ""
+
+msgid "Install the free \"Smash Balloon Instagram Feed\" plugin, connect the Instagram account and paste its shortcode here, e.g. [instagram-feed]. The latest Instagram posts are then shown under the portfolio."
 msgstr ""
 
 msgid "Introduction"
@@ -181,6 +211,9 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
+msgid "More on Instagram"
+msgstr ""
+
 msgid "Moving strip words (comma separated)"
 msgstr ""
 
@@ -194,9 +227,6 @@ msgid "Next project"
 msgstr ""
 
 msgid "No projects yet."
-msgstr ""
-
-msgid "No projects yet. Add your work from Dashboard → Projects → Add new (title, featured image and an optional video link)."
 msgstr ""
 
 msgid "Normal banner — video loops, no pinning"
@@ -224,6 +254,9 @@ msgid "Pinned — the video plays on its own (loop)"
 msgstr ""
 
 msgid "Portfolio"
+msgstr ""
+
+msgid "Portrait"
 msgstr ""
 
 msgid "Poster image"
@@ -367,6 +400,9 @@ msgstr ""
 msgid "Studio & numbers"
 msgstr ""
 
+msgid "Studio22 reel"
+msgstr ""
+
 msgid "Studio22 theme"
 msgstr ""
 
@@ -379,10 +415,16 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
+msgid "The Pearl at dusk"
+msgstr ""
+
 msgid "The featured image is used as the cover. With a video link, the cover opens the video."
 msgstr ""
 
 msgid "The page you are looking for does not exist or has moved."
+msgstr ""
+
+msgid "These are sample photos shipped with the theme. Add your own work from Dashboard → Projects → Add new (title, featured image and an optional video link)."
 msgstr ""
 
 msgid "Third line (appears while scrolling)"
