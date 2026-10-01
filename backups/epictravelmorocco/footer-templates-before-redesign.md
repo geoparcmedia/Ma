@@ -55,3 +55,7 @@ Templates 3433 and 3436 were emptied (their previous content is in git: epic-hom
 - Same block also put back into template 3433, and every page (3648, 1360, 1247, 1334, 69) and every tour (15 posts of type
   `tour`) now has meta `hugebinary_header_templates_select` = {header:"", footer:"3433"} (was {header:"", footer:""}),
   the theme's own per-page "footer template" setting. To undo, set footer back to "".
+- The user still saw no change, even with ?v= (so not cache): the theme renders neither the widget nor template 3433.
+  Now the block is inside the pages themselves: full block at the end of Contact (1360); a small loader
+  (epic-home/deploy/tour-loader.html) at the end of About, Fleet, Tours pages and appended to the post_content of all 15 tours.
+  To undo on a tour: remove the trailing <script>…fetch('/contact-2/')…</script> from its content.
