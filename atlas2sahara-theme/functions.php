@@ -83,7 +83,7 @@ function a2s_fallback_photo( $post_id, $type = '', $size = 'card' ) {
 	$pools = array(
 		'biking' => array( 'riders', 'cyclist' ),
 		'desert' => array( 'camels', 'culture' ),
-		'hiking' => array( 'culture', 'camels' ),
+		'hiking' => array( 'camels' ),
 	);
 	$pool = isset( $pools[ $type ] ) ? $pools[ $type ] : array( 'riders', 'camels', 'culture', 'cyclist' );
 	return a2s_img( $pool[ $post_id % count( $pool ) ] . ( 'full' === $size ? '' : '-' . $size ) . '.jpg' );
