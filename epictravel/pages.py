@@ -6,7 +6,6 @@ U = B + '2025/11/'
 # ---------- home ----------
 def home():
     featured = [BY_ID[i] for i in (3353, 3339, 3359, 3351, 3331, 3390)]
-    marquee = ''.join('<span>' + w + '</span><i>✦</i>' for w in ['Plan smarter', 'Travel better', 'Epic Travel Morocco', 'Imperial cities', 'Atlas Mountains', 'Sahara dunes'])
     why = [('favorite-location-1.svg', 'Authentic Local Experience', 'Our native guides reveal the real Morocco — its traditions, hidden gems, and warm hospitality.'),
            ('casablanca.svg', 'Customized Tours', 'Whether you seek adventure, culture, or relaxation, we design tailor-made itineraries to match your style.'),
            ('protection.svg', 'Sustainable Tourism', 'We partner with local communities and eco-friendly lodges to protect Morocco’s beauty and culture.'),
@@ -26,7 +25,6 @@ def home():
           "<p>We craft journeys that take you to the heart of Morocco’s most captivating destinations — a blend of adventure, discovery, and cultural immersion, shaped around your dates, pace and style.</p>"
           "<ul class='et-list'><li>Imperial cities: Fes, Meknes, Rabat and Marrakech</li><li>Camel treks and nights under the stars in Merzouga and Erg Chigaga</li><li>Kasbahs, gorges and palm oases of the south</li><li>Chefchaouen, the blue pearl of the Rif</li></ul>"
           "<div class='et-ctas'><a class='et-btn et-btn-o' href='" + SITE + "/about-us/'>About us</a><a class='et-btn' href='" + SITE + "/destination/'>Explore more " + ICON['arrow'] + "</a></div></div></div></section>"
-        + "<div class='et et-mq' aria-hidden='true'><div>" + marquee + "</div><div>" + marquee + "</div></div>"
         + "<section class='et et-sec et-pat'><div class='et-wrap'><div class='et-head'>" + ORN + "<span class='et-eye'>Popular destinations</span><h2>Our most-loved Morocco tours</h2>"
           "<p>Every program is private and can be adjusted — start date, pace, hotels and stops.</p></div><div class='et-grid'>"
         + ''.join(card(t) for t in featured) + "</div><div class='et-center'><a class='et-btn et-btn-o' href='" + SITE + "/destination/'>See all 15 tours " + ICON['arrow'] + "</a></div></div></section>"
@@ -34,13 +32,15 @@ def home():
           "<p>A small local team, our own vehicles and drivers, and itineraries built around you.</p></div><div class='et-why'>" + whyh + "</div></div><div class='et-band' style='position:absolute;left:0;right:0;bottom:0'></div></section>"
         + "<section class='et et-sec'><div class='et-wrap'><div class='et-head'>" + ORN + "<span class='et-eye'>Gallery</span><h2>From our adventures</h2><p>Real moments from our travellers on the road with us.</p></div>"
           "<div class='et-gal'>" + galh + "</div></div></section>"
-        + "<section class='et et-sec et-cream' style='padding-bottom:30px'><div class='et-wrap'><div class='et-head' style='margin-bottom:10px'><span class='et-eye'>Reviews</span><h2>Hear it from our happy travellers</h2></div></div></section>"
+        + "<section class='et et-sec et-cream'><div class='et-wrap'><div class='et-head' style='margin-bottom:0'><span class='et-eye'>Reviews</span><h2>Hear it from our happy travellers</h2>"
+          "<p>Read what our guests say about their trips with us on Tripadvisor.</p>"
+          "<div class='et-ctas' style='justify-content:center'><a class='et-btn' href='" + TA + "' target='_blank' rel='noopener'>" + ICON['ta'] + "Read our Tripadvisor reviews</a></div></div></div></section>"
     )
     after = cta('Let’s plan your Moroccan adventure', 'Tell us your dates and what you dream of seeing — we reply within 24 hours with a route and a price.')
     org = {"@context": "https://schema.org", "@type": "TravelAgency", "name": "Epic Travel Morocco", "url": SITE + "/", "logo": LOGO, "email": EMAIL,
            "telephone": "+212661292596", "address": {"@type": "PostalAddress", "addressLocality": "Marrakech", "postalCode": "22000", "streetAddress": "Gueliz", "addressCountry": "MA"},
            "sameAs": [FB, IG, TA]}
-    return [('html', clean(body)), ('shortcode', '[trustindex no-registration=tripadvisor]'), ('html', clean(after + ldjs([org])))]
+    return [('html', clean(body + after + ldjs([org])))]
 
 # ---------- tours list ----------
 def tours_page():

@@ -228,3 +228,11 @@
 /* Elementor canvas: no gaps around our full-width sections */
 .elementor-widget-html:has(.et-h),.elementor-widget-html:has(.et-f){margin:0!important}
 body.elementor-template-canvas{background:#fff}
+
+/* Calm pass: fewer patterns, no moving text, no decorative arches */
+.et-pat{background-image:none}
+.et-dark{background-image:none}
+.et-arch-o,.et-mq,.et-orn{display:none}
+.et-band{height:4px;background:var(--et-sand)}
+.et-h .et-band{height:3px;background:var(--et-sand)}
+.et-js .et-rv{opacity:1;transform:none;transition:none}
