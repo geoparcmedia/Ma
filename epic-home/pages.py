@@ -145,17 +145,22 @@ def fleet():
 
 
 # ---------------------------------------------------------------- Tours (Destination)
-TOURS = [
-    ('Sahara Desert Experience', 'sahara-desert-experience', '2025/11/pexels-zakariahanif-12214734-scaled.jpg', '4 nights · 3 days'),
-    ('Majestic Kasbah and Desert Adventure', 'majestic-kasbah-and-desert-adventure', '2025/11/pexels-henrik-le-botos-1588507-3878114-scaled.jpg', '5 nights · 4 days'),
-    ('Journeys Through Morocco', 'journeys-trough-morocco', '2025/11/pexels-adthiry-18661913-scaled.jpg', '5 nights · 4 days'),
-    ('Highlights of Morocco', 'highlights-of-morocco', '2025/11/WhatsApp-Image-2023-03-02-at-22.42.11.jpeg', '5 nights · 6 days'),
-    ('Discover Northern Morocco', 'discover-northern-morocco-tour', '2025/11/pexels-abdel-achkouk-2861018-22717119-scaled.jpg', '6 nights · 5 days'),
-    ('Moroccan Historical Cities', 'moroccan-historical-cities-tour', '2025/11/MXLU7731.jpg', '7 nights · 8 days'),
-    ('The Essence of Morocco', 'the-essence-of-morocco-tour', '2025/11/ifrane-1.jpg', '8 nights · 9 days'),
-    ('The Magic of Morocco', 'the-magic-of-morocco', '2025/11/pexels-micklatter-18375222-scaled.jpg', '9 nights · 8 days'),
-    ('Authentic Morocco Tour', 'n', '2025/11/pexels-gabriel-garcia-1263144-2404046-scaled.jpg', '11 nights · 10 days'),
-    ('Moroccan Odyssey, 15-Day Grand Tour', 'moroccan-odyssey-15-day-grand-tour', '2025/07/IMG_5641.jpg', '15 nights · 14 days'),
+TOURS = [  # (title, slug under /all-tour/, image, days) – all 15 published tours, shortest first
+    ('Sahara Desert Adventure', 'sahara-desert-adventure', '2025/11/IMG_5828.jpg', 3),
+    ('Sahara Desert Experience', 'sahara-desert-experience', '2025/11/pexels-zakariahanif-12214734-scaled.jpg', 4),
+    ('Majestic Kasbah and Desert Adventure', 'majestic-kasbah-and-desert-adventure', '2025/11/pexels-henrik-le-botos-1588507-3878114-scaled.jpg', 5),
+    ('Journeys Through Morocco', 'journeys-trough-morocco', '2025/11/pexels-adthiry-18661913-scaled.jpg', 5),
+    ('Highlights of Morocco', 'highlights-of-morocco', '2025/11/WhatsApp-Image-2023-03-02-at-22.42.11.jpeg', 6),
+    ('Discover Northern Morocco', 'discover-northern-morocco-tour', '2025/11/pexels-abdel-achkouk-2861018-22717119-scaled.jpg', 6),
+    ('Marrakech Enchantment', 'marrakech-enchantment', '2025/11/pexels-mographe-15360688-1-scaled.jpg', 6),
+    ('Moroccan Historical Cities', 'moroccan-historical-cities-tour', '2025/11/MXLU7731.jpg', 7),
+    ('Moroccan Coastal and Desert Expedition', '3396-2', '2025/11/pexels-mographe-30949484-scaled.jpg', 7),
+    ('The Essence of Morocco', 'the-essence-of-morocco-tour', '2025/11/ifrane-1.jpg', 8),
+    ('The Magic of Morocco', 'the-magic-of-morocco', '2025/11/pexels-micklatter-18375222-scaled.jpg', 9),
+    ('Morocco North to South Explorer', 'morocco-north-to-south-explorer', '2025/11/GettyImages-122137131-592426555f9b58f4c07ffd43.jpg', 10),
+    ('Authentic Morocco Tour', 'n', '2025/11/pexels-gabriel-garcia-1263144-2404046-scaled.jpg', 11),
+    ('Epic Morocco Explorer', 'epic-morocco-explorer-tour', '2025/11/5ebbd586ece4c_midelt-ville-pomme-atlas-climat-histoire-infos-tourisme-maroc-1-1.webp', 12),
+    ('Moroccan Odyssey, 15-Day Grand Tour', 'moroccan-odyssey-15-day-grand-tour', '2025/07/IMG_5641.jpg', 15),
 ]
 
 
@@ -166,7 +171,7 @@ def tours():
                   '<a class="ch-btn ch-btn-g" href="#cp-tours">See the tours</a><a href="' + SITE + '/contact-2/">Tailor-made trip</a>',
                   'Morocco landscape')
     cards = ''.join('<a class="cp-tour" href="' + SITE + '/all-tour/' + s + '/"><div class="ch-archf"><div class="ch-arch">'
-                    '<img src="' + U + img + '" alt="' + t + '" loading="lazy"></div></div><small>' + C.star() + d + '</small>'
+                    '<img src="' + U + img + '" alt="' + t + '" loading="lazy"></div></div><small>' + C.star() + 'Private tour · ' + str(d) + ' days</small>'
                     '<h3>' + t + '</h3><span class="ch-link">Discover</span></a>' for t, s, img, d in TOURS)
     grid = ('<section class="ch-s" id="cp-tours"><div class="ch-w"><div class="cp-intro">' + C.orn()
             + '<h2 class="ch-h2">Choose your <em>journey</em></h2><p class="ch-mut">From a few days in the desert to a grand tour of the kingdom, '

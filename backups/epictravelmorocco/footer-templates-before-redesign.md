@@ -46,3 +46,9 @@ Rebuilt by `epic-home/contact.py` (git history keeps every version of contact-13
 - Page 69: `_wp_page_template` was `templates/template-destination.php`, now `elementor_header_footer`.
 - Pages 69, 1247, 1334, 1360: `travelor_page_container_options.page_spacing_top` and `page_spacing_bottom` were "120", now "0"
   (the theme added 120px empty space above and below the content).
+
+## Site-wide header/footer moved to a widget (1 Oct 2026, later)
+Templates 3433/3436 turned out not to be rendered by the theme, so the header/footer block (`epic-home/chrome-widget.html`)
+is now a Custom HTML widget: option `widget_custom_html[2]`, placed in `sidebars_widgets` areas footer-widget, footer-widget-two
+and footer-widget-three (all three were empty before). To undo: set those three areas back to [] .
+Templates 3433 and 3436 were emptied (their previous content is in git: epic-home/footer-3433.json history).

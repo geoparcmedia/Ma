@@ -25,3 +25,12 @@
 - Previews in `previews/`. Each page is also set to the `elementor_header_footer` template with the theme spacing (page_spacing_top/bottom) at 0.
 - Deploy: write the JSON to `_elementor_data`, delete `_elementor_element_cache` and `_elementor_css`, re-save the post title, then LiteSpeed Purge All.
 - The Tours page lists 10 tours by hand (it no longer uses the theme's automatic tour grid): add new tours in `pages.py` (TOURS).
+
+### Update: header/footer on every page + tour programme pages
+- The theme does not render Elementor templates 3433/3436, so `footer.py` now writes `chrome-widget.html`, stored as the
+  Custom HTML widget `custom_html-2` in the theme footer widget areas. It shows on every page (pages, tours, blog).
+- Its script moves the header/footer to <body>, hides the theme header and footer, hides the home page's old header,
+  and on tour pages (/all-tour/...) rebuilds the programme from the tour content (.itinerary .day-title / .day-content):
+  hero, Overview (duration, start, end), Route, Day by day itinerary with a booking card, and an enquiry section.
+  New tours written in the same format get the design automatically.
+- Deploy the widget: wp_update_option widget_custom_html {"2":{"title":"","content":<chrome-widget.html>},"_multiwidget":1}.

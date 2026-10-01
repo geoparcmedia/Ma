@@ -1,7 +1,9 @@
 """Epic Travel Morocco – site-wide header + footer (Elementor footer templates 3433 and 3436), chic Moroccan style.
 
-python3 footer.py -> footer-3433.json   (header shown on every page except the home page, footer, newsletter form)
-                     copyright-3436.json (copyright bar)
+python3 footer.py -> chrome-widget.html (header + footer + script, stored as a Custom HTML widget in the theme footer area
+                     'footer-widget' so it shows on every page, including the tour pages built by the theme)
+                     footer-3433.json (same block in the Elementor template 3433)
+contact.py / pages.py / build.py also add the block at the end of each Elementor page; the script keeps one copy.
 The header markup is plain HTML with position:fixed, so the menu shows even if JavaScript is delayed;
 the mobile menu opens with a CSS checkbox. A small script only hides the old theme header and marks the current link.
 The previous (Marcellus / zellij band) version is in git history.
@@ -64,8 +66,7 @@ CSS = """
 .chh-dr a{position:relative;display:block;padding:12px 0;color:#fff!important;font:400 34px/1.2 var(--fh);border-bottom:1px solid rgba(255,255,255,.08)}
 .chh-dr a.chh-btn{margin-top:30px;text-align:center;font:500 12px var(--fb);border:1px solid var(--gold2);padding:18px}
 .chh-dr .chh-tel{display:block;border:0;margin-top:14px;text-align:center;font:400 15px var(--fb)}
-body:not(.home){padding-top:78px}
-body.home .chh,body.home .chh-dr{display:none!important}
+body:not(.home){padding-top:78px}body.tp-page{margin:0}
 @media (max-width:1180px){.chh-tel{display:none}}
 @media (max-width:960px){.chh-menu,.chh-cta{display:none}.chh-burger{display:flex}.chh-in{height:68px}.chh-logo img{max-height:44px}body:not(.home){padding-top:68px}}
 @media (max-width:782px){.admin-bar .chh{top:46px}}
@@ -96,24 +97,10 @@ body.home .chh,body.home .chh-dr{display:none!important}
 .chf-soc a{display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(239,232,222,.2);border-radius:999px 999px 0 0}
 .chf-soc a:hover{border-color:var(--gold2)}
 .chf-i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.chf-news{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:44px 0 10px}
-.chf-news h4{margin:0 0 4px}
-.chf-news p{margin:0;font:400 22px/1.3 var(--fh);color:#fff}
-.chf-form{background:#0d1a1f;padding:0 28px 50px}
-.chf-form .elementor-widget-container,.chf-form .elementor-shortcode{max-width:1184px;margin:0 auto}
-.chf-form form{display:flex;align-items:flex-end;gap:0;flex-wrap:wrap;margin:0;max-width:520px}
-.chf-form form p{margin:0;flex:1;min-width:0}
-.chf-form br{display:none}
-.chf-form input[type=email],.chf-form input[type=text]{width:100%;height:52px;padding:0 4px;border:0;border-bottom:1px solid rgba(239,232,222,.3);border-radius:0;background:transparent;color:#fff;font:400 19px 'Cormorant Garamond',Georgia,serif;box-shadow:none}
-.chf-form input:focus{outline:none;border-bottom-color:#d1a47b}
-.chf-form input[type=submit],.chf-form button{height:52px;padding:0 28px;border:1px solid #d1a47b;border-radius:0;background:transparent;color:#fff;font:500 11.5px 'Jost',system-ui,sans-serif;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s}
-.chf-form input[type=submit]:hover,.chf-form button:hover{background:#d1a47b;color:#0d1a1f}
-.chf-form .wpcf7-response-output{color:#fff;flex-basis:100%;margin:12px 0 0!important}
-.chf-form .wpcf7-spinner{display:none}
 .chf-bot{border-top:1px solid rgba(239,232,222,.1)}
 .chf-bot .chf-w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,232,222,.5)}
 @media (max-width:1024px){.chf-g{grid-template-columns:repeat(2,minmax(0,1fr))}.chf-g>div:nth-child(3){border-left:0;padding-left:0}.chf-g>div:nth-child(n+3){border-top:1px solid rgba(239,232,222,.1)}}
-@media (max-width:640px){.chf-g{grid-template-columns:1fr}.chf-g>div{border-left:0!important;padding:34px 0!important}.chf-g>div+div{border-top:1px solid rgba(239,232,222,.1)}.chf-top{padding:70px 0 46px}.chf-news{flex-direction:column;align-items:flex-start}.chf-form{padding:0 22px 40px}.chf-w{padding:0 22px}}
+@media (max-width:640px){.chf-g{grid-template-columns:1fr}.chf-g>div{border-left:0!important;padding:34px 0!important}.chf-g>div+div{border-top:1px solid rgba(239,232,222,.1)}.chf-top{padding:70px 0 46px}.chf-w{padding:0 22px}}
 """
 
 
@@ -121,38 +108,152 @@ def header_markup():
     menu = ''.join('<a href="%s">%s</a>' % (u, t) for t, u in NAV)
     tel = '<a class="chh-tel" href="tel:' + B.PHONE1 + '">' + B.PHONE1_T + '</a>'
     return ('<input type="checkbox" id="chh-t" aria-hidden="true" tabindex="-1">'
-            '<header class="chh" id="chh"><div class="chh-in">'
+            '<header class="chh etm" id="chh"><div class="chh-in">'
             '<a class="chh-logo" href="' + SITE + '/" aria-label="Epic Travel Morocco"><img src="' + B.LOGO + '" alt="Epic Travel Morocco"></a>'
             '<nav class="chh-menu" aria-label="Main menu">' + menu + '</nav>'
             '<div class="chh-cta">' + tel + '<a class="chh-btn" href="' + SITE + '/contact-2/">Plan my trip</a></div>'
             '<label class="chh-burger" for="chh-t" aria-label="Menu"><span></span><span></span></label></div></header>'
-            '<nav class="chh-dr" aria-label="Mobile menu">' + C.rosette() + menu
+            '<nav class="chh-dr etm" aria-label="Mobile menu">' + menu
             + '<a class="chh-btn" href="' + SITE + '/contact-2/">Plan my trip</a>' + tel + '</nav>')
 
 
-# hides the old theme header (top of the page, links to destination + contact/about), marks the current link,
-# closes the mobile menu after a click, and drops this header on pages that have their own (the home page)
-JS = """<script>(function(){var d=document,W=window;function ready(f){if(d.readyState!=='loading')f();else d.addEventListener('DOMContentLoaded',f)}
-ready(function(){var top=d.getElementById('chh');if(!top)return;var dr=d.querySelector('.chh-dr'),cb=d.getElementById('chh-t');
-if(d.getElementById('etm-top')){top.remove();dr.remove();return}
-d.body.appendChild(cb);d.body.appendChild(top);d.body.appendChild(dr);
-var path=location.pathname.replace(/[/]+$/,'')||'/';[].forEach.call(d.querySelectorAll('.chh-menu a,.chh-dr a'),function(a){var p=a.pathname.replace(/[/]+$/,'')||'/';if(p===path)a.classList.add('cur')});
+EXTRA_CSS = """
+/* chrome guards: tour contents ship global header/section rules */
+header.chh{margin:0!important;text-align:left!important}
+#etm-top,#etm-drawer{display:none!important}
+.chh.chh-tr{background:linear-gradient(180deg,rgba(13,26,31,.65),rgba(13,26,31,0));border-bottom-color:transparent;backdrop-filter:none}
+.chf-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:44px 0 46px}
+.chf-cta p{margin:0;font:italic 400 clamp(22px,2.2vw,28px)/1.3 var(--fh);color:#fff}
+.chf-cta a{padding:16px 30px;border:1px solid var(--gold2);color:#fff!important;font-size:11.5px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;transition:background .3s,color .3s}
+.chf-cta a:hover{background:var(--gold2);color:var(--ink)!important}
+/* tour programme pages (built from the itinerary in the tour content) */
+.tp-hero{position:relative;min-height:min(86vh,780px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0d1a1f}
+.tp-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.tp-hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,26,31,.1) 25%,rgba(13,26,31,.9))}
+.tp-hero-in{position:relative;z-index:1;width:100%;padding-top:150px;padding-bottom:84px}
+.tp-hero h1{font-size:clamp(46px,6.6vw,104px);color:#fff;max-width:980px}
+.tp-hero p{max-width:580px;margin:24px 0 38px;color:rgba(255,255,255,.84)}
+.tp-nav{position:sticky;top:78px;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.admin-bar .tp-nav{top:110px}
+.tp-nav .ch-w{display:flex;gap:36px;height:62px;align-items:center;overflow-x:auto}
+.tp-nav a{font-size:11.5px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap;transition:color .3s}
+.tp-nav a:hover{color:var(--gold)}
+.tp-nav a.tp-nb{margin-left:auto;padding:12px 22px;background:var(--ink);color:#fff!important}
+.tp-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,7vw,100px);align-items:center}
+.tp-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);margin-top:34px}
+.tp-facts div{padding:20px 20px 20px 0;border-bottom:1px solid var(--line)}
+.tp-facts small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.tp-facts b{font:400 24px/1.3 var(--fh)}
+.tp-split .ch-arch{height:clamp(420px,44vw,580px)}
+.tp-route{padding:76px 0}
+.tp-chips{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;font:400 clamp(22px,2.4vw,32px)/1.3 var(--fh)}
+.tp-chips .ch-star{color:var(--gold);width:12px;height:12px}
+.tp-itg{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(40px,6vw,90px);align-items:start}
+.tp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:34px;flex-wrap:wrap}
+.tp-head .ch-h2{margin:0}
+.tp-all{background:none;border:0;border-bottom:1px solid var(--gold);padding:0 0 6px;font:500 11.5px var(--fb);letter-spacing:.28em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.tp-day{border-top:1px solid var(--line)}
+.tp-day:last-child{border-bottom:1px solid var(--line)}
+.tp-day summary{list-style:none;display:grid;grid-template-columns:70px minmax(0,1fr) 24px;gap:22px;align-items:center;padding:22px 0;cursor:pointer}
+.tp-day summary::-webkit-details-marker{display:none}
+.tp-n{display:flex;flex-direction:column;align-items:center;justify-content:center;width:62px;height:76px;padding-top:10px;border:1px solid var(--gold);border-radius:999px 999px 0 0;color:var(--gold);font-size:9.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;transition:background .3s}
+.tp-n b{font:400 26px/1 var(--fh);letter-spacing:0;color:var(--ink);margin-top:2px}
+.tp-t{font:400 clamp(21px,2vw,27px)/1.3 var(--fh)}
+.tp-x{position:relative;width:22px;height:22px}
+.tp-x:before,.tp-x:after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:var(--ink);transition:transform .3s}
+.tp-x:after{transform:rotate(90deg)}
+.tp-day[open] .tp-x:after{transform:rotate(0)}
+.tp-day[open] .tp-n{background:var(--ink);border-color:var(--ink)}
+.tp-day[open] .tp-n b{color:#fff}
+.tp-b{padding:0 30px 30px 92px;color:var(--mut)}
+.tp-b p{margin:0}
+.tp-card{position:sticky;top:170px;background:var(--paper);border-radius:999px 999px 0 0;padding:80px 32px 34px;text-align:center}
+.tp-card .ch-star{width:20px;height:20px;color:var(--gold);margin:0 auto 14px;display:block}
+.tp-card h3{font-size:30px;margin-bottom:10px}
+.tp-card p{color:var(--mut);font-size:15px}
+.tp-card ul{list-style:none;margin:20px 0 22px;padding:0;text-align:left;font-size:15px}
+.tp-card li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.tp-card li:before{display:none}
+.tp-card li span{color:var(--mut)}
+.tp-card .ch-btn{width:100%;justify-content:center;margin-top:10px;padding:18px 20px}
+.tp-card .tp-wa{background:transparent;color:var(--ink)!important}
+.tp-card .tp-wa:hover{background:var(--ink);color:#fff!important}
+@media (max-width:960px){.tp-itg,.tp-split{grid-template-columns:1fr}.tp-card{position:static}.tp-nav{top:68px}.tp-nav a.tp-nb{display:none}}
+@media (max-width:600px){.tp-b{padding:0 0 26px}.tp-day summary{grid-template-columns:54px minmax(0,1fr) 20px;gap:14px}.tp-n{width:50px;height:62px}.tp-n b{font-size:21px}.tp-facts{grid-template-columns:1fr}.tp-hero-in{padding-top:120px;padding-bottom:56px}}
+"""
+
+# One script for every page (no double quotes or backslashes: it also lives in Elementor data).
+# 1. keeps one copy of this chrome, moves header / mobile menu / footer to <body>;
+# 2. hides the theme header and footer (and the home page's own header);
+# 3. on tour pages, rebuilds the programme (hero, overview, route, day-by-day itinerary, enquiry) from the tour content;
+# 4. marks the current menu link, closes the mobile menu after a click, prefills the contact form subject.
+JS = """<script>(function(){if(window.chw)return;window.chw=1;var d=document,W=window,q=String.fromCharCode(34);
+function ready(f){if(d.readyState!=='loading')f();else d.addEventListener('DOMContentLoaded',f)}
+function hideEl(el){el.style.setProperty('display','none','important')}
+function outer(l){return l.filter(function(el){return !l.some(function(o){return o!==el&&o.contains(el)})})}
+function mine(el){return el.closest('.chw,.chh,.chh-dr,.chf,.ch,.etm')}
+function at(k,v){return ' '+k+'='+q+v+q}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function tc(s){var small=['of','to','and','the','from','in','a','de','el'];return s.toLowerCase().trim().split(' ').filter(Boolean).map(function(w,i){return i&&small.indexOf(w)>-1?w:w.charAt(0).toUpperCase()+w.slice(1)}).join(' ')}
+var SITE='SITEURL',WA='WAURL',TEL='TELNUM',TELT='TELTEXT';
+function tour(w){var it=d.querySelector('.itinerary');if(!it||!it.querySelector('.day-title'))return;
+var root=it.closest('section')||it.parentNode,img=root.querySelector('img'),h=root.querySelector('h2,h1'),p=root.querySelector('header p');
+var days=[].slice.call(it.querySelectorAll('.day-title')).map(function(t){var c=t.nextElementSibling,s=t.textContent.trim(),i=s.indexOf(':'),n='';
+for(var k=0;k<(i>0?i:s.length);k++){var ch=s.charAt(k);if(ch>='0'&&ch<='9')n+=ch}
+var pl=(i>-1?s.slice(i+1):s).split('|').map(tc).filter(Boolean);return {n:n,pl:pl,c:c?c.textContent.trim():''}});
+var name=d.title;[' – ',' — ',' - ',' | ',' » '].forEach(function(sp){name=name.split(sp)[0]});name=tc(name||(h?h.textContent:''));
+var sub=h?h.textContent.trim():'',intro=p?p.textContent.trim():'',nd=days.length;
+var top=root;while(top.parentNode&&top.parentNode!==d.body){var par=top.parentNode,ext=[].some.call(par.querySelectorAll('header,footer,.chf,.chw'),function(x){return !root.contains(x)});if(ext)break;top=par}
+var STAR=w.querySelector('.chf-orn svg').outerHTML,ROS=w.querySelector('.chf .ch-ros').outerHTML;
+var route=[];days.forEach(function(x){x.pl.forEach(function(s){var l=s.toLowerCase();if(/day|explor|depart|arriv|transfer|return|free|airport|pick|visit|tour/.test(l))return;if(route.indexOf(s)<0)route.push(s)})});
+var first=route[0]||'',last=route.length>1?route[route.length-1]:'';days.forEach(function(x){var v=parseInt(x.n,10);if(v>nd)nd=v});
+var enq=SITE+'/contact-2/?tour='+encodeURIComponent(name),wa=WA+'?text='+encodeURIComponent('Hello, I am interested in the '+name+' tour.');
+var src=img?img.getAttribute('src'):'';
+var o='<div'+at('class','tp-hero')+'>'+(src?'<img'+at('src',src)+at('alt',esc(name))+'>':'')+'<div'+at('class','ch-w tp-hero-in')+'><span'+at('class','ch-k ch-k-l')+'>'+STAR+'Private tour · '+nd+' days</span><h1>'+esc(name)+'</h1>'+(intro?'<p>'+esc(intro)+'</p>':'')
++'<div'+at('class','ch-hero-act')+'><a'+at('class','ch-btn ch-btn-g')+at('href','#tp-book')+'>Enquire now</a><a'+at('href','#tp-it')+'>See the itinerary</a></div></div></div>'
++'<nav'+at('class','tp-nav')+'><div'+at('class','ch-w')+'><a'+at('href','#tp-ov')+'>Overview</a><a'+at('href','#tp-route')+'>Route</a><a'+at('href','#tp-it')+'>Itinerary</a><a'+at('href','#tp-book')+'>Enquire</a><a'+at('class','tp-nb')+at('href',enq)+'>Book this tour</a></div></nav>'
++'<div'+at('class','ch-s')+at('id','tp-ov')+'><div'+at('class','ch-w tp-split')+'><div><span'+at('class','ch-k')+'>'+STAR+'Overview</span><h2'+at('class','ch-h2')+'>At a <em>glance</em></h2>'
++'<p'+at('class','ch-lead')+'>'+esc(intro||sub)+'</p><div'+at('class','tp-facts')+'><div><small>Duration</small><b>'+nd+' days</b></div><div><small>Style</small><b>Private tour</b></div>'
++(first?'<div><small>Starts</small><b>'+esc(first)+'</b></div>':'')+(last?'<div><small>Ends</small><b>'+esc(last)+'</b></div>':'')+'</div></div>'
++(src?'<div'+at('class','ch-archf')+'><div'+at('class','ch-arch')+'><img'+at('src',src)+at('alt',esc(name))+at('loading','lazy')+'></div></div>':'')+'</div></div>'
++(route.length>1?'<div'+at('class','tp-route ch-paper')+at('id','tp-route')+'><div'+at('class','ch-w')+'><span'+at('class','ch-k')+'>'+STAR+'The route</span><div'+at('class','tp-chips')+'>'+route.map(esc).join(STAR)+'</div></div></div>':'')
++'<div'+at('class','ch-s')+at('id','tp-it')+'><div'+at('class','ch-w tp-itg')+'><div><div'+at('class','tp-head')+'><div><span'+at('class','ch-k')+'>'+STAR+'Itinerary</span><h2'+at('class','ch-h2')+'>Day by <em>day</em></h2></div><button'+at('class','tp-all')+at('type','button')+'>Open all days</button></div>'
++days.map(function(x,i){var nn=x.n||String(i+1);return '<details'+at('class','tp-day')+(i?'':' open')+'><summary><span'+at('class','tp-n')+'>Day<b>'+(nn.length<2?'0'+nn:nn)+'</b></span><span'+at('class','tp-t')+'>'+esc(x.pl.join(' · '))+'</span><span'+at('class','tp-x')+'></span></summary><div'+at('class','tp-b')+'><p>'+esc(x.c)+'</p></div></details>'}).join('')
++'</div><aside'+at('class','tp-card')+'>'+STAR+'<h3>'+esc(name)+'</h3><p>A private journey with your own driver, adapted to your dates and pace.</p><ul><li><span>Duration</span>'+nd+' days</li>'+(first?'<li><span>From</span>'+esc(first)+'</li>':'')+(last?'<li><span>To</span>'+esc(last)+'</li>':'')+'</ul>'
++'<a'+at('class','ch-btn')+at('href',enq)+'>Request a quote</a><a'+at('class','ch-btn tp-wa')+at('href',wa)+'>WhatsApp</a><p style'+'='+q+'margin:16px 0 0'+q+'><a'+at('href','tel:'+TEL)+'>'+TELT+'</a></p></aside></div></div>'
++'<div'+at('class','ch-cta')+at('id','tp-book')+'>'+ROS+'<div'+at('class','ch-w')+'><div'+at('class','ch-orn')+'><span></span>'+STAR+'<span></span></div><h2>Make this journey <em>yours</em></h2><p>Every tour is private and can be adapted to your dates, your pace and the places you dream of.</p>'
++'<div'+at('class','ch-cta-act')+'><a'+at('class','ch-btn ch-btn-g')+at('href',enq)+'>Send an enquiry</a><a'+at('class','ch-btn ch-btn-g')+at('href',wa)+'>WhatsApp</a></div></div></div>';
+var box=d.createElement('div');box.className='ch tp';box.innerHTML=o;top.parentNode.insertBefore(box,top);
+[].forEach.call(top.querySelectorAll('style,script'),function(s){if(s.tagName==='STYLE')s.remove()});hideEl(top);
+var sib=box.previousElementSibling;while(sib){if(/breadcrumb|banner|page-title|page-header/.test(sib.className||''))hideEl(sib);sib=sib.previousElementSibling}
+var all=box.querySelector('.tp-all');all.addEventListener('click',function(){var ds=box.querySelectorAll('.tp-day'),open=[].every.call(ds,function(x){return x.open});[].forEach.call(ds,function(x){x.open=!open});all.textContent=open?'Open all days':'Close all days'});
+d.body.classList.add('tp-page')}
+ready(function(){var ws=[].slice.call(d.querySelectorAll('.chw'));if(!ws.length)return;var w=ws[0];ws.slice(1).forEach(function(x){x.remove()});
+var cb=w.querySelector('#chh-t'),top=w.querySelector('.chh'),dr=w.querySelector('.chh-dr'),ft=w.querySelector('.chf'),home=d.getElementById('etm-top');
+d.body.insertBefore(cb,d.body.firstChild);d.body.appendChild(top);d.body.appendChild(dr);dr.insertBefore(ft.querySelector('.ch-ros').cloneNode(true),dr.firstChild);
+try{tour(w)}catch(e){}
+d.body.appendChild(ft);
+var path=location.pathname.replace(/[/]+$/,'')||'/';[].forEach.call(d.querySelectorAll('.chh-menu a,.chh-dr a'),function(a){var pp=a.pathname.replace(/[/]+$/,'')||'/';if(pp===path||(pp==='/destination'&&path.indexOf('/all-tour')===0))a.classList.add('cur')});
 dr.addEventListener('click',function(e){if(e.target.closest('a'))cb.checked=false});
-var hide=function(){var cand=[].slice.call(d.querySelectorAll('header,nav,div,section')).filter(function(el){
-if(el===top||top.contains(el)||el===dr||dr.contains(el)||el.closest('.chf,.ch,.etm')||el.querySelector('.chf,.ch,.chh,footer')||el.closest('footer')||el.closest('.elementor-location-footer'))return false;
-var rc=el.getBoundingClientRect();if(rc.top+W.pageYOffset>330)return false;
-return el.querySelector('a[href*=destination]')&&el.querySelector('a[href*=contact],a[href*=about]')});
-cand.filter(function(el){return !cand.some(function(o){return o!==el&&o.contains(el)})}).forEach(function(el){el.style.setProperty('display','none','important')})};
+if(home){var tr=function(){top.classList.toggle('chh-tr',W.pageYOffset<40)};tr();W.addEventListener('scroll',tr,{passive:true})}
+var m=location.search.match(/tour=([^&]+)/);if(m){var t=decodeURIComponent(m[1].replace(/[+]/g,' ')),f=d.querySelector('.etc-form input[name*=subject],.etc-form input[name*=sujet]');if(f&&!f.value)f.value='Enquiry: '+t;var ta=d.querySelector('.etc-form textarea');if(ta&&!ta.value)ta.value='Hello, I am interested in the '+t+' tour. ';}
+var hide=function(){
+var hs=[].slice.call(d.querySelectorAll('header,nav,div,section')).filter(function(el){if(mine(el)||el.querySelector('.chw,.ch,.etm,.chf,footer'))return false;var r=el.getBoundingClientRect();if(r.top+W.pageYOffset>330||r.height===0)return false;
+return el.tagName==='HEADER'||(el.querySelector('a[href*=destination]')&&el.querySelector('a[href*=contact],a[href*=about]'))});outer(hs).forEach(hideEl);
+var fs=[].slice.call(d.querySelectorAll('footer,[class*=footer]')).filter(function(el){if(el===d.body||el===d.documentElement||mine(el))return false;return !el.querySelector('.ch,.etm,.tp')});outer(fs).forEach(hideEl)};
 hide();W.addEventListener('load',hide)});})();</script>""".replace('\n', '')
+JS = (JS.replace('SITEURL', SITE).replace('WAURL', 'https://wa.me/' + B.PHONE1.lstrip('+'))
+      .replace('TELNUM', B.PHONE1).replace('TELTEXT', B.PHONE1_T))
 
 
-def footer_html():
+def chrome_html():
+    """Header + mobile menu + footer + script: the same block goes on every page."""
     nav = ''.join('<li><a href="%s">%s</a></li>' % (u, t) for t, u in NAV)
     tours = ''.join('<li><a href="%s/all-tour/%s/">%s</a></li>' % (SITE, s, t) for t, s in TOURS)
-    return (C.FONTS + '<style>' + ' '.join(CSS.split()) + '</style>' + header_markup()
+    return ('<div class="chw">' + C.FONTS + '<style>' + ' '.join((C.CSS + CSS + EXTRA_CSS).split()) + '</style>' + header_markup()
             + '<footer class="chf" role="contentinfo">' + C.rosette() + '<div class="chf-w">'
             '<div class="chf-top"><a href="' + SITE + '/"><img src="' + B.LOGO + '" alt="Epic Travel Morocco"></a>'
-            '<div class="chf-orn"><span></span>' + C.star('') + '<span></span></div>'
+            '<div class="chf-orn"><span></span>' + C.star() + '<span></span></div>'
             '<p class="chf-tag">Private journeys across Morocco, from the medinas of Marrakech to the silence of the Sahara.</p></div>'
             '<div class="chf-g">'
             '<div><h4>Explore</h4><ul>' + nav + '</ul></div>'
@@ -165,37 +266,27 @@ def footer_html():
             '<div class="chf-soc"><a href="' + FB + '" target="_blank" rel="noopener" aria-label="Facebook">' + soc('fb') + '</a>'
             '<a href="' + IG + '" target="_blank" rel="noopener" aria-label="Instagram">' + soc('ig') + '</a>'
             '<a href="' + TA + '" target="_blank" rel="noopener" aria-label="Tripadvisor">' + soc('ta') + '</a></div></div>'
-            '</div><div class="chf-news"><div><h4>Newsletter</h4><p>New journeys and travel notes, once in a while.</p></div></div>'
-            '</div></footer>' + JS)
+            '</div><div class="chf-cta"><p>Ready when you are. Let’s plan your Moroccan journey.</p><a href="' + SITE + '/contact-2/">Plan my trip</a></div></div>'
+            '<div class="chf-bot"><div class="chf-w"><span>© 2026 Epic Travel Morocco. All rights reserved.</span><span>Private tours from Marrakech</span></div></div>'
+            '</footer>' + JS + '</div>')
 
 
-def copyright_html():
-    return ('<div class="chf"><div class="chf-bot"><div class="chf-w"><span>© 2026 Epic Travel Morocco. All rights reserved.</span>'
-            '<span>Private tours from Marrakech</span></div></div></div>')
-
-
-def doc(widgets, key):
-    els = []
-    for k, (t, c, extra) in enumerate(widgets):
-        els.append(C.widget(t, c, '%s%d' % (key, k), extra))
-    return [{'id': C.eid(key), 'elType': 'container',
-             'settings': {'content_width': 'full', 'flex_direction': 'column', 'flex_gap': C.GAP0, 'padding': C.PAD0},
-             'elements': els, 'isInner': False}]
-
-
-NEWS_FAKE = ('<div class="elementor-element chf-form"><div class="elementor-widget-container"><form><p><input type="email" placeholder="Your email"></p>'
-             '<p><input type="submit" value="Subscribe"></p></form></div></div>')
+def chrome_widget(key='chrome'):
+    """The chrome as an Elementor html widget (added at the end of every Elementor page)."""
+    return C.widget('html', C.noq(chrome_html()), key)
 
 
 def preview_footer():
-    return footer_html() + NEWS_FAKE + copyright_html()
+    return chrome_html()
 
 
 if __name__ == '__main__':
-    main = doc([('html', C.noq(footer_html()), {}), ('shortcode', NEWS, {'_css_classes': 'chf-form'})], 'etf-main')
-    copy = doc([('html', C.noq(copyright_html()), {})], 'etf-copy')
-    for name, d in (('footer-3433.json', main), ('copyright-3436.json', copy)):
-        s = json.dumps(d, ensure_ascii=False, separators=(',', ':'))
-        assert '\\' not in s, name
-        open(os.path.join(HERE, name), 'w').write(s)
-        print(name, len(s))
+    html = C.noq(chrome_html())
+    open(os.path.join(HERE, 'chrome-widget.html'), 'w').write(html)
+    main = [{'id': C.eid('etf-main'), 'elType': 'container', 'isInner': False,
+             'settings': {'content_width': 'full', 'flex_direction': 'column', 'flex_gap': C.GAP0, 'padding': C.PAD0},
+             'elements': [C.widget('html', html, 'etf-main0')]}]
+    s = json.dumps(main, ensure_ascii=False, separators=(',', ':'))
+    assert '\\' not in s
+    open(os.path.join(HERE, 'footer-3433.json'), 'w').write(s)
+    print('chrome', len(html), 'footer-3433.json', len(s))
