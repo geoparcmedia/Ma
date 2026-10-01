@@ -231,9 +231,9 @@ var all=box.querySelector('.tp-all');all.addEventListener('click',function(){var
 d.body.classList.add('tp-page')}
 ready(function(){var ws=[].slice.call(d.querySelectorAll('.chw'));if(!ws.length)return;var w=ws[0];ws.slice(1).forEach(function(x){x.remove()});
 var cb=w.querySelector('#chh-t'),top=w.querySelector('.chh'),dr=w.querySelector('.chh-dr'),ft=w.querySelector('.chf'),home=d.getElementById('etm-top');
-d.body.insertBefore(cb,d.body.firstChild);d.body.appendChild(top);d.body.appendChild(dr);dr.insertBefore(ft.querySelector('.ch-ros').cloneNode(true),dr.firstChild);
+d.body.insertBefore(cb,d.body.firstChild);d.body.appendChild(top);d.body.appendChild(dr);if(ft){dr.insertBefore(ft.querySelector('.ch-ros').cloneNode(true),dr.firstChild);
 try{tour(w)}catch(e){}
-var anchor=d.querySelector('.tp')?d.querySelector('.tp').nextElementSibling:(d.querySelector('[data-elementor-type=wp-page]')||w);place(ft,anchor||w);
+var anchor=d.querySelector('.tp')?d.querySelector('.tp').nextElementSibling:(d.querySelector('[data-elementor-type=wp-page]')||w);place(ft,anchor||w)}
 var path=location.pathname.replace(/[/]+$/,'')||'/';[].forEach.call(d.querySelectorAll('.chh-menu a,.chh-dr a'),function(a){var pp=a.pathname.replace(/[/]+$/,'')||'/';if(pp===path||(pp==='/destination'&&path.indexOf('/all-tour')===0))a.classList.add('cur')});
 dr.addEventListener('click',function(e){if(e.target.closest('a'))cb.checked=false});
 if(home){var tr=function(){top.classList.toggle('chh-tr',W.pageYOffset<40)};tr();W.addEventListener('scroll',tr,{passive:true})}
@@ -247,12 +247,15 @@ JS = (JS.replace('SITEURL', SITE).replace('WAURL', 'https://wa.me/' + B.PHONE1.l
       .replace('TELNUM', B.PHONE1).replace('TELTEXT', B.PHONE1_T))
 
 
+WITH_FOOTER = False  # owner asked to drop the new footer and keep the theme footer
+
+
 def chrome_html():
     """Header + mobile menu + footer + script: the same block goes on every page."""
     nav = ''.join('<li><a href="%s">%s</a></li>' % (u, t) for t, u in NAV)
     tours = ''.join('<li><a href="%s/all-tour/%s/">%s</a></li>' % (SITE, s, t) for t, s in TOURS)
     return ('<div class="chw">' + C.FONTS + '<style>' + ' '.join((C.CSS + CSS + EXTRA_CSS).split()) + '</style>' + header_markup()
-            + '<footer class="chf" role="contentinfo">' + C.rosette() + '<div class="chf-w">'
+            + ('' if not WITH_FOOTER else '<footer class="chf" role="contentinfo">' + C.rosette() + '<div class="chf-w">'
             '<div class="chf-top"><a href="' + SITE + '/"><img src="' + B.LOGO + '" alt="Epic Travel Morocco"></a>'
             '<div class="chf-orn"><span></span>' + C.star() + '<span></span></div>'
             '<p class="chf-tag">Private journeys across Morocco, from the medinas of Marrakech to the silence of the Sahara.</p></div>'
@@ -269,7 +272,7 @@ def chrome_html():
             '<a href="' + TA + '" target="_blank" rel="noopener" aria-label="Tripadvisor">' + soc('ta') + '</a></div></div>'
             '</div><div class="chf-cta"><p>Ready when you are. Let’s plan your Moroccan journey.</p><a href="' + SITE + '/contact-2/">Plan my trip</a></div></div>'
             '<div class="chf-bot"><div class="chf-w"><span>© 2026 Epic Travel Morocco. All rights reserved.</span><span>Private tours from Marrakech</span></div></div>'
-            '</footer>' + JS + '</div>')
+            '</footer>') + JS + '</div>')
 
 
 def chrome_widget(key='chrome'):
