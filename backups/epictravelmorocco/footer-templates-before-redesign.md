@@ -13,3 +13,11 @@ social icons (facebook.com/epictravelmorocco, instagram.com/epictravelmorocco, T
 "Quick links": Home (/), Destination (/destination/), Contact us (/contact/), Abou us (/about/).
 Fonts Philosopher / Poppins, colours #113A74 on #FFF9F0 style, border #DEE2E6.
 The full original JSON is also kept by WordPress in the template's revisions if the editor saved it; otherwise rebuild from this summary.
+
+## Page 1360 "Contact us" (/contact-2/) – before redesign (summary)
+Template elementor_header_footer. Sections: banner (bg pexels-zakariahanif-12214734-scaled.jpg, "Let’s Start Planning",
+"Don’t hesitate to reach out — whether it’s a fully-crafted itinerary or just a question about one of our tours, we’re ready to help.
+Your Moroccan adventure starts here."); 3 icon boxes (address "Marrakech , Gueliz 22000, MOROCCO"; phones "+(1) 579 484 7707 / +(212) 661 292 596";
+email epictravelmorocco@gmail.com); "Get in touch" + "We’d love to hear from you! Whether you’re ready to embark on a tailored Moroccan adventure,
+have questions about one of our tours, or just want to explore options — we’re here."; Google map "marrakech" (350px);
+form [contact-form-7 id="f402750" title="Main Contact"]; widget travelor-tour-slider-two-widget (Explore More, 4 tours).
