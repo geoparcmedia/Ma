@@ -26,7 +26,9 @@ $s22_map       = trim( (string) studio22_opt( 'map' ) );
 				<?php if ( $s22_email ) : ?>
 					<li><?php echo studio22_icon( 'mail' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><a href="mailto:<?php echo esc_attr( antispambot( $s22_email ) ); ?>"><?php echo esc_html( antispambot( $s22_email ) ); ?></a></li>
 				<?php endif; ?>
-				<li><?php echo studio22_icon( 'clock' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><span><?php studio22_e( 'hours' ); ?></span></li>
+				<?php if ( studio22_text( 'hours' ) ) : ?>
+					<li><?php echo studio22_icon( 'clock' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><span><?php studio22_e( 'hours' ); ?></span></li>
+				<?php endif; ?>
 			</ul>
 			<?php if ( $s22_map ) : ?>
 				<div class="contact__map reveal">

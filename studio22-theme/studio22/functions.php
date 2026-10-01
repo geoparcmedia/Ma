@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STUDIO22_VERSION', '1.1.0' );
+define( 'STUDIO22_VERSION', '1.2.0' );
 define( 'STUDIO22_CLIENTS', 10 );
 
 require get_template_directory() . '/inc/helpers.php';

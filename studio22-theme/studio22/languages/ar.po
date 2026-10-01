@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Studio22 1.1.0\n"
+"Project-Id-Version: Studio22\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -302,6 +302,9 @@ msgstr "تُضاف المشاريع من قائمة \"المشاريع\" في ل
 msgid "Projects shown on the home page"
 msgstr "عدد المشاريع في الصفحة الرئيسية"
 
+msgid "Qatar"
+msgstr "قطر"
+
 msgid "Quote"
 msgstr "اقتباس"
 
@@ -472,6 +475,9 @@ msgstr "الأيقونة"
 
 msgid "label"
 msgstr "الوصف"
+
+msgid "leave empty to hide"
+msgstr "اتركه فارغًا لإخفائه"
 
 msgid "logo"
 msgstr "الشعار"

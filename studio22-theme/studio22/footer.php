@@ -43,7 +43,9 @@ $s22_wa    = studio22_whatsapp_url( studio22_text( 'wa_message' ) );
 				<?php if ( $s22_email ) : ?>
 					<li><?php echo studio22_icon( 'mail' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><a href="mailto:<?php echo esc_attr( antispambot( $s22_email ) ); ?>"><?php echo esc_html( antispambot( $s22_email ) ); ?></a></li>
 				<?php endif; ?>
-				<li><?php echo studio22_icon( 'clock' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><span><?php studio22_e( 'hours' ); ?></span></li>
+				<?php if ( studio22_text( 'hours' ) ) : ?>
+					<li><?php echo studio22_icon( 'clock' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><span><?php studio22_e( 'hours' ); ?></span></li>
+				<?php endif; ?>
 			</ul>
 		</div>
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Studio22 1.1.0\n"
+"Project-Id-Version: Studio22\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Domain: studio22\n"
 
@@ -298,6 +298,9 @@ msgstr ""
 msgid "Projects shown on the home page"
 msgstr ""
 
+msgid "Qatar"
+msgstr ""
+
 msgid "Quote"
 msgstr ""
 
@@ -467,6 +470,9 @@ msgid "icon"
 msgstr ""
 
 msgid "label"
+msgstr ""
+
+msgid "leave empty to hide"
 msgstr ""
 
 msgid "logo"

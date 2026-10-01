@@ -49,8 +49,8 @@ function studio22_text_defaults() {
 			'ar' => 'شاهد أعمالنا',
 		),
 		'marquee'        => array(
-			'en' => 'Photography, Films, Commercials, Equestrian, Portraits, Events, Products, Drone, Post-production',
-			'ar' => 'تصوير فوتوغرافي، أفلام، إعلانات، الخيل، بورتريه، فعاليات، منتجات، درون، مونتاج',
+			'en' => 'Photography, Film, Equestrian, Portraits, Events, Culture, Heritage, Post-production',
+			'ar' => 'تصوير فوتوغرافي، أفلام، الخيل، بورتريه، فعاليات، ثقافة، تراث، مونتاج',
 		),
 
 		// Services.
@@ -67,16 +67,16 @@ function studio22_text_defaults() {
 			'ar' => 'التصوير الفوتوغرافي',
 		),
 		'service1_text'  => array(
-			'en' => 'Portraits, fashion, editorial and corporate photography, on location or in our studio.',
-			'ar' => 'بورتريه، أزياء، تصوير تحريري وتصوير للشركات، في الموقع أو داخل الاستوديو.',
+			'en' => 'Professional photography of people, events and memorable moments.',
+			'ar' => 'تصوير احترافي للأشخاص والفعاليات واللحظات التي لا تُنسى.',
 		),
 		'service2_title' => array(
 			'en' => 'Video & films',
 			'ar' => 'الفيديو والأفلام',
 		),
 		'service2_text'  => array(
-			'en' => 'Commercials, brand films, documentaries and social content shot in 4K and beyond.',
-			'ar' => 'إعلانات، أفلام للعلامات التجارية، وثائقيات ومحتوى للتواصل الاجتماعي بدقة 4K وأعلى.',
+			'en' => 'Video production and short films that tell your story.',
+			'ar' => 'إنتاج الفيديو والأفلام القصيرة التي تروي قصتك.',
 		),
 		'service3_title' => array(
 			'en' => 'Equestrian & heritage',
@@ -87,28 +87,28 @@ function studio22_text_defaults() {
 			'ar' => 'الخيل العربية والبطولات وقصص التراث، نصوّرها بصبر واحترام.',
 		),
 		'service4_title' => array(
-			'en' => 'Studio rental',
-			'ar' => 'تأجير الاستوديو',
+			'en' => 'Events & culture',
+			'ar' => 'الفعاليات والثقافة',
 		),
 		'service4_text'  => array(
-			'en' => 'A fully equipped studio with lighting, backdrops and a team ready for your production.',
-			'ar' => 'استوديو مجهّز بالكامل بالإضاءة والخلفيات وفريق جاهز لإنتاجك.',
+			'en' => 'Coverage of events, shows and cultural moments across Qatar, in photo and video.',
+			'ar' => 'تغطية الفعاليات والعروض واللحظات الثقافية في قطر، بالصور والفيديو.',
 		),
 		'service5_title' => array(
-			'en' => 'Products & commercial',
-			'ar' => 'المنتجات والإعلانات',
+			'en' => 'Portraits',
+			'ar' => 'البورتريه',
 		),
 		'service5_text'  => array(
-			'en' => 'Product, food and e-commerce imagery that sells, with consistent lighting and colour.',
-			'ar' => 'صور منتجات وأطعمة ومتاجر إلكترونية تبيع، بإضاءة وألوان متناسقة.',
+			'en' => 'Portraits of people with character, on location or at events.',
+			'ar' => 'بورتريهات لأشخاص بطابع مميز، في الموقع أو خلال الفعاليات.',
 		),
 		'service6_title' => array(
 			'en' => 'Post-production',
 			'ar' => 'ما بعد الإنتاج',
 		),
 		'service6_text'  => array(
-			'en' => 'Editing, colour grading, retouching, motion graphics and sound design.',
-			'ar' => 'مونتاج، تصحيح ألوان، تنقيح الصور، موشن جرافيك وتصميم صوتي.',
+			'en' => 'Editing, colour grading and retouching for a consistent final look.',
+			'ar' => 'مونتاج وتصحيح ألوان وتنقيح الصور لنتيجة نهائية متناسقة.',
 		),
 
 		// Work.
@@ -135,8 +135,8 @@ function studio22_text_defaults() {
 			'ar' => 'بيت إبداعي لصور تدوم.',
 		),
 		'studio_text'    => array(
-			'en' => 'Studio22 is a photo and video production house based in Doha. We work with brands, families, institutions and horse owners across Qatar and the Gulf, bringing a cinematic eye and a calm, professional crew to every shoot.',
-			'ar' => 'ستوديو 22 دار إنتاج للصور والفيديو مقرّها الدوحة. نعمل مع العلامات التجارية والعائلات والمؤسسات وملّاك الخيل في قطر والخليج، ونجلب إلى كل جلسة تصوير رؤية سينمائية وفريقًا محترفًا وهادئًا.',
+			'en' => 'Studio22 is the creative studio of Qatari photographer and visual artist Abdulaziz Al Ajmi. We capture people, events, culture and Arabian horses through photography and video, with an authentic and distinctive visual style.',
+			'ar' => 'ستوديو 22 هو الاستوديو الإبداعي للمصوّر والفنان البصري القطري عبدالعزيز العجمي. نوثّق الناس والفعاليات والثقافة والخيل العربية من خلال التصوير الفوتوغرافي والفيديو، بأسلوب بصري أصيل ومميز.',
 		),
 		'studio_more'    => array(
 			'en' => 'About us',
@@ -245,8 +245,8 @@ function studio22_text_defaults() {
 			'ar' => 'التصوير',
 		),
 		'step3_text'     => array(
-			'en' => 'Our crew captures every moment with cinema cameras, lighting and drones.',
-			'ar' => 'يلتقط فريقنا كل لحظة بكاميرات سينمائية وإضاءة احترافية وطائرات درون.',
+			'en' => 'We capture every moment with care, on location or at the event.',
+			'ar' => 'نلتقط كل لحظة بعناية، في الموقع أو خلال الفعالية.',
 		),
 		'step4_title'    => array(
 			'en' => 'Delivery',
@@ -263,8 +263,8 @@ function studio22_text_defaults() {
 			'ar' => 'لديك قصة تريد روايتها؟',
 		),
 		'cta_text'       => array(
-			'en' => 'Tell us about your project and we will reply within the day.',
-			'ar' => 'حدّثنا عن مشروعك وسنرد عليك في نفس اليوم.',
+			'en' => 'Tell us about your project and let’s create it together.',
+			'ar' => 'حدّثنا عن مشروعك ولنصنعه معًا.',
 		),
 		'cta_btn'        => array(
 			'en' => 'Chat on WhatsApp',
@@ -285,8 +285,8 @@ function studio22_text_defaults() {
 			'ar' => 'الدوحة، قطر',
 		),
 		'hours'          => array(
-			'en' => 'Saturday – Thursday, 9:00 – 21:00',
-			'ar' => 'السبت – الخميس، 9:00 – 21:00',
+			'en' => '',
+			'ar' => '',
 		),
 		'wa_message'     => array(
 			'en' => 'Hello Studio22, I would like to book a shoot.',
@@ -318,16 +318,16 @@ function studio22_option_defaults() {
 		'service1_icon'    => 'camera',
 		'service2_icon'    => 'video',
 		'service3_icon'    => 'horse',
-		'service4_icon'    => 'studio',
-		'service5_icon'    => 'product',
+		'service4_icon'    => 'event',
+		'service5_icon'    => 'camera',
 		'service6_icon'    => 'edit',
 		'work_count'       => 6,
 		'studio_image'     => '',
 		'founder_photo'    => '',
-		'stat1_number'     => '10',
-		'stat2_number'     => '850',
-		'stat3_number'     => '300',
-		'stat4_number'     => '5000',
+		'stat1_number'     => '',
+		'stat2_number'     => '',
+		'stat3_number'     => '',
+		'stat4_number'     => '',
 		'client1_url'      => 'https://www.katara.net',
 		'client2_url'      => 'https://www.alshaqab.com',
 		'client3_url'      => '',
@@ -635,7 +635,7 @@ function studio22_customize_register( $wp_customize ) {
 	for ( $i = 1; $i <= 4; $i++ ) {
 		/* translators: %d: number index. */
 		$n = sprintf( __( 'Number %d', 'studio22' ), $i );
-		$add_option( 'studio22_studio', "stat{$i}_number", $n );
+		$add_option( 'studio22_studio', "stat{$i}_number", $n . ' — ' . __( 'leave empty to hide', 'studio22' ) );
 		$add_text( 'studio22_studio', "stat{$i}_label", $n . ' — ' . __( 'label', 'studio22' ) );
 	}
 

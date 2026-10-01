@@ -74,11 +74,16 @@ while ( have_posts() ) :
 		</section>
 	<?php endif; ?>
 
-	<section class="section section--tight">
-		<div class="container">
-			<?php get_template_part( 'template-parts/stats' ); ?>
-		</div>
-	</section>
+	<?php
+	ob_start();
+	get_template_part( 'template-parts/stats' );
+	$s22_stats = ob_get_clean();
+	if ( $s22_stats ) :
+		?>
+		<section class="section section--tight">
+			<div class="container"><?php echo $s22_stats; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+		</section>
+	<?php endif; ?>
 	<?php
 endwhile;
 

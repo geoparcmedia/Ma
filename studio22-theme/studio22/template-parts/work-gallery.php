@@ -13,7 +13,7 @@ $s22_gallery = array(
 	),
 	array(
 		'file'  => 'work-doha.jpg',
-		'type'  => __( 'Drone', 'studio22' ),
+		'type'  => __( 'Qatar', 'studio22' ),
 		'title' => __( 'The Pearl at dusk', 'studio22' ),
 	),
 	array(

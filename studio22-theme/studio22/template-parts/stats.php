@@ -5,6 +5,15 @@
  * @package Studio22
  */
 
+$s22_has_stats = false;
+for ( $s22_i = 1; $s22_i <= 4; $s22_i++ ) {
+	if ( '' !== trim( (string) studio22_opt( "stat{$s22_i}_number" ) ) ) {
+		$s22_has_stats = true;
+	}
+}
+if ( ! $s22_has_stats ) {
+	return;
+}
 ?>
 <dl class="stats">
 	<?php
