@@ -52,3 +52,6 @@ Templates 3433/3436 turned out not to be rendered by the theme, so the header/fo
 is now a Custom HTML widget: option `widget_custom_html[2]`, placed in `sidebars_widgets` areas footer-widget, footer-widget-two
 and footer-widget-three (all three were empty before). To undo: set those three areas back to [] .
 Templates 3433 and 3436 were emptied (their previous content is in git: epic-home/footer-3433.json history).
+- Same block also put back into template 3433, and every page (3648, 1360, 1247, 1334, 69) and every tour (15 posts of type
+  `tour`) now has meta `hugebinary_header_templates_select` = {header:"", footer:"3433"} (was {header:"", footer:""}),
+  the theme's own per-page "footer template" setting. To undo, set footer back to "".
