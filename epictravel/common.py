@@ -80,9 +80,10 @@ JS = ("<script>window.etF=function(i){var o=i.getAttribute('data-o');if(o&&i.src
       "var b=h.querySelector('.et-burger'),o=function(v){h.classList.toggle('et-open',v);b.setAttribute('aria-expanded',v);d.body.style.overflow=v?'hidden':''};"
       "b.addEventListener('click',function(){o(true)});h.querySelector('.et-x').addEventListener('click',function(){o(false)});h.querySelector('.et-ov').addEventListener('click',function(){o(false)});"
       "addEventListener('keydown',function(e){if(e.key==='Escape')o(false)});"
-      "var r=d.querySelectorAll('.et-rv');if(!('IntersectionObserver' in window)){r.forEach(function(e){e.classList.add('in')});return}"
+      "var rv=function(){var r=d.querySelectorAll('.et-rv');if(!('IntersectionObserver' in window)){r.forEach(function(e){e.classList.add('in')});return}"
       "var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});"
-      "r.forEach(function(e){io.observe(e)});setTimeout(function(){r.forEach(function(e){e.classList.add('in')})},4000)})();</script>")
+      "r.forEach(function(e){io.observe(e)});setTimeout(function(){r.forEach(function(e){e.classList.add('in')})},4000)};"
+      "if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',rv);else rv()})();</script>")
 
 def footer():
     tours = ''.join("<li><a href='" + turl(BY_ID[i]) + "'>" + BY_ID[i]['name'] + "</a></li>" for i in (3353, 3339, 3359, 3351, 3331, 3346))

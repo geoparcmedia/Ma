@@ -9,14 +9,24 @@ def css_min():
     c = re.sub(r'\s*\n\s*', '', c)
     assert '"' not in c, c[c.find('"')-60:c.find('"')+60]
     return c
-HDR = clean('<style>' + css_min() + '</style>' + header() + JS)
-FTR = clean(SPRITE + '<style>.et-book-f .et-btn{line-height:1.3}</style>' + footer())
+HDR = clean(header() + JS)  # CSS lives in WP Additional CSS (custom_css post 3650)
+FTR = clean(footer())
 PAGES = {862: ('home', home()), 69: ('tours', tours_page()), 1247: ('about', about()), 1360: ('contact', contact()), 1334: ('fleet', fleet())}
 for t in TOURS:
     PAGES[t['id']] = ('tour-' + t['url'], tour_page(t))
 
 def full(widgets, hid, fid):
-    return [('shortcode', '[elementor-template id=%d]' % hid)] + widgets + [('shortcode', '[elementor-template id=%d]' % fid)]
+    # free Elementor has no [elementor-template] shortcode: inline header/footer
+    w = list(widgets)
+    if w[0][0] == 'html':
+        w[0] = ('html', HDR + w[0][1])
+    else:
+        w.insert(0, ('html', HDR))
+    if w[-1][0] == 'html':
+        w[-1] = ('html', w[-1][1] + FTR)
+    else:
+        w.append(('html', FTR))
+    return w
 
 def build(hid, fid):
     sizes = {}
@@ -38,17 +48,16 @@ def ph(m):
     return 'data:image/svg+xml,' + svg.replace('#', '%23').replace("'", '%27').replace('<', '%3C').replace('>', '%3E').replace(' ', '%20')
 def preview(name, widgets):
     html = ''.join(c if t == 'html' else "<div style='padding:40px;text-align:center;background:#fff;color:#999;font:14px sans-serif'>[" + c + "]</div>" for t, c in widgets)
-    html = HDR + html + FTR
     html = re.sub(r"https://epictravelmorocco\.com/wp-content/uploads/[^'\" ,)]+\.(?:jpe?g|png|webp)", ph, html)
     html = html.replace("srcset='data", "srcset='data")
     doc = ("<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
-           "<link href='https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap' rel='stylesheet'><style>body{margin:0}</style></head><body>" + html + "</body></html>")
+           "<link href='https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap' rel='stylesheet'><style>body{margin:0}" + open('out/custom.css').read() + "</style></head><body>" + html + "</body></html>")
     open('preview/' + name + '.html', 'w').write(doc)
 
 if __name__ == '__main__':
     hid, fid = (int(x) for x in (sys.argv[1:3] if len(sys.argv) > 2 else (0, 0)))
     s = build(hid, fid)
     for pid, (name, w) in PAGES.items():
-        preview(name, w)
+        preview(name, full(w, 0, 0))
     print('pages', len(s), 'total KB', sum(s.values()) // 1024, {k: v // 1024 for k, v in s.items()})
     print('header', len(HDR), 'footer', len(FTR), 'css', len(open('site.css').read()))
