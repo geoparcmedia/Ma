@@ -59,3 +59,10 @@ Templates 3433 and 3436 were emptied (their previous content is in git: epic-hom
   Now the block is inside the pages themselves: full block at the end of Contact (1360); a small loader
   (epic-home/deploy/tour-loader.html) at the end of About, Fleet, Tours pages and appended to the post_content of all 15 tours.
   To undo on a tour: remove the trailing <script>…fetch('/contact-2/')…</script> from its content.
+
+## 2026-10-01: pages switched to Elementor Canvas
+Theme (travelor) header/footer and its smooth-scroll wrapper kept breaking the new chrome.
+`_wp_page_template` changed from `elementor_header_footer` to `elementor_canvas` on:
+1360 (Contact), 1247 (About), 1334 (Fleet), 69 (Destination).
+Undo: set `_wp_page_template` back to `elementor_header_footer` on those IDs.
+Not changed yet (needs the owner's go-ahead): Home 3648, the 15 `tour` posts.
