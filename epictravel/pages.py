@@ -51,7 +51,7 @@ def tours_page():
     js = ("<script>(function(){var c=document.querySelectorAll('.et-chip'),k=document.querySelectorAll('.et-grid .et-card');"
           "function f(v){c.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-f')===v)});k.forEach(function(a){a.classList.toggle('et-hide',v!=='all'&&(' '+a.getAttribute('data-g')+' ').indexOf(' '+v+' ')<0);a.classList.add('in')})}"
           "c.forEach(function(b){b.addEventListener('click',function(){f(b.getAttribute('data-f'))})});"
-          "var m=location.hash.replace('#','');if(m)f(m)})();</script>")
+          "var m=location.hash.replace('#',''),ok=0;c.forEach(function(b){if(b.getAttribute('data-f')===m)ok=1});if(ok)f(m)})();</script>")
     body = (hero('hero2', 'Morocco tours', 'Find your Morocco journey',
                  'Fifteen private itineraries from 3 to 15 days — desert escapes from Marrakech, the imperial cities, the blue north and grand tours of the whole country.',
                  "<a class='et-btn' href='#et-list'>Browse the tours " + ICON['arrow'] + "</a><a class='et-btn et-btn-w' href='" + WA + "' target='_blank' rel='noopener'>" + ICON['wa'] + "Ask for a custom tour</a>",
@@ -156,11 +156,15 @@ def contact():
                 "<a class='et-btn et-btn-wa' href='" + WA + "' target='_blank' rel='noopener'>" + ICON['wa'] + "WhatsApp " + PHONE_MA + "</a><a class='et-btn et-btn-w' href='#et-form'>Send a message</a>",
                 crumb="<div class='et-crumb'><a href='" + SITE + "/'>Home</a> / Contact</div>")
            + "<section class='et et-sec et-pat'><div class='et-wrap'><div class='et-cards3'>" + ih + "</div></div></section>"
-           + "<section class='et et-sec' id='et-form' style='padding-top:20px'><div class='et-wrap et-split' style='align-items:stretch'><div class='et-rv'><span class='et-eye'>Get in touch</span><h2>We’d love to hear from you</h2>"
-             "<p>Whether you’re ready to embark on a tailored Moroccan adventure, have questions about one of our tours, or just want to explore options — we’re here. We reply within 24 hours.</p>"
-             "<div class='et-form'>")
-    bottom = ("</div></div><div class='et-rv'><iframe class='et-map' loading='lazy' title='Epic Travel Morocco – Marrakech' src='https://maps.google.com/maps?q=Gueliz%20Marrakech&amp;t=m&amp;z=12&amp;output=embed'></iframe></div></div></section>"
-              + cta('Prefer to chat?', 'Send us a WhatsApp message — it’s the fastest way to plan your trip with our team.'))
+           + "<section class='et et-sec' id='et-form' style='padding:20px 0 34px'><div class='et-wrap'><div class='et-head' style='margin-bottom:0'><span class='et-eye'>Get in touch</span><h2>We’d love to hear from you</h2>"
+             "<p>Whether you’re ready to embark on a tailored Moroccan adventure, have questions about one of our tours, or just want to explore options — we’re here. We reply within 24 hours.</p></div></div></section>"
+             "<style>.elementor-widget-shortcode .wpcf7{max-width:780px;margin:0 auto;background:#fff;border-radius:22px;padding:36px;box-shadow:0 18px 40px -18px rgba(11,37,71,.35);border-top:4px solid #d1a47b;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}"
+             ".wpcf7 input:not([type=submit]):not([type=checkbox]),.wpcf7 textarea,.wpcf7 select{width:100%;border:1.5px solid #f4ead9;border-radius:12px;padding:13px 15px;font-size:16px;background:#fbf6ee;color:#26313f}"
+             ".wpcf7 input:focus,.wpcf7 textarea:focus{outline:0;border-color:#d1a47b;background:#fff}.wpcf7 textarea{min-height:140px}.wpcf7 p{margin:0 0 14px}"
+             ".wpcf7 input[type=submit]{background:#b5552f;color:#fff;border:0;border-radius:999px;padding:15px 34px;font-weight:700;font-size:15px;cursor:pointer}.wpcf7 input[type=submit]:hover{background:#9d4524}"
+             "@media (max-width:600px){.elementor-widget-shortcode .wpcf7{margin:0 14px;padding:24px 18px}}</style>")
+    bottom = ("<section class='et et-sec' style='padding-top:60px'><div class='et-wrap'><iframe class='et-map et-rv' style='height:420px' loading='lazy' title='Epic Travel Morocco – Marrakech' src='https://maps.google.com/maps?q=Gueliz%20Marrakech&amp;t=m&amp;z=12&amp;output=embed'></iframe></div></section>"
+              + cta('Prefer to chat?', 'Send us a WhatsApp message — it’s the fastest way to plan your trip with our team.').replace("href='" + SITE + "/contact-2/'>Send a request", "href='mailto:" + EMAIL + "'>Email us"))
     return [('html', clean(top)), ('shortcode', '[contact-form-7 id=f402750]'), ('html', clean(bottom))]
 
 # ---------- fleet ----------
