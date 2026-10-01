@@ -1,65 +1,40 @@
-"""Epic Travel Morocco – Contact page (ID 1360, /contact-2/), modern editorial style (no zellij).
+"""Epic Travel Morocco – Contact page (ID 1360, /contact-2/), chic Moroccan style (see chic.py).
 
 python3 contact.py -> contact-1360.json (value of _elementor_data) and preview-contact.html
 Header and footer come from the site-wide footer template (footer.py).
 """
-import json, os, hashlib
+import json, os
 import build as B
+import chic as C
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SITE, U, ic = B.SITE, B.U, B.ic
 FORM = "[contact-form-7 id='f402750' title='Main Contact']"
 MAP = 'https://maps.google.com/maps?q=Gueliz%2C%20Marrakech%2C%20Morocco&z=14&output=embed'
-
-FONTS = ("<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>"
-         "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap'>")
+HERO = C.U + '2025/11/pexels-zakariahanif-12214734-scaled.jpg'
 
 CSS = """
-.etc{--ink:#0d1a1f;--gold:#b98a5e;--line:rgba(13,26,31,.14);--mut:#6b7478;--paper:#f7f3ec;
- --fh:'Cormorant Garamond',Georgia,serif;--fb:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
- font-family:var(--fb);font-weight:300;color:var(--ink);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
-.etc *,.etc *:before,.etc *:after{box-sizing:border-box}
-.etc h1,.etc h2,.etc h3{font-family:var(--fh);font-weight:400;line-height:1.05;margin:0;color:inherit;text-transform:none;letter-spacing:-.01em}
-.etc em{font-style:italic;color:var(--gold)}
-.etc p{margin:0 0 1em}
-.etc a{text-decoration:none!important;color:inherit}
-.etc-k{display:inline-flex;align-items:center;gap:14px;font-size:11.5px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
-.etc-k:before{content:'';width:42px;height:1px;background:currentColor}
-.etc-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:min(86vh,760px);background:var(--ink);color:#f3ede4}
-.etc-hero-t{display:flex;flex-direction:column;justify-content:center;padding:90px clamp(24px,6vw,96px)}
-.etc-hero h1{font-size:clamp(46px,6.2vw,92px);color:#fff}
-.etc-hero p{max-width:440px;margin:30px 0 44px;color:rgba(243,237,228,.7);font-size:17px}
-.etc-hero-l{display:flex;flex-wrap:wrap;gap:12px 34px;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
-.etc-hero-l a{position:relative;padding-bottom:6px;color:#fff}
-.etc-hero-l a:after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform-origin:left;transition:transform .4s}
-.etc-hero-l a:hover:after{transform:scaleX(.35)}
-.etc-hero-i{position:relative;background:url(HERO) center/cover;min-height:360px}
-.etc-hero-i span{position:absolute;left:28px;bottom:24px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#fff;opacity:.85}
 .etc-info{background:var(--paper)}
-.etc-info-g{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.etc-info-g>*{display:block;padding:48px 34px;border-left:1px solid var(--line);transition:background .3s}
+.etc-info-g{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.etc-info-g>*{display:block;padding:46px 32px;border-left:1px solid var(--line);transition:background .3s}
 .etc-info-g>*:first-child{border-left:0}
 .etc-info-g a:hover{background:#fff}
 .etc-info small{display:block;font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .etc-info b{display:block;font-family:var(--fh);font-weight:400;font-size:24px;line-height:1.3;overflow-wrap:anywhere}
-.etc-info b.etc-sm{font-size:clamp(17px,1.45vw,21px);overflow-wrap:normal;word-break:normal;padding-top:4px} .etc-side-t dd{overflow-wrap:anywhere}
-.etc-head h2{font-size:clamp(40px,4.6vw,64px);margin-bottom:22px}
+.etc-info b.etc-sm{font-size:clamp(17px,1.45vw,21px);overflow-wrap:normal;padding-top:4px}
 .etc-head p{color:var(--mut);max-width:460px;margin-bottom:40px}
-.etc-side{background:var(--paper);height:100%}
-.etc-map iframe{display:block;width:100%;height:440px;border:0;filter:grayscale(1) contrast(1.05) brightness(1.02)}
-.etc-side-t{padding:40px 40px 44px}
+.etc-side{position:relative}
+.etc-side .ch-archf{margin-bottom:0}
+.etc-map{height:460px}
+.etc-map iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1) sepia(.18) contrast(1.02)}
+.etc-side-t{background:var(--paper);padding:38px 40px 42px;margin:0 12px}
 .etc-side-t h3{font-size:30px;margin-bottom:16px}
 .etc-side-t dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 28px;font-size:15px}
 .etc-side-t dt{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);padding-top:4px}
-.etc-side-t dd{margin:0;color:var(--ink)}
-"""
-
-# the Contact Form 7 widget sits in the left column; these rules style it
-FORM_CSS = """
+.etc-side-t dd{margin:0;overflow-wrap:anywhere}
 .etc-form{font-family:'Jost',system-ui,sans-serif;font-weight:300}
 .etc-form *{box-sizing:border-box;max-width:100%}
 .etc-form form p{margin:0 0 30px}
-.etc-form label{display:block;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#6b7478}
+.etc-form label{display:block;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#66717a}
 .etc-form br{display:none}
 .etc-form input[type=text],.etc-form input[type=email],.etc-form input[type=tel],.etc-form input[type=date],.etc-form input[type=number],.etc-form select,.etc-form textarea{
  width:100%;margin-top:4px;padding:12px 0;border:0;border-bottom:1px solid rgba(13,26,31,.2);border-radius:0;background:transparent;color:#0d1a1f;
@@ -67,13 +42,12 @@ FORM_CSS = """
 .etc-form textarea{min-height:110px;height:110px;resize:vertical}
 .etc-form input:focus,.etc-form select:focus,.etc-form textarea:focus{outline:none;border-bottom-color:#b98a5e;box-shadow:none;background:transparent}
 .etc-form input[type=submit],.etc-form button[type=submit]{width:auto;height:auto;padding:20px 54px;border:1px solid #0d1a1f;border-radius:0;background:#0d1a1f;color:#fff;
- font:500 12px 'Jost',system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase;cursor:pointer;transition:background .35s,color .35s}
+ font:500 12px 'Jost',system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:background .35s,color .35s}
 .etc-form input[type=submit]:hover,.etc-form button[type=submit]:hover{background:transparent;color:#0d1a1f}
 .etc-form .wpcf7-spinner{position:absolute}
 .etc-form .wpcf7-not-valid-tip{font-size:13px;margin-top:6px}
 @media (max-width:1024px){.etc-info-g{grid-template-columns:repeat(2,minmax(0,1fr))}.etc-info-g>*:nth-child(3){border-left:0}.etc-info-g>*:nth-child(n+3){border-top:1px solid var(--line)}}
-@media (max-width:860px){.etc-hero{grid-template-columns:1fr}.etc-hero-i{order:-1;min-height:300px}.etc-hero-t{padding:60px 24px 70px}}
-@media (max-width:600px){.etc{font-size:16px}.etc-info-g{grid-template-columns:1fr}.etc-info-g>*{border-left:0!important;border-top:1px solid var(--line);padding:30px 24px}.etc-info-g>*:first-child{border-top:0}.etc-side-t{padding:30px 24px 34px}.etc-map iframe{height:320px}}
+@media (max-width:600px){.etc-info-g{grid-template-columns:1fr}.etc-info-g>*{border-left:0!important;border-top:1px solid var(--line);padding:28px 22px}.etc-info-g>*:first-child{border-top:0}.etc-side-t{padding:28px 22px 32px}.etc-map{height:340px}}
 """
 
 
@@ -83,80 +57,61 @@ def top_html():
             '<a href="tel:' + B.PHONE2 + '"><small>Canada &amp; USA</small><b>' + B.PHONE2_T + '</b></a>'
             '<a href="mailto:' + B.EMAIL + '"><small>Write to us</small><b class="etc-sm">' + B.EMAIL + '</b></a>'
             '<div><small>Visit us</small><b>Gueliz, Marrakech</b></div></div></div>')
-    return (FONTS + '<style>' + ' '.join((CSS.replace('HERO', U + '2025/11/pexels-zakariahanif-12214734-scaled.jpg') + FORM_CSS).split()) + '</style>'
-            '<div class="etc"><section class="etc-hero"><div class="etc-hero-t"><span class="etc-k">Contact</span>'
-            '<h1>Let’s craft your<br><em>Moroccan journey</em></h1>'
-            '<p>A fully tailored itinerary or a simple question about one of our tours. Our team in Marrakech answers every message personally.</p>'
-            '<div class="etc-hero-l"><a href="https://wa.me/' + B.PHONE1.lstrip('+') + '">WhatsApp</a><a href="mailto:' + B.EMAIL + '">Email us</a></div></div>'
-            '<div class="etc-hero-i" role="img" aria-label="Private tour in Marrakech"><span>Marrakech · Morocco</span></div></section>'
+    acts = ('<a class="ch-btn ch-btn-g" href="https://wa.me/' + B.PHONE1.lstrip('+') + '">WhatsApp</a>'
+            '<a href="mailto:' + B.EMAIL + '">Email us</a>')
+    return (C.style(CSS) + '<div class="ch">'
+            + C.hero('Contact', 'Let’s craft your<br><em>Moroccan journey</em>',
+                     'A fully tailored itinerary or a simple question about one of our tours. Our team in Marrakech answers every message personally.',
+                     HERO, acts, 'Private tour vehicle in Marrakech')
             + info + '</div>')
 
 
 def form_head_html():
-    return ('<div class="etc etc-head"><span class="etc-k">Enquiry</span><h2>Tell us about<br><em>your trip</em></h2>'
+    return ('<div class="ch etc-head">' + C.kicker('Enquiry') + '<h2 class="ch-h2">Tell us about<br><em>your trip</em></h2>'
             '<p>Share your dates, the size of your group and the places you dream of. We will come back to you with a personal proposal.</p></div>')
 
 
 def side_html():
-    return ('<div class="etc etc-side"><div class="etc-map"><iframe src="' + MAP + '" loading="lazy" title="Epic Travel Morocco, Gueliz, Marrakech" '
-            'referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="etc-side-t"><h3>Our office</h3><dl>'
+    return ('<div class="ch etc-side"><div class="ch-archf"><div class="ch-arch etc-map"><iframe src="' + MAP + '" loading="lazy" '
+            'title="Epic Travel Morocco, Gueliz, Marrakech" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>'
+            '<div class="etc-side-t"><h3>Our office</h3><dl>'
             '<dt>Address</dt><dd>Gueliz, Marrakech 22000, Morocco</dd>'
             '<dt>Phone</dt><dd><a href="tel:' + B.PHONE1 + '">' + B.PHONE1_T + '</a></dd>'
             '<dt>Email</dt><dd><a href="mailto:' + B.EMAIL + '">' + B.EMAIL + '</a></dd></dl></div></div>')
 
 
-def noq(h):
-    h = h.replace('"', "'")
-    assert '"' not in h and '\\' not in h
-    return h
-
-
-def eid(s):
-    return hashlib.md5(s.encode()).hexdigest()[:7]
-
-
-PAD0 = {'unit': 'px', 'top': '0', 'right': '0', 'bottom': '0', 'left': '0', 'isLinked': True}
-
-
-def w(kind, content, key, extra=None):
-    st = {'html': content} if kind == 'html' else {'shortcode': content}
-    st.update(extra or {})
-    return {'id': eid(key), 'elType': 'widget', 'settings': st, 'elements': [], 'widgetType': kind}
-
-
+W = C.widget
 data = [
-    {'id': eid('etc-top'), 'elType': 'container', 'isInner': False,
-     'settings': {'content_width': 'full', 'flex_direction': 'column', 'padding': PAD0,
-                  'flex_gap': {'unit': 'px', 'size': 0, 'column': '0', 'row': '0'}},
-     'elements': [w('html', noq(top_html()), 'etc-w1')]},
-    {'id': eid('etc-main'), 'elType': 'container', 'isInner': False,
+    {'id': C.eid('etc-top'), 'elType': 'container', 'isInner': False,
+     'settings': {'content_width': 'full', 'flex_direction': 'column', 'padding': C.PAD0, 'flex_gap': C.GAP0},
+     'elements': [W('html', C.noq(top_html()), 'etc-w1')]},
+    {'id': C.eid('etc-main'), 'elType': 'container', 'isInner': False,
      'settings': {'content_width': 'full', 'flex_direction': 'column', 'css_classes': 'etc-main', 'background_background': 'classic',
-                  'background_color': '#FFFFFF', 'padding': {'unit': 'px', 'top': '110', 'right': '24', 'bottom': '120', 'left': '24', 'isLinked': False},
+                  'background_color': '#FFFFFF', 'padding': {'unit': 'px', 'top': '110', 'right': '24', 'bottom': '110', 'left': '24', 'isLinked': False},
                   'padding_mobile': {'unit': 'px', 'top': '64', 'right': '20', 'bottom': '70', 'left': '20', 'isLinked': False}},
-     'elements': [{'id': eid('etc-grid'), 'elType': 'container', 'isInner': True,
-                   'settings': {'content_width': 'boxed', 'boxed_width': {'unit': 'px', 'size': 1232, 'sizes': []},
+     'elements': [{'id': C.eid('etc-grid'), 'elType': 'container', 'isInner': True,
+                   'settings': {'content_width': 'boxed', 'boxed_width': {'unit': 'px', 'size': 1184, 'sizes': []},
                                 'container_type': 'grid', 'grid_columns_grid': {'unit': 'fr', 'size': 2, 'sizes': []},
                                 'grid_columns_grid_tablet': {'unit': 'fr', 'size': 1, 'sizes': []},
-                                'grid_gaps': {'column': '90', 'row': '60', 'isLinked': False, 'unit': 'px'}, 'grid_align_items': 'start', 'padding': PAD0},
+                                'grid_gaps': {'column': '90', 'row': '60', 'isLinked': False, 'unit': 'px'}, 'grid_align_items': 'start', 'padding': C.PAD0},
                    'elements': [
-                       {'id': eid('etc-col1'), 'elType': 'container', 'isInner': True,
-                        'settings': {'content_width': 'full', 'flex_direction': 'column', 'padding': PAD0,
-                                     'flex_gap': {'unit': 'px', 'size': 0, 'column': '0', 'row': '0'}},
-                        'elements': [w('html', noq(form_head_html()), 'etc-w3'), w('shortcode', FORM, 'etc-w4', {'_css_classes': 'etc-form'})]},
-                       {'id': eid('etc-col2'), 'elType': 'container', 'isInner': True,
-                        'settings': {'content_width': 'full', 'flex_direction': 'column', 'padding': PAD0},
-                        'elements': [w('html', noq(side_html()), 'etc-w2')]},
+                       {'id': C.eid('etc-col1'), 'elType': 'container', 'isInner': True,
+                        'settings': {'content_width': 'full', 'flex_direction': 'column', 'padding': C.PAD0, 'flex_gap': C.GAP0},
+                        'elements': [W('html', C.noq(form_head_html()), 'etc-w3'), W('shortcode', FORM, 'etc-w4', {'_css_classes': 'etc-form'})]},
+                       {'id': C.eid('etc-col2'), 'elType': 'container', 'isInner': True,
+                        'settings': {'content_width': 'full', 'flex_direction': 'column', 'padding': C.PAD0},
+                        'elements': [W('html', C.noq(side_html()), 'etc-w2')]},
                    ]}]},
 ]
-s = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
-assert '\\' not in s
-open(os.path.join(HERE, 'contact-1360.json'), 'w').write(s)
-print('contact-1360.json', len(s))
 
-fake_form = ("<div class='etc-form'><form><p><label>Your name<input type='text'></label></p><p><label>Your email<input type='email'></label></p>"
-             "<p><label>Subject<input type='text'></label></p><p><label>Your message<textarea></textarea></label></p><p><input type='submit' value='Send enquiry'></p></form></div>")
-page = ('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0">'
-        + top_html() + '<div style="background:#fff;padding:110px 24px 120px"><div style="max-width:1232px;margin:auto;display:grid;'
-        'grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:60px 90px;align-items:start"><div>' + form_head_html() + fake_form + '</div><div>'
-        + side_html() + '</div></div></div></body></html>')
-open(os.path.join(HERE, 'preview-contact.html'), 'w').write(page)
+if __name__ == '__main__':
+    s = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
+    assert '\\' not in s
+    open(os.path.join(HERE, 'contact-1360.json'), 'w').write(s)
+    print('contact-1360.json', len(s))
+    fake_form = ("<div class='etc-form'><form><p><label>Your name<input type='text'></label></p><p><label>Your email<input type='email'></label></p>"
+                 "<p><label>Subject<input type='text'></label></p><p><label>Your message<textarea></textarea></label></p><p><input type='submit' value='Send enquiry'></p></form></div>")
+    body = (top_html() + '<div style="background:#fff;padding:110px 24px"><div style="max-width:1184px;margin:auto;display:grid;'
+            'grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:60px 90px;align-items:start"><div>' + form_head_html() + fake_form + '</div><div>'
+            + side_html() + '</div></div></div>')
+    open(os.path.join(HERE, 'preview-contact.html'), 'w').write(C.preview(body, 'Contact'))

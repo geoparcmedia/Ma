@@ -15,3 +15,13 @@
 - Zellij kept subtle: plain cream sections, thin tile bands (10px / 6px), very faint pattern on teal and dark sections, none over the banner.
 - After changing `_elementor_data` directly, delete `_elementor_element_cache` and `_elementor_css` on the page (Elementor caches the rendered page for 24 h), then save the post so LiteSpeed purges it.
 - `footer.py` → `footer-3433.json` (main footer template: new footer + the new header, injected on every page that has no home banner) and `copyright-3436.json`. Old versions: `backups/epictravelmorocco/footer-templates-before-redesign.md`.
+
+
+## Inner pages, header and footer – chic Moroccan style (1 Oct 2026)
+- `chic.py`: shared design (Cormorant Garamond + Jost, ink / gold / paper), arched image frames, khatam star ornaments, faint rosette watermark.
+- `footer.py` -> footer-3433.json (fixed header on every page except the home page, footer, newsletter form) and copyright-3436.json.
+  The header is plain HTML (shows without JavaScript); the mobile menu uses a CSS checkbox.
+- `contact.py` -> contact-1360.json; `pages.py` -> about-1247.json, fleet-1334.json, tours-69.json.
+- Previews in `previews/`. Each page is also set to the `elementor_header_footer` template with the theme spacing (page_spacing_top/bottom) at 0.
+- Deploy: write the JSON to `_elementor_data`, delete `_elementor_element_cache` and `_elementor_css`, re-save the post title, then LiteSpeed Purge All.
+- The Tours page lists 10 tours by hand (it no longer uses the theme's automatic tour grid): add new tours in `pages.py` (TOURS).
