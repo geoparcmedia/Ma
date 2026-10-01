@@ -66,3 +66,10 @@ Theme (travelor) header/footer and its smooth-scroll wrapper kept breaking the n
 1360 (Contact), 1247 (About), 1334 (Fleet), 69 (Destination).
 Undo: set `_wp_page_template` back to `elementor_header_footer` on those IDs.
 Not changed yet (needs the owner's go-ahead): Home 3648, the 15 `tour` posts.
+
+## 2026-10-01: theme switch travelor -> twentytwentyfive (owner asked)
+Before: options `template`=travelor, `stylesheet`=travelor, `current_theme`=Travelor.
+sidebars_widgets before:
+{"wp_inactive_widgets":[],"sidebar-1":["block-2","block-3","block-4","search-1","travelor_popular_posts-1","travelor_category-1","travelor_tags-1"],"footer-widget":["custom_html-2"],"footer-widget-two":["custom_html-2"],"footer-widget-three":["custom_html-2"],"wte-sidebar-id":["block-5","block-6"],"array_version":3}
+Undo: wp-admin > Appearance > Themes > activate "Travelor" (or set the three options back).
+If the site shows a critical error: use the recovery-mode link WordPress emails to the admin, then activate Travelor.
