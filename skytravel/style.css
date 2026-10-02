@@ -223,7 +223,7 @@
 .msx em{font-style:normal;color:inherit;font-weight:inherit}
 .mst.msx h2,.msx .msx-head h2{font-size:clamp(30px,3.4vw,46px);line-height:1.1;letter-spacing:-.015em;margin:0 0 14px}
 .msx-sec{padding:100px 0}
-.msx-sec--sand{background:var(--sand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23c96a2e' stroke-opacity='.10' stroke-width='1'%3E%3Crect x='18' y='18' width='20' height='20'/%3E%3Crect x='18' y='18' width='20' height='20' transform='rotate%2845 28 28%29'/%3E%3C/g%3E%3C/svg%3E") repeat;background-size:56px}
+.msx-sec--sand{background:var(--sand)}
 .msx-head{max-width:720px;margin:0 auto 48px;text-align:center}
 .msx-head p{color:var(--muted);font-size:17.5px;margin:0}
 .mst.msx.msx-head{max-width:760px;background:transparent}
@@ -249,7 +249,7 @@
 .msx-svc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
 .msx-svc li{display:grid;grid-template-columns:132px 1fr;gap:24px;align-items:center;margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 26px 12px 12px;transition:transform .25s ease,box-shadow .25s ease}
 .msx-svc li:hover{transform:translateX(6px);box-shadow:0 20px 44px -18px rgba(77,44,22,.35)}
-.msx-svc .im{display:block;aspect-ratio:1/1.05;border-radius:999px 999px 12px 12px;background:#4d2c16 center/cover}
+.msx-svc .im{display:block;aspect-ratio:4/3;border-radius:14px;background:#4d2c16 center/cover}
 .msx-svc .n{font:600 13px Inter,sans-serif;letter-spacing:.14em;color:var(--gold)}
 .mst.msx .msx-svc h3{font:700 20px/1.25 Inter,sans-serif;letter-spacing:-.01em;margin:2px 0 6px}
 .msx-svc p{margin:0;color:var(--muted);font-size:15px}
@@ -269,7 +269,7 @@
 .msx .mst-more{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
 .msx-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,280px);gap:18px}
 .msx-d{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:26px;border-radius:20px;overflow:hidden;background:#4d2c16 center/cover;text-decoration:none!important;isolation:isolate;transition:transform .3s ease}
-.msx-d--b{border-radius:999px 999px 20px 20px}
+.msx-d--b{border-radius:20px}
 .msx-d:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(43,20,6,0) 40%,rgba(43,20,6,.85));transition:background .3s}
 .msx-d:hover{transform:translateY(-4px)}
 .msx-d b{display:block;color:#fff;font:700 clamp(24px,2.4vw,34px)/1.05 'Bodoni Moda',Georgia,serif}
@@ -289,7 +289,7 @@
 .msx-num span{display:block;margin-top:8px;color:rgba(255,255,255,.8);font-size:15px}
 .msx-about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .msx-pics{position:relative;padding:0 60px 60px 0}
-.msx-pics .p1{display:block;aspect-ratio:4/5;border-radius:999px 999px 22px 22px;background:#4d2c16 center/cover;box-shadow:0 30px 70px -20px rgba(77,44,22,.45)}
+.msx-pics .p1{display:block;aspect-ratio:4/5;border-radius:22px;background:#4d2c16 center/cover;box-shadow:0 30px 70px -20px rgba(77,44,22,.45)}
 .msx-pics .p2{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:1;border-radius:20px;background:#4d2c16 center/cover;border:8px solid var(--cream);box-shadow:0 24px 50px -16px rgba(77,44,22,.45)}
 .msx-seal{position:absolute;left:-14px;top:52%;width:122px;height:122px;border-radius:50%;background:var(--gold);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font:600 12px/1.25 Inter,sans-serif;letter-spacing:.04em;padding:16px;box-shadow:0 18px 40px -10px rgba(201,106,46,.6);border:4px solid var(--cream)}
 .msx-seal b{font:700 36px/1 'Bodoni Moda',Georgia,serif}
@@ -355,7 +355,7 @@
 .mh-mega h4{font:700 12px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);margin:4px 0 14px}
 .mh-mega div a{display:block;padding:7px 0;color:var(--ink)!important;text-decoration:none!important;font-size:14.5px;line-height:1.35;transition:color .15s,transform .15s}
 .mh-mega div a:hover{color:var(--gold)!important;transform:translateX(3px)}
-.mh-feat{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;border-radius:999px 999px 14px 14px;padding:20px;min-height:250px;background:#4d2c16 center/cover;color:#fff!important;text-decoration:none!important;isolation:isolate;overflow:hidden}
+.mh-feat{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;border-radius:14px;padding:20px;min-height:250px;background:#4d2c16 center/cover;color:#fff!important;text-decoration:none!important;isolation:isolate;overflow:hidden}
 .mh-feat:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(43,20,6,.1),rgba(43,20,6,.88))}
 .mh-feat span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dune)}
 .mh-feat b{font:700 20px/1.2 'Bodoni Moda',Georgia,serif}
@@ -368,7 +368,7 @@
 .mh-burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;padding:13px 12px;flex-direction:column;justify-content:space-between}
 .mh-burger span{display:block;height:2px;background:var(--ink);border-radius:2px}
 /* footer */
-.mf{position:relative;background:var(--night) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23f3c58a' stroke-opacity='.06' stroke-width='1'%3E%3Crect x='18' y='18' width='20' height='20'/%3E%3Crect x='18' y='18' width='20' height='20' transform='rotate%2845 28 28%29'/%3E%3C/g%3E%3C/svg%3E") repeat;background-size:64px;color:rgba(255,255,255,.75);font-size:15px;padding:30px 0 0;margin-top:0;z-index:1}
+.mf{position:relative;background:var(--night);color:rgba(255,255,255,.75);font-size:15px;padding:30px 0 0;margin-top:0;z-index:1}
 .mf-dune{position:absolute;left:0;right:0;top:-70px;width:100%;height:72px;display:block}
 .mf-cta{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding-bottom:50px;border-bottom:1px solid rgba(243,197,138,.18)}
 .mf .mst-eyebrow{color:var(--dune)}
