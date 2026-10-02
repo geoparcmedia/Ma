@@ -55,7 +55,7 @@ SPRITE = "<svg width='0' height='0' style='position:absolute' aria-hidden='true'
 ICON = {k: "<svg aria-hidden='true'" + (" width='16' height='16'" if k == 'arrow' else '') + "><use href='#et-i-" + k + "'/></svg>" for k in ICON_SRC}
 ORN = "<div class='et-orn'>" + ICON['star'] + "</div>"
 
-NAV = [('Home', SITE + '/'), ('Tours', SITE + '/destination/'), ('Our Fleet', SITE + '/fleet/'),
+NAV = [('Home', SITE + '/'), ('Tours', SITE + '/destination/'), ('Agafay', SITE + '/agafay-desert/'), ('Our Fleet', SITE + '/fleet/'),
        ('About Us', SITE + '/about-us/'), ('Contact', SITE + '/contact-2/')]
 
 def logo():

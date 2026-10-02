@@ -190,3 +190,62 @@ def fleet():
 
 def page_data(widgets, seed):
     return elementor(widgets, seed)
+
+# ---------- Agafay desert activities ----------
+def _ico(paths):
+    return "<svg viewBox='0 0 48 48' width='44' height='44' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'>" + paths + "</svg>"
+
+AG_ICONS = {
+ 'quad': _ico("<circle cx='12' cy='34' r='6'/><circle cx='36' cy='34' r='6'/><path d='M12 34l6-10h12l6 10M18 24l-2-6h6M30 24l4-8h4'/>"),
+ 'camel': _ico("<path d='M6 38v-10c0-4 3-7 7-7 3 0 4-5 8-5s5 5 8 5c2 0 3-2 3-5 0-2 2-4 4-4h3l2 3-3 1v8c0 3-2 5-5 5v9M13 38v-9M29 38v-9'/>"),
+ 'buggy': _ico("<circle cx='12' cy='34' r='6'/><circle cx='37' cy='34' r='6'/><path d='M18 34h13M8 28l6-10h18l7 10M20 18l-2 10M30 18v10'/>"),
+ 'dinner': _ico("<path d='M8 30h32M12 30c0-7 5-12 12-12s12 5 12 12M24 18v-4M6 36h36'/><path d='M38 14c2-2 2-5 0-7M33 14c2-2 2-5 0-7'/>"),
+ 'camp': _ico("<path d='M4 38L24 10l20 28H4zM24 10v28M17 38l7-10 7 10'/><circle cx='38' cy='9' r='3'/>"),
+ 'balloon': _ico("<path d='M24 6c-8 0-13 6-13 13 0 8 8 13 10 17h6c2-4 10-9 10-17 0-7-5-13-13-13zM21 36l1 5h4l1-5M24 6v30'/>"),
+ 'horse': _ico("<path d='M10 40V28c0-6 4-10 10-10h6l6-8 2 4 6 3-2 5h-5l-3 4v14M16 40v-8M30 40v-8'/>"),
+ 'pool': _ico("<path d='M6 34c3 0 3 2 6 2s3-2 6-2 3 2 6 2 3-2 6-2 3 2 6 2 3-2 6-2M6 40c3 0 3 2 6 2s3-2 6-2 3 2 6 2 3-2 6-2 3 2 6 2 3-2 6-2M16 30V10a4 4 0 0 1 8 0M32 30V10a4 4 0 0 0-8 0M16 16h16M16 23h16'/>"),
+}
+
+AG_ACT = [
+ ('quad', 'Quad biking', '1 or 2 hours', 'Ride a quad across the rocky hills and dry valleys of Agafay with a guide, with stops for photos and views of the Atlas Mountains.'),
+ ('camel', 'Camel ride at sunset', 'about 1 hour', 'A calm walk on camelback through the stone desert, timed so you see the sun go down over the hills.'),
+ ('buggy', 'Buggy tour', '1 or 2 hours', 'Drive a 2-seat buggy on desert tracks — more comfort than a quad, same open-air adventure. Great for couples.'),
+ ('dinner', 'Dinner &amp; show under the stars', 'evening', 'Traditional Moroccan dinner in a desert camp with Gnawa and Berber music, fire show and a sky full of stars.'),
+ ('camp', 'Night in a desert camp', '1 night', 'Sleep in a comfortable tent in the silence of Agafay, then wake up to sunrise over the hills and a Berber breakfast.'),
+ ('balloon', 'Hot-air balloon ride', 'early morning', 'Float above the Marrakech countryside at sunrise with the Atlas on the horizon, followed by breakfast on landing.'),
+ ('horse', 'Horse riding', '1 or 2 hours', 'Explore the desert at a gentle pace on horseback, with a local guide. Suitable for beginners and riders.'),
+ ('pool', 'Pool &amp; lunch day', 'half or full day', 'Relax by a pool facing the desert, with lunch at a camp — the easy way to enjoy Agafay away from the city.'),
+]
+
+AG_PACKS = [
+ ('Agafay sunset', 'Afternoon · from Marrakech', ['Hotel pick-up in Marrakech', 'Quad or buggy ride', 'Camel ride at sunset', 'Mint tea in a camp']),
+ ('Agafay evening', 'Afternoon + dinner', ['Hotel pick-up in Marrakech', 'Camel ride at sunset', 'Dinner &amp; show under the stars', 'Drive back to Marrakech']),
+ ('Agafay full experience', '1 night', ['Quad or buggy ride', 'Camel ride at sunset', 'Dinner, music and fire show', 'Night in a desert camp + breakfast']),
+]
+
+def agafay():
+    def wa(t):
+        return WA + '?text=' + ('Hello Epic Travel Morocco, I am interested in Agafay: ' + t + '. ').replace(' ', '%20').replace('&amp;', 'and').replace('+', 'and').replace('·', '-')
+    acts = ''.join("<article class='et-act et-rv'><span class='ic'>" + AG_ICONS[k] + "</span><div><h3>" + n + "</h3><span class='et-cap'>" + d + "</span><p>" + t + "</p>"
+                   "<a class='et-more' href='" + wa(n) + "' target='_blank' rel='noopener'>Ask on WhatsApp " + ICON['arrow'] + "</a></div></article>" for k, n, d, t in AG_ACT)
+    packs = ''.join("<article class='et-pack et-rv'><span class='et-kind'>" + s + "</span><h3>" + n + "</h3><ul class='et-list'>" + ''.join('<li>' + x + '</li>' for x in li) + "</ul>"
+                    "<a class='et-btn et-btn-wa' href='" + wa(n) + "' target='_blank' rel='noopener'>" + ICON['wa'] + "Book on WhatsApp</a></article>" for n, s, li in AG_PACKS)
+    body = (hero('dunes-camel', 'Agafay desert · Marrakech', 'Agafay desert activities',
+                 'The stone desert at the gates of Marrakech — quad, camel, buggy, dinner under the stars and nights in a desert camp, all organised with our own drivers.',
+                 "<a class='et-btn' href='#et-acts'>See the activities " + ICON['arrow'] + "</a><a class='et-btn et-btn-w et-btn-wa' href='" + wa('activities') + "' target='_blank' rel='noopener'>" + ICON['wa'] + "Book on WhatsApp</a>",
+                 crumb="<div class='et-crumb'><a href='" + SITE + "/'>Home</a> / Agafay desert</div>")
+            + "<div class='et'><div class='et-wrap'><div class='et-facts'><div><b>~45 min</b><span>from Marrakech</span></div><div><b>8</b><span>activities to mix</span></div>"
+              "<div><b>Day or night</b><span>sunset, dinner or overnight</span></div><div><b>Private</b><span>hotel pick-up with driver</span></div></div></div></div>"
+            + "<section class='et et-sec' id='et-acts'><div class='et-wrap'><div class='et-head'><span class='et-eye'>Things to do</span><h2>Activities in Agafay</h2>"
+              "<p>Choose one activity or combine several — tell us your date and group size and we send you a price.</p></div><div class='et-acts'>" + acts + "</div></div></section>"
+            + "<section class='et et-sec et-cream'><div class='et-wrap'><div class='et-head'><span class='et-eye'>Ready-made</span><h2>Popular Agafay combos</h2>"
+              "<p>Our most requested mixes. Every combo can be changed to suit you.</p></div><div class='et-packs'>" + packs + "</div></div></section>"
+            + "<section class='et et-sec'><div class='et-wrap et-split'><div class='et-rv'><span class='et-eye'>Good to know</span><h2>Planning your Agafay day</h2>"
+              "<ul class='et-list'><li>Agafay is a stone desert about 40 km south-west of Marrakech, around 45 minutes by road.</li>"
+              "<li>Sunset is the best time for quad, buggy and camel rides — the light on the hills is beautiful.</li>"
+              "<li>Nights can be cold from November to March: bring a warm layer for dinner and the camp.</li>"
+              "<li>Our driver picks you up at your hotel or riad in Marrakech and brings you back.</li></ul>"
+              "<div class='et-ctas'><a class='et-btn et-btn-wa' href='" + wa('a custom day') + "' target='_blank' rel='noopener'>" + ICON['wa'] + "Plan my Agafay day</a><a class='et-btn et-btn-o' href='" + SITE + "/destination/'>See our tours</a></div></div>"
+              "<div class='et-archimg et-rv'>" + img('kasbah', 'Desert landscape near Marrakech', w=600, h=750) + "</div></div></section>"
+            + cta('Agafay from Marrakech, the easy way', 'Pick-up, activities and dinner organised in one message — we reply within 24 hours.'))
+    return [('html', clean(body))]

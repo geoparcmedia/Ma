@@ -11,7 +11,7 @@ def css_min():
     return c
 HDR = clean(header() + JS)  # CSS lives in WP Additional CSS (custom_css post 3650)
 FTR = clean(footer())
-PAGES = {862: ('home', home()), 69: ('tours', tours_page()), 1247: ('about', about()), 1360: ('contact', contact()), 1334: ('fleet', fleet())}
+PAGES = {862: ('home', home()), 69: ('tours', tours_page()), 1247: ('about', about()), 1360: ('contact', contact()), 1334: ('fleet', fleet()), 3660: ('agafay', agafay())}
 for t in TOURS:
     PAGES[t['id']] = ('tour-' + t['url'], tour_page(t))
 
