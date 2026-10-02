@@ -1,0 +1,21 @@
+/* about page */
+.msx-hero--page{min-height:min(78vh,680px);padding:100px 0 140px}
+.msx-hero--page .mst-crumbs{margin-bottom:22px}
+.mst.msx .msx-hero--page h1{font-size:clamp(38px,5.2vw,72px)}
+.msx-hero--page h1 em{font-size:.62em;font-weight:500;margin-top:10px;letter-spacing:-.01em}
+.msx-tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:t;position:relative}
+.msx-tl:before{content:'';position:absolute;left:0;right:0;top:27px;height:2px;background:linear-gradient(90deg,var(--gold),#d4b48a)}
+.msx-tl li{position:relative;margin:0;padding-top:72px}
+.msx-tl li:before{content:'';position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--sand);border:3px solid var(--gold);box-shadow:0 0 0 6px var(--sand)}
+.msx-tl .k{display:block;font:700 12px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px}
+.mst.msx .msx-tl h3{font:700 clamp(22px,2vw,28px)/1.2 'Bodoni Moda',Georgia,serif;margin-bottom:12px}
+.msx-tl p{margin:0;color:#4b3524;font-size:16px}
+.msx-sec--tight{padding-bottom:40px}
+.msx-gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:14px}
+.msx-gal span{display:block;border-radius:16px;background:#4d2c16 center/cover;transition:transform .3s}
+.msx-gal span:hover{transform:scale(1.02)}
+.msx-gal span:first-child{grid-row:span 2}
+
+@media (max-width:1024px){.msx-tl{grid-template-columns:1fr;gap:8px}.msx-tl:before{left:13px;right:auto;top:14px;bottom:14px;width:2px;height:auto}.msx-tl li{padding:4px 0 26px 56px}.msx-tl li:before{top:4px}
+.msx-gal{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:200px}.msx-gal span:first-child{grid-row:span 1;grid-column:span 2}}
+@media (max-width:680px){.msx-hero--page{min-height:auto;padding:80px 0 110px}}
