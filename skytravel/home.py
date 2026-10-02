@@ -15,34 +15,53 @@ SOCIAL = [('Facebook', 'https://m.facebook.com/p/Moroccoskytravel-10006359841942
           ('Instagram', 'https://www.instagram.com/moroccoskytravel/'),
           ('Snapchat', 'https://snapchat.com/t/V3WuOytE')]
 
+MEGA = [('Desert tours', (2805, 2771, 2789, 2847, 2800)), ('Grand tours', (2814, 2784, 2839, 2834, 2829)), ('Day trips from Marrakech', (2947, 2943, 2934, 2926, 2960))]
+DUNE = ("<svg class='%s' viewBox='0 0 1440 90' preserveAspectRatio='none' aria-hidden='true'><path d='M0 62C160 30 300 18 470 40s300 52 480 30 330-60 490-38V90H0z' fill='%s'/>"
+        "<path d='M0 78c200-26 380-30 560-12s360 30 520 8 260-28 360-20V90H0z' fill='%s' opacity='.55'/></svg>")
+WA_HI = 'Hello Morocco Sky Travel, I would like some information about a trip.'
+
 def header():
-    links = ''.join("<a href='%s%s'>%s</a>" % (SITE, u, n) for n, u in NAV)
-    js = ("<script>(function(){var p=location.pathname;document.querySelectorAll('.msh-nav a').forEach(function(a){var h=new URL(a.href).pathname;"
-          "if(h===p||(h!=='/'&&p.indexOf(h)===0))a.classList.add('on')});"
-          "var b=document.querySelector('.msh-burger'),n=document.getElementById('msh-nav');if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');"
-          "b.setAttribute('aria-expanded',o?'true':'false')})})()</script>")
-    return (FONTS + "<div class='mst msh'><div class='msh-in'><a class='msh-logo' href='%s/' aria-label='Morocco Sky Travel home'><img src='%s' alt='Morocco Sky Travel' height='56'></a>"
-            "<nav class='msh-nav' id='msh-nav' aria-label='Main menu'>%s<a class='msh-m' href='%s/book/'>Book your trip</a></nav>"
-            "<div class='msh-act'><a class='msh-wa' href='%s' target='_blank' rel='noopener' aria-label='WhatsApp'><i class='i-wa'></i><span>%s</span></a>"
-            "<a class='mst-btn mst-btn--gold msh-cta' href='%s/book/'>Book your trip</a>"
-            "<button type='button' class='msh-burger' aria-label='Menu' aria-expanded='false' aria-controls='msh-nav'><span></span><span></span><span></span></button></div></div></div>%s") % (
-        SITE, LOGO, links, SITE, wa_link('Hello Morocco Sky Travel, I would like some information about a trip.'), PHONE, SITE, js)
+    mega = ''.join("<div><h4>%s</h4>%s</div>" % (n, ''.join("<a href='%s/%s/'>%s</a>" % (SITE, BY[i]['url'], esc(BY[i]['card'])) for i in ids)) for n, ids in MEGA)
+    mega += ("<a class='mh-feat' href='%s/book/' style='background-image:url(%s)'><span>Can’t decide?</span><b>Let us design your trip</b><i>Free quote →</i></a>") % (SITE, BY[2847]['img'])
+    soc = ''.join("<a href='%s' target='_blank' rel='noopener' aria-label='%s'><i class='i-%s'></i></a>" % (u, n, n[:2].lower()) for n, u in SOCIAL)
+    js = ("<script>(function(){var h=document.querySelector('.mh');if(!h)return;var p=location.pathname;"
+          "h.querySelectorAll('.mh-nav>a,.mh-nav .mh-dt').forEach(function(a){var q=new URL(a.href).pathname;if(q===p||(q!=='/'&&p.indexOf(q)===0))a.classList.add('on')});"
+          "var b=h.querySelector('.mh-burger'),n=h.querySelector('.mh-nav');b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});"
+          "var x=h.querySelector('.mh-x'),d=h.querySelector('.mh-dd');x.addEventListener('click',function(){var o=d.classList.toggle('open');x.setAttribute('aria-expanded',o?'true':'false')});"
+          "var s=function(){h.classList.toggle('mh-s',window.scrollY>30)};s();window.addEventListener('scroll',s,{passive:true})})()</script>")
+    return (FONTS + "<div class='mst mh'><div class='mh-top'><div class='mh-w'><div class='mh-tl'>"
+            "<a href='tel:+212667307641'><i class='i-phone'></i>%s</a><a href='mailto:%s'><i class='i-mail'></i>%s</a><span><i class='i-pin'></i>Based in Fes · Private tours across Morocco</span></div>"
+            "<div class='mh-soc'>%s</div></div></div>"
+            "<div class='mh-bar'><div class='mh-w'><a class='mh-logo' href='%s/' aria-label='Morocco Sky Travel home'><img src='%s' alt='Morocco Sky Travel' height='58'></a>"
+            "<nav class='mh-nav' aria-label='Main menu'><a href='%s/'>Home</a>"
+            "<div class='mh-dd'><a class='mh-dt' href='%s/our-destinations/'>Tours</a><button type='button' class='mh-x' aria-label='Show tours' aria-expanded='false'></button><div class='mh-mega'>%s</div></div>"
+            "<a href='%s/destinations-copy/'>Day Trips</a><a href='%s/elementor-366/'>About</a><a href='%s/contact-us/'>Contact</a>"
+            "<a class='mh-m mst-btn mst-btn--gold' href='%s/book/'>Book your trip</a></nav>"
+            "<div class='mh-act'><a class='mh-wa' href='%s' target='_blank' rel='noopener' aria-label='WhatsApp us'><i class='i-wa'></i></a>"
+            "<a class='mst-btn mst-btn--gold mh-cta' href='%s/book/'>Book your trip</a>"
+            "<button type='button' class='mh-burger' aria-label='Menu' aria-expanded='false'><span></span><span></span><span></span></button></div></div></div></div>%s") % (
+        PHONE, EMAIL, EMAIL, soc, SITE, LOGO, SITE, SITE, mega, SITE, SITE, SITE, SITE, wa_link(WA_HI), SITE, js)
 
 def footer():
-    tours = [BY[i] for i in (2805, 2794, 2771, 2847, 2814, 2829)]
-    col_t = ''.join("<li><a href='%s/%s/'>%s</a></li>" % (SITE, t['url'], esc(t['card'])) for t in tours)
-    col_c = ''.join("<li><a href='%s%s'>%s</a></li>" % (SITE, u, n) for n, u in NAV + [('Book your trip', '/book/')])
-    soc = ''.join("<a href='%s' target='_blank' rel='noopener'>%s</a>" % (u, n) for n, u in SOCIAL)
-    return ("<footer class='mst msf'><div class='mst-wrap msf-grid'>"
-            "<div class='msf-brand'><img src='%s' alt='Morocco Sky Travel' height='64' loading='lazy'><p>%s</p><div class='msf-soc'>%s</div></div>"
-            "<div><h3>Popular tours</h3><ul>%s</ul></div><div><h3>Company</h3><ul>%s</ul></div>"
-            "<div><h3>Contact</h3><ul class='msf-ct'><li><a href='%s' target='_blank' rel='noopener'><i class='i-wa'></i> %s</a></li>"
-            "<li><a href='mailto:%s'><i class='i-mail'></i> %s</a></li><li><a href='tel:+212667307641'><i class='i-phone'></i> Call us: %s</a></li>"
-            "<li><span><i class='i-pin'></i> Fez, Morocco – Sais</span></li></ul></div></div>"
-            "<div class='mst-wrap msf-bot'><span>© <span class='msf-y'>2026</span> Morocco Sky Travel. All rights reserved.</span><a href='%s/our-destinations/'>Private Morocco tours &amp; desert trips</a></div></footer>"
-            "<script>document.querySelectorAll('.msf-y').forEach(function(e){e.textContent=new Date().getFullYear()})</script>") % (
-        LOGO_W, esc('Join us at Morocco Sky Travel and let us guide you through the enchanting landscapes and vibrant cultures of Morocco. Your adventure awaits!'),
-        soc, col_t, col_c, wa_link('Hello Morocco Sky Travel, I would like some information about a trip.'), PHONE, EMAIL, EMAIL, PHONE, SITE)
+    col = lambda ids: ''.join("<li><a href='%s/%s/'>%s</a></li>" % (SITE, BY[i]['url'], esc(BY[i]['card'])) for i in ids)
+    soc = ''.join("<a href='%s' target='_blank' rel='noopener' aria-label='%s'><i class='i-%s'></i></a>" % (u, n, n[:2].lower()) for n, u in SOCIAL)
+    return ("<footer class='mst mf'>" + DUNE % ('mf-dune', '#2a170b', '#2a170b') +
+            "<div class='mst-wrap mf-cta'><div><span class='mst-eyebrow'>Your trip, your way</span><h2>Ready to sleep under the Sahara stars?</h2>"
+            "<p>Tell us your dates and wishes. Our family team replies with a free, personal itinerary.</p></div>"
+            "<div class='acts'><a class='mst-btn mst-btn--gold' href='%s/book/'>Plan my trip</a><a class='mst-btn mst-btn--wa' href='%s' target='_blank' rel='noopener'><i class='i-wa'></i> WhatsApp</a></div></div>"
+            "<div class='mst-wrap mf-grid'><div class='mf-brand'><img src='%s' alt='Morocco Sky Travel' height='70' loading='lazy'>"
+            "<p>A family-run Moroccan travel company. From the dunes of the Sahara to the medinas of Fes and Marrakech, we create private journeys with heart.</p><div class='mf-soc'>%s</div></div>"
+            "<div><h3>Tours</h3><ul>%s<li><a class='mf-all' href='%s/our-destinations/'>All tours →</a></li></ul></div>"
+            "<div><h3>Day trips</h3><ul>%s<li><a class='mf-all' href='%s/destinations-copy/'>All day trips →</a></li></ul></div>"
+            "<div><h3>Contact us</h3><ul class='mf-ct'><li><a href='%s' target='_blank' rel='noopener'><i class='i-wa'></i><span><small>WhatsApp</small>%s</span></a></li>"
+            "<li><a href='tel:+212667307641'><i class='i-phone'></i><span><small>Phone</small>%s</span></a></li>"
+            "<li><a href='mailto:%s'><i class='i-mail'></i><span><small>Email</small>%s</span></a></li>"
+            "<li><span class='mf-li'><i class='i-pin'></i><span><small>Office</small>Fes, Morocco – Sais</span></span></li></ul></div></div>"
+            "<div class='mst-wrap mf-bot'><span>© <span class='mf-y'>2026</span> Morocco Sky Travel. All rights reserved.</span>"
+            "<nav aria-label='Footer'><a href='%s/elementor-366/'>About</a><a href='%s/contact-us/'>Contact</a><a href='%s/book/'>Book</a></nav></div></footer>"
+            "<script>document.querySelectorAll('.mf-y').forEach(function(e){e.textContent=new Date().getFullYear()})</script>") % (
+        SITE, wa_link(WA_HI), LOGO_W, soc, col((2805, 2771, 2847, 2814, 2784, 2829)), SITE, col((2947, 2943, 2934, 2926, 2952)), SITE,
+        wa_link(WA_HI), PHONE, PHONE, EMAIL, EMAIL, SITE, SITE, SITE)
 
 SERVICES = [('i-car', 'Private road trips', 'Imperial cities, kasbahs and coastal towns with your own driver, at your pace.', 2805),
             ('i-flag', 'Sahara desert & camels', 'Camel rides over golden dunes and nights in desert camps under a sky full of stars.', 2947),
@@ -63,10 +82,6 @@ ABOUT1 = U + '2024/10/WhatsApp-Image-2024-10-28-at-12.15.31-PM.jpeg'
 WA_PLAN = 'Hello Morocco Sky Travel, I would like help planning a trip to Morocco.'
 
 HOME_JS = ("<script>(function(){var r=document.querySelector('.msx');if(!r)return;"
-           # trip finder -> WhatsApp
-           "var f=r.querySelector('.msx-find');if(f)f.addEventListener('submit',function(e){e.preventDefault();var v=function(n){return f.elements[n].value};"
-           "var m='Hello Morocco Sky Travel, I am planning a trip: '+v('len')+' starting from '+v('from')+', '+v('pax')+', travelling in '+v('when')+'. Could you send me an itinerary and a quote?';"
-           "window.open('https://wa.me/" + WA + "?text='+encodeURIComponent(m),'_blank')});"
            # tabs
            "r.querySelectorAll('.msx-tabs button').forEach(function(b){b.addEventListener('click',function(){r.querySelectorAll('.msx-tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});"
            "r.querySelectorAll('.msx-track').forEach(function(t){t.hidden=t.id!==b.getAttribute('aria-controls');t.scrollLeft=0})})});"
@@ -91,20 +106,14 @@ def head(eyebrow, title, text=None, cls=''):
 
 def home_top():
     wa = wa_link(WA_PLAN)
-    find = ("<form class='msx-find' aria-label='Plan your trip'>" +
-            opt(('Starting city', 'from'), ['Marrakech', 'Fes', 'Casablanca', 'Tangier', 'Agadir', 'Not sure yet']) +
-            opt(('Trip length', 'len'), ['a 2–4 day trip', 'a 5–8 day trip', 'a 9–15 day trip', 'a day trip']) +
-            opt(('Travellers', 'pax'), ['2 travellers', '1 traveller', '3–4 travellers', '5+ travellers', 'a family with children']) +
-            opt(('When', 'when'), ['the next 3 months', 'spring', 'summer', 'autumn', 'winter', 'dates not fixed yet']) +
-            "<button type='submit' class='mst-btn mst-btn--gold'><i class='i-wa'></i> Get my free plan</button></form>")
     hero = ("<header class='msx-hero'><div class='msx-hero-bg' style='background-image:url(%s)'></div><div class='mst-wrap msx-hero-in'>"
-            "<span class='msx-pill'><b></b> Family-run local company · Fes, Morocco</span>"
+            "<span class='msx-place'>Marrakech <i></i> Fes <i></i> Merzouga <i></i> Atlas Mountains</span>"
             "<h1>Private Morocco Tours <em>&amp; Sahara Desert Trips</em></h1>"
             "<p class='msx-lead'>Tailor-made journeys through imperial cities, Atlas villages and golden dunes, with your own private driver and a local family team behind every detail.</p>"
             "<div class='mst-hero-ctas'><a class='mst-btn mst-btn--gold' href='%s/our-destinations/'>Explore our tours</a>"
-            "<a class='mst-btn mst-btn--ghost' href='%s' target='_blank' rel='noopener'><i class='i-wa'></i> Chat on WhatsApp</a></div>%s"
+            "<a class='mst-btn mst-btn--ghost' href='%s' target='_blank' rel='noopener'><i class='i-wa'></i> Chat on WhatsApp</a></div>"
             "<ul class='msx-trust'><li><i class='i-car'></i>Private driver &amp; 4x4</li><li><i class='i-flag'></i>Hand-picked riads &amp; camps</li>"
-            "<li><i class='i-clock'></i>Flexible, tailor-made routes</li><li><i class='i-wa'></i>Free quote, fast reply</li></ul></div></header>") % (HERO, SITE, wa, find)
+            "<li><i class='i-clock'></i>Flexible, tailor-made routes</li><li><i class='i-wa'></i>Free quote, fast reply</li></ul></div>" + DUNE % ('msx-dune', '#fffaf2', '#fffaf2') + "</header>") % (HERO, SITE, wa)
     svc = ("<section class='msx-sec'><div class='mst-wrap msx-intro2'><div class='rv'><span class='mst-eyebrow'>What we offer</span>"
            "<h2>Morocco, the way <em>locals</em> know it</h2><p>We are a family from the desert of Zagora. For over seven years we have been creating private journeys across Morocco, "
            "sharing the places, flavours and people we love, with the comfort and care you expect.</p>"
@@ -161,7 +170,6 @@ def home():
                      'flex_gap': {'unit': 'px', 'size': 20, 'column': '20', 'row': '20'}})
     head_ = book_head(title='Plan your trip with us', text='Tell us your dates, group size and the places you dream of. We will design a private itinerary and send you a personal quote.')
     return [container(eid(k, 'c1'), [w_html(eid(k, 'w1'), home_top())]), rev,
-            container(eid(k, 'c7'), [w_html(eid(k, 'w7'), cta_band())], {'padding': {'unit': 'px', 'top': '40', 'right': '0', 'bottom': '80', 'left': '0', 'isLinked': False}}),
             book_container(k, head_)]
 
 def payload_raw(pid, ed, extra=None):
@@ -182,6 +190,6 @@ if __name__ == '__main__':
         '_elementor_edit_mode': 'builder', '_wp_page_template': 'elementor_header_footer', 'site-post-title': 'disabled',
         'ast-title-bar-display': 'disabled', 'ast-featured-img': 'disabled'})['meta_input']}, open('out/479.json', 'w'), ensure_ascii=False)
     body = (hm[0]['elements'][0]['settings']['html'] + "<div class='mst-rev' style='padding:88px 20px 40px'>" + reviews_head() + "<div style='height:200px;background:#eee;max-width:1180px;margin:20px auto'>Tripadvisor widget</div></div>"
-            + "<div style='padding:40px 0 80px'>" + cta_band() + "</div><div class='mst-book' id='book'>" + hm[3]['elements'][0]['settings']['html'] + "<div class='mst-formbox'><div class='wpcf7'>form</div></div></div>")
+            + "<div class='mst-book' id='book'>" + hm[2]['elements'][0]['settings']['html'] + "<div class='mst-formbox'><div class='wpcf7'>form</div></div></div>")
     open('preview/home.html', 'w').write("<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><style>body{margin:0}" + css + '</style></head><body>' + hd + body + ft + '</body></html>')
     print('ok', [len(json.dumps(x)) for x in (hed, fed, hm)])
