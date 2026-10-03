@@ -4,6 +4,28 @@ from images import GALLERY, gal, FLEET, FLEET_ORIG
 U = B + '2025/11/'
 
 # ---------- home ----------
+# ---------- home banner: airplane window, scroll to fly down onto Morocco ----------
+FLY_JS = ("<script>(function(){var f=document.getElementById('et-fly');if(!f||!window.requestAnimationFrame)return;"
+          "if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;"
+          "f.classList.add('on');var q=0,c=function(x){return x<0?0:x>1?1:x},"
+          "u=function(){q=0;var r=f.getBoundingClientRect(),d=r.height-innerHeight,p=c(d>0?-r.top/d:1),e=p*p,"
+          "s=f.style;s.setProperty('--s',(1+11*e).toFixed(3));s.setProperty('--z',(1.3-.3*c(p/.85)).toFixed(3));"
+          "s.setProperty('--w',(1-c((p-.62)/.2)).toFixed(3));s.setProperty('--c',(1-c(p/.18)).toFixed(3));"
+          "s.setProperty('--k',(1-c(p/.7)).toFixed(3));var t=c((p-.72)/.2);s.setProperty('--t',t.toFixed(3));"
+          "f.classList.toggle('in',t>.4)};"
+          "u();addEventListener('scroll',function(){if(!q){q=1;requestAnimationFrame(u)}},{passive:true});addEventListener('resize',u)})();</script>")
+
+def fly_hero(key, eyebrow, h1, lead, ctas):
+    i = IMG[key]
+    return ("<section class='et et-fly' id='et-fly'><div class='et-fly-s'>"
+            "<div class='et-fly-v'><picture><source media='(max-width:700px)' srcset='" + i['card'] + "'>"
+            "<img src='" + i['wide'] + "' alt='Morocco seen from the sky' fetchpriority='high' decoding='async' data-o='" + i['orig'] + "' onerror=etF(this)></picture>"
+            "<div class='et-fly-cl' aria-hidden='true'><i></i><i></i><i></i><i></i></div></div>"
+            "<div class='et-fly-w' aria-hidden='true'><div class='et-fly-win'></div></div>"
+            "<div class='et-fly-cap' aria-hidden='true'><span>Flight EPIC · Welcome on board</span><b>Scroll to land in Morocco</b><i></i></div>"
+            "<div class='et-fly-t'><div class='et-wrap'><span class='et-eye'>" + eyebrow + "</span><h1>" + h1 + "</h1><p class='lead'>" + lead + "</p>"
+            "<div class='et-ctas'>" + ctas + "</div></div></div></div></section>" + FLY_JS)
+
 def home():
     featured = [BY_ID[i] for i in (3353, 3339, 3359, 3351, 3331, 3390)]
     why = [('favorite-location-1.svg', 'Authentic Local Experience', 'Our native guides reveal the real Morocco — its traditions, hidden gems, and warm hospitality.'),
@@ -13,9 +35,9 @@ def home():
     whyh = ''.join("<div class='et-rv'><span class='ic'><img src='" + U + f + "' width='38' height='38' alt='' loading='lazy'></span><h3>" + t + "</h3><p>" + d + "</p></div>" for f, t, d in why)
     galh = ''.join("<a href='" + o + "' target='_blank' rel='noopener' class='et-rv' aria-label='Open photo " + str(n + 1) + "'><img src='" + c + "' width='600' height='810' alt='Epic Travel Morocco travellers – photo " + str(n + 1) + "' loading='lazy' decoding='async' data-o='" + o + "' onerror=etF(this)></a>" for n, (c, o) in enumerate(map(gal, GALLERY)))
     body = (
-        hero('hero1', 'Epic Travel Morocco', 'Where Every Journey Becomes an Epic Story',
+        fly_hero('hero1', 'Epic Travel Morocco', 'Where Every Journey Becomes an Epic Story',
              'Private tours across Morocco — from the blue streets of Chefchaouen and the medinas of Fes to the golden dunes of the Sahara — planned by a local team in Marrakech.',
-             "<a class='et-btn' href='" + SITE + "/destination/'>Explore our tours " + ICON['arrow'] + "</a><a class='et-btn et-btn-w' href='" + WA + "' target='_blank' rel='noopener'>" + ICON['wa'] + "Plan with us on WhatsApp</a>", small=False)
+             "<a class='et-btn' href='" + SITE + "/destination/'>Explore our tours " + ICON['arrow'] + "</a><a class='et-btn et-btn-w' href='" + WA + "' target='_blank' rel='noopener'>" + ICON['wa'] + "Plan with us on WhatsApp</a>")
         + "<div class='et'><div class='et-wrap'><div class='et-facts'><div><b>15</b><span>ready-made itineraries</span></div><div><b>3–15</b><span>days, every tour private</span></div>"
           "<div><b>4×4 · Van · Bus</b><span>our own fleet with driver</span></div><div><b>24/7</b><span>support during your trip</span></div></div></div></div>"
         + "<section class='et et-sec'><div class='et-wrap et-split'><div class='et-archimg et-rv'>" + img('taryn', 'Traveller in a Moroccan medina', w=600, h=750)
