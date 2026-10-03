@@ -281,3 +281,5 @@ body.elementor-template-canvas{background:#fff}
 .et-fly.on .et-fly-t{opacity:var(--t,0);transform:translateY(calc((1 - var(--t,0))*30px));visibility:hidden}
 .et-fly.on.in .et-fly-t{visibility:visible}
 @media (max-width:700px){.et-fly-win{width:min(62vw,280px)}.et-fly-t .et-wrap{padding-top:130px;padding-bottom:56px}.et-fly-t .et-ctas .et-btn{flex:1 1 100%}}
+body.home,body.page-id-862{overflow-x:clip!important}
+.elementor-862 .e-con,.elementor-862 .elementor-widget-html,.elementor-862 .elementor-widget-container{overflow:visible!important}
