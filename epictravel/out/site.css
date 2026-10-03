@@ -231,7 +231,8 @@ body.elementor-template-canvas{background:#fff}
 
 /* Calm pass: fewer patterns, no moving text, no decorative arches */
 .et-pat{background-image:none}
-.et-dark{background-image:none}
+.et-dark{background-image:linear-gradient(rgba(11,37,71,.9),rgba(11,37,71,.9)),url('https://epictravelmorocco.com/wp-content/uploads/2026/10/zellige-blue.webp');background-size:auto,370px 370px;background-repeat:repeat}
+.et-archimg .et-badge{background-image:linear-gradient(rgba(11,37,71,.88),rgba(11,37,71,.88)),url('https://epictravelmorocco.com/wp-content/uploads/2026/10/zellige-blue.webp');background-size:auto,240px 240px}
 .et-arch-o,.et-mq,.et-orn{display:none}
 .et-band{height:4px;background:var(--et-sand)}
 .et-h .et-band{height:3px;background:var(--et-sand)}
