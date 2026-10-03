@@ -248,6 +248,9 @@ AG_ACT = [
  ('pool', 'Pool &amp; lunch day', 'half or full day', 'Relax by a pool facing the desert, with lunch at a camp — the easy way to enjoy Agafay away from the city.'),
 ]
 
+AG_IMG = {k: B + '2026/10/pexels-photo-' + v + '.jpeg' for k, v in [('quad', '5977015'), ('camel', '24193958'), ('buggy', '20734804'), ('dinner', '31854095'),
+          ('camp', '11387348'), ('balloon', '5717148'), ('horse', '19454802'), ('pool', '6129989')]}
+
 AG_PACKS = [
  ('Agafay sunset', 'Afternoon · from Marrakech', ['Hotel pick-up in Marrakech', 'Quad or buggy ride', 'Camel ride at sunset', 'Mint tea in a camp']),
  ('Agafay evening', 'Afternoon + dinner', ['Hotel pick-up in Marrakech', 'Camel ride at sunset', 'Dinner &amp; show under the stars', 'Drive back to Marrakech']),
@@ -257,7 +260,8 @@ AG_PACKS = [
 def agafay():
     def wa(t):
         return WA + '?text=' + ('Hello Epic Travel Morocco, I am interested in Agafay: ' + t + '. ').replace(' ', '%20').replace('&amp;', 'and').replace('+', 'and').replace('·', '-')
-    acts = ''.join("<article class='et-act et-rv'><span class='ic'>" + AG_ICONS[k] + "</span><div><h3>" + n + "</h3><span class='et-cap'>" + d + "</span><p>" + t + "</p>"
+    acts = ''.join("<article class='et-act et-rv'><div class='et-act-img'><img src='" + AG_IMG[k] + "' width='900' height='600' alt='" + n.replace('&amp;', 'and') + " in Agafay' loading='lazy' decoding='async'>"
+                   "<span class='et-days'>" + d + "</span></div><div class='et-act-b'><h3>" + n + "</h3><p>" + t + "</p>"
                    "<a class='et-more' href='" + wa(n) + "' target='_blank' rel='noopener'>Ask on WhatsApp " + ICON['arrow'] + "</a></div></article>" for k, n, d, t in AG_ACT)
     packs = ''.join("<article class='et-pack et-rv'><span class='et-kind'>" + s + "</span><h3>" + n + "</h3><ul class='et-list'>" + ''.join('<li>' + x + '</li>' for x in li) + "</ul>"
                     "<a class='et-btn et-btn-wa' href='" + wa(n) + "' target='_blank' rel='noopener'>" + ICON['wa'] + "Book on WhatsApp</a></article>" for n, s, li in AG_PACKS)
