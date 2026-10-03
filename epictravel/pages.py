@@ -4,29 +4,36 @@ from images import GALLERY, gal, FLEET, FLEET_ORIG
 U = B + '2025/11/'
 
 # ---------- home ----------
-# ---------- home banner: airplane window, scroll to fly down onto Morocco ----------
-FLY_JS = ("<script>(function(){var f=document.getElementById('et-fly');if(!f||!window.requestAnimationFrame)return;"
-          "if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;"
-          "f.classList.add('on');var q=0,c=function(x){return x<0?0:x>1?1:x},"
-          "g=f.querySelector('.et-fly-s'),m=0,"
-          "u=function(){q=0;var r=f.getBoundingClientRect(),d=r.height-g.offsetHeight,y=-r.top,p=c(d>0?y/d:1),e=p*p,"
-          "s=f.style;if(!m&&y>4&&y<d-4&&Math.abs(g.getBoundingClientRect().top)>2)m=1;"
-          "g.style.transform=m?'translateY('+Math.max(0,Math.min(y,d))+'px)':'';s.setProperty('--s',(1+11*e).toFixed(3));s.setProperty('--z',(1.3-.3*c(p/.85)).toFixed(3));"
-          "s.setProperty('--w',(1-c((p-.62)/.2)).toFixed(3));s.setProperty('--c',(1-c(p/.18)).toFixed(3));"
-          "s.setProperty('--k',(1-c(p/.7)).toFixed(3));var t=c((p-.72)/.2);s.setProperty('--t',t.toFixed(3));"
-          "f.classList.toggle('in',t>.4)};"
-          "u();addEventListener('scroll',function(){if(!q){q=1;requestAnimationFrame(u)}},{passive:true});addEventListener('resize',u)})();</script>")
+# ---------- home banner: cinematic airplane-window intro over aerial video ----------
+FLY_VIDEO = B + '2026/10/8774553-hd_1280_720_30fps.mp4'
+FLY_POSTER = B + '2026/10/pexels-photo-30710158.jpeg'
+FLY_SVG = ("<svg class='et-fly-wall' viewBox='0 0 1600 1000' preserveAspectRatio='xMidYMid slice' aria-hidden='true'><defs>"
+           "<linearGradient id='etw' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#ebe8e3'/><stop offset='.55' stop-color='#d9d4cc'/><stop offset='1' stop-color='#bdb6ab'/></linearGradient>"
+           "<radialGradient id='etv' cx='.5' cy='.5' r='.75'><stop offset='.45' stop-color='#000' stop-opacity='0'/><stop offset='1' stop-color='#000' stop-opacity='.38'/></radialGradient>"
+           "<linearGradient id='ets' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#f4f2ee'/><stop offset='1' stop-color='#d8d3cb'/></linearGradient>"
+           "<linearGradient id='etg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#fff' stop-opacity='.35'/><stop offset='.35' stop-color='#fff' stop-opacity='0'/></linearGradient>"
+           "<mask id='etm'><rect width='1600' height='1000' fill='#fff'/><rect x='652' y='292' width='296' height='416' rx='148' fill='#000'/></mask>"
+           "<clipPath id='etc'><rect x='652' y='292' width='296' height='416' rx='148'/></clipPath></defs>"
+           "<g mask='url(#etm)'><rect width='1600' height='1000' fill='url(#etw)'/><rect width='1600' height='1000' fill='url(#etv)'/>"
+           "<rect x='606' y='244' width='388' height='512' rx='194' fill='#cfc9c0'/><rect x='614' y='252' width='372' height='496' rx='186' fill='#e9e6e1'/>"
+           "<rect x='636' y='274' width='328' height='452' rx='164' fill='#a59d92'/><rect x='642' y='281' width='316' height='438' rx='158' fill='#8b8378'/></g>"
+           "<g clip-path='url(#etc)'><rect class='et-fly-shade' x='652' y='292' width='296' height='120' fill='url(#ets)'/>"
+           "<rect class='et-fly-shade' x='652' y='404' width='296' height='8' fill='#b9b2a7'/><rect x='652' y='292' width='296' height='416' fill='url(#etg)'/></g>"
+           "<rect x='652' y='292' width='296' height='416' rx='148' fill='none' stroke='#6f685e' stroke-width='3'/></svg>")
+FLY_JS = ("<script>(function(){var f=document.getElementById('et-fly');if(!f)return;var d=document.documentElement,v=f.querySelector('video');"
+          "if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){if(v){v.removeAttribute('autoplay');v.pause()}return}"
+          "f.classList.add('intro');d.classList.add('et-fly-on');var n=0,go=function(){if(n)return;n=1;f.classList.add('go');"
+          "setTimeout(function(){d.classList.remove('et-fly-on')},1600);setTimeout(function(){f.classList.add('done')},3200)};"
+          "setTimeout(go,1700);['wheel','touchstart','keydown','click'].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});"
+          "if(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}})();</script>")
 
 def fly_hero(key, eyebrow, h1, lead, ctas):
-    i = IMG[key]
-    return ("<section class='et et-fly' id='et-fly'><div class='et-fly-s'>"
-            "<div class='et-fly-v'><picture><source media='(max-width:700px)' srcset='" + i['card'] + "'>"
-            "<img src='" + i['wide'] + "' alt='Morocco seen from the sky' fetchpriority='high' decoding='async' data-o='" + i['orig'] + "' onerror=etF(this)></picture>"
-            "<div class='et-fly-cl' aria-hidden='true'><i></i><i></i><i></i><i></i></div></div>"
-            "<div class='et-fly-w' aria-hidden='true'><div class='et-fly-win'></div></div>"
-            "<div class='et-fly-cap' aria-hidden='true'><span>Flight EPIC · Welcome on board</span><b>Scroll to land in Morocco</b><i></i></div>"
+    return ("<section class='et et-fly' id='et-fly'><div class='et-fly-v'>"
+            "<video autoplay muted loop playsinline preload='auto' poster='" + FLY_POSTER + "' aria-hidden='true'><source src='" + FLY_VIDEO + "' type='video/mp4'></video></div>"
+            "<div class='et-fly-cl' aria-hidden='true'><i></i><i></i><i></i></div>" + FLY_SVG +
+            "<div class='et-fly-cap' aria-hidden='true'><span>Flight EPIC · Marrakech</span><b>Morocco is below you</b></div>"
             "<div class='et-fly-t'><div class='et-wrap'><span class='et-eye'>" + eyebrow + "</span><h1>" + h1 + "</h1><p class='lead'>" + lead + "</p>"
-            "<div class='et-ctas'>" + ctas + "</div></div></div></div></section>" + FLY_JS)
+            "<div class='et-ctas'>" + ctas + "</div></div></div></section>" + FLY_JS)
 
 def home():
     featured = [BY_ID[i] for i in (3353, 3339, 3359, 3351, 3331, 3390)]
