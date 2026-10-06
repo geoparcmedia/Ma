@@ -6,6 +6,9 @@ TRIPS = [dict(url='https://atlasfamilyadventure.com/index.php/trip/5-day-desert-
               title='5-Day Desert Trek in the Draa Valley', dur='5 days / 4 nights', season='December – April', walk='3–5 hours a day',
               text='Walk alongside camels across golden dunes, rocky plains and ancient nomadic trails, from Zaouit Sidi Saleh to the Tidri and Erg Sahel dunes. Nights in desert camps under the stars, with a guide, camel team and cook.',
               hl=['Draa Valley palm groves and oases', 'Camels carry your luggage', 'Wild desert camps', 'Private transfer from Marrakech'])]
+OTHERS = [('https://atlasfamilyadventure.com/index.php/trip/mgoun-4071m-summit-valleys-hidden-gorges/', U + 'CVJR2258.jpg', 'M’Goun 4,071m: Summit, Valleys & Hidden Gorges', '7 days'),
+          ('https://atlasfamilyadventure.com/index.php/trip/across-the-land-of-volcanoes/', U + 'WhatsApp-Image-2026-09-20-at-11.17.35-7.jpeg', 'Saghro Volcanic Mountains Trek', '5 days'),
+          ('https://atlasfamilyadventure.com/index.php/trip/4-day-mgoun-summit-trek/', U + 'WhatsApp-Image-2026-09-23-at-02.55.09-1.jpeg', '4-Day M’Goun Summit Trek', '4 days')]
 CSS = """<style>
 .afs{--o:#ff4911;--od:#d93a06;--ink:#1c1c1c;--mut:#5f5f5f;--sand:#faf3ea;--line:#eadcc8;font-size:16px;line-height:1.65;color:var(--ink)}
 .afs *{box-sizing:border-box}.afs h2,.afs h3{margin:0;color:var(--ink);line-height:1.2}
@@ -33,6 +36,15 @@ CSS = """<style>
 .afs-cta:before{content:'';position:absolute;inset:0;background:rgba(20,12,6,.68)}.afs-cta>*{position:relative}
 .afs-cta h2{color:#fff;font-size:clamp(24px,2.6vw,34px);margin-bottom:8px}.afs-cta p{color:rgba(255,255,255,.88);margin:0 auto 20px;max-width:560px}
 .afs-cta .afs-btns{justify-content:center}
+.afs-lay{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+.afs-side{position:sticky;top:120px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.afs-side h3{font-size:18px;margin-bottom:14px}
+.afs-side a.o{display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:center;text-decoration:none;color:var(--ink);padding:10px 0;border-top:1px solid var(--line)}
+.afs-side a.o:first-of-type{border-top:0}.afs-side .t{display:block;width:84px;height:66px;border-radius:10px;background:#c9a77c center/cover}
+.afs-side b{display:block;font-size:14.5px;line-height:1.3}.afs-side small{color:var(--o);font-weight:700;font-size:13px}
+.afs-side a.o:hover b{color:var(--o)}.afs-side .afs-b{width:100%;margin-top:12px}
+.afs-lay .afs-intro{grid-template-columns:1fr;gap:24px}.afs-lay .afs-why{grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media (max-width:1100px){.afs-lay{grid-template-columns:1fr}.afs-side{position:static}}
 @media (max-width:900px){.afs-intro,.afs-trip{grid-template-columns:1fr}.afs-trip .im{min-height:240px}.afs-why{grid-template-columns:1fr}.afs-trip ul{grid-template-columns:1fr}.afs-pics{grid-template-rows:140px 140px}}
 </style>"""
 
@@ -57,7 +69,9 @@ def page():
     cta = ("<section class='afs-cta' style='background-image:url(%sWhatsApp-Image-2026-09-23-at-13.15.52-1024x768.jpeg)'><h2>Plan your Sahara trek</h2>"
            "<p>Tell us your dates and group size, and we will help you organise your desert trek.</p><div class='afs-btns'>"
            "<a class='afs-b afs-b--p' href='https://atlasfamilyadventure.com/index.php/contact/'>Contact us</a><a class='afs-b afs-b--w' href='%s' target='_blank' rel='noopener'>WhatsApp</a></div></section>") % (U, WA)
-    return CSS + "<div class='afs'>" + intro + trips + why + cta + '</div>'
+    side = ("<aside class='afs-side'><h3>Other treks</h3>" + ''.join("<a class='o' href='%s'><span class='t' style='background-image:url(%s)'></span><span><b>%s</b><small>%s</small></span></a>" % o for o in OTHERS)
+            + "<a class='afs-b afs-b--l' href='https://atlasfamilyadventure.com/index.php/trip/'>All treks</a></aside>")
+    return CSS + "<div class='afs'><div class='afs-lay'><div>" + intro + trips + why + '</div>' + side + '</div>' + cta + '</div>'
 
 if __name__ == '__main__':
     html = page()
