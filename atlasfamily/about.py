@@ -1,5 +1,6 @@
 """Clean rebuild of the About Us page (8277), keeping the owner's text and photos."""
 import json
+from brand import EXTRA, PEAKS
 from home import CSS, container, html, eid, U, S, WA, TREKS, CONTACT
 
 ABOUT_CSS = ("<style>.afh-stats{display:flex;gap:14px;margin-top:24px}.afh-stats div{background:var(--sand);border-radius:14px;padding:16px 22px}"
@@ -20,7 +21,7 @@ INTRO = ["At Atlas Family Adventure, we believe that the best way to discover Mo
 FOUNDER = ["My journey as a mountain guide began after the passing of my uncle, Mohamed, who was a renowned guide in our family and one of the most respected mountain guides in our region.",
            "After he passed away, I decided to step into his role and continue the path he had started. I began leading treks through the mountains I have called home all my life, learning from my family, the local communities, and every journey along the way.",
            "For me, guiding is more than leading people from one place to another. It is about sharing the mountains, the culture, the stories, and the way of life that I grew up with.",
-           "Today, through Atlas Family Adventure, I have the opportunity to share these places with travelers from around the world and show them a side of Morocco that goes beyond the usual tourist trails."]
+           "Today, through Atlas Family Adventure, I have the opportunity to share these places with travelers from around the world and show them a side of Morocco that goes beyond the usual tourist trails."]  # signature added in page()
 TEAM = [('Mohamed', 'Driver, local guide & partner', U + 'unnamed-1-scaled.jpg',
          ['Mohamed is an experienced driver, local guide, and partner of Mehdi at Atlas Family Adventure. As Mehdi’s cousin, he has been part of the adventure from the beginning.',
           'Born and raised in the High Atlas Mountains, he knows the roads, valleys, and desert routes of Morocco by heart. With his calm personality, safe driving, and local knowledge, Mohamed helps make every journey smooth, comfortable, and authentic for our guests.']),
@@ -34,7 +35,7 @@ def page():
              "<div class='afh-stats'><div><b>12+</b><span>Years of experience</span></div><div><b>250+</b><span>Happy clients</span></div></div></div>"
              "<div class='afh-pics'><span style='background-image:url(%sGFFI9802.jpg)'></span><span style='background-image:url(%sWhatsApp-Image-2026-09-20-at-11.17.35-1-1.jpeg)'></span></div></div></section>") % (U, U)
     founder = ("<section class='afh-sec afh-sand'><div class='afh-w afh-founder'><div class='ph' style='background-image:url(%sWhatsApp-Image-2026-09-22-at-02.12.45.jpeg)' role='img' aria-label='Mehdi, founder of Atlas Family Adventure'></div>"
-               "<div><span class='afh-k'>Our founder</span><h2>Hello, I’m Mehdi</h2><p><b>The founder of Atlas Family Adventure.</b></p>" + ''.join('<p>%s</p>' % p for p in FOUNDER) + '</div></div></section>') % U
+               "<div><span class='afh-k'>Our founder</span><h2>Hello, I’m Mehdi</h2><p><b>The founder of Atlas Family Adventure.</b></p>" + ''.join('<p>%s</p>' % p for p in FOUNDER) + "<p class='afh-sign'>Mehdi</p></div></div></section>") % U
     team = ("<section class='afh-sec'><div class='afh-w'><div class='afh-head'><span class='afh-k'>Our family team</span><h2>The people behind your journey</h2></div><div class='afh-team'>"
             + ''.join("<article><div class='ph' style='background-image:url(%s)'></div><div class='tx'><h3>Meet %s</h3><small>%s</small>%s</div></article>" % (img, n, r, ''.join('<p>%s</p>' % p for p in ps)) for n, r, img, ps in TEAM)
             + '</div></div></section>')
@@ -42,7 +43,7 @@ def page():
             "<h2>Discover Morocco Beyond the Ordinary</h2><p>We offer spectacular treks and authentic adventures through places that are often known only to local people. From hidden mountain trails and remote valleys to traditional villages and quiet desert landscapes, we take you beyond the usual tourist routes.</p>"
             "<p>With our local knowledge and deep connection to the places we call home, we invite you to experience Morocco in a more authentic way, through its landscapes, people, culture, and stories.</p>"
             "<div class='afh-btns'><a class='afh-b afh-b--p' href='%s'>Our Treks</a><a class='afh-b afh-b--g' href='%s'>Contact us</a></div></div></section>") % (U, TREKS, CONTACT)
-    return CSS + ABOUT_CSS + "<div class='afh'>" + intro + founder + team + band + '</div>'
+    return CSS + ABOUT_CSS + EXTRA + "<div class='afh'>" + intro + "<div class='afh-rug'></div>" + founder + "<div class='afh-rug'></div>" + team + band + '</div>'
 
 if __name__ == '__main__':
     ed = [container(eid('about', 'c1'), [html(eid('about', 'w1'), page())])]

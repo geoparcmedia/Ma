@@ -1,6 +1,7 @@
 """Clean rebuild of the Atlas Family Adventure homepage (page 8276), keeping the owner's own text, photos,
 the WP Travel Engine trips slider and the Tripadvisor reviews shortcode."""
 import json, hashlib
+from brand import EXTRA, PEAKS
 U = 'https://atlasfamilyadventure.com/wp-content/uploads/2026/09/'
 S = 'https://atlasfamilyadventure.com/index.php'
 WA = 'https://wa.me/212703501612?text=Hello%20Atlas%20Family%20Adventure%2C%20I%20would%20like%20information%20about%20a%20trek.'
@@ -55,12 +56,12 @@ def top():
     hero = ("<section class='afh-hero' style='background-image:url(%sWhatsApp-Image-2026-09-22-at-04.52.07-scaled.jpeg)'><div class='afh-w'>"
             "<span class='afh-k'>Atlas Family Adventure</span><h1>Discover the Real Morocco, Beyond the Usual Routes</h1>"
             "<p>Hiking trips and cultural journeys from the High Atlas Mountains to the Sahara Desert, led by local people who know these places by heart.</p>"
-            "<div class='afh-btns'><a class='afh-b afh-b--p' href='%s'>Our Treks</a><a class='afh-b afh-b--g' href='%s' target='_blank' rel='noopener'>WhatsApp us</a></div></div></section>") % (U, TREKS, WA)
+            "<div class='afh-btns'><a class='afh-b afh-b--p' href='%s'>Our Treks</a><a class='afh-b afh-b--g' href='%s' target='_blank' rel='noopener'>WhatsApp us</a></div></div>" + PEAKS % ('#ffffff', '#ffffff') + "</section><div class='afh-rug'></div>") % (U, TREKS, WA)
     intro = ("<section class='afh-sec'><div class='afh-w afh-split'><div><span class='afh-k'>Atlas Family Adventure</span><h2>Morocco, Beyond the Journey</h2>"
              + ''.join('<p>%s</p>' % p for p in INTRO) +
              "<div class='afh-btns' style='margin-top:20px'><a class='afh-b afh-b--p' href='%s/about/'>About us</a></div></div>"
              "<div class='afh-pics'><span style='background-image:url(%sIMG_3118-scaled.jpeg)'></span><span style='background-image:url(%sIMG_1195-scaled.jpeg)'></span></div></div></section>") % (S, U, U)
-    return CSS + "<div class='afh'>" + hero + intro + "<div class='afh-sand' style='padding-top:90px'><div class='afh-w afh-head'><span class='afh-k'>Our treks</span><h2>Trekking adventures in Morocco</h2><p>Mountain and desert treks with our local team.</p></div></div></div>"
+    return CSS + EXTRA + "<div class='afh'>" + hero + intro + "<div class='afh-sand' style='padding-top:90px'><div class='afh-w afh-head'><span class='afh-k'>Our treks</span><h2>Trekking adventures in Morocco</h2><p>Mountain and desert treks with our local team.</p></div></div></div>"
 
 def mid():
     btn = "<div class='afh afh-sand'><div class='afh-c' style='margin-top:0;padding:10px 0 90px'><a class='afh-b afh-b--p' href='%s'>View all treks</a></div></div>" % TREKS
@@ -73,9 +74,9 @@ def rest():
            "<h2>Why Travel With Atlas Family Adventure?</h2></div><ul>" + ''.join('<li>%s</li>' % w for w in WHY) + '</ul></div></section>') % U
     more = ("<section class='afh-sec'><div class='afh-w afh-more'><span class='afh-k'>More than a holiday</span><h2>We look forward to welcoming you to our home</h2>"
             "<p>For us, every trek is a chance to meet new people, exchange cultures, and create lasting memories together. We don’t just guide you through Morocco, we share our way of life with you.</p>"
-            "<p>Our goal is simple: to make you feel welcome and to share the places we are proud to call home.</p>"
+            "<p>Our goal is simple: to make you feel welcome and to share the places we are proud to call home.</p><p class='afh-sign'>Mehdi &amp; the Atlas family</p>"
             "<div class='afh-btns'><a class='afh-b afh-b--p' href='%s'>Contact us</a><a class='afh-b afh-b--l' href='%s' target='_blank' rel='noopener'>WhatsApp</a></div></div></section>") % (CONTACT, WA)
-    return "<div class='afh'>" + reg + why + more + "<div class='afh-head' style='margin-bottom:10px'><span class='afh-k'>Testimonials</span><h2>Words From Our Guests</h2></div></div>"
+    return "<div class='afh'>" + reg + why + more + "<div class='afh-rug' style='margin-bottom:60px'></div><div class='afh-head' style='margin-bottom:10px'><span class='afh-k'>Testimonials</span><h2>Words From Our Guests</h2></div></div>"
 
 def container(cid, els, extra=None):
     s = {'content_width': 'full', 'flex_direction': 'column', 'flex_gap': {'unit': 'px', 'size': 0, 'column': '0', 'row': '0'},

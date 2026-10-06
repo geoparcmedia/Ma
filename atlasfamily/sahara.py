@@ -1,5 +1,6 @@
 """Sahara Desert Tours page for atlasfamilyadventure.com: only the Sahara (destination 'sahara-desert') treks."""
 import json
+from brand import EXTRA, PEAKS
 U = 'https://atlasfamilyadventure.com/wp-content/uploads/2026/09/'
 WA = 'https://wa.me/212703501612?text=' + 'Hello%20Atlas%20Family%20Adventure%2C%20I%20am%20interested%20in%20a%20Sahara%20desert%20trek.'
 TRIPS = [dict(url='https://atlasfamilyadventure.com/index.php/trip/5-day-desert-trek-in-the-draa-valley-2/', img=U + 'IMG_3545.jpeg',
@@ -71,7 +72,7 @@ def page():
            "<a class='afs-b afs-b--p' href='https://atlasfamilyadventure.com/index.php/contact/'>Contact us</a><a class='afs-b afs-b--w' href='%s' target='_blank' rel='noopener'>WhatsApp</a></div></section>") % (U, WA)
     side = ("<aside class='afs-side'><h3>Other treks</h3>" + ''.join("<a class='o' href='%s'><span class='t' style='background-image:url(%s)'></span><span><b>%s</b><small>%s</small></span></a>" % o for o in OTHERS)
             + "<a class='afs-b afs-b--l' href='https://atlasfamilyadventure.com/index.php/trip/'>All treks</a></aside>")
-    return CSS + "<div class='afs'><div class='afs-lay'><div>" + intro + trips + why + '</div>' + side + '</div>' + cta + '</div>'
+    return CSS + EXTRA + "<div class='afs'><div class='afs-lay'><div>" + intro + trips + why + '</div>' + side + "</div><div class='afh-rug' style='margin-top:50px'></div>" + cta + '</div>'
 
 if __name__ == '__main__':
     html = page()
