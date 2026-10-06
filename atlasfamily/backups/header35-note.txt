@@ -1,0 +1,4 @@
+Header 01 (post 35) before redesign: travoloheaderfooterinfo (aelmahdizaki@gmail.com, +212 703501612),
+travolo_footer_social (generic facebook/twitter/instagram/pinterest URLs), logo image IMG_23471.png (id 8384),
+travolomegamenu + travolomobilemenu (mobile logo WhatsApp-Image-2026-09-21-at-03.06.39-scaled.jpeg id 8629),
+travolosearch + travolominicarts. Full JSON was printed in the session transcript.
