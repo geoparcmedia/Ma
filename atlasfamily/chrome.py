@@ -76,7 +76,7 @@ FCSS = ("<style>.aff{position:relative;background:%(ink)s;color:rgba(255,255,255
  ".aff small{color:rgba(255,255,255,.6)}"
  ".aff a.afg-btn{display:inline-flex;margin-top:14px;background:%(c1)s;color:#fff;padding:12px 22px;border-radius:999px;font-weight:600}.aff a.afg-btn:hover{background:#fff;color:%(ink)s}"
  ".aff-bot{margin-top:60px;border-top:1px solid rgba(242,201,160,.18);padding:20px 0 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px;color:rgba(255,255,255,.6)}"
- ".aff-bot b{color:#f2c9a0;font-weight:700}"
+ ".aff-bot b{color:#f2c9a0;font-weight:700}.aff .aff-dev a{color:#f2c9a0;font-weight:600}.aff .aff-dev a:hover{color:#fff}"
  "@media (max-width:1024px){.aff-grid{grid-template-columns:1fr 1fr}}@media (max-width:640px){.aff-grid{grid-template-columns:1fr;gap:30px}.aff{padding-top:90px}.aff-peaks{height:50px}.aff-bot{flex-direction:column}}</style>") % dict(c1=C1, ink=INK)
 
 TREK_LINKS = [('M’Goun Summit Trek (4 days)', S + '/trip/4-day-mgoun-summit-trek/'), ('M’Goun Summit & Hidden Gorges (7 days)', S + '/trip/mgoun-4071m-summit-valleys-hidden-gorges/'),
@@ -94,7 +94,7 @@ def footer():
             "<div><h4>Popular treks</h4><ul>%s</ul></div>"
             "<div><h4>Contact</h4><ul><li><a href='tel:+212703501612'>+212 703 501 612</a></li><li><a href='mailto:aelmahdizaki@gmail.com'>aelmahdizaki@gmail.com</a></li>"
             "<li>Gueliz, Marrakech 22000, Morocco</li><li><a href='%s'>Send us a message →</a></li></ul></div></div>"
-            "<div class='aff-bot'><span>© <span class='aff-y'>2026</span> Atlas Family Adventure. All rights reserved.</span><span>Made with care in the Atlas Mountains <b>ⵣ</b></span></div></div></footer>"
+            "<div class='aff-bot'><span>© <span class='aff-y'>2026</span> Atlas Family Adventure. All rights reserved.</span><span>Made with care in the Atlas Mountains <b>ⵣ</b></span><span class='aff-dev'>Website developed by <a href='https://majdoulinean.com' target='_blank' rel='noopener'>Majdoulinean</a></span></div></div></footer>"
             "<script>document.querySelectorAll('.aff-y').forEach(function(e){e.textContent=new Date().getFullYear()})</script>") % (
         SITE, LOGO, fam, WA, ''.join("<li><a href='%s'>%s</a></li>" % (u, n) for n, u in NAV),
         ''.join("<li><a href='%s'>%s</a></li>" % (u, n) for n, u in TREK_LINKS), CONTACT)
