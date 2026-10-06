@@ -55,18 +55,18 @@ HCSS = ("<style>.afg{font-family:Poppins,system-ui,sans-serif;position:relative;
 
 # trek pages (single trip + Our Treks listing): no giant photos, brand colours
 TRIPCSS = ("<style>"
- # single trek: keep photos, but small
+ # single trek: banner without photo (same generic photo on every trek) - only the trek gallery shows photos
  ".single-trip .breadcumb-wrapper,.single-trip .breadcrumb-wrapper,.single-trip .vs-breadcumb-wrapper,.single-trip .page-title-area"
- "{background-size:cover!important;background-position:center!important;padding-top:70px!important;padding-bottom:70px!important;min-height:0!important;height:auto!important}"
- ".single-trip .breadcumb-title{font-size:clamp(26px,3.6vw,42px)!important;margin-bottom:8px!important}"
- ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,.single-trip .wpte-trip-banner,.single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner"
- "{max-height:380px!important;overflow:hidden!important;border-radius:16px}"
- ".single-trip .elementor-widget-wte-carousel img,.single-trip .wpte-gallery-wrapper img,.single-trip .wpte-trip-feat-img-gallery img,.single-trip .trip-post-thumbnail img,.single-trip .wpte-trip-banner img,.single-trip .wte-single-trip-banner img,.single-trip .wpte-single-trip-banner img"
- "{width:100%%!important;height:380px!important;max-height:380px!important;object-fit:cover!important}"
+ "{background-image:none!important;background-color:%(ink)s!important;padding-top:34px!important;padding-bottom:34px!important;min-height:0!important;height:auto!important}"
+ ".single-trip .breadcumb-wrapper:before,.single-trip .breadcumb-wrapper:after{display:none!important}"
+ ".single-trip .breadcumb-title{font-size:clamp(24px,3.2vw,38px)!important;margin-bottom:6px!important}"
+ # trek gallery: same height on every trek, photos cropped to fit
+ ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,.single-trip .wpte-trip-banner,.single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner,.single-trip .splide,.single-trip .owl-carousel,.single-trip .swiper{max-height:440px!important;overflow:hidden!important}"
+ ".single-trip .splide__slide,.single-trip .owl-item,.single-trip .swiper-slide{height:440px!important;max-height:440px!important}"
+ ".single-trip .elementor-widget-wte-carousel img,.single-trip .wpte-gallery-wrapper img,.single-trip .wpte-trip-feat-img-gallery img,.single-trip .trip-post-thumbnail img,.single-trip .wpte-trip-banner img,.single-trip .wte-single-trip-banner img,.single-trip .wpte-single-trip-banner img,.single-trip .splide img,.single-trip .owl-carousel img,.single-trip .swiper img{width:100%%!important;height:440px!important;max-height:440px!important;object-fit:cover!important;object-position:center!important}"
  ".single-trip .entry-content img,.single-trip .wpte-itinerary img{max-height:420px;width:auto;max-width:100%%;object-fit:cover;border-radius:12px}"
- "@media (max-width:767px){.single-trip .breadcumb-wrapper,.single-trip .breadcrumb-wrapper,.single-trip .vs-breadcumb-wrapper,.single-trip .page-title-area{padding-top:40px!important;padding-bottom:40px!important}"
- ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,.single-trip .wpte-trip-banner,.single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner{max-height:220px!important}"
- ".single-trip .elementor-widget-wte-carousel img,.single-trip .wpte-gallery-wrapper img,.single-trip .wpte-trip-feat-img-gallery img,.single-trip .trip-post-thumbnail img,.single-trip .wpte-trip-banner img,.single-trip .wte-single-trip-banner img,.single-trip .wpte-single-trip-banner img{height:220px!important;max-height:220px!important}}"
+ "@media (max-width:767px){.single-trip .breadcumb-wrapper,.single-trip .breadcrumb-wrapper,.single-trip .vs-breadcumb-wrapper,.single-trip .page-title-area{padding-top:24px!important;padding-bottom:24px!important}"
+ ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,.single-trip .wpte-trip-banner,.single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner,.single-trip .splide,.single-trip .owl-carousel,.single-trip .swiper{max-height:240px!important}.single-trip .splide__slide,.single-trip .owl-item,.single-trip .swiper-slide{height:240px!important;max-height:240px!important}.single-trip .elementor-widget-wte-carousel img,.single-trip .wpte-gallery-wrapper img,.single-trip .wpte-trip-feat-img-gallery img,.single-trip .trip-post-thumbnail img,.single-trip .wpte-trip-banner img,.single-trip .wte-single-trip-banner img,.single-trip .wpte-single-trip-banner img,.single-trip .splide img,.single-trip .owl-carousel img,.single-trip .swiper img{height:240px!important;max-height:240px!important}}"
  ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}"
  # trek listing
  ".post-type-archive-trip .breadcumb-wrapper,.tax-destination .breadcumb-wrapper,.tax-activities .breadcumb-wrapper,.tax-trip_types .breadcumb-wrapper"
