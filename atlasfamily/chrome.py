@@ -42,22 +42,22 @@ HCSS = ("<style>.afg{font-family:Poppins,system-ui,sans-serif;position:relative;
  ".afg-top .l{display:flex;gap:22px;flex-wrap:wrap}.afg-top .l a:before{margin-right:7px;color:#f2c9a0}"
  ".afg-top .m:before{content:'✉'}.afg-top .t:before{content:'☎'}.afg-top .tag{font-family:Caveat,cursive;font-size:20px;color:#f2c9a0}"
  ".afg-bar{background:#fff;box-shadow:0 10px 30px -20px rgba(0,0,0,.35)}.afg-bar .in{min-height:86px}"
- ".afg-logo img{height:64px;width:auto;display:block}"
+ ".afg-logo{display:block;flex:0 0 auto;line-height:0}.afg .afg-logo img{height:58px!important;width:auto!important;max-width:none!important;max-height:58px!important;display:block}"
  ".afg-nav{display:flex;gap:6px;align-items:center}.afg-nav a{color:%(ink)s;font-weight:500;font-size:15.5px;padding:10px 14px;border-radius:999px;transition:all .2s;position:relative}"
  ".afg-nav a:hover,.afg-nav a.on{color:%(c1)s}.afg-nav a.on:after{content:'ⵣ';position:absolute;left:50%%;bottom:-8px;transform:translateX(-50%%);font-size:11px;color:%(c1)s}"
- ".afg a.afg-btn{display:inline-flex;align-items:center;gap:8px;background:%(c1)s;color:#fff;padding:12px 22px;font-size:15px}.afg a.afg-btn:hover{background:%(ink)s}"
+ ".afg a.afg-btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:%(c1)s;color:#fff;padding:12px 22px;font-size:15px}.afg a.afg-btn:hover{background:%(ink)s}"
  ".afg-burger{display:none;width:46px;height:46px;border:1px solid #e8dccb;border-radius:12px;background:#fff;padding:13px 11px;flex-direction:column;justify-content:space-between;cursor:pointer}"
  ".afg-burger span{display:block;height:2px;background:%(ink)s;border-radius:2px}"
  ".afg .afh-rug{height:10px;background-size:26px 10px!important}"
  "@media (max-width:1024px){.afg-top .tag{display:none}.afg-nav{display:none;position:absolute;left:0;right:0;top:100%%;background:#fff;flex-direction:column;align-items:stretch;padding:12px 20px 20px;box-shadow:0 20px 30px -16px rgba(0,0,0,.3)}"
- ".afg-tg:checked~.afg-nav{display:flex}.afg-nav a{padding:14px 10px;border-bottom:1px solid #f0e6d8;border-radius:0}.afg-nav a.on:after{display:none}.afg-burger{display:flex}.afg-bar .afg-btn{display:none}.afg-logo img{height:52px}}"
- "@media (max-width:600px){.afg-top .in{justify-content:center}.afg-top .m{display:none}}</style>") % dict(c1=C1, ink=INK)
+ ".afg-tg:checked~.afg-nav{display:flex}.afg-nav a{padding:14px 10px;border-bottom:1px solid #f0e6d8;border-radius:0}.afg-nav a.on:after{display:none}.afg-burger{display:flex}.afg-bar .in{min-height:70px;gap:12px}.afg .afg-logo img{height:48px!important;max-height:48px!important}.afg-bar a.afg-btn{margin-left:auto;padding:9px 15px;font-size:13.5px}}"
+ "@media (max-width:600px){.afg-top .in{justify-content:center}.afg-top .m{display:none}.afg-burger{width:42px;height:42px;padding:12px 10px}}@media (max-width:360px){.afg-bar a.afg-btn{display:none}}</style>") % dict(c1=C1, ink=INK)
 
 # trek pages (single trip + Our Treks listing): no giant photos, brand colours
 TRIPCSS = ("<style>"
  ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,"
  ".single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner,.single-trip .wpte-trip-banner{display:none!important}"
- ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}"
+ ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}.single-trip .breadcumb-wrapper,.single-trip [data-bg-src]{background-image:none!important;background-color:%(ink)s!important;padding-top:44px!important;padding-bottom:44px!important;min-height:0!important}.single-trip .breadcumb-wrapper:before,.single-trip .breadcumb-wrapper:after{display:none!important}.single-trip .breadcumb-title{font-size:clamp(26px,4vw,40px)!important}"
  ".post-type-archive-trip .breadcumb-wrapper,.tax-destination .breadcumb-wrapper,.tax-activities .breadcumb-wrapper,.tax-trip_types .breadcumb-wrapper"
  "{background-image:none!important;background-color:%(ink)s!important;padding-top:56px!important;padding-bottom:56px!important}"
  ".post-type-archive-trip .breadcumb-wrapper:before,.tax-destination .breadcumb-wrapper:before,.tax-activities .breadcumb-wrapper:before,.tax-trip_types .breadcumb-wrapper:before{display:none!important}"
