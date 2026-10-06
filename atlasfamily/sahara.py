@@ -1,0 +1,66 @@
+"""Sahara Desert Tours page for atlasfamilyadventure.com: only the Sahara (destination 'sahara-desert') treks."""
+import json
+U = 'https://atlasfamilyadventure.com/wp-content/uploads/2026/09/'
+WA = 'https://wa.me/212703501612?text=' + 'Hello%20Atlas%20Family%20Adventure%2C%20I%20am%20interested%20in%20a%20Sahara%20desert%20trek.'
+TRIPS = [dict(url='https://atlasfamilyadventure.com/index.php/trip/5-day-desert-trek-in-the-draa-valley-2/', img=U + 'IMG_3545.jpeg',
+              title='5-Day Desert Trek in the Draa Valley', dur='5 days / 4 nights', season='December – April', walk='3–5 hours a day',
+              text='Walk alongside camels across golden dunes, rocky plains and ancient nomadic trails, from Zaouit Sidi Saleh to the Tidri and Erg Sahel dunes. Nights in desert camps under the stars, with a guide, camel team and cook.',
+              hl=['Draa Valley palm groves and oases', 'Camels carry your luggage', 'Wild desert camps', 'Private transfer from Marrakech'])]
+CSS = """<style>
+.afs{--o:#ff4911;--od:#d93a06;--ink:#1c1c1c;--mut:#5f5f5f;--sand:#faf3ea;--line:#eadcc8;font-size:16px;line-height:1.65;color:var(--ink)}
+.afs *{box-sizing:border-box}.afs h2,.afs h3{margin:0;color:var(--ink);line-height:1.2}
+.afs-intro{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;margin:10px 0 60px}
+.afs-intro h2{font-size:clamp(28px,3.2vw,40px);margin-bottom:14px}.afs-intro p{color:var(--mut);font-size:17px;margin:0 0 14px}
+.afs-k{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+.afs-pics{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:180px 180px;gap:12px}
+.afs-pics span{border-radius:14px;background:#c9a77c center/cover}.afs-pics span:first-child{grid-row:span 2}
+.afs-h{text-align:center;max-width:680px;margin:0 auto 30px}.afs-h h2{font-size:clamp(26px,2.8vw,36px);margin-bottom:8px}.afs-h p{color:var(--mut);margin:0}
+.afs-trip{display:grid;grid-template-columns:1fr 1.15fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 44px -24px rgba(0,0,0,.35);margin-bottom:24px}
+.afs-trip .im{min-height:340px;background:#c9a77c center/cover}
+.afs-trip .tx{padding:30px 32px;display:flex;flex-direction:column;gap:12px}
+.afs-trip h3{font-size:24px}.afs-trip p{margin:0;color:var(--mut)}
+.afs-meta{display:flex;flex-wrap:wrap;gap:8px}.afs-meta span{background:var(--sand);border-radius:999px;padding:6px 13px;font-size:14px;font-weight:600}
+.afs-trip ul{margin:4px 0 6px;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
+.afs-trip li{position:relative;padding-left:22px;font-size:15px;margin:0}.afs-trip li:before{content:'';position:absolute;left:0;top:8px;width:10px;height:10px;border-radius:50%;background:var(--o)}
+.afs-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.afs a.afs-b{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--o);transition:all .2s}
+.afs a.afs-b--p{background:var(--o);color:#fff}.afs a.afs-b--p:hover{background:var(--od);border-color:var(--od)}
+.afs a.afs-b--l{color:var(--o);background:#fff}.afs a.afs-b--l:hover{background:var(--o);color:#fff}
+.afs a.afs-b--w{background:#1f9d55;border-color:#1f9d55;color:#fff}
+.afs-why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:56px 0}
+.afs-why div{background:var(--sand);border-radius:16px;padding:24px}.afs-why h3{font-size:18px;margin-bottom:6px}.afs-why p{margin:0;color:var(--mut);font-size:15px}
+.afs-cta{background:#1c1c1c center/cover;border-radius:20px;padding:46px 40px;color:#fff;position:relative;overflow:hidden;text-align:center;margin-bottom:20px}
+.afs-cta:before{content:'';position:absolute;inset:0;background:rgba(20,12,6,.68)}.afs-cta>*{position:relative}
+.afs-cta h2{color:#fff;font-size:clamp(24px,2.6vw,34px);margin-bottom:8px}.afs-cta p{color:rgba(255,255,255,.88);margin:0 auto 20px;max-width:560px}
+.afs-cta .afs-btns{justify-content:center}
+@media (max-width:900px){.afs-intro,.afs-trip{grid-template-columns:1fr}.afs-trip .im{min-height:240px}.afs-why{grid-template-columns:1fr}.afs-trip ul{grid-template-columns:1fr}.afs-pics{grid-template-rows:140px 140px}}
+</style>"""
+
+def card(t):
+    return ("<article class='afs-trip'><a class='im' href='%(url)s' style='background-image:url(%(img)s)' aria-label='%(title)s'></a><div class='tx'>"
+            "<h3><a href='%(url)s' style='color:inherit;text-decoration:none'>%(title)s</a></h3>"
+            "<div class='afs-meta'><span>%(dur)s</span><span>Best season: %(season)s</span><span>Walking: %(walk)s</span></div>"
+            "<p>%(text)s</p><ul>%(hl)s</ul><div class='afs-btns'><a class='afs-b afs-b--p' href='%(url)s'>View itinerary</a>"
+            "<a class='afs-b afs-b--l' href='https://atlasfamilyadventure.com/index.php/contact/'>Ask about dates</a></div></div></article>") % dict(t, hl=''.join('<li>%s</li>' % h for h in t['hl']))
+
+def page():
+    intro = ("<section class='afs-intro'><div><span class='afs-k'>Sahara Desert Treks</span><h2>Discover the Sahara beyond the usual tourist routes</h2>"
+             "<p>Discover the Sahara through ancient routes, dunes, palm groves and remote camps. Our desert treks take you into the quiet landscapes of southern Morocco, "
+             "on foot and at the gentle pace of the camels.</p><p>Local guides, camel handlers and a cook travel with you, so you can simply walk, look and listen to the silence of the desert.</p></div>"
+             "<div class='afs-pics'><span style='background-image:url(%sWhatsApp-Image-2026-09-23-at-13.14.42-1024x768.jpeg)'></span>"
+             "<span style='background-image:url(%sWhatsApp-Image-2026-09-23-at-13.17.20-1024x768.jpeg)'></span>"
+             "<span style='background-image:url(%sWhatsApp-Image-2026-09-23-at-13.15.52-1024x768.jpeg)'></span></div></section>") % (U, U, U)
+    trips = "<div class='afs-h'><span class='afs-k'>Our Sahara tours</span><h2>Desert treks</h2><p>Every Sahara trek we organise, in one place.</p></div>" + ''.join(card(t) for t in TRIPS)
+    why = ("<section class='afs-why'><div><h3>Beyond the tourist camps</h3><p>Quiet routes through the Draa Valley, far from the crowded dune resorts.</p></div>"
+           "<div><h3>Walk light</h3><p>Camels carry the luggage and camping equipment; you carry only a day pack.</p></div>"
+           "<div><h3>Nights under the stars</h3><p>Fresh meals cooked in the desert and camps among the dunes, with some of the clearest skies in Morocco.</p></div></section>")
+    cta = ("<section class='afs-cta' style='background-image:url(%sWhatsApp-Image-2026-09-23-at-13.15.52-1024x768.jpeg)'><h2>Plan your Sahara trek</h2>"
+           "<p>Tell us your dates and group size, and we will help you organise your desert trek.</p><div class='afs-btns'>"
+           "<a class='afs-b afs-b--p' href='https://atlasfamilyadventure.com/index.php/contact/'>Contact us</a><a class='afs-b afs-b--w' href='%s' target='_blank' rel='noopener'>WhatsApp</a></div></section>") % (U, WA)
+    return CSS + "<div class='afs'>" + intro + trips + why + cta + '</div>'
+
+if __name__ == '__main__':
+    html = page()
+    open('sahara.html', 'w').write(html)
+    open('preview.html', 'w').write("<!doctype html><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><body style='margin:0;font-family:system-ui'><div style='max-width:1200px;margin:40px auto;padding:0 20px'>" + html + '</div>')
+    print(len(html), '\\' in html)
