@@ -55,9 +55,20 @@ HCSS = ("<style>.afg{font-family:Poppins,system-ui,sans-serif;position:relative;
 
 # trek pages (single trip + Our Treks listing): no giant photos, brand colours
 TRIPCSS = ("<style>"
- ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,"
- ".single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner,.single-trip .wpte-trip-banner{display:none!important}"
- ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}.single-trip .breadcumb-wrapper,.single-trip [data-bg-src],.single-trip .breadcrumb-wrapper,.single-trip .page-title-area,.single-trip #main>[style*=background-image],.single-trip .site-main>[style*=background-image],.single-trip .vs-breadcumb-wrapper{background-image:none!important;background-color:%(ink)s!important;padding-top:44px!important;padding-bottom:44px!important;min-height:0!important}.single-trip .breadcumb-wrapper:before,.single-trip .breadcumb-wrapper:after{display:none!important}.single-trip .breadcumb-title{font-size:clamp(26px,4vw,40px)!important}"
+ # single trek: keep photos, but small
+ ".single-trip .breadcumb-wrapper,.single-trip .breadcrumb-wrapper,.single-trip .vs-breadcumb-wrapper,.single-trip .page-title-area"
+ "{background-size:cover!important;background-position:center!important;padding-top:70px!important;padding-bottom:70px!important;min-height:0!important;height:auto!important}"
+ ".single-trip .breadcumb-title{font-size:clamp(26px,3.6vw,42px)!important;margin-bottom:8px!important}"
+ ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,.single-trip .wpte-trip-banner,.single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner"
+ "{max-height:380px!important;overflow:hidden!important;border-radius:16px}"
+ ".single-trip .elementor-widget-wte-carousel img,.single-trip .wpte-gallery-wrapper img,.single-trip .wpte-trip-feat-img-gallery img,.single-trip .trip-post-thumbnail img,.single-trip .wpte-trip-banner img,.single-trip .wte-single-trip-banner img,.single-trip .wpte-single-trip-banner img"
+ "{width:100%%!important;height:380px!important;max-height:380px!important;object-fit:cover!important}"
+ ".single-trip .entry-content img,.single-trip .wpte-itinerary img{max-height:420px;width:auto;max-width:100%%;object-fit:cover;border-radius:12px}"
+ "@media (max-width:767px){.single-trip .breadcumb-wrapper,.single-trip .breadcrumb-wrapper,.single-trip .vs-breadcumb-wrapper,.single-trip .page-title-area{padding-top:40px!important;padding-bottom:40px!important}"
+ ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,.single-trip .wpte-trip-banner,.single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner{max-height:220px!important}"
+ ".single-trip .elementor-widget-wte-carousel img,.single-trip .wpte-gallery-wrapper img,.single-trip .wpte-trip-feat-img-gallery img,.single-trip .trip-post-thumbnail img,.single-trip .wpte-trip-banner img,.single-trip .wte-single-trip-banner img,.single-trip .wpte-single-trip-banner img{height:220px!important;max-height:220px!important}}"
+ ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}"
+ # trek listing
  ".post-type-archive-trip .breadcumb-wrapper,.tax-destination .breadcumb-wrapper,.tax-activities .breadcumb-wrapper,.tax-trip_types .breadcumb-wrapper"
  "{background-image:none!important;background-color:%(ink)s!important;padding-top:56px!important;padding-bottom:56px!important}"
  ".post-type-archive-trip .breadcumb-wrapper:before,.tax-destination .breadcumb-wrapper:before,.tax-activities .breadcumb-wrapper:before,.tax-trip_types .breadcumb-wrapper:before{display:none!important}"
@@ -66,7 +77,7 @@ TRIPCSS = ("<style>"
  ".category-trip-fig img,.category-trips-single .wp-post-image{width:100%%!important;height:240px!important;object-fit:cover!important}"
  ".category-trip-title a,.category-trips-single h2 a{color:%(ink)s!important;font-family:Poppins,system-ui,sans-serif!important}"
  ".category-trip-title a:hover{color:%(c1)s!important}"
- "</style>") % dict(c1=C1, ink=INK)
+"</style>") % dict(c1=C1, ink=INK)
 
 def header():
     nav = ''.join("<a href='%s'>%s</a>" % (u, n) for n, u in NAV)
