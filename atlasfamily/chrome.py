@@ -42,7 +42,7 @@ HCSS = ("<style>.afg{font-family:Poppins,system-ui,sans-serif;position:relative;
  ".afg-top .l{display:flex;gap:22px;flex-wrap:wrap}.afg-top .l a:before{margin-right:7px;color:#f2c9a0}"
  ".afg-top .m:before{content:'✉'}.afg-top .t:before{content:'☎'}.afg-top .tag{font-family:Caveat,cursive;font-size:20px;color:#f2c9a0}"
  ".afg-bar{background:#fff;box-shadow:0 10px 30px -20px rgba(0,0,0,.35)}.afg-bar .in{min-height:86px}"
- ".afg-logo{display:block;flex:0 0 auto;line-height:0}.afg .afg-logo img{height:58px!important;width:auto!important;max-width:none!important;max-height:58px!important;display:block}"
+ ".afg-logo{display:block;flex:0 0 auto;line-height:0;--afl:58px}.afg .afg-logo img{height:58px!important;width:auto!important;max-width:none!important;max-height:58px!important;display:block}"
  ".afg-nav{display:flex;gap:6px;align-items:center}.afg-nav a{color:%(ink)s;font-weight:500;font-size:15.5px;padding:10px 14px;border-radius:999px;transition:all .2s;position:relative}"
  ".afg-nav a:hover,.afg-nav a.on{color:%(c1)s}.afg-nav a.on:after{content:'ⵣ';position:absolute;left:50%%;bottom:-8px;transform:translateX(-50%%);font-size:11px;color:%(c1)s}"
  ".afg a.afg-btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:%(c1)s;color:#fff;padding:12px 22px;font-size:15px}.afg a.afg-btn:hover{background:%(ink)s}"
@@ -50,14 +50,14 @@ HCSS = ("<style>.afg{font-family:Poppins,system-ui,sans-serif;position:relative;
  ".afg-burger span{display:block;height:2px;background:%(ink)s;border-radius:2px}"
  ".afg .afh-rug{height:10px;background-size:26px 10px!important}"
  "@media (max-width:1024px){.afg-top .tag{display:none}.afg-nav{display:none;position:absolute;left:0;right:0;top:100%%;background:#fff;flex-direction:column;align-items:stretch;padding:12px 20px 20px;box-shadow:0 20px 30px -16px rgba(0,0,0,.3)}"
- ".afg-tg:checked~.afg-nav{display:flex}.afg-nav a{padding:14px 10px;border-bottom:1px solid #f0e6d8;border-radius:0}.afg-nav a.on:after{display:none}.afg-burger{display:flex}.afg-bar .in{min-height:70px;gap:12px}.afg .afg-logo img{height:48px!important;max-height:48px!important}.afg-bar a.afg-btn{margin-left:auto;padding:9px 15px;font-size:13.5px}}"
+ ".afg-tg:checked~.afg-nav{display:flex}.afg-nav a{padding:14px 10px;border-bottom:1px solid #f0e6d8;border-radius:0}.afg-nav a.on:after{display:none}.afg-burger{display:flex}.afg-bar .in{min-height:70px;gap:12px}.afg .afg-logo{--afl:48px}.afg .afg-logo img{height:48px!important;max-height:48px!important}.afg-bar a.afg-btn{margin-left:auto;padding:9px 15px;font-size:13.5px}}"
  "@media (max-width:600px){.afg-top .in{justify-content:center}.afg-top .m{display:none}.afg-burger{width:42px;height:42px;padding:12px 10px}}@media (max-width:360px){.afg-bar a.afg-btn{display:none}}</style>") % dict(c1=C1, ink=INK)
 
 # trek pages (single trip + Our Treks listing): no giant photos, brand colours
 TRIPCSS = ("<style>"
  ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,"
  ".single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner,.single-trip .wpte-trip-banner{display:none!important}"
- ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}.single-trip .breadcumb-wrapper,.single-trip [data-bg-src]{background-image:none!important;background-color:%(ink)s!important;padding-top:44px!important;padding-bottom:44px!important;min-height:0!important}.single-trip .breadcumb-wrapper:before,.single-trip .breadcumb-wrapper:after{display:none!important}.single-trip .breadcumb-title{font-size:clamp(26px,4vw,40px)!important}"
+ ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}.single-trip .breadcumb-wrapper,.single-trip [data-bg-src],.single-trip .breadcrumb-wrapper,.single-trip .page-title-area,.single-trip #main>[style*=background-image],.single-trip .site-main>[style*=background-image],.single-trip .vs-breadcumb-wrapper{background-image:none!important;background-color:%(ink)s!important;padding-top:44px!important;padding-bottom:44px!important;min-height:0!important}.single-trip .breadcumb-wrapper:before,.single-trip .breadcumb-wrapper:after{display:none!important}.single-trip .breadcumb-title{font-size:clamp(26px,4vw,40px)!important}"
  ".post-type-archive-trip .breadcumb-wrapper,.tax-destination .breadcumb-wrapper,.tax-activities .breadcumb-wrapper,.tax-trip_types .breadcumb-wrapper"
  "{background-image:none!important;background-color:%(ink)s!important;padding-top:56px!important;padding-bottom:56px!important}"
  ".post-type-archive-trip .breadcumb-wrapper:before,.tax-destination .breadcumb-wrapper:before,.tax-activities .breadcumb-wrapper:before,.tax-trip_types .breadcumb-wrapper:before{display:none!important}"
@@ -73,7 +73,7 @@ def header():
     rug = EXTRA.replace('%23ff4911', '%23b8432b').replace('repeat-x center/56px 22px}', 'repeat-x center/56px 22px!important}')
     body = ("<header class='afg'><div class='afg-top'><div class='in'><div class='l'><a class='m' href='mailto:aelmahdizaki@gmail.com'>aelmahdizaki@gmail.com</a>"
             "<a class='t' href='tel:+212703501612'>+212 703 501 612</a></div><span class='tag'>Hiking & cultural journeys, from the Atlas to the Sahara</span></div></div>"
-            "<div class='afg-bar'><div class='in'><a class='afg-logo' href='{site}/' aria-label='Atlas Family Adventure home'><img src='{logo}' alt='Atlas Family Adventure'></a>"
+            "<div class='afg-bar'><div class='in'><a class='afg-logo' href='{site}/' aria-label='Atlas Family Adventure home'><img src='{logo}' alt='Atlas Family Adventure' style='height:var(--afl,58px)!important;max-height:var(--afl,58px)!important;width:auto!important;max-width:none!important;min-height:0!important'></a>"
             "<input type='checkbox' id='afg-tg' class='afg-tg' hidden><nav class='afg-nav' aria-label='Main menu'>{nav}</nav>"
             "<a class='afg-btn' href='{wa}' target='_blank' rel='noopener'>Plan your trek</a>"
             "<label for='afg-tg' class='afg-burger' aria-label='Menu'><span></span><span></span><span></span></label></div></div><div class='afh-rug'></div></header>").format(site=SITE, logo=LOGO, nav=nav, wa=WA)
