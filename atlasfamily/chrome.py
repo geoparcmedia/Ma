@@ -53,6 +53,21 @@ HCSS = ("<style>.afg{font-family:Poppins,system-ui,sans-serif;position:relative;
  ".afg-tg:checked~.afg-nav{display:flex}.afg-nav a{padding:14px 10px;border-bottom:1px solid #f0e6d8;border-radius:0}.afg-nav a.on:after{display:none}.afg-burger{display:flex}.afg-bar .afg-btn{display:none}.afg-logo img{height:52px}}"
  "@media (max-width:600px){.afg-top .in{justify-content:center}.afg-top .m{display:none}}</style>") % dict(c1=C1, ink=INK)
 
+# trek pages (single trip + Our Treks listing): no giant photos, brand colours
+TRIPCSS = ("<style>"
+ ".single-trip .elementor-widget-wte-carousel,.single-trip .wpte-gallery-wrapper,.single-trip .wpte-trip-feat-img-gallery,.single-trip .trip-post-thumbnail,"
+ ".single-trip .wte-single-trip-banner,.single-trip .wpte-single-trip-banner,.single-trip .wpte-trip-banner{display:none!important}"
+ ".breadcumb-title,.breadcumb-wrapper h1{color:#fff!important}"
+ ".post-type-archive-trip .breadcumb-wrapper,.tax-destination .breadcumb-wrapper,.tax-activities .breadcumb-wrapper,.tax-trip_types .breadcumb-wrapper"
+ "{background-image:none!important;background-color:%(ink)s!important;padding-top:56px!important;padding-bottom:56px!important}"
+ ".post-type-archive-trip .breadcumb-wrapper:before,.tax-destination .breadcumb-wrapper:before,.tax-activities .breadcumb-wrapper:before,.tax-trip_types .breadcumb-wrapper:before{display:none!important}"
+ ".category-trips-single{border-radius:18px!important;overflow:hidden;border:1px solid #eadcc8!important;background:#fff;box-shadow:0 18px 40px -30px rgba(42,32,23,.4)}"
+ ".category-trip-fig{overflow:hidden;max-height:240px}"
+ ".category-trip-fig img,.category-trips-single .wp-post-image{width:100%%!important;height:240px!important;object-fit:cover!important}"
+ ".category-trip-title a,.category-trips-single h2 a{color:%(ink)s!important;font-family:Poppins,system-ui,sans-serif!important}"
+ ".category-trip-title a:hover{color:%(c1)s!important}"
+ "</style>") % dict(c1=C1, ink=INK)
+
 def header():
     nav = ''.join("<a href='%s'>%s</a>" % (u, n) for n, u in NAV)
     rug = EXTRA.replace('%23ff4911', '%23b8432b').replace('repeat-x center/56px 22px}', 'repeat-x center/56px 22px!important}')
@@ -62,7 +77,7 @@ def header():
             "<input type='checkbox' id='afg-tg' class='afg-tg' hidden><nav class='afg-nav' aria-label='Main menu'>{nav}</nav>"
             "<a class='afg-btn' href='{wa}' target='_blank' rel='noopener'>Plan your trek</a>"
             "<label for='afg-tg' class='afg-burger' aria-label='Menu'><span></span><span></span><span></span></label></div></div><div class='afh-rug'></div></header>").format(site=SITE, logo=LOGO, nav=nav, wa=WA)
-    return GLOBAL + rug + HCSS + PRELOADER + body
+    return GLOBAL + rug + HCSS + TRIPCSS + PRELOADER + body
 
 FCSS = ("<style>.aff{position:relative;background:%(ink)s;color:rgba(255,255,255,.78);font-family:Poppins,system-ui,sans-serif;font-size:15px;line-height:1.7;padding:120px 0 0;margin-top:40px}"
  ".aff *{box-sizing:border-box}.aff a{color:rgba(255,255,255,.82);text-decoration:none}.aff a:hover{color:#f2c9a0}"
