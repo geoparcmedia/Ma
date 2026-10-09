@@ -17,3 +17,9 @@
   and three stories are created once (versioned via the `a2s_seed_version` option).
   Texts, images and contact details: Appearance → Customize → Atlas2Sahara options.
 - `atlas2sahara-theme.zip` – the same theme, ready for Appearance → Themes → Add New → Upload.
+- `atlas2sahara-elementor/build.py` – builds the homepage as native Elementor widgets
+  (sections/columns with Heading, Text, Image, Button). Writes
+  `atlas2sahara-theme/inc/elementor-home.json`, which the theme turns into an Elementor
+  "Home" page (set as front page, plus a "Stories" posts page) as soon as Elementor is
+  active, and `atlas2sahara-elementor/atlas2sahara-home-template.json` for manual import
+  (Templates → Saved Templates → Import). Re-run `python3 build.py` after editing it.

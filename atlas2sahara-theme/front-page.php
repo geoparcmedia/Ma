@@ -1,4 +1,9 @@
 <?php
+// A static front page built with Elementor is rendered by Elementor.
+if ( 'page' === get_option( 'show_on_front' ) && a2s_is_elementor( (int) get_option( 'page_on_front' ) ) ) {
+	get_template_part( 'template-parts/elementor-content' );
+	return;
+}
 get_header();
 $biking_link = get_term_link( 'biking', 'tour_type' );
 $desert_link = get_term_link( 'desert', 'tour_type' );

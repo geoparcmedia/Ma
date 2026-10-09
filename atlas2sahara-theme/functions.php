@@ -3,10 +3,11 @@
  * Atlas2Sahara theme setup.
  */
 
-define( 'A2S_VERSION', '2.0.0' );
+define( 'A2S_VERSION', '3.0.0' );
 
 require get_template_directory() . '/inc/tours.php';
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/elementor.php';
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'title-tag' );

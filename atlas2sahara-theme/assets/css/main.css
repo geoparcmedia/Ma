@@ -206,3 +206,15 @@ p { margin: 0 0 1em; }
 	.section { padding: 60px 0; }
 	.admin-bar .site-header { top: 0; }
 }
+
+/* Elementor pages: small touches the Elementor free UI has no control for */
+.elementor-page .site-header { position: sticky; }
+.a2s-card .a2s-card-img { overflow: hidden; }
+.a2s-card .a2s-card-img img, .a2s-tile img { transition: transform .6s; }
+.a2s-card:hover .a2s-card-img img, .a2s-tile:hover img { transform: scale(1.05); }
+.a2s-tile .elementor-widget-wrap { overflow: hidden; }
+.a2s-tile .elementor-widget-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, .5)); pointer-events: none; }
+.a2s-tile-label { z-index: 2; }
+.a2s-badge { z-index: 2; }
+.a2s-link-btn .elementor-button { border: 0 !important; padding-left: 0 !important; padding-right: 0 !important; background: transparent !important; color: var(--ink) !important; }
+.a2s-link-btn .elementor-button:hover { text-decoration: underline; }

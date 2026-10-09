@@ -88,19 +88,26 @@ add_action( 'save_post_tour', function ( $post_id ) {
  * Starter content, created once per seed version so a theme update
  * (which does not re-run activation hooks) still adds new content.
  */
-define( 'A2S_SEED_VERSION', 2 );
+define( 'A2S_SEED_VERSION', 3 );
 
 add_action( 'init', function () {
 	$done = (int) get_option( 'a2s_seed_version', 0 );
 	if ( $done >= A2S_SEED_VERSION ) {
 		return;
 	}
-	update_option( 'a2s_seed_version', A2S_SEED_VERSION );
+	// The Elementor step waits until Elementor is installed and active.
+	if ( $done >= 2 && ! did_action( 'elementor/loaded' ) ) {
+		return;
+	}
+	update_option( 'a2s_seed_version', did_action( 'elementor/loaded' ) ? A2S_SEED_VERSION : 2 );
 	if ( $done < 1 ) {
 		a2s_seed_tours();
 	}
 	if ( $done < 2 ) {
 		a2s_seed_stories();
+	}
+	if ( did_action( 'elementor/loaded' ) ) {
+		a2s_seed_elementor_home();
 	}
 	flush_rewrite_rules();
 }, 20 );
