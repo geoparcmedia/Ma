@@ -10,6 +10,7 @@ import re
 from urllib.parse import quote
 
 from programs import P, IMG, CREDITS
+from hero import hero as hero_v2
 
 SITE = "https://allinmarrakech.com/"
 LOGO = SITE + "wp-content/uploads/2025/07/ChatGPT-Image-16-mai-2026-14_57_58.png"
@@ -151,7 +152,9 @@ JS = ("<script>(function(){var d=document.documentElement;d.classList.add('aim-j
       "(function(){"
       "document.querySelectorAll('.aim-nav a').forEach(function(a){if(a.href===location.href)a.classList.add('on');a.addEventListener('click',function(){var c=document.getElementById('aim-mt');if(c)c.checked=false})});"
       "var m=document.querySelector('[data-alt-en]');if(m){var e=document.getElementById('aim-l-en'),f=document.getElementById('aim-l-fr');if(e)e.href=m.getAttribute('data-alt-en');if(f)f.href=m.getAttribute('data-alt-fr');"
-      "var t=m.getAttribute('data-trip'),i=document.getElementById('aim-trip');if(t&&i&&!i.value)i.value=t}})();</script>")
+      "var t=m.getAttribute('data-trip'),i=document.getElementById('aim-trip');if(t&&i&&!i.value)i.value=t}"
+      "var q=new URLSearchParams(location.search),qd=q.get('d'),qp=q.get('p'),fd=document.querySelector('.wpcf7 [name=travel-date]'),fp=document.querySelector('.wpcf7 [name=travellers]');"
+      "if(qd&&fd)fd.value=qd;if(qp&&fp)fp.value=parseInt(qp)||2})();</script>")
 
 
 BLOCK = {}  # filled in by push step: ("header"|"footer"|"book", lang) -> wp_block id
@@ -284,13 +287,7 @@ def home(lang):
     tours = [p for p in P if p["kind"] == "circuit"]
     days = [p for p in P if p["kind"] == "day"]
     pick_days = [d for d in days if d["key"] in ("agafay", "ourika", "imlil", "ouarzazate", "casablanca", "3valleys")]
-    body = (
-        '<section class="aim-hero"><img src="%s" alt="Marrakech" fetchpriority="high"><div class="aim-wrap">'
-        '<span class="aim-eyebrow">%s</span><h1>%s</h1><p class="aim-lead">%s</p>'
-        '<div class="aim-ctas"><a class="aim-btn" href="#tours">%s</a><a class="aim-btn aim-btn-o" href="%s" target="_blank" rel="noopener">%s %s</a></div>'
-        '<div class="aim-trust">%s</div></div></section>'
-    ) % (IMG["jemaa"], h["ey"], h["h1"], h["lead"], h["b1"], wa_link(lang), I["wa"], h["b2"],
-         "".join("<span>%s %s</span>" % (I["star"], x) for x in h["trust"]))
+    body = hero_v2(lang, url)
     body += ('<section class="aim-sec"><div class="aim-wrap"><div class="aim-head aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p></div>'
              '<div class="aim-feats">%s</div></div></section>') % (
         h["svc_ey"], h["svc_h"], h["svc_p"],
