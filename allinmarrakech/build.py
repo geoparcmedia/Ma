@@ -8,8 +8,23 @@ import json
 import os
 
 import elementor_helpers as E
-from elementor_helpers import (box, px, typo, widget, heading, kicker, text, button, image, para, anim, icon_box,
-                               spacer, column, section, bg, bg_image)
+
+# Lean output: typography lives in one page stylesheet (STYLE below) instead of on every widget,
+# which keeps the page data small enough to send through the WordPress connector.
+E.typo = lambda *a, **k: {}
+from elementor_helpers import (box, px, widget, heading, text, button, image, para, anim, icon_box, spacer, column, bg)
+
+typo = E.typo
+
+
+def kicker(label, color, align='', **extra):
+    classes = ' '.join(c for c in ('aim2-k', extra.pop('_css_classes', '')) if c)
+    return E.kicker(label, color, align, _css_classes=classes, **extra)
+
+
+def section(columns, **settings):
+    settings['css_classes'] = ('aim2 ' + settings.get('css_classes', '')).strip()
+    return E.section(columns, **settings)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BLUE, NAVY, GOLD, CREAM, INK, MUTED, WHITE = '#1E3A8A', '#0F1F4D', '#E0A526', '#F7F5F0', '#14182B', '#4B5068', '#FFFFFF'
@@ -48,6 +63,24 @@ def head_block(eyebrow, title, sub, dark=False, align='center'):
 
 # Small finishing touches the Elementor UI has no control for (kept in an HTML widget so it travels with the page).
 STYLE = ('<style>'
+         '@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap);'
+         '.aim2{font-family:Inter,sans-serif}'
+         '.aim2 .elementor-heading-title{font-family:Montserrat,sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.5px}'
+         '.aim2 h1.elementor-heading-title{font-size:58px}'
+         '.aim2 h2.elementor-heading-title{font-size:40px}'
+         '.aim2 h3.elementor-heading-title{font-size:20px;letter-spacing:0}'
+         '.aim2 div.elementor-heading-title{font-size:22px;letter-spacing:0}'
+         '.aim2 p.elementor-heading-title{font-family:Inter,sans-serif;font-weight:400;font-size:15px;line-height:1.6;letter-spacing:0}'
+         '.aim2 .aim2-k .elementor-heading-title{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;line-height:1.4}'
+         '.aim2 .elementor-widget-text-editor{font-family:Inter,sans-serif;font-size:16px;line-height:1.65}'
+         '.aim2 .aim2-lead{font-size:18px}'
+         '.aim2 .elementor-button{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase}'
+         '.aim2 .elementor-icon-box-title{font-family:Montserrat,sans-serif;font-size:16px;font-weight:700;margin-bottom:6px}'
+         '.aim2 .elementor-icon-box-description{font-size:14px;line-height:1.5}'
+         '.aim2 .elementor-icon-list-text{font-size:15px}'
+         '.aim2 .elementor-tab-title{font-family:Montserrat,sans-serif;font-size:16px;font-weight:600}'
+         '.aim2 .elementor-tab-content{font-size:15px;line-height:1.7}'
+         '@media(max-width:767px){.aim2 h1.elementor-heading-title{font-size:36px}.aim2 h2.elementor-heading-title{font-size:28px}}'
          '.aim2-card{transition:transform .3s ease,box-shadow .3s ease}'
          '.aim2-card:hover{transform:translateY(-6px)}'
          '.aim2-card>.elementor-widget-wrap{overflow:hidden}'
@@ -216,7 +249,7 @@ def build(lang):
     hero = section([column([
         kicker(t['eyebrow'], GOLD, **anim()),
         heading(t['h1'], 58, 'h1', WHITE, mobile=36, **anim(150)),
-        text('<p>%s</p>' % t['lead'], 18, '#E3E8F5', **anim(300)),
+        text('<p>%s</p>' % t['lead'], 18, '#E3E8F5', _css_classes='aim2-lead', **anim(300)),
         gold_button(t['quote'], wa, _element_width='auto', selected_icon={'value': 'fab fa-whatsapp', 'library': 'fa-brands'},
                     icon_indent=px(8), **anim(450)),
         white_outline(t['fleet_btn'], '#fleet', _element_width='auto', _margin=box(0, 0, 0, 12), **anim(450)),
@@ -259,7 +292,7 @@ def build(lang):
             widget('icon-list', dict(
                 icon_list=[{'_id': E.eid(), 'text': w, 'selected_icon': {'value': 'fas fa-check-circle', 'library': 'fa-solid'}} for w in t['why']],
                 icon_color=GOLD, icon_size=px(18), text_color=INK, space_between=px(12), text_indent=px(12),
-                **typo(15, '500', prefix='icon_typography'))),
+                )),
             spacer(6),
             button(t['quote'], wa, background_color=BLUE, selected_icon={'value': 'fab fa-whatsapp', 'library': 'fa-brands'}, icon_indent=px(8)),
         ], 50, content_position='center', padding=box(10, 10, 10, 40), padding_mobile=box(0, 0, 0, 0), **anim(150)),
@@ -306,8 +339,21 @@ def build(lang):
     return [hero] + services + fleet + trips + [why] + steps + faq + [cta]
 
 
+def compact(o):
+    """Drop values Elementor treats as defaults anyway, to keep the payload small."""
+    if isinstance(o, dict):
+        return {k: compact(v) for k, v in o.items()
+                if not (k == 'sizes' and v == []) and not (k == '_inline_size' and v is None)
+                and not (k == 'isLinked' and v is False) and not (k == 'animation_duration' and v == 'normal')
+                and not (k == 'elements' and v == [] and o.get('elType') == 'widget')
+                and not (k == 'gap' and v == 'default')}
+    if isinstance(o, list):
+        return [compact(x) for x in o]
+    return o
+
+
 for lang in ('en', 'fr'):
-    data = json.dumps(build(lang), ensure_ascii=False, separators=(',', ':'))
+    data = json.dumps(compact(build(lang)), ensure_ascii=False, separators=(',', ':'))
     assert '\\' not in data, 'backslash would be stripped by WordPress meta unslashing'
     with open(os.path.join(HERE, 'home-%s.json' % lang), 'w') as f:
         f.write(data)

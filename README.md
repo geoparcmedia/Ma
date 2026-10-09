@@ -23,3 +23,11 @@
   "Home" page (set as front page, plus a "Stories" posts page) as soon as Elementor is
   active, and `atlas2sahara-elementor/atlas2sahara-home-template.json` for manual import
   (Templates → Saved Templates → Import). Re-run `python3 build.py` after editing it.
+
+## All in Marrakech (allinmarrakech.com)
+
+- `allinmarrakech/build.py` – transport-first homepage (EN/FR) as Elementor data with full
+  per-widget styling; `build_lite.py` – the compact version actually sent to the site
+  (styling in one stylesheet inside an HTML widget, classes `aim2-*`). Draft pages on the
+  site: 1965 "Home – Transport (EN)" and 1966 "Accueil – Transport (FR)". Prices = current
+  site prices + 20 EUR. Previews use placeholder photos.
