@@ -1,0 +1,100 @@
+/* === Homepage design (aim2), moved here from the page HTML widget === */
+html body .aim2{font-family:'Poppins',sans-serif}
+html body .aim2 .elementor-heading-title{font-family:'Poppins',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.5px}
+html body .aim2 h1.elementor-heading-title{font-size:58px}
+html body .aim2 h2.elementor-heading-title{font-size:40px}
+html body .aim2 h3.elementor-heading-title{font-size:20px;letter-spacing:0}
+html body .aim2 div.elementor-heading-title{font-size:22px;letter-spacing:0}
+html body .aim2 p.elementor-heading-title{font-family:'Poppins',sans-serif;font-weight:400;font-size:15px;line-height:1.6;letter-spacing:0}
+html body .aim2 .aim2-k .elementor-heading-title{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;line-height:1.4}
+html body .aim2 .elementor-widget-text-editor{font-family:'Poppins',sans-serif;font-size:16px;line-height:1.65}
+html body .aim2 .aim2-lead{font-size:18px}
+html body .aim2 .elementor-button{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase}
+html body .aim2 .elementor-icon-box-title{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px}
+html body .aim2 .elementor-icon-box-description{font-size:14px;line-height:1.5}
+html body .aim2 .elementor-icon-list-text{font-size:15px}
+html body .aim2 .elementor-tab-title{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600}
+html body .aim2 .elementor-tab-content{font-size:15px;line-height:1.7}
+@media(max-width:767px){html body .aim2 h1.elementor-heading-title{font-size:36px}html body .aim2 h2.elementor-heading-title{font-size:28px}}
+html body .aim2-card{transition:transform .3s ease,box-shadow .3s ease}
+html body .aim2-card:hover{transform:translateY(-6px)}
+html body .aim2-card>.elementor-widget-wrap{overflow:hidden}
+html body .aim2-card-img a{display:block;overflow:hidden}
+html body .aim2-card-img img{transition:transform .6s ease}
+html body .aim2-card:hover .aim2-card-img img{transform:scale(1.06)}
+html body .aim2-veh-img img{object-fit:contain!important;background:#F2F8FB;border-radius:8px}
+html body .aim2-badge{z-index:2}
+html body .aim2-round img{border-radius:14px}
+html body .aim2-link .elementor-button{border:0!important;padding-left:0!important;padding-right:0!important;background:transparent!important;color:#0070BA!important}
+html body .aim2-link .elementor-button:hover{text-decoration:underline}
+html body .elementor-section.aim2>.elementor-container{max-width:1180px}
+html body .elementor-section.aim2-narrow>.elementor-container{max-width:780px}
+html body .aim2{padding:90px 20px}
+html body .aim2-top{padding-bottom:30px}
+html body .aim2-tight{padding-top:0}
+html body .aim2-nb{padding-bottom:0}
+html body .aim2-cream{background:#F2F8FB}
+html body .aim2-white{background:#fff}
+html body .aim2-navy{background:#0B2F4E}
+html body .aim2-center{text-align:center}
+html body .aim2 .elementor-heading-title,html body .aim2 .elementor-heading-title a{color:#14182B}
+html body .aim2-sub,html body .aim2 .elementor-widget-text-editor{color:#4B5068}
+html body .aim2-navy .elementor-heading-title{color:#fff}
+html body .aim2-navy .aim2-card .elementor-heading-title{color:#14182B}
+html body .aim2-navy .aim2-sub{color:#C9D2EA}
+html body .aim2 .aim2-k .elementor-heading-title{color:#F5B83D}
+html body .aim2 .elementor-icon-box-title,html body .aim2 .elementor-icon-box-title a{color:#14182B}
+html body .aim2 .elementor-icon-box-description{color:#4B5068}
+html body .aim2 .elementor-icon-box-icon .elementor-icon{color:#0070BA;fill:#0070BA}
+html body .aim2 .elementor-icon-list-text{color:#14182B}
+html body .aim2 .elementor-icon-list-icon i{color:#0070BA}
+html body .aim2 .elementor-icon-list-icon svg{fill:#0070BA}
+html body .aim2 .elementor-tab-title a,html body .aim2 .elementor-tab-title{color:#14182B}
+html body .aim2 .elementor-tab-content{color:#4B5068;background:#fff}
+html body .aim2 .elementor-accordion-icon i{color:#F5B83D}
+html body .aim2 .elementor-button{border-radius:6px;padding:15px 28px;background:#0070BA;color:#fff}
+html body .aim2 .elementor-button:hover{background:#005A96;color:#fff}
+html body .aim2 .aim2-gold .elementor-button{background:#F5B83D;color:#14182B}
+html body .aim2 .aim2-gold .elementor-button:hover{background:#fff;color:#14182B}
+html body .aim2 .aim2-ghost .elementor-button{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px #fff}
+html body .aim2 .aim2-ghost .elementor-button:hover{background:#fff;color:#14182B}
+html body .aim2 .aim2-inline{width:auto;display:inline-block;margin-right:12px;margin-bottom:10px}
+html body .aim2-card>.elementor-widget-wrap{background:#fff;border-radius:10px;box-shadow:0 10px 30px rgba(11,47,78,.08);overflow:hidden;align-content:flex-start}
+html body .aim2 .aim2-card{padding:0 12px 24px}
+html body .aim2-card .elementor-widget:not(.elementor-widget-image){padding:0 24px}
+html body .aim2-card .elementor-widget-heading:first-of-type{margin-top:0}
+html body .aim2-card .elementor-widget-button{margin-top:auto;padding-bottom:24px!important}
+html body .aim2-card h3.elementor-heading-title{margin-top:18px}
+html body .aim2-svc>.elementor-widget-wrap{padding:26px 22px!important;text-align:center}
+html body .aim2-svc .elementor-icon{color:#0070BA;font-size:30px}
+html body .aim2-veh-img{padding:20px 20px 0!important}
+html body .aim2-veh-img img{height:200px!important;width:100%;object-fit:contain;background:#F2F8FB;border-radius:8px}
+html body .aim2-card-img img{height:220px!important;width:100%;object-fit:cover}
+html body .aim2-card .elementor-icon-list-icon i{color:#0070BA}
+html body .aim2-why .elementor-icon-list-icon i{color:#F5B83D;font-size:18px}
+html body .aim2-why .elementor-icon-list-icon svg{fill:#F5B83D}
+html body .aim2-why .elementor-icon-list-item{padding:6px 0}
+html body .aim2-badge{position:absolute!important;top:14px;left:14px;width:auto!important;padding:0!important;z-index:2}
+html body .aim2-badge .elementor-heading-title{white-space:nowrap;background:#F5B83D;color:#0B2F4E!important;border-radius:20px;padding:6px 12px}
+html body .aim2-price .elementor-heading-title{font-family:'Poppins',sans-serif;font-size:13px;color:#4B5068;letter-spacing:0}
+html body .aim2-price strong{font-size:22px;color:#0070BA}
+html body .aim2 .aim2-link .elementor-button{background:transparent;color:#0070BA;padding:0}
+html body .aim2 .aim2-link .elementor-button:hover{background:transparent;color:#0070BA;text-decoration:underline}
+html body .aim2-num{text-align:center}
+html body .aim2-num .elementor-heading-title{display:inline-block;background:#F5B83D;color:#0B2F4E;border-radius:50%;width:56px;height:56px;line-height:56px}
+html body .aim2-step>.elementor-widget-wrap{text-align:center;padding:10px 20px}
+html body .aim2-round img{border-radius:14px;height:480px!important;width:100%;object-fit:cover}
+html body .aim2-hero{min-height:90vh;display:flex;align-items:center;padding:110px 20px;position:relative}
+html body .aim2-hero .elementor-heading-title,html body .aim2-hero .elementor-widget-text-editor{color:#fff}
+html body .aim2-hero .aim2-lead{color:#E3E8F5}
+html body .aim2-cta{background:linear-gradient(120deg,#0B2F4E,#0070BA);padding:70px 20px}
+html body .aim2-cta .elementor-heading-title{color:#fff}
+html body .aim2-cta .elementor-widget-text-editor{color:#C9D2EA}
+html body .aim2-cta a{color:#fff}
+html body .aim2 .elementor-accordion-item{border-color:#E3E6EF;margin-bottom:10px;border-radius:8px;overflow:hidden}
+html body .aim2 .elementor-tab-title{background:#F2F8FB;padding:20px 24px}
+html body .aim2 .elementor-tab-title .elementor-accordion-icon{color:#F5B83D}
+html body .aim2 .elementor-tab-title.elementor-active a{color:#0070BA}
+html body .aim2-k.aim2-badge .elementor-heading-title{color:#0B2F4E}
+@media(max-width:1024px){html body .aim2-hero{min-height:auto}}
+@media(max-width:767px){html body .aim2{padding:60px 16px}html body .aim2-round img{height:260px!important}html body .aim2-cta .elementor-column{text-align:left}}
