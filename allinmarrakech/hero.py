@@ -56,19 +56,18 @@ def hero(lang, url):
                 o += '<option value="%s">%s</option>' % (url(p["key"], lang), p[lang]["title"])
         return o
 
-    date_f = '<label class="aim-f aim-f-date"><small>%s</small><input type="date" name="d"></label>' % t["date"]
     pax_f = '<label class="aim-f aim-f-pax"><small>%s</small><select name="p">%s</select></label>' % (
         t["pax"], "".join('<option value="%s"%s>%s</option>' % (n, " selected" if n == "2" else "", n) for n in ["1", "2", "3", "4", "5", "6", "7", "8-17", "18+"]))
     btn = '<button type="submit" class="aim-go">%s</button>' % t["btn"]
-    pane_t = ('<div class="aim-pane" data-pane="tours"><label class="aim-f aim-f-dest"><small>%s</small><select name="u">%s</select></label>%s%s%s</div>'
-              % (t["dest"], opts_clean("circuit", t["any_t"], url("tours", lang)), date_f, pax_f, btn))
-    pane_d = ('<div class="aim-pane" data-pane="days"><label class="aim-f aim-f-dest"><small>%s</small><select name="u">%s</select></label>%s%s%s</div>'
-              % (t["dest"], opts_clean("day", t["any_d"], url("days", lang)), date_f, pax_f, btn))
+    pane_t = ('<div class="aim-pane" data-pane="tours"><label class="aim-f aim-f-dest"><small>%s</small><select name="u">%s</select></label>%s%s</div>'
+              % (t["dest"], opts_clean("circuit", t["any_t"], url("tours", lang)), pax_f, btn))
+    pane_d = ('<div class="aim-pane" data-pane="days"><label class="aim-f aim-f-dest"><small>%s</small><select name="u">%s</select></label>%s%s</div>'
+              % (t["dest"], opts_clean("day", t["any_d"], url("days", lang)), pax_f, btn))
     pane_x = ('<div class="aim-pane on" data-pane="transfer"><label class="aim-f"><small>%s</small><select name="s">%s</select></label>'
               '<label class="aim-f"><small>%s</small><select name="f">%s</select></label>'
-              '<label class="aim-f aim-f-dest"><small>%s</small><input type="text" name="t" placeholder="%s"></label>%s%s%s</div>'
+              '<label class="aim-f aim-f-dest"><small>%s</small><input type="text" name="t" placeholder="%s"></label>%s%s</div>'
               % (t["t_type"], "".join("<option>%s</option>" % x for x in t["t_types"]), t["t_from"], "".join("<option>%s</option>" % x for x in t["t_from_v"]),
-                 t["t_to"], t["t_to_ph"], date_f, pax_f, btn))
+                 t["t_to"], t["t_to_ph"], pax_f, btn))
     trust = "".join("<span>%s %s</span>" % (ICON["star"], x) for x in t["trust"])
     js = ("<script>(function(){var h=document.querySelector('.aim-hero2');if(!h)return;"
           "var s=h.querySelectorAll('.aim-sl'),i=0;if(s.length>1)setInterval(function(){s[i].classList.remove('on');i=(i+1)%s.length;s[i].classList.add('on')},6000);"
@@ -76,11 +75,11 @@ def hero(lang, url):
           "h.querySelectorAll('.aim-tab').forEach(function(x){x.classList.toggle('on',x===b)});"
           "h.querySelectorAll('.aim-pane').forEach(function(p){p.classList.toggle('on',p.getAttribute('data-pane')===b.getAttribute('data-tab'))})})});"
           "h.querySelector('form').addEventListener('submit',function(e){e.preventDefault();var p=h.querySelector('.aim-pane.on'),k=p.getAttribute('data-pane');"
-          "var d=p.querySelector('[name=d]').value,n=p.querySelector('[name=p]').value;"
+          "var n=p.querySelector('[name=p]').value;"
           "if(k==='transfer'){var txt=p.querySelector('[name=s]').value+': '+p.querySelector('[name=f]').value+' > '+(p.querySelector('[name=t]').value||'?');"
-          "var f=document.getElementById('aim-trip');if(f)f.value=txt;var dd=document.querySelector('.wpcf7 [name=travel-date]');if(dd&&d)dd.value=d;"
+          "var f=document.getElementById('aim-trip');if(f)f.value=txt;"
           "var tv=document.querySelector('.wpcf7 [name=travellers]');if(tv)tv.value=parseInt(n)||2;var b=document.getElementById('book');if(b)b.scrollIntoView({behavior:'smooth'});return}"
-          "var u=p.querySelector('[name=u]').value;u+=(u.indexOf('?')<0?'?':'&')+'d='+encodeURIComponent(d)+'&p='+encodeURIComponent(n)+'#book';location.href=u})})();</script>")
+          "var u=p.querySelector('[name=u]').value;u+=(u.indexOf('?')<0?'?':'&')+'p='+encodeURIComponent(n)+'#book';location.href=u})})();</script>")
     return ('<section class="aim-hero aim-hero2"><div class="aim-slides">%s</div><div class="aim-wrap">'
             '<span class="aim-eyebrow">%s</span><h1>%s</h1><p class="aim-lead">%s</p>'
             '<form class="aim-search" autocomplete="off"><div class="aim-tabs">%s</div>%s%s%s</form>'
