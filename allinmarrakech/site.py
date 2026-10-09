@@ -470,9 +470,6 @@ def about(lang):
         st_h, "".join("<p>%s</p>" % x for x in st), VEH[4][4], "Mercedes V-Class" if lang == "en" else "Mercedes Classe V")
     body += ('<section class="aim-sec aim-darkbg"><div class="aim-wrap"><div class="aim-head aim-rv"><h2>%s</h2></div><div class="aim-feats">%s</div></div></section>') % (
         v_h, "".join('<div class="aim-feat aim-rv"><span class="aim-ic">%s</span><h3>%s</h3><p>%s</p></div>' % (I[i], a, b) for i, a, b in vals))
-    body += ('<section class="aim-sec" id="credits" style="padding:40px 0"><div class="aim-wrap aim-credits"><h3>%s</h3><p>%s %s.</p></div></section>') % (
-        cr_h, cr_p, ("; ".join("%s – %s (%s)" % c for c in CREDITS) + "; Jemaa el-Fnaa, Oukaïmeden, Fès – Wikimedia Commons contributors") if lang == "en" else
-        ("; ".join("%s – %s (%s)" % c for c in CREDITS).replace("Draa Valley", "Vallée du Drâa") + "; Jemaa el-Fna, Oukaïmeden, Fès – contributeurs de Wikimedia Commons"))
     return page(lang, "about", "about", body)
 
 
