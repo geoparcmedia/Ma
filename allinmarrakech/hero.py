@@ -3,7 +3,9 @@ Plain HTML/JS, no '$' and no backslashes (pushed with wp_alter_post)."""
 import json
 from programs import P, IMG
 
-SLIDES = ["merzouga", "chefchaouen", "agafay"]
+UP5 = "https://allinmarrakech.com/wp-content/uploads/2026/05/"
+# real fleet photos first (tourist coach, Sprinter), then a desert view
+SLIDES = [UP5 + "WhatsApp-Image-2026-05-13-at-4.54.21-PM.jpeg", UP5 + "WhatsApp-Image-2026-05-13-at-4.54.21-PM-1.jpeg", "merzouga"]
 
 TXT = {
     "en": dict(ey="Tourist transport · Marrakech", h1="Private transport<br><span>across Morocco</span>",
@@ -37,7 +39,7 @@ ICON = {
 
 def hero(lang, url):
     t = TXT[lang]
-    slides = "".join('<img class="aim-sl%s" src="%s" alt="" %s>' % (" on" if i == 0 else "", IMG[k], 'fetchpriority="high"' if i == 0 else 'loading="lazy"')
+    slides = "".join('<img class="aim-sl%s" src="%s" alt="" %s>' % (" on" if i == 0 else "", k if k.startswith("http") else IMG[k], 'fetchpriority="high"' if i == 0 else 'loading="lazy"')
                      for i, k in enumerate(SLIDES))
     tabs = "".join('<button type="button" class="aim-tab%s" data-tab="%s">%s</button>' % (" on" if i == 0 else "", k, lbl)
                    for i, (k, lbl) in enumerate(t["tabs"]))

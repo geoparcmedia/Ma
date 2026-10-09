@@ -58,7 +58,8 @@ def url(key, lang):
 T = {
     "en": dict(nav=[("home", "Home"), ("tours", "Tours"), ("days", "Day trips"), ("fleet", "Transfers & Fleet"), ("about", "About"), ("contact", "Contact")],
                book="Book now", from_="From", per="per private vehicle", more="View details", wa_msg="Hello All in Marrakech, I would like information about: ",
-               tagline="Private tours, day trips and tourist transport in Morocco, from Marrakech.",
+               tagline="Tourist transport, airport transfers and private tours in Morocco, from Marrakech.", fleet_h="Our fleet", seats="seats",
+               cm_h="How would you like to contact us?", cm_p="Choose what is easiest for you. We usually reply within a few hours.", cm_wa="Fastest reply", cm_form="Or fill in our booking form",
                links="Explore", info="Contact", follow="Our services", rights="All rights reserved.", photos="Destination photos: Wikimedia Commons",
                svc=["Airport transfers", "Private tours", "Day trips", "Group transport", "Weddings & events"],
                days_lbl="Day", hl="Highlights", itin="Itinerary", inc="Included", exc="Not included", req="Request this trip", wa_btn="Ask on WhatsApp",
@@ -70,7 +71,8 @@ T = {
                related="You may also like", crumbs_home="Home"),
     "fr": dict(nav=[("home", "Accueil"), ("tours", "Circuits"), ("days", "Excursions"), ("fleet", "Transferts & flotte"), ("about", "À propos"), ("contact", "Contact")],
                book="Réserver", from_="À partir de", per="par véhicule privé", more="Voir le détail", wa_msg="Bonjour All in Marrakech, je souhaite des informations sur : ",
-               tagline="Circuits privés, excursions et transport touristique au Maroc, au départ de Marrakech.",
+               tagline="Transport touristique, transferts aéroport et circuits privés au Maroc, au départ de Marrakech.", fleet_h="Notre flotte", seats="places",
+               cm_h="Comment souhaitez-vous nous contacter ?", cm_p="Choisissez ce qui vous convient le mieux. Nous répondons en général en quelques heures.", cm_wa="Réponse la plus rapide", cm_form="Ou remplissez notre formulaire de réservation",
                links="Découvrir", info="Contact", follow="Nos services", rights="Tous droits réservés.", photos="Photos des destinations : Wikimedia Commons",
                svc=["Transferts aéroport", "Circuits privés", "Excursions", "Transport de groupes", "Mariages & événements"],
                days_lbl="Jour", hl="Points forts", itin="Programme", inc="Inclus", exc="Non inclus", req="Demander ce circuit", wa_btn="Demander sur WhatsApp",
@@ -94,6 +96,8 @@ I = {
     "plane": '<svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>',
     "map": '<svg viewBox="0 0 24 24"><path d="m20.5 3-.2.1L15 5.1 9 3 3.4 4.9a.5.5 0 0 0-.4.5v15.1a.5.5 0 0 0 .7.5L9 18.9l6 2.1 5.6-1.9a.5.5 0 0 0 .4-.5V3.5a.5.5 0 0 0-.5-.5zM15 19l-6-2.1V5l6 2.1z"/></svg>',
     "sun": '<svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4zM4.2 18.4l2.1-2.1 1.4 1.4-2.1 2.1zM16.3 6.3l2.1-2.1 1.4 1.4-2.1 2.1z"/></svg>',
+    "car": '<svg viewBox="0 0 24 24"><path d="M18.9 6c-.2-.6-.8-1-1.4-1h-11c-.7 0-1.2.4-1.4 1L3 12v8c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-1h12v1c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-8zM6.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 11l1.5-4.5h11L19 11z"/></svg>',
+    "van": '<svg viewBox="0 0 24 24"><path d="M17 5H3a2 2 0 0 0-2 2v9h2a3 3 0 0 0 6 0h5.5a3 3 0 0 0 6 0H23v-5zM3 11V7h4v4zm3 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM13 11H9V7h4zm4.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM15 11V7h1l4 4z"/></svg>',
     "bus": '<svg viewBox="0 0 24 24"><path d="M4 16c0 .9.4 1.7 1 2.2V20a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h8v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1.8c.6-.5 1-1.3 1-2.2V6c0-3.5-3.6-4-8-4S4 2.5 4 6zm3.5 1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm9 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm1.5-6H6V6h12z"/></svg>',
     "heart": '<svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg>',
     "shield": '<svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.6 3.8 10.7 9 12 5.2-1.3 9-6.4 9-12V5zm-2 16-4-4 1.4-1.4 2.6 2.6 6.6-6.6L18 9z"/></svg>',
@@ -122,27 +126,44 @@ def header(lang):
          url("contact", lang), t["book"]) + '</div>'
 
 
+FOOT_FLEET = [("car", "Mercedes E-Class", "3"), ("car", "SUV & 4x4", "4"), ("van", "Mercedes V-Class", "7"),
+              ("van", "Mercedes Sprinter", "17–18"), ("bus", "Tourist coach", "40–84")]
+
+
+def contact_modal(lang):
+    t = T[lang]
+    return ('<div class="aim aim-cm" id="aim-cm" aria-hidden="true"><div class="aim-cm-bg" data-cm-close></div>'
+            '<div class="aim-cm-box" role="dialog" aria-modal="true" aria-labelledby="aim-cm-h">'
+            '<button type="button" class="aim-cm-x" data-cm-close aria-label="Close">×</button>'
+            '<h3 id="aim-cm-h">%s</h3><p>%s</p>'
+            '<a class="aim-cm-opt aim-cm-wa" href="%s" target="_blank" rel="noopener"><span class="aim-cm-ic">%s</span><span><b>WhatsApp</b><small>%s · %s</small></span><i>→</i></a>'
+            '<a class="aim-cm-opt aim-cm-mail" href="mailto:%s"><span class="aim-cm-ic">%s</span><span><b>E-mail</b><small>%s</small></span><i>→</i></a>'
+            '<a class="aim-cm-form" data-cm-direct href="%s#book">%s →</a></div></div>') % (
+        t["cm_h"], t["cm_p"], wa_link(lang), I["wa"], t["cm_wa"], PHONE, EMAIL, I["mail"], EMAIL, url("contact", lang), t["cm_form"])
+
+
 def footer(lang):
     t = T[lang]
-    tours = [p for p in P if p["kind"] == "circuit"][:5]
     links = "".join('<li><a href="%s">%s</a></li>' % (url(k, lang), lbl) for k, lbl in t["nav"][1:])
-    short = {"en": ["Marrakech to Chefchaouen", "Dades Gorges & Merzouga Desert Tour", "Imperial Cities Tour", "Ouarzazate & Zagora Desert Tour", "Ouzoud Waterfalls & Bin El Ouidane Lake"],
-             "fr": ["Marrakech – Chefchaouen", "Gorges du Dadès & Merzouga", "Villes impériales", "Ouarzazate & Zagora", "Ouzoud & Bin El Ouidane"]}[lang]
-    trips = "".join('<li><a href="%s">%s</a></li>' % (url(p["key"], lang), n) for p, n in zip(tours, short))
+    name = {"Tourist coach": "Autocar de tourisme"} if lang == "fr" else {}
+    fleet = "".join('<li><a href="%s"><span class="aim-fi">%s</span><span>%s<small>%s %s</small></span></a></li>' % (
+        url("fleet", lang), I[ic], name.get(n, n), seats, t["seats"]) for ic, n, seats in FOOT_FLEET)
     return '<div class="aim">' + (
         '<footer class="aim-ftr"><div class="aim-wrap"><div class="aim-cols">'
-        '<div><a class="aim-logo" href="%s"><img src="%s" alt="All in Marrakech" width="210" height="70"></a><p>%s</p></div>'
-        '<div><h4>%s</h4><ul>%s</ul></div>'
-        '<div><h4>%s</h4><ul>%s</ul></div>'
+        '<div class="aim-fabout"><a class="aim-logo" href="%s"><img src="%s" alt="All in Marrakech" width="210" height="70"></a><p>%s</p>'
+        '<div class="aim-fbtns"><a class="aim-fbtn aim-fbtn-wa" href="%s" target="_blank" rel="noopener">%s WhatsApp</a><a class="aim-fbtn" href="mailto:%s">%s E-mail</a></div></div>'
+        '<div><h4>%s</h4><ul class="aim-ffleet">%s</ul></div>'
+        '<div><h4>%s</h4><ul class="aim-flinks">%s</ul></div>'
         '<div><h4>%s</h4><ul class="aim-contact">'
         '<li><span class="aim-ic">%s</span><span><b>WhatsApp</b><a href="%s" target="_blank" rel="noopener">%s</a></span></li>'
         '<li><span class="aim-ic">%s</span><span><b>E-mail</b><a href="mailto:%s">%s</a></span></li>'
         '<li><span class="aim-ic">%s</span><span><b>Marrakech</b>%s</span></li></ul></div>'
         '</div><div class="aim-copy"><span>© 2026 All in Marrakech. %s</span></div></div></footer>'
-        '<a class="aim-wa-float" href="%s" target="_blank" rel="noopener" aria-label="WhatsApp">%s</a>'
-    ) % (url("home", lang), LOGO, t["tagline"], t["links"], links, t["nav"][1][1], trips, t["info"],
+        '<a class="aim-wa-float" href="%s" target="_blank" rel="noopener" aria-label="WhatsApp">%s</a>%s'
+    ) % (url("home", lang), LOGO, t["tagline"], wa_link(lang), I["wa"], EMAIL, I["mail"],
+         t["fleet_h"], fleet, t["links"], links, t["info"],
          I["wa"], wa_link(lang), PHONE, I["mail"], EMAIL, EMAIL, I["pin"], "Morocco" if lang == "en" else "Maroc",
-         t["rights"], wa_link(lang), I["wa"]) + '</div>' + JS
+         t["rights"], wa_link(lang), I["wa"], contact_modal(lang)) + '</div>' + JS
 
 
 JS = ("<script>(function(){var d=document.documentElement;d.classList.add('aim-js');"
@@ -154,7 +175,13 @@ JS = ("<script>(function(){var d=document.documentElement;d.classList.add('aim-j
       "var m=document.querySelector('[data-alt-en]');if(m){var e=document.getElementById('aim-l-en'),f=document.getElementById('aim-l-fr');if(e)e.href=m.getAttribute('data-alt-en');if(f)f.href=m.getAttribute('data-alt-fr');"
       "var t=m.getAttribute('data-trip'),i=document.getElementById('aim-trip');if(t&&i&&!i.value)i.value=t}"
       "var q=new URLSearchParams(location.search),qd=q.get('d'),qp=q.get('p'),fd=document.querySelector('.wpcf7 [name=travel-date]'),fp=document.querySelector('.wpcf7 [name=travellers]');"
-      "if(qd&&fd)fd.value=qd;if(qp&&fp)fp.value=parseInt(qp)||2})();</script>")
+      "if(qd&&fd)fd.value=qd;if(qp&&fp)fp.value=parseInt(qp)||2})();"
+      "(function(){var c=document.getElementById('aim-cm');if(!c)return;document.body.appendChild(c);"
+      "function op(){c.classList.add('on');c.setAttribute('aria-hidden','false')}function cl(){c.classList.remove('on');c.setAttribute('aria-hidden','true')}"
+      "document.addEventListener('click',function(e){var a=e.target.closest('a,[data-cm-close]');if(!a)return;if(a.hasAttribute('data-cm-close')){cl();return}"
+      "if(a.hasAttribute('data-cm-direct')){cl();return}var h=a.getAttribute('href')||'';"
+      "var m=h.match(/pagename=([a-z-]+)/);if(a.hasAttribute('data-aim-contact')||m&&(m[1]==='contact-us'||m[1]==='contactez-nous')&&h.indexOf('#book')<0){e.preventDefault();op()}});"
+      "document.addEventListener('keydown',function(e){if(e.key==='Escape')cl()})})();</script>")
 
 
 BLOCK = {}  # filled in by push step: ("header"|"footer"|"book", lang) -> wp_block id

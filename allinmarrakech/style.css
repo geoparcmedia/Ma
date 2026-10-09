@@ -200,6 +200,72 @@ body.page-template-elementor_canvas{margin:0;background:#fff}
  .aim-hero2 .aim-wrap{padding-top:90px;padding-bottom:50px}
 }
 @media (max-width:480px){.aim-tab{flex:1;justify-content:center;text-align:center;padding:10px 8px;font-size:12.5px;line-height:1.25}}
+/* v3: footer fleet, contact chooser, tidy form */
+.aim-ftr .aim-cols{grid-template-columns:1.25fr 1fr .8fr 1.25fr;gap:44px}
+.aim-ftr h4{font-size:17px;letter-spacing:.02em;padding-bottom:12px;margin-bottom:20px;border-bottom:1px solid #222;position:relative}
+.aim-ftr h4:after{content:"";position:absolute;left:0;bottom:-1px;width:36px;height:2px;background:var(--aim-gold)}
+.aim-fabout p{line-height:1.7;margin-bottom:20px}
+.aim-fbtns{display:flex;gap:10px;flex-wrap:wrap}
+.aim-fbtn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid #333;color:#fff;font-size:14px;font-weight:600;transition:background .2s,border-color .2s}
+.aim-fbtn svg{width:18px;height:18px;fill:currentColor}
+.aim-fbtn:hover{border-color:var(--aim-gold);color:#fff}
+.aim-fbtn-wa{background:var(--aim-wa);border-color:var(--aim-wa)}
+.aim-fbtn-wa:hover{background:#1ebe5b;border-color:#1ebe5b}
+.aim-ffleet li{margin-bottom:12px}
+.aim-ffleet a{display:flex;align-items:center;gap:12px}
+.aim-fi{width:38px;height:38px;border-radius:10px;background:#1a1a1a;border:1px solid #262626;display:flex;align-items:center;justify-content:center;flex:none;transition:background .2s}
+.aim-fi svg{width:20px;height:20px;fill:var(--aim-gold)}
+.aim-ffleet a:hover .aim-fi{background:var(--aim-red);border-color:var(--aim-red)}
+.aim-ffleet a:hover .aim-fi svg{fill:#fff}
+.aim-ffleet small{display:block;font-size:12.5px;color:#7d7871}
+.aim-flinks a{display:inline-block;padding:2px 0;transition:transform .2s}
+.aim-flinks a:hover{transform:translateX(4px)}
+.aim-ftr .aim-contact .aim-ic{background:#1a1a1a;border:1px solid #262626}
+.aim-ftr .aim-contact .aim-ic svg{fill:var(--aim-gold)}
+.aim-ftr .aim-contact b{color:#fff;font-size:14px}
+.aim-ftr .aim-contact span{word-break:break-word}
+.aim-copy{justify-content:center;text-align:center}
+.aim-cm{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:16px;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+.aim-cm.on{visibility:visible;opacity:1}
+.aim-cm-bg{position:absolute;inset:0;background:rgba(10,10,10,.6);backdrop-filter:blur(4px)}
+.aim-cm-box{position:relative;width:100%;max-width:440px;background:#fff;border-radius:22px;padding:34px 28px 24px;box-shadow:0 30px 80px rgba(0,0,0,.4);transform:translateY(20px) scale(.97);transition:transform .25s;font-family:Poppins,sans-serif;color:var(--aim-ink);text-align:center}
+.aim-cm.on .aim-cm-box{transform:none}
+.aim-cm-box h3{font-family:"Playfair Display",serif;font-size:25px;line-height:1.25;margin:0 0 8px;padding:0 30px;color:var(--aim-ink)}
+.aim-cm a,.aim-cm a:hover{text-decoration:none}
+.aim .aim-cm-form{color:var(--aim-red)}
+.aim-ftr .aim-fbtn,.aim-ftr .aim-fbtn:hover{color:#fff}
+.aim-cm-form:hover{text-decoration:underline!important}
+.aim-cm-box p{font-size:14.5px;color:#6b645c;margin:0 0 22px}
+.aim-cm-x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:#f3eee6;font-size:22px;line-height:1;cursor:pointer;color:var(--aim-ink)}
+.aim-cm-x:hover{background:#e9e1d4}
+.aim-cm-opt{display:flex;align-items:center;gap:14px;text-align:left;padding:15px 16px;border-radius:16px;border:1.5px solid var(--aim-line);margin-bottom:12px;transition:border-color .2s,transform .2s,box-shadow .2s;color:var(--aim-ink)}
+.aim-cm-opt:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(40,25,10,.12)}
+.aim-cm-opt b{display:block;font-size:16px}
+.aim-cm-opt small{display:block;font-size:13px;color:#7a736b;word-break:break-word}
+.aim-cm-opt>span:nth-child(2){flex:1;min-width:0}
+.aim-cm-opt i{font-style:normal;font-size:20px;color:#b3aba0}
+.aim-cm-ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.aim-cm-ic svg{width:26px;height:26px;fill:#fff}
+.aim-cm-wa .aim-cm-ic{background:var(--aim-wa)}
+.aim-cm-wa:hover{border-color:var(--aim-wa)}
+.aim-cm-mail .aim-cm-ic{background:var(--aim-red)}
+.aim-cm-mail:hover{border-color:var(--aim-red)}
+.aim-cm-form{display:inline-block;margin-top:8px;font-size:14px;font-weight:600;color:var(--aim-red)}
+@media (max-width:560px){.aim-cm{align-items:flex-end;padding:0}.aim-cm-box{max-width:none;border-radius:22px 22px 0 0;padding:30px 20px 22px;transform:translateY(100%)}}
+.aim-form{padding:34px 32px 30px;border-top:4px solid var(--aim-red)}
+.aim-form br{display:none}
+.aim-form p:empty{display:none}
+.aim-form .wpcf7-form>p,.aim-form .aim-row p{margin:0 0 16px}
+.aim-form .aim-row{gap:16px}
+.aim-form label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--aim-red)}
+.aim-form .wpcf7-form-control-wrap{display:block;margin-top:7px}
+.aim-form input:not([type=submit]),.aim-form select,.aim-form textarea{margin-top:0;background:var(--aim-sand);border:1.5px solid transparent;border-radius:12px;font-size:15px;text-transform:none;letter-spacing:0;font-weight:400;transition:border-color .2s,background .2s}
+.aim-form input:not([type=submit]):focus,.aim-form select:focus,.aim-form textarea:focus{outline:0;background:#fff;border-color:var(--aim-red)}
+.aim-form input[type=submit]{border-radius:12px;padding:17px 34px;font-size:16px;margin-top:4px;letter-spacing:.02em}
+.aim-form .wpcf7-not-valid-tip{font-size:12.5px;text-transform:none;letter-spacing:0;font-weight:500;margin-top:4px}
+.aim-form .wpcf7-response-output{border-radius:12px;margin:16px 0 0;padding:12px 16px;font-size:14px}
+@media (max-width:1080px){.aim-ftr .aim-cols{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.aim-ftr .aim-cols{grid-template-columns:1fr;gap:34px}.aim-form{padding:24px 18px}}
 /* reveal */
 .aim-js .aim-rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.aim-js .aim-rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.aim-js .aim-rv{opacity:1;transform:none;transition:none}}
