@@ -1,0 +1,32 @@
+/* === Logo colours: All in Marrakech Travel (blue #0070BA, turquoise #37B8CB, gold #F5B83D, palm green #1F7024). Appended to the site Additional CSS (post 1911). === */
+:root{--aim-red:#0070BA;--aim-red2:#005A96;--aim-gold:#F5B83D;--aim-dark:#0B2F4E;--aim-sand:#F2F8FB;--aim-sand2:#E3F1F7;--aim-line:#D7E8F0}
+.aim-feat .aim-ic,.aim-contact .aim-ic{background:rgba(0,112,186,.1)}
+.aim-step:before{color:rgba(0,112,186,.14)}
+.aim-form input:focus,.aim-form select:focus,.aim-form textarea:focus{outline-color:rgba(0,112,186,.25)}
+.aim-ftr{background:#082640}.aim-copy{border-top-color:#123a5c}
+html body .aim2-cream{background:#F2F8FB}
+html body .aim2-navy{background:#0B2F4E}
+html body .aim2-cta{background:linear-gradient(120deg,#0B2F4E,#0070BA)}
+html body .aim2-hero>.elementor-background-overlay{background-image:linear-gradient(90deg,rgba(11,47,78,.92),rgba(11,47,78,.3))!important}
+html body .aim2 .elementor-button{background:#0070BA;color:#fff}
+html body .aim2 .elementor-button:hover{background:#005A96;color:#fff}
+html body .aim2 .aim2-gold .elementor-button{background:#F5B83D;color:#0B2F4E}
+html body .aim2 .aim2-gold .elementor-button:hover{background:#fff;color:#0B2F4E}
+html body .aim2 .aim2-ghost .elementor-button{background:transparent;color:#fff}
+html body .aim2 .aim2-ghost .elementor-button:hover{background:#fff;color:#0B2F4E}
+html body .aim2 .aim2-link .elementor-button,html body .aim2 .aim2-link .elementor-button:hover{background:transparent;color:#0070BA}
+html body .aim2 .aim2-k .elementor-heading-title{color:#1A9DB3}
+html body .aim2-hero .aim2-k .elementor-heading-title,html body .aim2-navy .aim2-k .elementor-heading-title{color:#F5B83D}
+html body .aim2-badge .elementor-heading-title{background:#F5B83D;color:#0B2F4E!important}
+html body .aim2-price strong{color:#0070BA}
+html body .aim2 .elementor-icon-box-icon .elementor-icon{color:#37B8CB;fill:#37B8CB}
+html body .aim2 .elementor-icon-list-icon i{color:#0070BA}
+html body .aim2-why .elementor-icon-list-icon i{color:#1F7024}
+html body .aim2-num .elementor-heading-title{background:#F5B83D;color:#0B2F4E}
+html body .aim2 .elementor-tab-title.elementor-active a{color:#0070BA}
+html body .aim2 .elementor-accordion-icon i{color:#F5B83D}
+html body .aim2 .elementor-tab-title{background:#F2F8FB}
+html body .aim2 .elementor-icon-list-icon svg{fill:#0070BA}
+html body .aim2-why .elementor-icon-list-icon svg{fill:#1F7024}
+html body .aim2 .elementor-accordion-icon svg{fill:#F5B83D}
+html body .aim2 .elementor-icon-box-icon svg{fill:#37B8CB}
