@@ -138,11 +138,11 @@ def footer(lang):
         '<li><span class="aim-ic">%s</span><span><b>WhatsApp</b><a href="%s" target="_blank" rel="noopener">%s</a></span></li>'
         '<li><span class="aim-ic">%s</span><span><b>E-mail</b><a href="mailto:%s">%s</a></span></li>'
         '<li><span class="aim-ic">%s</span><span><b>Marrakech</b>%s</span></li></ul></div>'
-        '</div><div class="aim-copy"><span>© 2026 All in Marrakech. %s</span><a href="%s#credits">%s</a></div></div></footer>'
+        '</div><div class="aim-copy"><span>© 2026 All in Marrakech. %s</span></div></div></footer>'
         '<a class="aim-wa-float" href="%s" target="_blank" rel="noopener" aria-label="WhatsApp">%s</a>'
     ) % (url("home", lang), LOGO, t["tagline"], t["links"], links, t["nav"][1][1], trips, t["info"],
          I["wa"], wa_link(lang), PHONE, I["mail"], EMAIL, EMAIL, I["pin"], "Morocco" if lang == "en" else "Maroc",
-         t["rights"], url("about", lang), t["photos"], wa_link(lang), I["wa"]) + '</div>' + JS
+         t["rights"], wa_link(lang), I["wa"]) + '</div>' + JS
 
 
 JS = ("<script>(function(){var d=document.documentElement;d.classList.add('aim-js');"
@@ -230,7 +230,7 @@ HOME = {
               ("bus", "Groups & events", "Minibuses and coaches up to 84 seats for groups, congresses and weddings.")],
         t_ey="Multi-day tours", t_h="Our most popular tours", t_p="Private circuits from Marrakech with your own driver. Every tour can be adapted to your dates and wishes.", t_all="All tours",
         d_ey="Day trips", d_h="Day trips from Marrakech", d_p="Leave in the morning, come back in the evening. Mountains, waterfalls, deserts and cities around Marrakech.", d_all="All day trips",
-        f_ey="Our fleet", f_h="Modern, comfortable vehicles", f_p="Air-conditioned and clean, with professional drivers. Choose the right size for your group.", f_all="Transfers & fleet",
+        f_ey="Our speciality: transport", f_h="A vehicle for every group, from 1 to 84 people", f_p="Air-conditioned and clean, with professional drivers. Choose the right size for your group.", f_all="Transfers & fleet",
         w_ey="Why travel with us", w_h="A local team you can trust",
         w_p="All in Marrakech is a Marrakech-based tourist transport company. We know the roads, the weather and the best stops, and we answer your messages ourselves.",
         w_l=["Private trips only: no shared buses, no waiting", "Clear prices sent before you book", "Experienced, careful drivers", "Flexible: change the route, the stops or the time", "Help on WhatsApp before and during your trip"],
@@ -259,7 +259,7 @@ HOME = {
               ("bus", "Groupes & événements", "Minibus et autocars jusqu'à 84 places pour groupes, congrès et mariages.")],
         t_ey="Circuits", t_h="Nos circuits les plus demandés", t_p="Circuits privés au départ de Marrakech avec votre propre chauffeur. Chaque circuit s'adapte à vos dates et à vos envies.", t_all="Tous les circuits",
         d_ey="Excursions", d_h="Excursions d'une journée depuis Marrakech", d_p="Départ le matin, retour le soir. Montagnes, cascades, déserts et villes autour de Marrakech.", d_all="Toutes les excursions",
-        f_ey="Notre flotte", f_h="Des véhicules récents et confortables", f_p="Climatisés et propres, avec des chauffeurs professionnels. Choisissez la taille adaptée à votre groupe.", f_all="Transferts & flotte",
+        f_ey="Notre spécialité : le transport", f_h="Un véhicule pour chaque groupe, de 1 à 84 personnes", f_p="Climatisés et propres, avec des chauffeurs professionnels. Choisissez la taille adaptée à votre groupe.", f_all="Transferts & flotte",
         w_ey="Pourquoi nous choisir", w_h="Une équipe locale de confiance",
         w_p="All in Marrakech est une société de transport touristique basée à Marrakech. Nous connaissons les routes, la météo et les meilleurs arrêts, et nous répondons nous-mêmes à vos messages.",
         w_l=["Uniquement en privé : pas de bus partagé, pas d'attente", "Des prix clairs envoyés avant la réservation", "Des chauffeurs expérimentés et prudents", "Flexible : changez l'itinéraire, les arrêts ou l'horaire", "Assistance sur WhatsApp avant et pendant le voyage"],
@@ -288,6 +288,9 @@ def home(lang):
     days = [p for p in P if p["kind"] == "day"]
     pick_days = [d for d in days if d["key"] in ("agafay", "ourika", "imlil", "ouarzazate", "casablanca", "3valleys")]
     body = hero_v2(lang, url)
+    body += ('<section class="aim-sec aim-darkbg"><div class="aim-wrap"><div class="aim-head aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p></div>'
+             '<div class="aim-grid aim-grid4">%s</div><div class="aim-center"><a class="aim-btn" href="%s">%s</a></div></div></section>') % (
+        h["f_ey"], h["f_h"], h["f_p"], "".join(vcard(v, lang) for v in VEH if v[0] in ("e", "v", "sp", "bus")), url("fleet", lang), h["f_all"])
     body += ('<section class="aim-sec"><div class="aim-wrap"><div class="aim-head aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p></div>'
              '<div class="aim-feats">%s</div></div></section>') % (
         h["svc_ey"], h["svc_h"], h["svc_p"],
@@ -298,9 +301,6 @@ def home(lang):
     body += ('<section class="aim-sec"><div class="aim-wrap"><div class="aim-head aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p></div>'
              '<div class="aim-grid">%s</div><div class="aim-center"><a class="aim-btn" href="%s">%s</a></div></div></section>') % (
         h["d_ey"], h["d_h"], h["d_p"], "".join(card(p, lang) for p in pick_days), url("days", lang), h["d_all"])
-    body += ('<section class="aim-sec aim-darkbg"><div class="aim-wrap"><div class="aim-head aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p></div>'
-             '<div class="aim-grid aim-grid4">%s</div><div class="aim-center"><a class="aim-btn" href="%s">%s</a></div></div></section>') % (
-        h["f_ey"], h["f_h"], h["f_p"], "".join(vcard(v, lang) for v in VEH if v[0] in ("e", "v", "sp", "bus")), url("fleet", lang), h["f_all"])
     body += ('<section class="aim-sec"><div class="aim-wrap aim-split"><div class="aim-rv"><img src="%s" alt="Aït Ben Haddou" loading="lazy"></div>'
              '<div class="aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p><ul class="aim-checks">%s</ul></div></div></section>') % (
         IMG["aitbenhaddou"], h["w_ey"], h["w_h"], h["w_p"], "".join("<li>%s</li>" % x for x in h["w_l"]))

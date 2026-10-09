@@ -6,18 +6,18 @@ from programs import P, IMG
 SLIDES = ["merzouga", "chefchaouen", "agafay"]
 
 TXT = {
-    "en": dict(ey="Private tours & transport · Marrakech", h1="Discover Morocco<br><span>your way</span>",
-               lead="Desert tours, day trips and airport transfers with your own driver. Tell us what you need, we take care of the rest.",
-               tabs=[("tours", "Multi-day tours"), ("days", "Day trips"), ("transfer", "Transfers & driver")],
+    "en": dict(ey="Tourist transport · Marrakech", h1="Private transport<br><span>across Morocco</span>",
+               lead="Airport transfers, city-to-city transfers and a private driver, from a 3-seat sedan to an 84-seat coach. We also run tours and day trips across Morocco.",
+               tabs=[("transfer", "Transfers & driver"), ("tours", "Multi-day tours"), ("days", "Day trips")],
                dest="Where to?", any_t="All multi-day tours", any_d="All day trips",
                date="Date", pax="Travellers", btn="Search",
                t_from="From", t_to="To", t_from_v=["Marrakech airport (RAK)", "Marrakech hotel / riad", "Casablanca airport (CMN)", "Agadir airport (AGA)", "Other city"],
                t_type="Service", t_types=["Airport transfer", "City-to-city transfer", "Driver for the day", "Group transport (minibus / coach)"],
                t_to_ph="e.g. Riad in the medina, Essaouira...",
                trust=["Local Marrakech team", "Vehicles from 3 to 84 seats", "Reply within a few hours"]),
-    "fr": dict(ey="Circuits privés & transport · Marrakech", h1="Découvrez le Maroc<br><span>à votre façon</span>",
-               lead="Circuits dans le désert, excursions et transferts aéroport avec votre propre chauffeur. Dites-nous ce dont vous avez besoin, on s'occupe du reste.",
-               tabs=[("tours", "Circuits"), ("days", "Excursions"), ("transfer", "Transferts & chauffeur")],
+    "fr": dict(ey="Transport touristique · Marrakech", h1="Transport privé<br><span>partout au Maroc</span>",
+               lead="Transferts aéroport, transferts entre villes et chauffeur privé, de la berline 3 places à l'autocar de 84 places. Nous organisons aussi des circuits et des excursions partout au Maroc.",
+               tabs=[("transfer", "Transferts & chauffeur"), ("tours", "Circuits"), ("days", "Excursions")],
                dest="Où allez-vous ?", any_t="Tous les circuits", any_d="Toutes les excursions",
                date="Date", pax="Voyageurs", btn="Rechercher",
                t_from="Départ", t_to="Arrivée", t_from_v=["Aéroport de Marrakech (RAK)", "Hôtel / riad à Marrakech", "Aéroport de Casablanca (CMN)", "Aéroport d'Agadir (AGA)", "Autre ville"],
@@ -39,7 +39,7 @@ def hero(lang, url):
     t = TXT[lang]
     slides = "".join('<img class="aim-sl%s" src="%s" alt="" %s>' % (" on" if i == 0 else "", IMG[k], 'fetchpriority="high"' if i == 0 else 'loading="lazy"')
                      for i, k in enumerate(SLIDES))
-    tabs = "".join('<button type="button" class="aim-tab%s" data-tab="%s">%s<span>%s</span></button>' % (" on" if i == 0 else "", k, ICON[k], lbl)
+    tabs = "".join('<button type="button" class="aim-tab%s" data-tab="%s">%s</button>' % (" on" if i == 0 else "", k, lbl)
                    for i, (k, lbl) in enumerate(t["tabs"]))
 
     def opts(kind, any_lbl, any_url):
@@ -59,12 +59,12 @@ def hero(lang, url):
     date_f = '<label class="aim-f aim-f-date"><small>%s</small><input type="date" name="d"></label>' % t["date"]
     pax_f = '<label class="aim-f aim-f-pax"><small>%s</small><select name="p">%s</select></label>' % (
         t["pax"], "".join('<option value="%s"%s>%s</option>' % (n, " selected" if n == "2" else "", n) for n in ["1", "2", "3", "4", "5", "6", "7", "8-17", "18+"]))
-    btn = '<button type="submit" class="aim-go">%s<span>%s</span></button>' % (ICON["search"], t["btn"])
-    pane_t = ('<div class="aim-pane on" data-pane="tours"><label class="aim-f aim-f-dest"><small>%s</small><select name="u">%s</select></label>%s%s%s</div>'
+    btn = '<button type="submit" class="aim-go">%s</button>' % t["btn"]
+    pane_t = ('<div class="aim-pane" data-pane="tours"><label class="aim-f aim-f-dest"><small>%s</small><select name="u">%s</select></label>%s%s%s</div>'
               % (t["dest"], opts_clean("circuit", t["any_t"], url("tours", lang)), date_f, pax_f, btn))
     pane_d = ('<div class="aim-pane" data-pane="days"><label class="aim-f aim-f-dest"><small>%s</small><select name="u">%s</select></label>%s%s%s</div>'
               % (t["dest"], opts_clean("day", t["any_d"], url("days", lang)), date_f, pax_f, btn))
-    pane_x = ('<div class="aim-pane" data-pane="transfer"><label class="aim-f"><small>%s</small><select name="s">%s</select></label>'
+    pane_x = ('<div class="aim-pane on" data-pane="transfer"><label class="aim-f"><small>%s</small><select name="s">%s</select></label>'
               '<label class="aim-f"><small>%s</small><select name="f">%s</select></label>'
               '<label class="aim-f aim-f-dest"><small>%s</small><input type="text" name="t" placeholder="%s"></label>%s%s%s</div>'
               % (t["t_type"], "".join("<option>%s</option>" % x for x in t["t_types"]), t["t_from"], "".join("<option>%s</option>" % x for x in t["t_from_v"]),
@@ -85,7 +85,7 @@ def hero(lang, url):
             '<span class="aim-eyebrow">%s</span><h1>%s</h1><p class="aim-lead">%s</p>'
             '<form class="aim-search" autocomplete="off"><div class="aim-tabs">%s</div>%s%s%s</form>'
             '</div></section>%s') % (
-        slides, t["ey"], t["h1"], t["lead"], tabs, pane_t, pane_d, pane_x, js)
+        slides, t["ey"], t["h1"], t["lead"], tabs, pane_x, pane_t, pane_d, js)
 
 
 CSS = """
@@ -108,8 +108,9 @@ CSS = """
 .aim-tab.on{background:#fff;color:var(--aim-red)}
 .aim-pane{display:none;background:#fff;border-radius:0 18px 18px 18px;padding:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);gap:10px;align-items:stretch}
 .aim-pane.on{display:flex;flex-wrap:wrap}
-.aim-pane[data-pane=transfer] .aim-f{flex:1 1 210px}
-.aim-pane[data-pane=transfer] .aim-f-dest{flex:2 1 280px}
+.aim-pane[data-pane=transfer] .aim-f{flex:1 1 150px}
+.aim-pane[data-pane=transfer] .aim-f-dest{flex:1.5 1 190px}
+.aim-pane[data-pane=transfer] .aim-f-pax{flex:.7 1 100px}
 .aim-f{flex:1 1 150px;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:8px 14px;border-radius:12px;background:var(--aim-sand);min-width:0}
 .aim-f-dest{flex:2.2 1 260px}
 .aim-f-pax{flex:.8 1 110px}
@@ -126,5 +127,5 @@ CSS = """
  .aim-tab{padding:11px 14px;font-size:13.5px}
  .aim-hero2 .aim-wrap{padding-top:90px;padding-bottom:50px}
 }
-@media (max-width:480px){.aim-tab span{display:none}.aim-tab{flex:1;justify-content:center}.aim-tab.on span{display:inline}}
+@media (max-width:480px){.aim-tab{flex:1;justify-content:center;text-align:center;padding:10px 8px;font-size:12.5px;line-height:1.25}}
 """
