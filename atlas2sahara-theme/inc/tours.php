@@ -88,7 +88,7 @@ add_action( 'save_post_tour', function ( $post_id ) {
  * Starter content, created once per seed version so a theme update
  * (which does not re-run activation hooks) still adds new content.
  */
-define( 'A2S_SEED_VERSION', 3 );
+define( 'A2S_SEED_VERSION', 4 );
 
 add_action( 'init', function () {
 	$done = (int) get_option( 'a2s_seed_version', 0 );

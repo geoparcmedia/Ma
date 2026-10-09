@@ -8,28 +8,28 @@
  },
  "content": [
   {
-   "id": "535b43b",
+   "id": "ae7836e",
    "elType": "section",
    "settings": {
     "gap": "default",
     "content_width": {
      "unit": "px",
-     "size": 760,
+     "size": 820,
      "sizes": []
     },
     "stretch_section": "section-stretched",
     "height": "min-height",
     "custom_height": {
      "unit": "vh",
-     "size": 88,
+     "size": 92,
      "sizes": []
     },
     "content_position": "middle",
     "padding": {
      "unit": "px",
-     "top": "80",
+     "top": "90",
      "right": "20",
-     "bottom": "80",
+     "bottom": "90",
      "left": "20",
      "isLinked": false
     },
@@ -46,46 +46,46 @@
     "background_overlay_color": "#000000",
     "background_overlay_opacity": {
      "unit": "px",
-     "size": 0.38,
+     "size": 0.42,
      "sizes": []
     },
     "_element_id": "top-hero"
    },
    "elements": [
     {
-     "id": "25b4a13",
+     "id": "6ce93c4",
      "elType": "column",
      "settings": {
       "_column_size": 100,
-      "_inline_size": null
+      "_inline_size": null,
+      "align": "center",
+      "css_classes": "a2s-hero-col"
      },
      "elements": [
       {
        "id": "9d89a17",
        "elType": "widget",
        "settings": {
-        "title": "Bike Tours & Desert Adventures in Morocco",
-        "header_size": "h1",
-        "title_color": "#FFFFFF",
+        "title": "Morocco  ·  High Atlas  ·  Sahara",
+        "header_size": "p",
+        "title_color": "#F3D9BF",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 54,
+         "size": 11,
          "sizes": []
         },
         "typography_font_weight": "700",
-        "typography_font_size_mobile": {
+        "typography_letter_spacing": {
          "unit": "px",
-         "size": 34,
+         "size": 2,
          "sizes": []
         },
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.2,
-         "sizes": []
-        },
-        "align": "center"
+        "typography_text_transform": "uppercase",
+        "align": "center",
+        "_animation": "fadeInUp",
+        "animation_duration": "normal"
        },
        "elements": [],
        "widgetType": "heading"
@@ -94,13 +94,51 @@
        "id": "fb73039",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>Ride through palm groves, cross the High Atlas, walk with camel caravans into the Sahara and share mint tea in Berber villages – all with local guides who call this land home.</em></p><p><em>Welcome to Morocco, from the Atlas mountains to the Sahara desert.</em></p>",
-        "text_color": "#FFFFFF",
+        "title": "Bike Tours & Desert Adventures in Morocco",
+        "header_size": "h1",
+        "title_color": "#FFFFFF",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 16,
+         "size": 64,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 38,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "align": "center",
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 150
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "19626b7",
+       "elType": "widget",
+       "settings": {
+        "editor": "<p>Ride through palm groves, cross the High Atlas, walk with camel caravans into the Sahara and share mint tea in Berber villages – with local guides who call this land home.</p>",
+        "text_color": "#FFFFFF",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 18,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -109,13 +147,16 @@
          "size": 1.6,
          "sizes": []
         },
-        "align": "center"
+        "align": "center",
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 300
        },
        "elements": [],
        "widgetType": "text-editor"
       },
       {
-       "id": "19626b7",
+       "id": "25b4a13",
        "elType": "widget",
        "settings": {
         "text": "View our tours",
@@ -145,7 +186,7 @@
          "isLinked": false
         },
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -158,7 +199,80 @@
          "sizes": []
         },
         "typography_text_transform": "uppercase",
-        "align": "center"
+        "_element_width": "auto",
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 450
+       },
+       "elements": [],
+       "widgetType": "button"
+      },
+      {
+       "id": "535b43b",
+       "elType": "widget",
+       "settings": {
+        "text": "Plan a custom trip",
+        "link": {
+         "url": "https://atlas2sahara.com/#contact",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "rgba(0,0,0,0)",
+        "button_text_color": "#FFFFFF",
+        "button_background_hover_color": "#FFFFFF",
+        "hover_color": "#1B1F1C",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#FFFFFF",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "12",
+         "isLinked": false
+        },
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 450
        },
        "elements": [],
        "widgetType": "button"
@@ -170,18 +284,22 @@
    "isInner": false
   },
   {
-   "id": "cf3a378",
+   "id": "15c2c5e",
    "elType": "section",
    "settings": {
     "gap": "default",
-    "layout": "full_width",
+    "content_width": {
+     "unit": "px",
+     "size": 1040,
+     "sizes": []
+    },
     "stretch_section": "section-stretched",
     "padding": {
      "unit": "px",
-     "top": "14",
-     "right": "30",
-     "bottom": "14",
-     "left": "30",
+     "top": "30",
+     "right": "20",
+     "bottom": "30",
+     "left": "20",
      "isLinked": false
     },
     "background_background": "classic",
@@ -189,23 +307,325 @@
    },
    "elements": [
     {
-     "id": "ae7836e",
+     "id": "7f8c1a8",
      "elType": "column",
      "settings": {
-      "_column_size": 30,
-      "_inline_size": null,
-      "content_position": "center"
+      "_column_size": 25,
+      "_inline_size": null
      },
      "elements": [
       {
-       "id": "6ce93c4",
+       "id": "817199d",
        "elType": "widget",
        "settings": {
-        "title": "Atlas2Sahara",
-        "header_size": "p",
+        "selected_icon": {
+         "value": "fas fa-user-friends",
+         "library": "fa-solid"
+        },
+        "title_text": "Local guides",
+        "description_text": "Moroccan experts who know every trail.",
+        "position": "left",
+        "title_size": "h3",
+        "primary_color": "#C0723F",
+        "icon_size": {
+         "unit": "px",
+         "size": 26,
+         "sizes": []
+        },
+        "icon_space": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
         "title_color": "#1B1F1C",
+        "description_color": "#4A4F4B",
+        "title_bottom_space": {
+         "unit": "px",
+         "size": 4,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Archivo",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "title_typography_font_weight": "700",
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "description_typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "description_typography_font_weight": "400",
+        "description_typography_line_height": {
+         "unit": "em",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_animation": "fadeInUp",
+        "animation_duration": "normal"
+       },
+       "elements": [],
+       "widgetType": "icon-box"
+      }
+     ],
+     "isInner": false
+    },
+    {
+     "id": "0488fe3",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "cf3a378",
+       "elType": "widget",
+       "settings": {
+        "selected_icon": {
+         "value": "fas fa-route",
+         "library": "fa-solid"
+        },
+        "title_text": "Tested routes",
+        "description_text": "Rides and walks we do ourselves.",
+        "position": "left",
+        "title_size": "h3",
+        "primary_color": "#C0723F",
+        "icon_size": {
+         "unit": "px",
+         "size": 26,
+         "sizes": []
+        },
+        "icon_space": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "title_color": "#1B1F1C",
+        "description_color": "#4A4F4B",
+        "title_bottom_space": {
+         "unit": "px",
+         "size": 4,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Archivo",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "title_typography_font_weight": "700",
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "description_typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "description_typography_font_weight": "400",
+        "description_typography_line_height": {
+         "unit": "em",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 100
+       },
+       "elements": [],
+       "widgetType": "icon-box"
+      }
+     ],
+     "isInner": false
+    },
+    {
+     "id": "cf4aa3e",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "92525e5",
+       "elType": "widget",
+       "settings": {
+        "selected_icon": {
+         "value": "fas fa-shuttle-van",
+         "library": "fa-solid"
+        },
+        "title_text": "Full support",
+        "description_text": "Luggage transfers and backup vehicle.",
+        "position": "left",
+        "title_size": "h3",
+        "primary_color": "#C0723F",
+        "icon_size": {
+         "unit": "px",
+         "size": 26,
+         "sizes": []
+        },
+        "icon_space": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "title_color": "#1B1F1C",
+        "description_color": "#4A4F4B",
+        "title_bottom_space": {
+         "unit": "px",
+         "size": 4,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Archivo",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "title_typography_font_weight": "700",
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "description_typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "description_typography_font_weight": "400",
+        "description_typography_line_height": {
+         "unit": "em",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 200
+       },
+       "elements": [],
+       "widgetType": "icon-box"
+      }
+     ],
+     "isInner": false
+    },
+    {
+     "id": "4630c24",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "fb9e85f",
+       "elType": "widget",
+       "settings": {
+        "selected_icon": {
+         "value": "fas fa-sliders-h",
+         "library": "fa-solid"
+        },
+        "title_text": "Tailor-made",
+        "description_text": "Your dates, your pace, your trip.",
+        "position": "left",
+        "title_size": "h3",
+        "primary_color": "#C0723F",
+        "icon_size": {
+         "unit": "px",
+         "size": 26,
+         "sizes": []
+        },
+        "icon_space": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "title_color": "#1B1F1C",
+        "description_color": "#4A4F4B",
+        "title_bottom_space": {
+         "unit": "px",
+         "size": 4,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Archivo",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "title_typography_font_weight": "700",
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "description_typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "description_typography_font_weight": "400",
+        "description_typography_line_height": {
+         "unit": "em",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 300
+       },
+       "elements": [],
+       "widgetType": "icon-box"
+      }
+     ],
+     "isInner": false
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "16395c2",
+   "elType": "section",
+   "settings": {
+    "gap": "default",
+    "content_width": {
+     "unit": "px",
+     "size": 680,
+     "sizes": []
+    },
+    "stretch_section": "section-stretched",
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "20",
+     "bottom": "40",
+     "left": "20",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F5F4F2"
+   },
+   "elements": [
+    {
+     "id": "22cdbfa",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null,
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
+     },
+     "elements": [
+      {
+       "id": "3aabb89",
+       "elType": "widget",
+       "settings": {
+        "title": "Featured tours",
+        "header_size": "p",
+        "title_color": "#C0723F",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -217,116 +637,40 @@
          "size": 2,
          "sizes": []
         },
-        "typography_text_transform": "uppercase"
+        "typography_text_transform": "uppercase",
+        "align": "center"
        },
        "elements": [],
        "widgetType": "heading"
-      }
-     ],
-     "isInner": false
-    },
-    {
-     "id": "7f8c1a8",
-     "elType": "column",
-     "settings": {
-      "_column_size": 70,
-      "_inline_size": null,
-      "content_position": "center"
-     },
-     "elements": [
+      },
       {
-       "id": "817199d",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>Guided &amp; self-guided tours · Local Moroccan guides · Small groups · Tailor-made trips</p>",
-        "text_color": "#4A4F4B",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "align": "right",
-        "align_mobile": "left",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "0",
-         "left": "0",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      }
-     ],
-     "isInner": false
-    }
-   ],
-   "isInner": false
-  },
-  {
-   "id": "fb9e85f",
-   "elType": "section",
-   "settings": {
-    "gap": "default",
-    "content_width": {
-     "unit": "px",
-     "size": 640,
-     "sizes": []
-    },
-    "stretch_section": "section-stretched",
-    "padding": {
-     "unit": "px",
-     "top": "80",
-     "right": "20",
-     "bottom": "30",
-     "left": "20",
-     "isLinked": false
-    },
-    "background_background": "classic",
-    "background_color": "#F5F4F2"
-   },
-   "elements": [
-    {
-     "id": "cf4aa3e",
-     "elType": "column",
-     "settings": {
-      "_column_size": 100,
-      "_inline_size": null
-     },
-     "elements": [
-      {
-       "id": "0488fe3",
+       "id": "3fc53f7",
        "elType": "widget",
        "settings": {
         "title": "Our Most Popular Biking and Desert Tours",
         "header_size": "h2",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 36,
+         "size": 40,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_font_size_mobile": {
          "unit": "px",
-         "size": 28,
+         "size": 30,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
          "sizes": []
         },
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "align": "center"
@@ -335,16 +679,16 @@
        "widgetType": "heading"
       },
       {
-       "id": "92525e5",
+       "id": "24a220e",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>Experience the best of Morocco's outdoors with Atlas2Sahara's favourite biking, hiking and desert trips.</em></p>",
+        "editor": "<p>Experience the best of Morocco's outdoors with our favourite biking, hiking and desert trips.</p>",
         "text_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 16,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -373,10 +717,10 @@
    "isInner": false
   },
   {
-   "id": "ddcdc26",
+   "id": "eeb298b",
    "elType": "section",
    "settings": {
-    "gap": "extended",
+    "gap": "no",
     "content_width": {
      "unit": "px",
      "size": 1040,
@@ -387,7 +731,7 @@
      "unit": "px",
      "top": "0",
      "right": "20",
-     "bottom": "20",
+     "bottom": "12",
      "left": "20",
      "isLinked": false
     },
@@ -397,7 +741,7 @@
    },
    "elements": [
     {
-     "id": "bf7002f",
+     "id": "9eef2e0",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -412,11 +756,45 @@
        "left": "0",
        "isLinked": false
       },
-      "css_classes": "a2s-card"
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "4630c24",
+       "id": "42c4e49",
        "elType": "widget",
        "settings": {
         "image": {
@@ -433,7 +811,7 @@
         },
         "height": {
          "unit": "px",
-         "size": 210,
+         "size": 220,
          "sizes": []
         },
         "object-fit": "cover",
@@ -449,14 +827,14 @@
        "widgetType": "image"
       },
       {
-       "id": "15c2c5e",
+       "id": "bf7002f",
        "elType": "widget",
        "settings": {
         "title": "Guided tour",
         "header_size": "p",
         "title_color": "#C0723F",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -497,14 +875,14 @@
        "widgetType": "heading"
       },
       {
-       "id": "3aabb89",
+       "id": "6cbffa2",
        "elType": "widget",
        "settings": {
-        "title": "8 days",
+        "title": "8 days  ·  Moderate",
         "header_size": "p",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -520,9 +898,9 @@
         "_padding": {
          "unit": "px",
          "top": "22",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -530,23 +908,23 @@
        "widgetType": "heading"
       },
       {
-       "id": "3fc53f7",
+       "id": "0176403",
        "elType": "widget",
        "settings": {
         "title": "Atlas to Sahara Gravel Ride",
         "header_size": "h3",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 19,
+         "size": 20,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "link": {
@@ -557,9 +935,9 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -567,16 +945,17 @@
        "widgetType": "heading"
       },
       {
-       "id": "24a220e",
+       "id": "d1f6922",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Ride from the snow-capped High Atlas down through the Draa Valley palm groves to the dunes of Merzouga.</p>",
-        "text_color": "#4A4F4B",
+        "title": "Ride from the snow-capped High Atlas down through the Draa Valley palm groves to the dunes of Merzouga.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 13,
+         "size": 13.5,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -588,26 +967,27 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
+         "right": "24",
+         "bottom": "4",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "22cdbfa",
+       "id": "5be471a",
        "elType": "widget",
        "settings": {
-        "editor": "<p>From €1,190 <small>pp</small></p>",
-        "text_color": "#1B1F1C",
+        "title": "From <strong>€1,190</strong> <small>pp</small>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 13,
+         "size": 14,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -619,17 +999,17 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "16395c2",
+       "id": "5e1fecb",
        "elType": "widget",
        "settings": {
         "text": "Book",
@@ -659,7 +1039,7 @@
          "isLinked": false
         },
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -675,10 +1055,10 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "8",
          "right": "0",
-         "bottom": "24",
-         "left": "22",
+         "bottom": "26",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -686,7 +1066,7 @@
        "widgetType": "button"
       },
       {
-       "id": "42c4e49",
+       "id": "a9b59be",
        "elType": "widget",
        "settings": {
         "text": "Info ›",
@@ -726,7 +1106,7 @@
         },
         "border_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -742,10 +1122,10 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "8",
          "right": "0",
-         "bottom": "24",
-         "left": "14",
+         "bottom": "26",
+         "left": "18",
          "isLinked": false
         },
         "_css_classes": "a2s-link-btn"
@@ -757,7 +1137,7 @@
      "isInner": false
     },
     {
-     "id": "47260fe",
+     "id": "bb92320",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -772,11 +1152,46 @@
        "left": "0",
        "isLinked": false
       },
-      "css_classes": "a2s-card"
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 120
      },
      "elements": [
       {
-       "id": "6cbffa2",
+       "id": "7dde16e",
        "elType": "widget",
        "settings": {
         "image": {
@@ -793,7 +1208,7 @@
         },
         "height": {
          "unit": "px",
-         "size": 210,
+         "size": 220,
          "sizes": []
         },
         "object-fit": "cover",
@@ -809,14 +1224,14 @@
        "widgetType": "image"
       },
       {
-       "id": "0176403",
+       "id": "47260fe",
        "elType": "widget",
        "settings": {
         "title": "Guided tour",
         "header_size": "p",
         "title_color": "#C0723F",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -857,14 +1272,14 @@
        "widgetType": "heading"
       },
       {
-       "id": "d1f6922",
+       "id": "ea8385c",
        "elType": "widget",
        "settings": {
-        "title": "4 days",
+        "title": "4 days  ·  Challenging",
         "header_size": "p",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -880,9 +1295,9 @@
         "_padding": {
          "unit": "px",
          "top": "22",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -890,23 +1305,23 @@
        "widgetType": "heading"
       },
       {
-       "id": "5be471a",
+       "id": "1a20152",
        "elType": "widget",
        "settings": {
         "title": "Toubkal Summit Trek",
         "header_size": "h3",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 19,
+         "size": 20,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "link": {
@@ -917,9 +1332,9 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -927,16 +1342,17 @@
        "widgetType": "heading"
       },
       {
-       "id": "5e1fecb",
+       "id": "825d591",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Climb North Africa's highest peak (4,167 m) through Berber villages and walnut-shaded valleys.</p>",
-        "text_color": "#4A4F4B",
+        "title": "Climb North Africa's highest peak (4,167 m) through Berber villages and walnut-shaded valleys.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 13,
+         "size": 13.5,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -948,26 +1364,27 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
+         "right": "24",
+         "bottom": "4",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "a9b59be",
+       "id": "fbfe9d1",
        "elType": "widget",
        "settings": {
-        "editor": "<p>From €420 <small>pp</small></p>",
-        "text_color": "#1B1F1C",
+        "title": "From <strong>€420</strong> <small>pp</small>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 13,
+         "size": 14,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -979,17 +1396,17 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "9eef2e0",
+       "id": "56f337f",
        "elType": "widget",
        "settings": {
         "text": "Book",
@@ -1019,7 +1436,7 @@
          "isLinked": false
         },
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -1035,10 +1452,10 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "8",
          "right": "0",
-         "bottom": "24",
-         "left": "22",
+         "bottom": "26",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -1046,7 +1463,7 @@
        "widgetType": "button"
       },
       {
-       "id": "7dde16e",
+       "id": "4641e55",
        "elType": "widget",
        "settings": {
         "text": "Info ›",
@@ -1086,7 +1503,7 @@
         },
         "border_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -1102,10 +1519,10 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "8",
          "right": "0",
-         "bottom": "24",
-         "left": "14",
+         "bottom": "26",
+         "left": "18",
          "isLinked": false
         },
         "_css_classes": "a2s-link-btn"
@@ -1117,7 +1534,7 @@
      "isInner": false
     },
     {
-     "id": "4b5dde2",
+     "id": "c14ce4f",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -1132,11 +1549,46 @@
        "left": "0",
        "isLinked": false
       },
-      "css_classes": "a2s-card"
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 240
      },
      "elements": [
       {
-       "id": "ea8385c",
+       "id": "9ba8792",
        "elType": "widget",
        "settings": {
         "image": {
@@ -1153,7 +1605,7 @@
         },
         "height": {
          "unit": "px",
-         "size": 210,
+         "size": 220,
          "sizes": []
         },
         "object-fit": "cover",
@@ -1169,14 +1621,14 @@
        "widgetType": "image"
       },
       {
-       "id": "1a20152",
+       "id": "4b5dde2",
        "elType": "widget",
        "settings": {
         "title": "Guided tour",
         "header_size": "p",
         "title_color": "#C0723F",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -1217,14 +1669,14 @@
        "widgetType": "heading"
       },
       {
-       "id": "825d591",
+       "id": "ddcdc26",
        "elType": "widget",
        "settings": {
-        "title": "3 days",
+        "title": "3 days  ·  Easy",
         "header_size": "p",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -1240,9 +1692,9 @@
         "_padding": {
          "unit": "px",
          "top": "22",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -1250,23 +1702,23 @@
        "widgetType": "heading"
       },
       {
-       "id": "fbfe9d1",
+       "id": "eebc39a",
        "elType": "widget",
        "settings": {
         "title": "Merzouga Dunes & Camel Trek",
         "header_size": "h3",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 19,
+         "size": 20,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "link": {
@@ -1277,9 +1729,9 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -1287,317 +1739,33 @@
        "widgetType": "heading"
       },
       {
-       "id": "56f337f",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>Camel caravans, a starlit camp in Erg Chebbi and sunrise from the top of the dunes.</p>",
-        "text_color": "#4A4F4B",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "4641e55",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>From €290 <small>pp</small></p>",
-        "text_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "bb92320",
-       "elType": "widget",
-       "settings": {
-        "text": "Book",
-        "link": {
-         "url": "https://atlas2sahara.com/#contact",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "background_color": "#0F1913",
-        "button_text_color": "#FFFFFF",
-        "button_background_hover_color": "#2A3A2F",
-        "hover_color": "#FFFFFF",
-        "border_radius": {
-         "unit": "px",
-         "top": "2",
-         "right": "2",
-         "bottom": "2",
-         "left": "2",
-         "isLinked": false
-        },
-        "text_padding": {
-         "unit": "px",
-         "top": "14",
-         "right": "30",
-         "bottom": "14",
-         "left": "30",
-         "isLinked": false
-        },
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2.2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_element_width": "auto",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "24",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "button"
-      },
-      {
-       "id": "9ba8792",
-       "elType": "widget",
-       "settings": {
-        "text": "Info ›",
-        "link": {
-         "url": "https://atlas2sahara.com/tour/merzouga-dunes-camel-trek/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "background_color": "rgba(0,0,0,0)",
-        "button_text_color": "#1B1F1C",
-        "button_background_hover_color": "#0F1913",
-        "hover_color": "#FFFFFF",
-        "border_radius": {
-         "unit": "px",
-         "top": "2",
-         "right": "2",
-         "bottom": "2",
-         "left": "2",
-         "isLinked": false
-        },
-        "text_padding": {
-         "unit": "px",
-         "top": "14",
-         "right": "30",
-         "bottom": "14",
-         "left": "30",
-         "isLinked": false
-        },
-        "border_border": "solid",
-        "border_width": {
-         "unit": "px",
-         "top": "1",
-         "right": "1",
-         "bottom": "1",
-         "left": "1",
-         "isLinked": false
-        },
-        "border_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2.2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_element_width": "auto",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "24",
-         "left": "14",
-         "isLinked": false
-        },
-        "_css_classes": "a2s-link-btn"
-       },
-       "elements": [],
-       "widgetType": "button"
-      }
-     ],
-     "isInner": false
-    }
-   ],
-   "isInner": false
-  },
-  {
-   "id": "4a4a452",
-   "elType": "section",
-   "settings": {
-    "gap": "extended",
-    "content_width": {
-     "unit": "px",
-     "size": 1040,
-     "sizes": []
-    },
-    "stretch_section": "section-stretched",
-    "padding": {
-     "unit": "px",
-     "top": "10",
-     "right": "20",
-     "bottom": "80",
-     "left": "20",
-     "isLinked": false
-    },
-    "background_background": "classic",
-    "background_color": "#F5F4F2"
-   },
-   "elements": [
-    {
-     "id": "83c4b7e",
-     "elType": "column",
-     "settings": {
-      "_column_size": 33,
-      "_inline_size": null,
-      "background_background": "classic",
-      "background_color": "#C1C4C0",
-      "padding": {
-       "unit": "px",
-       "top": "0",
-       "right": "0",
-       "bottom": "0",
-       "left": "0",
-       "isLinked": false
-      },
-      "css_classes": "a2s-card"
-     },
-     "elements": [
-      {
-       "id": "eebc39a",
-       "elType": "widget",
-       "settings": {
-        "image": {
-         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/cyclist-card.jpg",
-         "id": "",
-         "alt": "Agafay & Atlas Foothills E-Bike Day",
-         "source": "library"
-        },
-        "image_size": "full",
-        "width": {
-         "unit": "%",
-         "size": 100,
-         "sizes": []
-        },
-        "height": {
-         "unit": "px",
-         "size": 210,
-         "sizes": []
-        },
-        "object-fit": "cover",
-        "link_to": "custom",
-        "link": {
-         "url": "https://atlas2sahara.com/tour/agafay-atlas-foothills-e-bike-day/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "_css_classes": "a2s-card-img"
-       },
-       "elements": [],
-       "widgetType": "image"
-      },
-      {
        "id": "d9f975d",
        "elType": "widget",
        "settings": {
-        "title": "Guided tour",
+        "title": "Camel caravans, a starlit camp in Erg Chebbi and sunrise from the top of the dunes.",
         "header_size": "p",
-        "title_color": "#C0723F",
+        "title_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 11,
+         "size": 13.5,
          "sizes": []
         },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
          "sizes": []
         },
-        "typography_text_transform": "uppercase",
-        "_position": "absolute",
-        "_offset_x": {
-         "unit": "px",
-         "size": 14,
-         "sizes": []
-        },
-        "_offset_y": {
-         "unit": "px",
-         "size": 14,
-         "sizes": []
-        },
-        "_element_width": "auto",
-        "_background_background": "classic",
-        "_background_color": "#ECDDCB",
         "_padding": {
          "unit": "px",
-         "top": "5",
-         "right": "10",
-         "bottom": "5",
-         "left": "10",
+         "top": "0",
+         "right": "24",
+         "bottom": "4",
+         "left": "24",
          "isLinked": false
-        },
-        "_css_classes": "a2s-badge"
+        }
        },
        "elements": [],
        "widgetType": "heading"
@@ -1606,29 +1774,28 @@
        "id": "79a2ad9",
        "elType": "widget",
        "settings": {
-        "title": "1 day",
+        "title": "From <strong>€290</strong> <small>pp</small>",
         "header_size": "p",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 11,
+         "size": 14,
          "sizes": []
         },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
          "sizes": []
         },
-        "typography_text_transform": "uppercase",
         "_padding": {
          "unit": "px",
-         "top": "22",
-         "right": "22",
+         "top": "0",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -1639,165 +1806,66 @@
        "id": "c04e8fd",
        "elType": "widget",
        "settings": {
-        "title": "Agafay & Atlas Foothills E-Bike Day",
-        "header_size": "h3",
-        "title_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 19,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.2,
-         "sizes": []
-        },
+        "text": "Book",
         "link": {
-         "url": "https://atlas2sahara.com/tour/agafay-atlas-foothills-e-bike-day/",
+         "url": "https://atlas2sahara.com/#contact",
          "is_external": "",
          "nofollow": ""
         },
-        "_padding": {
+        "background_color": "#0F1913",
+        "button_text_color": "#FFFFFF",
+        "button_background_hover_color": "#2A3A2F",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
          "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "8",
+         "right": "0",
+         "bottom": "26",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "heading"
+       "widgetType": "button"
       },
       {
        "id": "13b629e",
        "elType": "widget",
        "settings": {
-        "editor": "<p>An easy e-bike day from Marrakech into the stony Agafay desert and the first Atlas villages.</p>",
-        "text_color": "#4A4F4B",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "c14ce4f",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>From €95 <small>pp</small></p>",
-        "text_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "eeb298b",
-       "elType": "widget",
-       "settings": {
-        "text": "Book",
-        "link": {
-         "url": "https://atlas2sahara.com/#contact",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "background_color": "#0F1913",
-        "button_text_color": "#FFFFFF",
-        "button_background_hover_color": "#2A3A2F",
-        "hover_color": "#FFFFFF",
-        "border_radius": {
-         "unit": "px",
-         "top": "2",
-         "right": "2",
-         "bottom": "2",
-         "left": "2",
-         "isLinked": false
-        },
-        "text_padding": {
-         "unit": "px",
-         "top": "14",
-         "right": "30",
-         "bottom": "14",
-         "left": "30",
-         "isLinked": false
-        },
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2.2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_element_width": "auto",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "24",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "button"
-      },
-      {
-       "id": "68e7501",
-       "elType": "widget",
-       "settings": {
         "text": "Info ›",
         "link": {
-         "url": "https://atlas2sahara.com/tour/agafay-atlas-foothills-e-bike-day/",
+         "url": "https://atlas2sahara.com/tour/merzouga-dunes-camel-trek/",
          "is_external": "",
          "nofollow": ""
         },
@@ -1832,7 +1900,7 @@
         },
         "border_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -1848,730 +1916,10 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "8",
          "right": "0",
-         "bottom": "24",
-         "left": "14",
-         "isLinked": false
-        },
-        "_css_classes": "a2s-link-btn"
-       },
-       "elements": [],
-       "widgetType": "button"
-      }
-     ],
-     "isInner": false
-    },
-    {
-     "id": "d1f88b8",
-     "elType": "column",
-     "settings": {
-      "_column_size": 33,
-      "_inline_size": null,
-      "background_background": "classic",
-      "background_color": "#C1C4C0",
-      "padding": {
-       "unit": "px",
-       "top": "0",
-       "right": "0",
-       "bottom": "0",
-       "left": "0",
-       "isLinked": false
-      },
-      "css_classes": "a2s-card"
-     },
-     "elements": [
-      {
-       "id": "d02b4fd",
-       "elType": "widget",
-       "settings": {
-        "image": {
-         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/camels-card.jpg",
-         "id": "",
-         "alt": "M'Goun Valleys Self-Guided Walk",
-         "source": "library"
-        },
-        "image_size": "full",
-        "width": {
-         "unit": "%",
-         "size": 100,
-         "sizes": []
-        },
-        "height": {
-         "unit": "px",
-         "size": 210,
-         "sizes": []
-        },
-        "object-fit": "cover",
-        "link_to": "custom",
-        "link": {
-         "url": "https://atlas2sahara.com/tour/mgoun-valleys-self-guided-walk/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "_css_classes": "a2s-card-img"
-       },
-       "elements": [],
-       "widgetType": "image"
-      },
-      {
-       "id": "355f31a",
-       "elType": "widget",
-       "settings": {
-        "title": "Self-guided tour",
-        "header_size": "p",
-        "title_color": "#C0723F",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_position": "absolute",
-        "_offset_x": {
-         "unit": "px",
-         "size": 14,
-         "sizes": []
-        },
-        "_offset_y": {
-         "unit": "px",
-         "size": 14,
-         "sizes": []
-        },
-        "_element_width": "auto",
-        "_background_background": "classic",
-        "_background_color": "#ECDDCB",
-        "_padding": {
-         "unit": "px",
-         "top": "5",
-         "right": "10",
-         "bottom": "5",
-         "left": "10",
-         "isLinked": false
-        },
-        "_css_classes": "a2s-badge"
-       },
-       "elements": [],
-       "widgetType": "heading"
-      },
-      {
-       "id": "bf617d3",
-       "elType": "widget",
-       "settings": {
-        "title": "6 days",
-        "header_size": "p",
-        "title_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_padding": {
-         "unit": "px",
-         "top": "22",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "heading"
-      },
-      {
-       "id": "db25643",
-       "elType": "widget",
-       "settings": {
-        "title": "M'Goun Valleys Self-Guided Walk",
-        "header_size": "h3",
-        "title_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 19,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.2,
-         "sizes": []
-        },
-        "link": {
-         "url": "https://atlas2sahara.com/tour/mgoun-valleys-self-guided-walk/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "heading"
-      },
-      {
-       "id": "7fdbe37",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>Walk inn to inn through the Happy Valley of Aït Bouguemez with GPS routes and luggage transfers.</p>",
-        "text_color": "#4A4F4B",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "8cf5a06",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>From €640 <small>pp</small></p>",
-        "text_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "881563e",
-       "elType": "widget",
-       "settings": {
-        "text": "Book",
-        "link": {
-         "url": "https://atlas2sahara.com/#contact",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "background_color": "#0F1913",
-        "button_text_color": "#FFFFFF",
-        "button_background_hover_color": "#2A3A2F",
-        "hover_color": "#FFFFFF",
-        "border_radius": {
-         "unit": "px",
-         "top": "2",
-         "right": "2",
-         "bottom": "2",
-         "left": "2",
-         "isLinked": false
-        },
-        "text_padding": {
-         "unit": "px",
-         "top": "14",
-         "right": "30",
-         "bottom": "14",
-         "left": "30",
-         "isLinked": false
-        },
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2.2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_element_width": "auto",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "24",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "button"
-      },
-      {
-       "id": "be5aecd",
-       "elType": "widget",
-       "settings": {
-        "text": "Info ›",
-        "link": {
-         "url": "https://atlas2sahara.com/tour/mgoun-valleys-self-guided-walk/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "background_color": "rgba(0,0,0,0)",
-        "button_text_color": "#1B1F1C",
-        "button_background_hover_color": "#0F1913",
-        "hover_color": "#FFFFFF",
-        "border_radius": {
-         "unit": "px",
-         "top": "2",
-         "right": "2",
-         "bottom": "2",
-         "left": "2",
-         "isLinked": false
-        },
-        "text_padding": {
-         "unit": "px",
-         "top": "14",
-         "right": "30",
-         "bottom": "14",
-         "left": "30",
-         "isLinked": false
-        },
-        "border_border": "solid",
-        "border_width": {
-         "unit": "px",
-         "top": "1",
-         "right": "1",
-         "bottom": "1",
-         "left": "1",
-         "isLinked": false
-        },
-        "border_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2.2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_element_width": "auto",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "24",
-         "left": "14",
-         "isLinked": false
-        },
-        "_css_classes": "a2s-link-btn"
-       },
-       "elements": [],
-       "widgetType": "button"
-      }
-     ],
-     "isInner": false
-    },
-    {
-     "id": "f0ffd71",
-     "elType": "column",
-     "settings": {
-      "_column_size": 33,
-      "_inline_size": null,
-      "background_background": "classic",
-      "background_color": "#C1C4C0",
-      "padding": {
-       "unit": "px",
-       "top": "0",
-       "right": "0",
-       "bottom": "0",
-       "left": "0",
-       "isLinked": false
-      },
-      "css_classes": "a2s-card"
-     },
-     "elements": [
-      {
-       "id": "a30c20d",
-       "elType": "widget",
-       "settings": {
-        "image": {
-         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/culture-card.jpg",
-         "id": "",
-         "alt": "Zagora Desert Overland",
-         "source": "library"
-        },
-        "image_size": "full",
-        "width": {
-         "unit": "%",
-         "size": 100,
-         "sizes": []
-        },
-        "height": {
-         "unit": "px",
-         "size": 210,
-         "sizes": []
-        },
-        "object-fit": "cover",
-        "link_to": "custom",
-        "link": {
-         "url": "https://atlas2sahara.com/tour/zagora-desert-overland/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "_css_classes": "a2s-card-img"
-       },
-       "elements": [],
-       "widgetType": "image"
-      },
-      {
-       "id": "102cbee",
-       "elType": "widget",
-       "settings": {
-        "title": "Guided tour",
-        "header_size": "p",
-        "title_color": "#C0723F",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_position": "absolute",
-        "_offset_x": {
-         "unit": "px",
-         "size": 14,
-         "sizes": []
-        },
-        "_offset_y": {
-         "unit": "px",
-         "size": 14,
-         "sizes": []
-        },
-        "_element_width": "auto",
-        "_background_background": "classic",
-        "_background_color": "#ECDDCB",
-        "_padding": {
-         "unit": "px",
-         "top": "5",
-         "right": "10",
-         "bottom": "5",
-         "left": "10",
-         "isLinked": false
-        },
-        "_css_classes": "a2s-badge"
-       },
-       "elements": [],
-       "widgetType": "heading"
-      },
-      {
-       "id": "cd18d57",
-       "elType": "widget",
-       "settings": {
-        "title": "5 days",
-        "header_size": "p",
-        "title_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_padding": {
-         "unit": "px",
-         "top": "22",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "heading"
-      },
-      {
-       "id": "7b4acfa",
-       "elType": "widget",
-       "settings": {
-        "title": "Zagora Desert Overland",
-        "header_size": "h3",
-        "title_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 19,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.2,
-         "sizes": []
-        },
-        "link": {
-         "url": "https://atlas2sahara.com/tour/zagora-desert-overland/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "heading"
-      },
-      {
-       "id": "250fb7e",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>Follow the Draa river south to Zagora and the quieter dunes of Erg Chegaga by 4x4.</p>",
-        "text_color": "#4A4F4B",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "07b9aa4",
-       "elType": "widget",
-       "settings": {
-        "editor": "<p>From €560 <small>pp</small></p>",
-        "text_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 13,
-         "sizes": []
-        },
-        "typography_font_weight": "400",
-        "typography_line_height": {
-         "unit": "em",
-         "size": 1.6,
-         "sizes": []
-        },
-        "_padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "22",
-         "bottom": "0",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "text-editor"
-      },
-      {
-       "id": "b9714f2",
-       "elType": "widget",
-       "settings": {
-        "text": "Book",
-        "link": {
-         "url": "https://atlas2sahara.com/#contact",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "background_color": "#0F1913",
-        "button_text_color": "#FFFFFF",
-        "button_background_hover_color": "#2A3A2F",
-        "hover_color": "#FFFFFF",
-        "border_radius": {
-         "unit": "px",
-         "top": "2",
-         "right": "2",
-         "bottom": "2",
-         "left": "2",
-         "isLinked": false
-        },
-        "text_padding": {
-         "unit": "px",
-         "top": "14",
-         "right": "30",
-         "bottom": "14",
-         "left": "30",
-         "isLinked": false
-        },
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2.2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_element_width": "auto",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "24",
-         "left": "22",
-         "isLinked": false
-        }
-       },
-       "elements": [],
-       "widgetType": "button"
-      },
-      {
-       "id": "45bf02d",
-       "elType": "widget",
-       "settings": {
-        "text": "Info ›",
-        "link": {
-         "url": "https://atlas2sahara.com/tour/zagora-desert-overland/",
-         "is_external": "",
-         "nofollow": ""
-        },
-        "background_color": "rgba(0,0,0,0)",
-        "button_text_color": "#1B1F1C",
-        "button_background_hover_color": "#0F1913",
-        "hover_color": "#FFFFFF",
-        "border_radius": {
-         "unit": "px",
-         "top": "2",
-         "right": "2",
-         "bottom": "2",
-         "left": "2",
-         "isLinked": false
-        },
-        "text_padding": {
-         "unit": "px",
-         "top": "14",
-         "right": "30",
-         "bottom": "14",
-         "left": "30",
-         "isLinked": false
-        },
-        "border_border": "solid",
-        "border_width": {
-         "unit": "px",
-         "top": "1",
-         "right": "1",
-         "bottom": "1",
-         "left": "1",
-         "isLinked": false
-        },
-        "border_color": "#1B1F1C",
-        "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
-        "typography_font_size": {
-         "unit": "px",
-         "size": 11,
-         "sizes": []
-        },
-        "typography_font_weight": "700",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2.2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase",
-        "_element_width": "auto",
-        "_margin": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "24",
-         "left": "14",
+         "bottom": "26",
+         "left": "18",
          "isLinked": false
         },
         "_css_classes": "a2s-link-btn"
@@ -2598,9 +1946,1225 @@
     "stretch_section": "section-stretched",
     "padding": {
      "unit": "px",
-     "top": "40",
+     "top": "12",
      "right": "20",
-     "bottom": "12",
+     "bottom": "96",
+     "left": "20",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F5F4F2"
+   },
+   "elements": [
+    {
+     "id": "881563e",
+     "elType": "column",
+     "settings": {
+      "_column_size": 33,
+      "_inline_size": null,
+      "background_background": "classic",
+      "background_color": "#C1C4C0",
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
+     },
+     "elements": [
+      {
+       "id": "68e7501",
+       "elType": "widget",
+       "settings": {
+        "image": {
+         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/cyclist-card.jpg",
+         "id": "",
+         "alt": "Agafay & Atlas Foothills E-Bike Day",
+         "source": "library"
+        },
+        "image_size": "full",
+        "width": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "height": {
+         "unit": "px",
+         "size": 220,
+         "sizes": []
+        },
+        "object-fit": "cover",
+        "link_to": "custom",
+        "link": {
+         "url": "https://atlas2sahara.com/tour/agafay-atlas-foothills-e-bike-day/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "_css_classes": "a2s-card-img"
+       },
+       "elements": [],
+       "widgetType": "image"
+      },
+      {
+       "id": "83c4b7e",
+       "elType": "widget",
+       "settings": {
+        "title": "Guided tour",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_position": "absolute",
+        "_offset_x": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "_offset_y": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "_element_width": "auto",
+        "_background_background": "classic",
+        "_background_color": "#ECDDCB",
+        "_padding": {
+         "unit": "px",
+         "top": "5",
+         "right": "10",
+         "bottom": "5",
+         "left": "10",
+         "isLinked": false
+        },
+        "_css_classes": "a2s-badge"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "d02b4fd",
+       "elType": "widget",
+       "settings": {
+        "title": "1 day  ·  Easy",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_padding": {
+         "unit": "px",
+         "top": "22",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "355f31a",
+       "elType": "widget",
+       "settings": {
+        "title": "Agafay & Atlas Foothills E-Bike Day",
+        "header_size": "h3",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "link": {
+         "url": "https://atlas2sahara.com/tour/agafay-atlas-foothills-e-bike-day/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "bf617d3",
+       "elType": "widget",
+       "settings": {
+        "title": "An easy e-bike day from Marrakech into the stony Agafay desert and the first Atlas villages.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13.5,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "4",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "db25643",
+       "elType": "widget",
+       "settings": {
+        "title": "From <strong>€95</strong> <small>pp</small>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "7fdbe37",
+       "elType": "widget",
+       "settings": {
+        "text": "Book",
+        "link": {
+         "url": "https://atlas2sahara.com/#contact",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "#0F1913",
+        "button_text_color": "#FFFFFF",
+        "button_background_hover_color": "#2A3A2F",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "8",
+         "right": "0",
+         "bottom": "26",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "button"
+      },
+      {
+       "id": "8cf5a06",
+       "elType": "widget",
+       "settings": {
+        "text": "Info ›",
+        "link": {
+         "url": "https://atlas2sahara.com/tour/agafay-atlas-foothills-e-bike-day/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "rgba(0,0,0,0)",
+        "button_text_color": "#1B1F1C",
+        "button_background_hover_color": "#0F1913",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "8",
+         "right": "0",
+         "bottom": "26",
+         "left": "18",
+         "isLinked": false
+        },
+        "_css_classes": "a2s-link-btn"
+       },
+       "elements": [],
+       "widgetType": "button"
+      }
+     ],
+     "isInner": false
+    },
+    {
+     "id": "b9714f2",
+     "elType": "column",
+     "settings": {
+      "_column_size": 33,
+      "_inline_size": null,
+      "background_background": "classic",
+      "background_color": "#C1C4C0",
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 120
+     },
+     "elements": [
+      {
+       "id": "be5aecd",
+       "elType": "widget",
+       "settings": {
+        "image": {
+         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/camels-card.jpg",
+         "id": "",
+         "alt": "M'Goun Valleys Self-Guided Walk",
+         "source": "library"
+        },
+        "image_size": "full",
+        "width": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "height": {
+         "unit": "px",
+         "size": 220,
+         "sizes": []
+        },
+        "object-fit": "cover",
+        "link_to": "custom",
+        "link": {
+         "url": "https://atlas2sahara.com/tour/mgoun-valleys-self-guided-walk/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "_css_classes": "a2s-card-img"
+       },
+       "elements": [],
+       "widgetType": "image"
+      },
+      {
+       "id": "d1f88b8",
+       "elType": "widget",
+       "settings": {
+        "title": "Self-guided tour",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_position": "absolute",
+        "_offset_x": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "_offset_y": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "_element_width": "auto",
+        "_background_background": "classic",
+        "_background_color": "#ECDDCB",
+        "_padding": {
+         "unit": "px",
+         "top": "5",
+         "right": "10",
+         "bottom": "5",
+         "left": "10",
+         "isLinked": false
+        },
+        "_css_classes": "a2s-badge"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "a30c20d",
+       "elType": "widget",
+       "settings": {
+        "title": "6 days  ·  Moderate",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_padding": {
+         "unit": "px",
+         "top": "22",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "102cbee",
+       "elType": "widget",
+       "settings": {
+        "title": "M'Goun Valleys Self-Guided Walk",
+        "header_size": "h3",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "link": {
+         "url": "https://atlas2sahara.com/tour/mgoun-valleys-self-guided-walk/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "cd18d57",
+       "elType": "widget",
+       "settings": {
+        "title": "Walk inn to inn through the Happy Valley of Aït Bouguemez with GPS routes and luggage transfers.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13.5,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "4",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "7b4acfa",
+       "elType": "widget",
+       "settings": {
+        "title": "From <strong>€640</strong> <small>pp</small>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "250fb7e",
+       "elType": "widget",
+       "settings": {
+        "text": "Book",
+        "link": {
+         "url": "https://atlas2sahara.com/#contact",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "#0F1913",
+        "button_text_color": "#FFFFFF",
+        "button_background_hover_color": "#2A3A2F",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "8",
+         "right": "0",
+         "bottom": "26",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "button"
+      },
+      {
+       "id": "07b9aa4",
+       "elType": "widget",
+       "settings": {
+        "text": "Info ›",
+        "link": {
+         "url": "https://atlas2sahara.com/tour/mgoun-valleys-self-guided-walk/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "rgba(0,0,0,0)",
+        "button_text_color": "#1B1F1C",
+        "button_background_hover_color": "#0F1913",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "8",
+         "right": "0",
+         "bottom": "26",
+         "left": "18",
+         "isLinked": false
+        },
+        "_css_classes": "a2s-link-btn"
+       },
+       "elements": [],
+       "widgetType": "button"
+      }
+     ],
+     "isInner": false
+    },
+    {
+     "id": "a47db84",
+     "elType": "column",
+     "settings": {
+      "_column_size": 33,
+      "_inline_size": null,
+      "background_background": "classic",
+      "background_color": "#C1C4C0",
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 240
+     },
+     "elements": [
+      {
+       "id": "45bf02d",
+       "elType": "widget",
+       "settings": {
+        "image": {
+         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/culture-card.jpg",
+         "id": "",
+         "alt": "Zagora Desert Overland",
+         "source": "library"
+        },
+        "image_size": "full",
+        "width": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "height": {
+         "unit": "px",
+         "size": 220,
+         "sizes": []
+        },
+        "object-fit": "cover",
+        "link_to": "custom",
+        "link": {
+         "url": "https://atlas2sahara.com/tour/zagora-desert-overland/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "_css_classes": "a2s-card-img"
+       },
+       "elements": [],
+       "widgetType": "image"
+      },
+      {
+       "id": "f0ffd71",
+       "elType": "widget",
+       "settings": {
+        "title": "Guided tour",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_position": "absolute",
+        "_offset_x": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "_offset_y": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "_element_width": "auto",
+        "_background_background": "classic",
+        "_background_color": "#ECDDCB",
+        "_padding": {
+         "unit": "px",
+         "top": "5",
+         "right": "10",
+         "bottom": "5",
+         "left": "10",
+         "isLinked": false
+        },
+        "_css_classes": "a2s-badge"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "4a4a452",
+       "elType": "widget",
+       "settings": {
+        "title": "5 days  ·  Easy",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_padding": {
+         "unit": "px",
+         "top": "22",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "7be2656",
+       "elType": "widget",
+       "settings": {
+        "title": "Zagora Desert Overland",
+        "header_size": "h3",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "link": {
+         "url": "https://atlas2sahara.com/tour/zagora-desert-overland/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "3cec706",
+       "elType": "widget",
+       "settings": {
+        "title": "Follow the Draa river south to Zagora and the quieter dunes of Erg Chegaga by 4x4.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13.5,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "4",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "94a38de",
+       "elType": "widget",
+       "settings": {
+        "title": "From <strong>€560</strong> <small>pp</small>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        },
+        "_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "0",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "662d92c",
+       "elType": "widget",
+       "settings": {
+        "text": "Book",
+        "link": {
+         "url": "https://atlas2sahara.com/#contact",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "#0F1913",
+        "button_text_color": "#FFFFFF",
+        "button_background_hover_color": "#2A3A2F",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "8",
+         "right": "0",
+         "bottom": "26",
+         "left": "24",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "button"
+      },
+      {
+       "id": "fe48f59",
+       "elType": "widget",
+       "settings": {
+        "text": "Info ›",
+        "link": {
+         "url": "https://atlas2sahara.com/tour/zagora-desert-overland/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "rgba(0,0,0,0)",
+        "button_text_color": "#1B1F1C",
+        "button_background_hover_color": "#0F1913",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_element_width": "auto",
+        "_margin": {
+         "unit": "px",
+         "top": "8",
+         "right": "0",
+         "bottom": "26",
+         "left": "18",
+         "isLinked": false
+        },
+        "_css_classes": "a2s-link-btn"
+       },
+       "elements": [],
+       "widgetType": "button"
+      }
+     ],
+     "isInner": false
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "2601e8b",
+   "elType": "section",
+   "settings": {
+    "gap": "no",
+    "content_width": {
+     "unit": "px",
+     "size": 1040,
+     "sizes": []
+    },
+    "stretch_section": "section-stretched",
+    "padding": {
+     "unit": "px",
+     "top": "60",
+     "right": "20",
+     "bottom": "14",
      "left": "20",
      "isLinked": false
     },
@@ -2609,7 +3173,7 @@
    },
    "elements": [
     {
-     "id": "3cec706",
+     "id": "1dbed37",
      "elType": "column",
      "settings": {
       "_column_size": 50,
@@ -2625,7 +3189,7 @@
      },
      "elements": [
       {
-       "id": "7be2656",
+       "id": "b908755",
        "elType": "widget",
        "settings": {
         "image": {
@@ -2642,10 +3206,15 @@
         },
         "height": {
          "unit": "px",
-         "size": 400,
+         "size": 460,
          "sizes": []
         },
-        "object-fit": "cover"
+        "object-fit": "cover",
+        "height_mobile": {
+         "unit": "px",
+         "size": 260,
+         "sizes": []
+        }
        },
        "elements": [],
        "widgetType": "image"
@@ -2654,7 +3223,7 @@
      "isInner": false
     },
     {
-     "id": "a47db84",
+     "id": "f042084",
      "elType": "column",
      "settings": {
       "_column_size": 50,
@@ -2663,46 +3232,79 @@
       "background_color": "#F5F4F2",
       "padding": {
        "unit": "px",
-       "top": "42",
-       "right": "40",
-       "bottom": "42",
-       "left": "40",
+       "top": "50",
+       "right": "48",
+       "bottom": "50",
+       "left": "48",
        "isLinked": false
       },
       "padding_mobile": {
        "unit": "px",
-       "top": "30",
+       "top": "34",
        "right": "22",
-       "bottom": "30",
+       "bottom": "34",
        "left": "22",
        "isLinked": false
       },
-      "content_position": "center"
+      "content_position": "center",
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 150
      },
      "elements": [
       {
-       "id": "94a38de",
+       "id": "ae8008c",
+       "elType": "widget",
+       "settings": {
+        "title": "Why travel with us",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "576d0a0",
        "elType": "widget",
        "settings": {
         "title": "Why Cycling in Morocco?",
         "header_size": "h2",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 30,
+         "size": 32,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_font_size_mobile": {
          "unit": "px",
-         "size": 24,
+         "size": 26,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
          "sizes": []
         },
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         }
        },
@@ -2710,16 +3312,16 @@
        "widgetType": "heading"
       },
       {
-       "id": "662d92c",
+       "id": "d59488f",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Cycling in Morocco offers a <strong>captivating</strong> and <strong>diverse experience</strong> for riders of <strong>all levels</strong>, from easy palm-grove loops to epic mountain passes.</p><p>Sitting at <em>the gateway to Africa</em>, Morocco packs <strong>snow-capped peaks, desert tracks and green oases</strong> into a single trip, with quiet roads and a warm welcome in every village.</p><p>From the <strong>Palmeraie of Marrakech</strong> to the <strong>passes of the High Atlas</strong>, here's why we think cycling in Morocco is a must-try.</p>",
+        "editor": "<p>Cycling in Morocco is a <strong>diverse experience</strong> for riders of <strong>all levels</strong> – from easy palm-grove loops to epic mountain passes, with quiet roads and a warm welcome in every village.</p>",
         "text_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 15,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -2733,7 +3335,79 @@
        "widgetType": "text-editor"
       },
       {
-       "id": "fe48f59",
+       "id": "d47ffb9",
+       "elType": "widget",
+       "settings": {
+        "icon_list": [
+         {
+          "_id": "69fe5dc",
+          "text": "Snow-capped peaks, desert tracks and oases in one trip",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          }
+         },
+         {
+          "_id": "db1c9cd",
+          "text": "Quality gravel, road and e-bikes",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          }
+         },
+         {
+          "_id": "9508499",
+          "text": "Support vehicle on guided rides",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          }
+         }
+        ],
+        "icon_color": "#C0723F",
+        "icon_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "text_color": "#1B1F1C",
+        "space_between": {
+         "unit": "px",
+         "size": 8,
+         "sizes": []
+        },
+        "text_indent": {
+         "unit": "px",
+         "size": 10,
+         "sizes": []
+        },
+        "icon_typography_typography": "custom",
+        "icon_typography_font_family": "Inter",
+        "icon_typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "icon_typography_font_weight": "500"
+       },
+       "elements": [],
+       "widgetType": "icon-list"
+      },
+      {
+       "id": "b95fa4b",
+       "elType": "widget",
+       "settings": {
+        "space": {
+         "unit": "px",
+         "size": 8,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "widgetType": "spacer"
+      },
+      {
+       "id": "2931cf4",
        "elType": "widget",
        "settings": {
         "text": "Learn more",
@@ -2763,7 +3437,7 @@
          "isLinked": false
         },
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -2787,7 +3461,7 @@
    "isInner": false
   },
   {
-   "id": "db1c9cd",
+   "id": "75cc868",
    "elType": "section",
    "settings": {
     "gap": "no",
@@ -2801,7 +3475,7 @@
      "unit": "px",
      "top": "0",
      "right": "20",
-     "bottom": "40",
+     "bottom": "60",
      "left": "20",
      "isLinked": false
     },
@@ -2811,7 +3485,7 @@
    },
    "elements": [
     {
-     "id": "69fe5dc",
+     "id": "e39405d",
      "elType": "column",
      "settings": {
       "_column_size": 50,
@@ -2820,46 +3494,79 @@
       "background_color": "#F5F4F2",
       "padding": {
        "unit": "px",
-       "top": "42",
-       "right": "40",
-       "bottom": "42",
-       "left": "40",
+       "top": "50",
+       "right": "48",
+       "bottom": "50",
+       "left": "48",
        "isLinked": false
       },
       "padding_mobile": {
        "unit": "px",
-       "top": "30",
+       "top": "34",
        "right": "22",
-       "bottom": "30",
+       "bottom": "34",
        "left": "22",
        "isLinked": false
       },
-      "content_position": "center"
+      "content_position": "center",
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 150
      },
      "elements": [
       {
-       "id": "ae8008c",
+       "id": "8b5ec28",
+       "elType": "widget",
+       "settings": {
+        "title": "Why travel with us",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "c2ff7a3",
        "elType": "widget",
        "settings": {
         "title": "Why the Sahara Desert?",
         "header_size": "h2",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 30,
+         "size": 32,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_font_size_mobile": {
          "unit": "px",
-         "size": 24,
+         "size": 26,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
          "sizes": []
         },
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         }
        },
@@ -2867,16 +3574,16 @@
        "widgetType": "heading"
       },
       {
-       "id": "576d0a0",
+       "id": "c91ead2",
        "elType": "widget",
        "settings": {
-        "editor": "<p>For those who love exploring on foot, the Sahara offers an experience that is as <strong>peaceful</strong> as it is <strong>unforgettable</strong>. Walk beside camel caravans across stony plains towards dunes that glow orange at sunset.</p><p>From <strong>starlit desert camps</strong> to <strong>ancient kasbahs and oases</strong>, nomadic culture and endless silence make the desert a place you will want to return to.</p>",
+        "editor": "<p>Walk beside camel caravans across stony plains towards dunes that glow orange at sunset. The Sahara is as <strong>peaceful</strong> as it is <strong>unforgettable</strong>.</p>",
         "text_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 15,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -2890,7 +3597,79 @@
        "widgetType": "text-editor"
       },
       {
-       "id": "d59488f",
+       "id": "5596fa7",
+       "elType": "widget",
+       "settings": {
+        "icon_list": [
+         {
+          "_id": "f02e196",
+          "text": "Nights in starlit desert camps",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          }
+         },
+         {
+          "_id": "f436156",
+          "text": "Ancient kasbahs and palm oases",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          }
+         },
+         {
+          "_id": "36cf490",
+          "text": "Nomadic culture and endless silence",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          }
+         }
+        ],
+        "icon_color": "#C0723F",
+        "icon_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "text_color": "#1B1F1C",
+        "space_between": {
+         "unit": "px",
+         "size": 8,
+         "sizes": []
+        },
+        "text_indent": {
+         "unit": "px",
+         "size": 10,
+         "sizes": []
+        },
+        "icon_typography_typography": "custom",
+        "icon_typography_font_family": "Inter",
+        "icon_typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "icon_typography_font_weight": "500"
+       },
+       "elements": [],
+       "widgetType": "icon-list"
+      },
+      {
+       "id": "30a1eb2",
+       "elType": "widget",
+       "settings": {
+        "space": {
+         "unit": "px",
+         "size": 8,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "widgetType": "spacer"
+      },
+      {
+       "id": "60fa3d5",
        "elType": "widget",
        "settings": {
         "text": "Learn more",
@@ -2920,7 +3699,7 @@
          "isLinked": false
         },
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -2941,7 +3720,7 @@
      "isInner": false
     },
     {
-     "id": "1dbed37",
+     "id": "a1173d4",
      "elType": "column",
      "settings": {
       "_column_size": 50,
@@ -2957,7 +3736,7 @@
      },
      "elements": [
       {
-       "id": "b908755",
+       "id": "74ed753",
        "elType": "widget",
        "settings": {
         "image": {
@@ -2974,10 +3753,15 @@
         },
         "height": {
          "unit": "px",
-         "size": 400,
+         "size": 460,
          "sizes": []
         },
-        "object-fit": "cover"
+        "object-fit": "cover",
+        "height_mobile": {
+         "unit": "px",
+         "size": 260,
+         "sizes": []
+        }
        },
        "elements": [],
        "widgetType": "image"
@@ -2989,21 +3773,21 @@
    "isInner": false
   },
   {
-   "id": "f042084",
+   "id": "7feee71",
    "elType": "section",
    "settings": {
     "gap": "default",
     "content_width": {
      "unit": "px",
-     "size": 640,
+     "size": 680,
      "sizes": []
     },
     "stretch_section": "section-stretched",
     "padding": {
      "unit": "px",
-     "top": "80",
+     "top": "96",
      "right": "20",
-     "bottom": "30",
+     "bottom": "40",
      "left": "20",
      "isLinked": false
     },
@@ -3012,36 +3796,69 @@
    },
    "elements": [
     {
-     "id": "2931cf4",
+     "id": "a5ef9cf",
      "elType": "column",
      "settings": {
       "_column_size": 100,
-      "_inline_size": null
+      "_inline_size": null,
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "d47ffb9",
+       "id": "88b7658",
+       "elType": "widget",
+       "settings": {
+        "title": "Made for you",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "align": "center"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "5f5977a",
        "elType": "widget",
        "settings": {
         "title": "Your Custom Holidays",
         "header_size": "h2",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 36,
+         "size": 40,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_font_size_mobile": {
          "unit": "px",
-         "size": 28,
+         "size": 30,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
          "sizes": []
         },
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "align": "center"
@@ -3050,16 +3867,16 @@
        "widgetType": "heading"
       },
       {
-       "id": "b95fa4b",
+       "id": "9363d14",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>Every trip is a personal chapter in your story. Tell us your dates, pace and interests and we will build the Moroccan journey you have in mind.</em></p>",
+        "editor": "<p>Every trip is a personal chapter in your story. Tell us your dates, pace and interests and we will build the Moroccan journey you have in mind.</p>",
         "text_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 16,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -3082,7 +3899,7 @@
        "widgetType": "text-editor"
       },
       {
-       "id": "9508499",
+       "id": "f28fab9",
        "elType": "widget",
        "settings": {
         "text": "Contact us",
@@ -3112,7 +3929,7 @@
          "isLinked": false
         },
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -3137,10 +3954,10 @@
    "isInner": false
   },
   {
-   "id": "5596fa7",
+   "id": "b92af9d",
    "elType": "section",
    "settings": {
-    "gap": "extended",
+    "gap": "no",
     "content_width": {
      "unit": "px",
      "size": 1040,
@@ -3151,7 +3968,7 @@
      "unit": "px",
      "top": "0",
      "right": "20",
-     "bottom": "80",
+     "bottom": "96",
      "left": "20",
      "isLinked": false
     },
@@ -3161,37 +3978,104 @@
    },
    "elements": [
     {
-     "id": "a1173d4",
+     "id": "ae7dc5c",
      "elType": "column",
      "settings": {
       "_column_size": 33,
       "_inline_size": null,
-      "css_classes": "a2s-tile"
+      "padding": {
+       "unit": "px",
+       "top": "26",
+       "right": "26",
+       "bottom": "18",
+       "left": "26",
+       "isLinked": false
+      },
+      "content_position": "bottom",
+      "css_classes": "a2s-tile",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "background_background": "classic",
+      "background_image": {
+       "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/riders-square.jpg",
+       "id": "",
+       "source": "library"
+      },
+      "background_position": "center center",
+      "background_size": "cover",
+      "background_repeat": "no-repeat",
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "2601e8b",
+       "id": "0636104",
        "elType": "widget",
        "settings": {
-        "image": {
-         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/riders-square.jpg",
-         "id": "",
-         "alt": "Cycling",
-         "source": "library"
-        },
-        "image_size": "full",
-        "width": {
-         "unit": "%",
-         "size": 100,
-         "sizes": []
-        },
-        "height": {
+        "space": {
          "unit": "px",
-         "size": 320,
+         "size": 170,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "widgetType": "spacer"
+      },
+      {
+       "id": "8306a8e",
+       "elType": "widget",
+       "settings": {
+        "title": "Cycling",
+        "header_size": "h3",
+        "title_color": "#FFFFFF",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 24,
          "sizes": []
         },
-        "object-fit": "cover",
-        "link_to": "custom",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
         "link": {
          "url": "https://atlas2sahara.com/tours/type/biking/",
          "is_external": "",
@@ -3199,87 +4083,194 @@
         }
        },
        "elements": [],
-       "widgetType": "image"
+       "widgetType": "heading"
       },
       {
-       "id": "74ed753",
+       "id": "af04be5",
        "elType": "widget",
        "settings": {
-        "title": "Cycling",
-        "header_size": "h3",
-        "title_color": "#FFFFFF",
+        "title": "Gravel, road and e-bike adventures.",
+        "header_size": "p",
+        "title_color": "#F1EEE8",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 14,
          "sizes": []
         },
-        "typography_font_weight": "700",
+        "typography_font_weight": "400",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.6,
          "sizes": []
-        },
-        "_position": "absolute",
-        "_offset_x": {
-         "unit": "px",
-         "size": 18,
-         "sizes": []
-        },
-        "_offset_orientation_v": "end",
-        "_offset_y_end": {
-         "unit": "px",
-         "size": 16,
-         "sizes": []
-        },
-        "_element_width": "auto",
-        "_css_classes": "a2s-tile-label",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase"
+        }
        },
        "elements": [],
        "widgetType": "heading"
+      },
+      {
+       "id": "bb9f2ca",
+       "elType": "widget",
+       "settings": {
+        "text": "Explore ›",
+        "link": {
+         "url": "https://atlas2sahara.com/tours/type/biking/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "rgba(0,0,0,0)",
+        "button_text_color": "#1B1F1C",
+        "button_background_hover_color": "#0F1913",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_css_classes": "a2s-link-btn a2s-link-light"
+       },
+       "elements": [],
+       "widgetType": "button"
       }
      ],
      "isInner": false
     },
     {
-     "id": "c91ead2",
+     "id": "b0106d0",
      "elType": "column",
      "settings": {
       "_column_size": 33,
       "_inline_size": null,
-      "css_classes": "a2s-tile"
+      "padding": {
+       "unit": "px",
+       "top": "26",
+       "right": "26",
+       "bottom": "18",
+       "left": "26",
+       "isLinked": false
+      },
+      "content_position": "bottom",
+      "css_classes": "a2s-tile",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "background_background": "classic",
+      "background_image": {
+       "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/camels-square.jpg",
+       "id": "",
+       "source": "library"
+      },
+      "background_position": "center center",
+      "background_size": "cover",
+      "background_repeat": "no-repeat",
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 120
      },
      "elements": [
       {
-       "id": "8b5ec28",
+       "id": "2fe4abf",
        "elType": "widget",
        "settings": {
-        "image": {
-         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/camels-square.jpg",
-         "id": "",
-         "alt": "Desert",
-         "source": "library"
-        },
-        "image_size": "full",
-        "width": {
-         "unit": "%",
-         "size": 100,
-         "sizes": []
-        },
-        "height": {
+        "space": {
          "unit": "px",
-         "size": 320,
+         "size": 170,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "widgetType": "spacer"
+      },
+      {
+       "id": "2b838b7",
+       "elType": "widget",
+       "settings": {
+        "title": "Desert",
+        "header_size": "h3",
+        "title_color": "#FFFFFF",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 24,
          "sizes": []
         },
-        "object-fit": "cover",
-        "link_to": "custom",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
         "link": {
          "url": "https://atlas2sahara.com/tours/type/desert/",
          "is_external": "",
@@ -3287,87 +4278,194 @@
         }
        },
        "elements": [],
-       "widgetType": "image"
+       "widgetType": "heading"
       },
       {
-       "id": "c2ff7a3",
+       "id": "8fc272e",
        "elType": "widget",
        "settings": {
-        "title": "Desert",
-        "header_size": "h3",
-        "title_color": "#FFFFFF",
+        "title": "Camel treks and Sahara camps.",
+        "header_size": "p",
+        "title_color": "#F1EEE8",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 14,
          "sizes": []
         },
-        "typography_font_weight": "700",
+        "typography_font_weight": "400",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.6,
          "sizes": []
-        },
-        "_position": "absolute",
-        "_offset_x": {
-         "unit": "px",
-         "size": 18,
-         "sizes": []
-        },
-        "_offset_orientation_v": "end",
-        "_offset_y_end": {
-         "unit": "px",
-         "size": 16,
-         "sizes": []
-        },
-        "_element_width": "auto",
-        "_css_classes": "a2s-tile-label",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase"
+        }
        },
        "elements": [],
        "widgetType": "heading"
+      },
+      {
+       "id": "161ad6b",
+       "elType": "widget",
+       "settings": {
+        "text": "Explore ›",
+        "link": {
+         "url": "https://atlas2sahara.com/tours/type/desert/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "rgba(0,0,0,0)",
+        "button_text_color": "#1B1F1C",
+        "button_background_hover_color": "#0F1913",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_css_classes": "a2s-link-btn a2s-link-light"
+       },
+       "elements": [],
+       "widgetType": "button"
       }
      ],
      "isInner": false
     },
     {
-     "id": "36cf490",
+     "id": "7e1869d",
      "elType": "column",
      "settings": {
       "_column_size": 33,
       "_inline_size": null,
-      "css_classes": "a2s-tile"
+      "padding": {
+       "unit": "px",
+       "top": "26",
+       "right": "26",
+       "bottom": "18",
+       "left": "26",
+       "isLinked": false
+      },
+      "content_position": "bottom",
+      "css_classes": "a2s-tile",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "background_background": "classic",
+      "background_image": {
+       "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/culture-square.jpg",
+       "id": "",
+       "source": "library"
+      },
+      "background_position": "center center",
+      "background_size": "cover",
+      "background_repeat": "no-repeat",
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 240
      },
      "elements": [
       {
-       "id": "f02e196",
+       "id": "fc5aadf",
        "elType": "widget",
        "settings": {
-        "image": {
-         "url": "https://atlas2sahara.com/wp-content/themes/atlas2sahara/assets/img/culture-square.jpg",
-         "id": "",
-         "alt": "Culture",
-         "source": "library"
-        },
-        "image_size": "full",
-        "width": {
-         "unit": "%",
-         "size": 100,
-         "sizes": []
-        },
-        "height": {
+        "space": {
          "unit": "px",
-         "size": 320,
+         "size": 170,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "widgetType": "spacer"
+      },
+      {
+       "id": "aaacd76",
+       "elType": "widget",
+       "settings": {
+        "title": "Culture",
+        "header_size": "h3",
+        "title_color": "#FFFFFF",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 24,
          "sizes": []
         },
-        "object-fit": "cover",
-        "link_to": "custom",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
         "link": {
          "url": "https://atlas2sahara.com/tours/type/hiking/",
          "is_external": "",
@@ -3375,51 +4473,90 @@
         }
        },
        "elements": [],
-       "widgetType": "image"
+       "widgetType": "heading"
       },
       {
-       "id": "f436156",
+       "id": "65f604a",
        "elType": "widget",
        "settings": {
-        "title": "Culture",
-        "header_size": "h3",
-        "title_color": "#FFFFFF",
+        "title": "Music, food and Berber villages.",
+        "header_size": "p",
+        "title_color": "#F1EEE8",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 14,
          "sizes": []
         },
-        "typography_font_weight": "700",
+        "typography_font_weight": "400",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.6,
          "sizes": []
-        },
-        "_position": "absolute",
-        "_offset_x": {
-         "unit": "px",
-         "size": 18,
-         "sizes": []
-        },
-        "_offset_orientation_v": "end",
-        "_offset_y_end": {
-         "unit": "px",
-         "size": 16,
-         "sizes": []
-        },
-        "_element_width": "auto",
-        "_css_classes": "a2s-tile-label",
-        "typography_letter_spacing": {
-         "unit": "px",
-         "size": 2,
-         "sizes": []
-        },
-        "typography_text_transform": "uppercase"
+        }
        },
        "elements": [],
        "widgetType": "heading"
+      },
+      {
+       "id": "cb31e9d",
+       "elType": "widget",
+       "settings": {
+        "text": "Explore ›",
+        "link": {
+         "url": "https://atlas2sahara.com/tours/type/hiking/",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "rgba(0,0,0,0)",
+        "button_text_color": "#1B1F1C",
+        "button_background_hover_color": "#0F1913",
+        "hover_color": "#FFFFFF",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "_css_classes": "a2s-link-btn a2s-link-light"
+       },
+       "elements": [],
+       "widgetType": "button"
       }
      ],
      "isInner": false
@@ -3428,7 +4565,7 @@
    "isInner": false
   },
   {
-   "id": "7feee71",
+   "id": "355047b",
    "elType": "section",
    "settings": {
     "gap": "default",
@@ -3440,9 +4577,9 @@
     "stretch_section": "section-stretched",
     "padding": {
      "unit": "px",
-     "top": "40",
+     "top": "90",
      "right": "20",
-     "bottom": "40",
+     "bottom": "90",
      "left": "20",
      "isLinked": false
     },
@@ -3459,25 +4596,35 @@
    },
    "elements": [
     {
-     "id": "a5ef9cf",
+     "id": "69ffe67",
      "elType": "column",
      "settings": {
       "_column_size": 100,
       "_inline_size": null,
       "background_background": "classic",
-      "background_color": "rgba(245,244,242,0.72)",
+      "background_color": "rgba(245,244,242,0.86)",
       "padding": {
        "unit": "px",
-       "top": "50",
-       "right": "20",
-       "bottom": "50",
-       "left": "20",
+       "top": "60",
+       "right": "30",
+       "bottom": "60",
+       "left": "30",
        "isLinked": false
-      }
+      },
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "9363d14",
+       "id": "cbc4e69",
        "elType": "section",
        "settings": {
         "gap": "extended",
@@ -3485,7 +4632,7 @@
        },
        "elements": [
         {
-         "id": "f28fab9",
+         "id": "0624451",
          "elType": "column",
          "settings": {
           "_column_size": 50,
@@ -3493,14 +4640,14 @@
          },
          "elements": [
           {
-           "id": "30a1eb2",
+           "id": "3710441",
            "elType": "widget",
            "settings": {
-            "title": "Local guides, Moroccan hospitality, real adventures",
+            "title": "Local guides · Moroccan hospitality",
             "header_size": "p",
-            "title_color": "#1B1F1C",
+            "title_color": "#C0723F",
             "typography_typography": "custom",
-            "typography_font_family": "Helvetica",
+            "typography_font_family": "Inter",
             "typography_font_size": {
              "unit": "px",
              "size": 11,
@@ -3518,23 +4665,28 @@
            "widgetType": "heading"
           },
           {
-           "id": "60fa3d5",
+           "id": "abf415d",
            "elType": "widget",
            "settings": {
             "title": "About us",
             "header_size": "h2",
             "title_color": "#1B1F1C",
             "typography_typography": "custom",
-            "typography_font_family": "Helvetica",
+            "typography_font_family": "Archivo",
             "typography_font_size": {
              "unit": "px",
-             "size": 26,
+             "size": 34,
              "sizes": []
             },
             "typography_font_weight": "700",
+            "typography_letter_spacing": {
+             "unit": "px",
+             "size": -0.5,
+             "sizes": []
+            },
             "typography_line_height": {
              "unit": "em",
-             "size": 1.2,
+             "size": 1.15,
              "sizes": []
             }
            },
@@ -3542,16 +4694,16 @@
            "widgetType": "heading"
           },
           {
-           "id": "e39405d",
+           "id": "c7ecc01",
            "elType": "widget",
            "settings": {
             "editor": "<p>We craft biking, hiking and desert journeys across Morocco for travellers who want more than a postcard.</p>",
             "text_color": "#1B1F1C",
             "typography_typography": "custom",
-            "typography_font_family": "Helvetica",
+            "typography_font_family": "Inter",
             "typography_font_size": {
              "unit": "px",
-             "size": 14,
+             "size": 16,
              "sizes": []
             },
             "typography_font_weight": "400",
@@ -3565,7 +4717,7 @@
            "widgetType": "text-editor"
           },
           {
-           "id": "75cc868",
+           "id": "b82962c",
            "elType": "widget",
            "settings": {
             "text": "Learn more",
@@ -3595,7 +4747,7 @@
              "isLinked": false
             },
             "typography_typography": "custom",
-            "typography_font_family": "Helvetica",
+            "typography_font_family": "Inter",
             "typography_font_size": {
              "unit": "px",
              "size": 11,
@@ -3616,24 +4768,25 @@
          "isInner": true
         },
         {
-         "id": "5f5977a",
+         "id": "948e418",
          "elType": "column",
          "settings": {
           "_column_size": 50,
-          "_inline_size": null
+          "_inline_size": null,
+          "content_position": "center"
          },
          "elements": [
           {
-           "id": "88b7658",
+           "id": "083e61c",
            "elType": "widget",
            "settings": {
             "editor": "<p>By partnering with local families, guesthouses and desert camps, we create authentic adventures that also support the communities we travel through.</p>",
             "text_color": "#1B1F1C",
             "typography_typography": "custom",
-            "typography_font_family": "Helvetica",
+            "typography_font_family": "Inter",
             "typography_font_size": {
              "unit": "px",
-             "size": 14,
+             "size": 16,
              "sizes": []
             },
             "typography_font_weight": "400",
@@ -3659,21 +4812,21 @@
    "isInner": false
   },
   {
-   "id": "bb9f2ca",
+   "id": "e9a9b9c",
    "elType": "section",
    "settings": {
     "gap": "default",
     "content_width": {
      "unit": "px",
-     "size": 640,
+     "size": 680,
      "sizes": []
     },
     "stretch_section": "section-stretched",
     "padding": {
      "unit": "px",
-     "top": "80",
+     "top": "96",
      "right": "20",
-     "bottom": "30",
+     "bottom": "40",
      "left": "20",
      "isLinked": false
     },
@@ -3682,36 +4835,69 @@
    },
    "elements": [
     {
-     "id": "af04be5",
+     "id": "e412f6b",
      "elType": "column",
      "settings": {
       "_column_size": 100,
-      "_inline_size": null
+      "_inline_size": null,
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "0636104",
+       "id": "7e443bd",
+       "elType": "widget",
+       "settings": {
+        "title": "Reviews",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "align": "center"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "14de417",
        "elType": "widget",
        "settings": {
         "title": "Loved By Our Guests",
         "header_size": "h2",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 36,
+         "size": 40,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_font_size_mobile": {
          "unit": "px",
-         "size": 28,
+         "size": 30,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
          "sizes": []
         },
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "align": "center"
@@ -3720,16 +4906,16 @@
        "widgetType": "heading"
       },
       {
-       "id": "8306a8e",
+       "id": "2f062c8",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>Here's what some of our guests have said about their Moroccan adventures.</em></p>",
+        "editor": "<p>Here's what some of our guests have said about their Moroccan adventures.</p>",
         "text_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 16,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -3758,7 +4944,7 @@
    "isInner": false
   },
   {
-   "id": "3710441",
+   "id": "ca39a7e",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -3772,7 +4958,7 @@
      "unit": "px",
      "top": "0",
      "right": "20",
-     "bottom": "80",
+     "bottom": "96",
      "left": "20",
      "isLinked": false
     },
@@ -3782,7 +4968,7 @@
    },
    "elements": [
     {
-     "id": "8fc272e",
+     "id": "406a137",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -3790,24 +4976,65 @@
       "padding": {
        "unit": "px",
        "top": "10",
-       "right": "10",
+       "right": "16",
        "bottom": "10",
-       "left": "10",
+       "left": "16",
        "isLinked": false
-      }
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "ae7dc5c",
+       "id": "c6292ba",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>“Paste a real review from one of your guests here – for example from Google or TripAdvisor.”</em></p>",
-        "text_color": "#1B1F1C",
+        "title": "“",
+        "header_size": "div",
+        "title_color": "#D9D6CF",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 72,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "align": "center",
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "-30",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "0cd45f0",
+       "elType": "widget",
+       "settings": {
+        "title": "<em>Paste a real review from one of your guests here – for example from Google or TripAdvisor.</em>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -3819,16 +5046,17 @@
         "align": "center"
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "2fe4abf",
+       "id": "e58a4f4",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Tour name</p>",
-        "text_color": "#9AA48C",
+        "title": "Tour name",
+        "header_size": "p",
+        "title_color": "#9AA48C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 12,
@@ -3843,7 +5071,7 @@
         "align": "center",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "6",
          "right": "0",
          "bottom": "0",
          "left": "0",
@@ -3851,26 +5079,26 @@
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "2b838b7",
+       "id": "8bed207",
        "elType": "widget",
        "settings": {
         "title": "Guest name",
         "header_size": "p",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 12,
+         "size": 13,
          "sizes": []
         },
         "typography_font_weight": "600",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "align": "center"
@@ -3882,7 +5110,7 @@
      "isInner": false
     },
     {
-     "id": "aaacd76",
+     "id": "74d4819",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -3890,24 +5118,66 @@
       "padding": {
        "unit": "px",
        "top": "10",
-       "right": "10",
+       "right": "16",
        "bottom": "10",
-       "left": "10",
+       "left": "16",
        "isLinked": false
-      }
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 120
      },
      "elements": [
       {
-       "id": "161ad6b",
+       "id": "e57e781",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>“Paste a real review from one of your guests here – for example from Google or TripAdvisor.”</em></p>",
-        "text_color": "#1B1F1C",
+        "title": "“",
+        "header_size": "div",
+        "title_color": "#D9D6CF",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 72,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "align": "center",
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "-30",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "043b8c1",
+       "elType": "widget",
+       "settings": {
+        "title": "<em>Paste a real review from one of your guests here – for example from Google or TripAdvisor.</em>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -3919,16 +5189,17 @@
         "align": "center"
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "b0106d0",
+       "id": "15a2f55",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Tour name</p>",
-        "text_color": "#9AA48C",
+        "title": "Tour name",
+        "header_size": "p",
+        "title_color": "#9AA48C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 12,
@@ -3943,7 +5214,7 @@
         "align": "center",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "6",
          "right": "0",
          "bottom": "0",
          "left": "0",
@@ -3951,26 +5222,26 @@
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "fc5aadf",
+       "id": "9bbd4c9",
        "elType": "widget",
        "settings": {
         "title": "Guest name",
         "header_size": "p",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 12,
+         "size": 13,
          "sizes": []
         },
         "typography_font_weight": "600",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "align": "center"
@@ -3982,7 +5253,7 @@
      "isInner": false
     },
     {
-     "id": "b92af9d",
+     "id": "00505a1",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -3990,24 +5261,66 @@
       "padding": {
        "unit": "px",
        "top": "10",
-       "right": "10",
+       "right": "16",
        "bottom": "10",
-       "left": "10",
+       "left": "16",
        "isLinked": false
-      }
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 240
      },
      "elements": [
       {
-       "id": "65f604a",
+       "id": "9f0b748",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>“Paste a real review from one of your guests here – for example from Google or TripAdvisor.”</em></p>",
-        "text_color": "#1B1F1C",
+        "title": "“",
+        "header_size": "div",
+        "title_color": "#D9D6CF",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 72,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "align": "center",
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "-30",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "7a99e63",
+       "elType": "widget",
+       "settings": {
+        "title": "<em>Paste a real review from one of your guests here – for example from Google or TripAdvisor.</em>",
+        "header_size": "p",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -4019,16 +5332,17 @@
         "align": "center"
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "cb31e9d",
+       "id": "9be18d4",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Tour name</p>",
-        "text_color": "#9AA48C",
+        "title": "Tour name",
+        "header_size": "p",
+        "title_color": "#9AA48C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 12,
@@ -4043,7 +5357,7 @@
         "align": "center",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "6",
          "right": "0",
          "bottom": "0",
          "left": "0",
@@ -4051,26 +5365,26 @@
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "7e1869d",
+       "id": "a08e88b",
        "elType": "widget",
        "settings": {
         "title": "Guest name",
         "header_size": "p",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 12,
+         "size": 13,
          "sizes": []
         },
         "typography_font_weight": "600",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "align": "center"
@@ -4085,7 +5399,7 @@
    "isInner": false
   },
   {
-   "id": "b82962c",
+   "id": "528c517",
    "elType": "section",
    "settings": {
     "gap": "default",
@@ -4094,7 +5408,7 @@
     "height": "min-height",
     "custom_height": {
      "unit": "px",
-     "size": 440,
+     "size": 460,
      "sizes": []
     },
     "custom_height_mobile": {
@@ -4114,7 +5428,7 @@
    },
    "elements": [
     {
-     "id": "c7ecc01",
+     "id": "da3c2d7",
      "elType": "column",
      "settings": {
       "_column_size": 100,
@@ -4122,7 +5436,7 @@
      },
      "elements": [
       {
-       "id": "abf415d",
+       "id": "d380892",
        "elType": "widget",
        "settings": {
         "space": {
@@ -4141,21 +5455,21 @@
    "isInner": false
   },
   {
-   "id": "cbc4e69",
+   "id": "1dc3886",
    "elType": "section",
    "settings": {
     "gap": "default",
     "content_width": {
      "unit": "px",
-     "size": 640,
+     "size": 680,
      "sizes": []
     },
     "stretch_section": "section-stretched",
     "padding": {
      "unit": "px",
-     "top": "80",
+     "top": "96",
      "right": "20",
-     "bottom": "30",
+     "bottom": "40",
      "left": "20",
      "isLinked": false
     },
@@ -4164,36 +5478,69 @@
    },
    "elements": [
     {
-     "id": "948e418",
+     "id": "f7d7311",
      "elType": "column",
      "settings": {
       "_column_size": 100,
-      "_inline_size": null
+      "_inline_size": null,
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "0624451",
+       "id": "86d09ca",
        "elType": "widget",
        "settings": {
-        "title": "Our Stories",
+        "title": "FAQ",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "align": "center"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "39b290e",
+       "elType": "widget",
+       "settings": {
+        "title": "Good to Know",
         "header_size": "h2",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 36,
+         "size": 40,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_font_size_mobile": {
          "unit": "px",
-         "size": 28,
+         "size": 30,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
          "sizes": []
         },
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "align": "center"
@@ -4202,16 +5549,16 @@
        "widgetType": "heading"
       },
       {
-       "id": "083e61c",
+       "id": "014a74d",
        "elType": "widget",
        "settings": {
-        "editor": "<p><em>Where stories come to life. Explore our travel notes and get inspired.</em></p>",
+        "editor": "<p>Answers to the questions our guests ask most often.</p>",
         "text_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 14,
+         "size": 16,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -4240,10 +5587,270 @@
    "isInner": false
   },
   {
-   "id": "7a99e63",
+   "id": "e2557a3",
    "elType": "section",
    "settings": {
-    "gap": "extended",
+    "gap": "default",
+    "content_width": {
+     "unit": "px",
+     "size": 820,
+     "sizes": []
+    },
+    "stretch_section": "section-stretched",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "20",
+     "bottom": "96",
+     "left": "20",
+     "isLinked": false
+    },
+    "_element_id": "faq",
+    "background_background": "classic",
+    "background_color": "#F5F4F2"
+   },
+   "elements": [
+    {
+     "id": "78a610a",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "3d71b08",
+       "elType": "widget",
+       "settings": {
+        "tabs": [
+         {
+          "_id": "7700385",
+          "tab_title": "When is the best time to visit?",
+          "tab_content": "<p>Spring (March to May) and autumn (September to November) bring mild days in the mountains and comfortable temperatures in the desert. Winter is great for the Sahara and Marrakech; summer is best for the High Atlas.</p>"
+         },
+         {
+          "_id": "5362d5e",
+          "tab_title": "How fit do I need to be?",
+          "tab_content": "<p>Every tour has a difficulty level. Easy trips suit anyone who is active; moderate and challenging trips need regular riding or hiking. Tell us about your experience and we will recommend the right trip.</p>"
+         },
+         {
+          "_id": "1648ca6",
+          "tab_title": "Can you tailor a trip for us?",
+          "tab_content": "<p>Yes. Dates, pace, accommodation and activities can all be adapted, and we can combine biking, hiking and the desert in one journey.</p>"
+         },
+         {
+          "_id": "f226ff0",
+          "tab_title": "Guided or self-guided – what is the difference?",
+          "tab_content": "<p>On guided tours a local guide is with you every day. On self-guided tours you travel at your own pace with GPS routes, a route book, luggage transfers and our support by phone.</p>"
+         },
+         {
+          "_id": "43efb4e",
+          "tab_title": "How do I book?",
+          "tab_content": "<p>Send us your dates and the tour you like. We reply within 24 hours with availability and a detailed proposal.</p>"
+         }
+        ],
+        "selected_icon": {
+         "value": "fas fa-plus",
+         "library": "fa-solid"
+        },
+        "selected_active_icon": {
+         "value": "fas fa-minus",
+         "library": "fa-solid"
+        },
+        "border_color": "#D9D6CF",
+        "title_background": "#FFFFFF",
+        "title_color": "#1B1F1C",
+        "tab_active_color": "#C0723F",
+        "icon_color": "#C0723F",
+        "icon_active_color": "#C0723F",
+        "content_background_color": "#FFFFFF",
+        "content_color": "#4A4F4B",
+        "title_padding": {
+         "unit": "px",
+         "top": "20",
+         "right": "24",
+         "bottom": "20",
+         "left": "24",
+         "isLinked": false
+        },
+        "content_padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "24",
+         "bottom": "22",
+         "left": "24",
+         "isLinked": false
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Archivo",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        },
+        "title_typography_font_weight": "600",
+        "content_typography_typography": "custom",
+        "content_typography_font_family": "Inter",
+        "content_typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "content_typography_font_weight": "400",
+        "content_typography_line_height": {
+         "unit": "em",
+         "size": 1.7,
+         "sizes": []
+        },
+        "_animation": "fadeInUp",
+        "animation_duration": "normal"
+       },
+       "elements": [],
+       "widgetType": "accordion"
+      }
+     ],
+     "isInner": false
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "8d8fd42",
+   "elType": "section",
+   "settings": {
+    "gap": "default",
+    "content_width": {
+     "unit": "px",
+     "size": 680,
+     "sizes": []
+    },
+    "stretch_section": "section-stretched",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "20",
+     "bottom": "40",
+     "left": "20",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F5F4F2"
+   },
+   "elements": [
+    {
+     "id": "02eee40",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null,
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
+     },
+     "elements": [
+      {
+       "id": "091319d",
+       "elType": "widget",
+       "settings": {
+        "title": "Journal",
+        "header_size": "p",
+        "title_color": "#C0723F",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "align": "center"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "06548e9",
+       "elType": "widget",
+       "settings": {
+        "title": "Our Stories",
+        "header_size": "h2",
+        "title_color": "#1B1F1C",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "align": "center"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "c1662aa",
+       "elType": "widget",
+       "settings": {
+        "editor": "<p>Where stories come to life. Explore our travel notes and get inspired.</p>",
+        "text_color": "#4A4F4B",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        },
+        "align": "center",
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "widgetType": "text-editor"
+      }
+     ],
+     "isInner": false
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "4a5d559",
+   "elType": "section",
+   "settings": {
+    "gap": "no",
     "content_width": {
      "unit": "px",
      "size": 1040,
@@ -4254,7 +5861,7 @@
      "unit": "px",
      "top": "0",
      "right": "20",
-     "bottom": "80",
+     "bottom": "96",
      "left": "20",
      "isLinked": false
     },
@@ -4264,7 +5871,7 @@
    },
    "elements": [
     {
-     "id": "e412f6b",
+     "id": "55c5ff3",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -4279,11 +5886,45 @@
        "left": "0",
        "isLinked": false
       },
-      "css_classes": "a2s-card"
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
      },
      "elements": [
       {
-       "id": "69ffe67",
+       "id": "2aa6e40",
        "elType": "widget",
        "settings": {
         "image": {
@@ -4300,7 +5941,7 @@
         },
         "height": {
          "unit": "px",
-         "size": 210,
+         "size": 220,
          "sizes": []
         },
         "object-fit": "cover",
@@ -4316,14 +5957,14 @@
        "widgetType": "image"
       },
       {
-       "id": "355047b",
+       "id": "e2f07d6",
        "elType": "widget",
        "settings": {
-        "title": "Our stories",
+        "title": "Travel guide",
         "header_size": "p",
-        "title_color": "#4A4F4B",
+        "title_color": "#C0723F",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -4339,9 +5980,9 @@
         "_padding": {
          "unit": "px",
          "top": "22",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -4349,23 +5990,23 @@
        "widgetType": "heading"
       },
       {
-       "id": "7e443bd",
+       "id": "4586d47",
        "elType": "widget",
        "settings": {
         "title": "From the Atlas to the Sahara: What to Expect",
         "header_size": "h3",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 19,
+         "size": 20,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "link": {
@@ -4376,9 +6017,9 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -4386,16 +6027,17 @@
        "widgetType": "heading"
       },
       {
-       "id": "14de417",
+       "id": "fe9c90e",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Mountain passes, kasbahs, palm valleys and the dunes of Merzouga – a guide to Morocco's most spectacular journey.</p>",
-        "text_color": "#4A4F4B",
+        "title": "Mountain passes, kasbahs, palm valleys and the dunes of Merzouga – a guide to Morocco's most spectacular journey.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 13,
+         "size": 13.5,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -4407,17 +6049,17 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "2f062c8",
+       "id": "b942204",
        "elType": "widget",
        "settings": {
         "text": "Read ›",
@@ -4457,7 +6099,7 @@
         },
         "border_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -4473,10 +6115,10 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "4",
          "right": "0",
          "bottom": "24",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         },
         "_css_classes": "a2s-link-btn"
@@ -4488,7 +6130,7 @@
      "isInner": false
     },
     {
-     "id": "406a137",
+     "id": "665be60",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -4503,11 +6145,46 @@
        "left": "0",
        "isLinked": false
       },
-      "css_classes": "a2s-card"
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 120
      },
      "elements": [
       {
-       "id": "e9a9b9c",
+       "id": "3ca191d",
        "elType": "widget",
        "settings": {
         "image": {
@@ -4524,7 +6201,7 @@
         },
         "height": {
          "unit": "px",
-         "size": 210,
+         "size": 220,
          "sizes": []
         },
         "object-fit": "cover",
@@ -4540,14 +6217,14 @@
        "widgetType": "image"
       },
       {
-       "id": "c6292ba",
+       "id": "ab1c90d",
        "elType": "widget",
        "settings": {
-        "title": "Our stories",
+        "title": "Food & culture",
         "header_size": "p",
-        "title_color": "#4A4F4B",
+        "title_color": "#C0723F",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -4563,9 +6240,9 @@
         "_padding": {
          "unit": "px",
          "top": "22",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -4573,23 +6250,23 @@
        "widgetType": "heading"
       },
       {
-       "id": "0cd45f0",
+       "id": "44c6966",
        "elType": "widget",
        "settings": {
         "title": "A Taste of Morocco: Dishes to Try on Your Trip",
         "header_size": "h3",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 19,
+         "size": 20,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "link": {
@@ -4600,9 +6277,9 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -4610,16 +6287,17 @@
        "widgetType": "heading"
       },
       {
-       "id": "e58a4f4",
+       "id": "1778b50",
        "elType": "widget",
        "settings": {
-        "editor": "<p>From slow-cooked tagine to Berber bread baked in the sand, here is what to look forward to after a long day outdoors.</p>",
-        "text_color": "#4A4F4B",
+        "title": "From slow-cooked tagine to Berber bread baked in the sand, here is what to look forward to after a long day outdoors.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 13,
+         "size": 13.5,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -4631,17 +6309,17 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "8bed207",
+       "id": "ba5ea9e",
        "elType": "widget",
        "settings": {
         "text": "Read ›",
@@ -4681,7 +6359,7 @@
         },
         "border_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -4697,10 +6375,10 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "4",
          "right": "0",
          "bottom": "24",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         },
         "_css_classes": "a2s-link-btn"
@@ -4712,7 +6390,7 @@
      "isInner": false
     },
     {
-     "id": "9f0b748",
+     "id": "7cd03c2",
      "elType": "column",
      "settings": {
       "_column_size": 33,
@@ -4727,11 +6405,46 @@
        "left": "0",
        "isLinked": false
       },
-      "css_classes": "a2s-card"
+      "css_classes": "a2s-card",
+      "border_radius": {
+       "unit": "px",
+       "top": "4",
+       "right": "4",
+       "bottom": "4",
+       "left": "4",
+       "isLinked": false
+      },
+      "margin": {
+       "unit": "px",
+       "top": "0",
+       "right": "12",
+       "bottom": "0",
+       "left": "12",
+       "isLinked": false
+      },
+      "margin_tablet": {
+       "unit": "px",
+       "top": "0",
+       "right": "8",
+       "bottom": "0",
+       "left": "8",
+       "isLinked": false
+      },
+      "margin_mobile": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "24",
+       "left": "0",
+       "isLinked": false
+      },
+      "_animation": "fadeInUp",
+      "animation_duration": "normal",
+      "_animation_delay": 240
      },
      "elements": [
       {
-       "id": "e57e781",
+       "id": "7f539f8",
        "elType": "widget",
        "settings": {
         "image": {
@@ -4748,7 +6461,7 @@
         },
         "height": {
          "unit": "px",
-         "size": 210,
+         "size": 220,
          "sizes": []
         },
         "object-fit": "cover",
@@ -4764,14 +6477,14 @@
        "widgetType": "image"
       },
       {
-       "id": "043b8c1",
+       "id": "95bf699",
        "elType": "widget",
        "settings": {
-        "title": "Our stories",
+        "title": "Cycling",
         "header_size": "p",
-        "title_color": "#4A4F4B",
+        "title_color": "#C0723F",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -4787,9 +6500,9 @@
         "_padding": {
          "unit": "px",
          "top": "22",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -4797,23 +6510,23 @@
        "widgetType": "heading"
       },
       {
-       "id": "15a2f55",
+       "id": "0737b22",
        "elType": "widget",
        "settings": {
         "title": "Riding the Palmeraie: Gravel Biking Around Marrakech",
         "header_size": "h3",
         "title_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Archivo",
         "typography_font_size": {
          "unit": "px",
-         "size": 19,
+         "size": 20,
          "sizes": []
         },
         "typography_font_weight": "700",
         "typography_line_height": {
          "unit": "em",
-         "size": 1.2,
+         "size": 1.15,
          "sizes": []
         },
         "link": {
@@ -4824,9 +6537,9 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
@@ -4834,16 +6547,17 @@
        "widgetType": "heading"
       },
       {
-       "id": "9bbd4c9",
+       "id": "cac24a3",
        "elType": "widget",
        "settings": {
-        "editor": "<p>Dusty tracks, thousands of palm trees and a sunset you will not forget – our favourite easy ride from the city.</p>",
-        "text_color": "#4A4F4B",
+        "title": "Dusty tracks, thousands of palm trees and a sunset you will not forget – our favourite easy ride from the city.",
+        "header_size": "p",
+        "title_color": "#4A4F4B",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
-         "size": 13,
+         "size": 13.5,
          "sizes": []
         },
         "typography_font_weight": "400",
@@ -4855,17 +6569,17 @@
         "_padding": {
          "unit": "px",
          "top": "0",
-         "right": "22",
+         "right": "24",
          "bottom": "0",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         }
        },
        "elements": [],
-       "widgetType": "text-editor"
+       "widgetType": "heading"
       },
       {
-       "id": "74d4819",
+       "id": "1f08b5a",
        "elType": "widget",
        "settings": {
         "text": "Read ›",
@@ -4905,7 +6619,7 @@
         },
         "border_color": "#1B1F1C",
         "typography_typography": "custom",
-        "typography_font_family": "Helvetica",
+        "typography_font_family": "Inter",
         "typography_font_size": {
          "unit": "px",
          "size": 11,
@@ -4921,13 +6635,200 @@
         "_element_width": "auto",
         "_margin": {
          "unit": "px",
-         "top": "0",
+         "top": "4",
          "right": "0",
          "bottom": "24",
-         "left": "22",
+         "left": "24",
          "isLinked": false
         },
         "_css_classes": "a2s-link-btn"
+       },
+       "elements": [],
+       "widgetType": "button"
+      }
+     ],
+     "isInner": false
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "6de98b5",
+   "elType": "section",
+   "settings": {
+    "gap": "default",
+    "content_width": {
+     "unit": "px",
+     "size": 1040,
+     "sizes": []
+    },
+    "stretch_section": "section-stretched",
+    "padding": {
+     "unit": "px",
+     "top": "70",
+     "right": "20",
+     "bottom": "70",
+     "left": "20",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#0F1913"
+   },
+   "elements": [
+    {
+     "id": "c2487ee",
+     "elType": "column",
+     "settings": {
+      "_column_size": 66,
+      "_inline_size": null,
+      "content_position": "center",
+      "_animation": "fadeInUp",
+      "animation_duration": "normal"
+     },
+     "elements": [
+      {
+       "id": "fd93335",
+       "elType": "widget",
+       "settings": {
+        "title": "Ready when you are",
+        "header_size": "p",
+        "title_color": "#F3D9BF",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase"
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "37cfc61",
+       "elType": "widget",
+       "settings": {
+        "title": "Let's plan your Moroccan adventure",
+        "header_size": "h2",
+        "title_color": "#FFFFFF",
+        "typography_typography": "custom",
+        "typography_font_family": "Archivo",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 36,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 28,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.5,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "widgetType": "heading"
+      },
+      {
+       "id": "ac6d753",
+       "elType": "widget",
+       "settings": {
+        "editor": "<p>Tell us your dates and interests – we reply within 24 hours with a free, no-obligation proposal.</p>",
+        "text_color": "#D9DDD6",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "widgetType": "text-editor"
+      }
+     ],
+     "isInner": false
+    },
+    {
+     "id": "2bf18aa",
+     "elType": "column",
+     "settings": {
+      "_column_size": 34,
+      "_inline_size": null,
+      "content_position": "center"
+     },
+     "elements": [
+      {
+       "id": "add2c79",
+       "elType": "widget",
+       "settings": {
+        "text": "Get in touch",
+        "link": {
+         "url": "https://atlas2sahara.com/#contact",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "background_color": "#C0723F",
+        "button_text_color": "#FFFFFF",
+        "button_background_hover_color": "#FFFFFF",
+        "hover_color": "#1B1F1C",
+        "border_radius": {
+         "unit": "px",
+         "top": "2",
+         "right": "2",
+         "bottom": "2",
+         "left": "2",
+         "isLinked": false
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "30",
+         "bottom": "14",
+         "left": "30",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 11,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.2,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "align": "right",
+        "align_mobile": "left",
+        "_animation": "fadeInUp",
+        "animation_duration": "normal",
+        "_animation_delay": 150
        },
        "elements": [],
        "widgetType": "button"

@@ -3,7 +3,7 @@
  * Atlas2Sahara theme setup.
  */
 
-define( 'A2S_VERSION', '3.0.0' );
+define( 'A2S_VERSION', '3.1.0' );
 
 require get_template_directory() . '/inc/tours.php';
 require get_template_directory() . '/inc/customizer.php';
@@ -21,6 +21,7 @@ add_action( 'after_setup_theme', function () {
 } );
 
 add_action( 'wp_enqueue_scripts', function () {
+	wp_enqueue_style( 'a2s-fonts', 'https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap', array(), null );
 	wp_enqueue_style( 'a2s-main', get_template_directory_uri() . '/assets/css/main.css', array(), A2S_VERSION );
 	wp_enqueue_script( 'a2s-main', get_template_directory_uri() . '/assets/js/main.js', array(), A2S_VERSION, true );
 } );

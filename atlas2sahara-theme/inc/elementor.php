@@ -4,6 +4,9 @@
  * inc/elementor-home.json, and full-width rendering of Elementor content.
  */
 
+/** Bump when inc/elementor-home.json changes, so sites get the new Home page. */
+define( 'A2S_HOME_VERSION', 2 );
+
 /** True when the post was built with Elementor and Elementor is active. */
 function a2s_is_elementor( $post_id = null ) {
 	$post_id = $post_id ? $post_id : get_the_ID();
@@ -39,8 +42,9 @@ function a2s_elementor_home_data() {
 
 /**
  * Create the Elementor "Home" page (and a "Stories" page for the blog) and use
- * them as the front and posts pages. Runs once, as soon as Elementor is active.
- * The front page is only switched if the site still shows latest posts there.
+ * them as the front and posts pages, as soon as Elementor is active. The front
+ * page is only switched if the site still shows latest posts there, or if it is
+ * an older generated Home page (which is then kept as a draft).
  */
 function a2s_seed_elementor_home() {
 	$cpt = get_option( 'elementor_cpt_support', array( 'page', 'post' ) );
@@ -50,7 +54,8 @@ function a2s_seed_elementor_home() {
 	}
 
 	$existing = get_posts( array( 'post_type' => 'page', 'post_status' => 'any', 'meta_key' => '_a2s_home', 'numberposts' => 1 ) );
-	if ( $existing ) {
+	$old      = $existing ? $existing[0] : null;
+	if ( $old && (int) get_post_meta( $old->ID, '_a2s_home', true ) >= A2S_HOME_VERSION ) {
 		return;
 	}
 
@@ -62,13 +67,23 @@ function a2s_seed_elementor_home() {
 	if ( ! $home_id || is_wp_error( $home_id ) ) {
 		return;
 	}
-	update_post_meta( $home_id, '_a2s_home', 1 );
+	update_post_meta( $home_id, '_a2s_home', A2S_HOME_VERSION );
 	update_post_meta( $home_id, '_elementor_edit_mode', 'builder' );
 	update_post_meta( $home_id, '_elementor_template_type', 'wp-page' );
 	update_post_meta( $home_id, '_elementor_version', defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '3.0.0' );
 	update_post_meta( $home_id, '_elementor_page_settings', array( 'hide_title' => 'yes' ) );
 	update_post_meta( $home_id, '_wp_page_template', 'elementor_header_footer' );
 	update_post_meta( $home_id, '_elementor_data', wp_slash( a2s_elementor_home_data() ) );
+
+	// An older generated Home page is kept as a draft (nothing is deleted).
+	if ( $old ) {
+		if ( (int) get_option( 'page_on_front' ) === $old->ID ) {
+			update_option( 'page_on_front', $home_id );
+		}
+		delete_post_meta( $old->ID, '_a2s_home' );
+		wp_update_post( array( 'ID' => $old->ID, 'post_status' => 'draft', 'post_title' => 'Home (previous design)' ) );
+		return;
+	}
 
 	if ( 'posts' === get_option( 'show_on_front' ) ) {
 		update_option( 'page_on_front', $home_id );
