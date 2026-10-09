@@ -3,7 +3,7 @@ Plain HTML/JS, no '$' and no backslashes (pushed with wp_alter_post)."""
 import json
 from programs import P, IMG
 
-SLIDES = ["jemaa", "merzouga", "chefchaouen", "agafay"]
+SLIDES = ["merzouga", "chefchaouen", "agafay"]
 
 TXT = {
     "en": dict(ey="Private tours & transport · Marrakech", h1="Discover Morocco<br><span>your way</span>",
@@ -84,8 +84,8 @@ def hero(lang, url):
     return ('<section class="aim-hero aim-hero2"><div class="aim-slides">%s</div><div class="aim-wrap">'
             '<span class="aim-eyebrow">%s</span><h1>%s</h1><p class="aim-lead">%s</p>'
             '<form class="aim-search" autocomplete="off"><div class="aim-tabs">%s</div>%s%s%s</form>'
-            '<div class="aim-trust">%s</div></div></section>%s') % (
-        slides, t["ey"], t["h1"], t["lead"], tabs, pane_t, pane_d, pane_x, trust, js)
+            '</div></section>%s') % (
+        slides, t["ey"], t["h1"], t["lead"], tabs, pane_t, pane_d, pane_x, js)
 
 
 CSS = """
