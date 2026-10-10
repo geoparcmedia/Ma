@@ -174,7 +174,7 @@ add(key="todra2", kind="circuit", img="todra", price=140, tiers=[140, 150, 180, 
                   ("Gorges du Todra – Dadès – Marrakech", "Balade le matin dans les gorges du Todra, entre leurs hautes parois rouges. Retour vers l'ouest par la vallée du Dadès et Ouarzazate, arrivée à Marrakech le soir.")]))
 
 # ---------------------------------------------------------------- DAY TRIPS
-add(key="agafay", kind="day", img="agafay", price=80,
+add(key="agafay", kind="day", img="agafay", price=80, tiers=[80, 90, 100, 120, 200, 270],
     en=dict(slug="agafay-desert-trip", title="Agafay Desert Sunset Trip", dur="Half day · afternoon",
             short="The stone desert 40 minutes from Marrakech, with camels or quad and sunset over the Atlas.",
             intro="No time for the Sahara? The Agafay desert is only 40 km from Marrakech. Rolling stone hills, total silence and the snowy Atlas on the horizon. You choose the formula: simple sunset, camel ride, quad, or dinner in a desert camp.",
@@ -188,7 +188,7 @@ add(key="agafay", kind="day", img="agafay", price=80,
             days=[("Après-midi", "Prise en charge vers 15h et route vers le plateau d'Agafay. Activité en option : dromadaire ou quad."),
                   ("Coucher de soleil & soirée", "Profitez du coucher du soleil depuis les collines. Avec la formule dîner, soirée dans un camp avec repas marocain. Retour à Marrakech vers 21h.")]))
 
-add(key="gardens", kind="day", img="majorelle", price=70,
+add(key="gardens", kind="day", img="majorelle", price=70, tiers=[70, 80, 100, 110, 160, 210],
     en=dict(slug="marrakech-gardens-tour", title="Marrakech Gardens Tour", dur="Half day",
             short="Majorelle Garden, the Menara olive grove and a drive through the Palmeraie.",
             intro="A green, calm side of Marrakech. Ideal for a morning before lunch or for travellers who want to see the city without walking all day.",
