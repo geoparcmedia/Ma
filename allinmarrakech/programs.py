@@ -228,7 +228,7 @@ add(key="ourika", kind="day", img="ourika", price=90, tiers=[90, 105, 150, 160],
             days=[("Matin", "Départ à 8h30. Arrêts dans une coopérative d'argan et dans une maison berbère pour un thé à la menthe, avec vue sur la vallée."),
                   ("Midi & après-midi", "À Setti Fatma, montée à pied jusqu'aux premières cascades avec un guide de montagne local, déjeuner en terrasse au bord de l'oued, retour à Marrakech vers 17h.")]))
 
-add(key="imlil", kind="day", img="imlil", price=110,
+add(key="imlil", kind="day", img="imlil", price=110, tiers=[110, 120, 155, 170, 295],
     en=dict(slug="imlil-asni-day-trip", title="Tahanaout, Asni & Imlil: Toubkal Valley Day Trip", dur="Full day",
             short="Mountain villages, the Moulay Brahim gorge and a walk at the foot of Toubkal.",
             intro="Drive into the heart of the High Atlas, at the foot of Jbel Toubkal, the highest peak in North Africa. Fresh air, walnut trees and terraced villages.",
@@ -242,7 +242,7 @@ add(key="imlil", kind="day", img="imlil", price=110,
             days=[("Matin", "Par Tahanaout et les gorges de Moulay Brahim jusqu'à Asni, puis montée jusqu'à Imlil (1 740 m)."),
                   ("Après-midi", "Balade facile avec un guide local jusqu'au village d'Aroumd, déjeuner dans une maison d'hôtes face aux montagnes, retour à Marrakech en fin d'après-midi.")]))
 
-add(key="oukaimeden", kind="day", img="oukaimeden", price=130,
+add(key="oukaimeden", kind="day", img="oukaimeden", price=130, tiers=[130, 150, 175, 195, 320],
     en=dict(slug="oukaimeden-day-trip", title="Oukaimeden High Atlas Day Trip", dur="Full day",
             short="The high plateau at 2,600 m: snow in winter, shepherds and rock carvings in summer.",
             intro="Oukaimeden is the highest ski resort in Africa and a beautiful mountain plateau the rest of the year. A great day out when Marrakech is too hot or when the Atlas is white.",
@@ -254,7 +254,7 @@ add(key="oukaimeden", kind="day", img="oukaimeden", price=130,
             hl=["Route par la vallée de l'Ourika", "Plateau à 2 600 m", "Ski ou luge en hiver", "Gravures rupestres préhistoriques", "Déjeuner avec vue"],
             days=[("Journée", "Départ le matin par la vallée de l'Ourika et la route de montagne jusqu'à Oukaïmeden. Temps libre sur le plateau : neige en hiver, balade vers les gravures rupestres et les bergeries en été. Retour à Marrakech l'après-midi.")]))
 
-add(key="rabat", kind="day", img="rabat", price=140,
+add(key="rabat", kind="day", img="rabat", price=140, tiers=[140, 150, 180, 195, 370, 570],
     en=dict(slug="rabat-day-trip", title="Rabat Day Trip from Marrakech", dur="Full day",
             short="The capital: Hassan Tower, Mausoleum of Mohammed V, Kasbah of the Udayas and the medina.",
             intro="A calm, elegant capital by the ocean, about 3.5 hours from Marrakech by motorway. Perfect if you want to see another side of Morocco.",
@@ -266,7 +266,7 @@ add(key="rabat", kind="day", img="rabat", price=140,
             hl=["La tour Hassan et le mausolée Mohammed V", "La kasbah des Oudayas et le jardin andalou", "La médina de Rabat", "Vue sur l'océan et le Bouregreg"],
             days=[("Journée", "Départ tôt par l'autoroute. Visite de la tour Hassan et du mausolée, balade dans la kasbah bleue et blanche des Oudayas et son jardin, déjeuner et temps libre dans la médina, puis retour à Marrakech le soir.")]))
 
-add(key="casablanca", kind="day", img="casablanca", price=155,
+add(key="casablanca", kind="day", img="casablanca", price=155, tiers=[155, 170, 195, 210, 500, 770],
     en=dict(slug="casablanca-day-trip", title="Casablanca Day Trip from Marrakech", dur="Full day · 7:00",
             short="Hassan II Mosque on the ocean, the Corniche, the Habous quarter and Mohammed V Square.",
             intro="Morocco's big modern city in one day. The highlight is the Hassan II Mosque, built over the Atlantic, one of the few mosques in Morocco open to non-Muslim visitors.",
@@ -278,7 +278,7 @@ add(key="casablanca", kind="day", img="casablanca", price=155,
             hl=["La mosquée Hassan II (visite intérieure possible)", "La Corniche d'Aïn Diab", "Le quartier des Habous", "La place Mohammed V", "Déjeuner face à l'océan"],
             days=[("Journée", "Départ à 7h. Visite de la mosquée Hassan II (billet de visite guidée non inclus), route le long de la Corniche, déjeuner au bord de l'océan, puis le quartier des Habous et la place Mohammed V. Retour à Marrakech le soir.")]))
 
-add(key="ouarzazate", kind="day", img="aitbenhaddou", price=155,
+add(key="ouarzazate", kind="day", img="aitbenhaddou", price=155, tiers=[155, 170, 195, 210, 440, 670],
     en=dict(slug="ouarzazate-ait-ben-haddou-day-trip", title="Ouarzazate & Aït Ben Haddou Day Trip", dur="Full day · about 13 h",
             short="Tizi n'Tichka pass, the kasbah of Aït Ben Haddou and the film studios of Ouarzazate.",
             intro="A long but unforgettable day over the High Atlas to the gates of the desert. Many famous films were shot here.",
@@ -290,7 +290,7 @@ add(key="ouarzazate", kind="day", img="aitbenhaddou", price=155,
             hl=["Le col du Tizi n'Tichka (2 260 m)", "Aït Ben Haddou, patrimoine de l'UNESCO", "Les studios de cinéma Atlas", "La kasbah de Taourirt", "Villages berbères en chemin"],
             days=[("Journée", "Départ à 7h par le col du Tizi n'Tichka avec arrêts photo. Visite d'Aït Ben Haddou, déjeuner, puis Ouarzazate : les studios de cinéma et la kasbah de Taourirt (entrées non incluses). Retour à Marrakech vers 20h.")]))
 
-add(key="3valleys", kind="day", img="dades", price=170,
+add(key="3valleys", kind="day", img="dades", price=170, tiers=[170, 180, 190, 200],
     en=dict(slug="three-valleys-atlas-day-trip", title="Three Valleys of the Atlas Day Trip", dur="Full day",
             short="Ourika, Imlil and Ouirgane in one big loop, finishing at Lalla Takerkoust lake.",
             intro="A full loop through three different Atlas valleys, for travellers who want to see a lot of mountain landscapes in one day.",
