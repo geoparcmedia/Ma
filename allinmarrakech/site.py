@@ -142,8 +142,9 @@ def header(lang):
          url("contact", lang), t["book"]) + '</div>'
 
 
-FOOT_FLEET = [("car", "Mercedes E-Class", "3"), ("car", "SUV & 4x4", "4"), ("van", "Mercedes V-Class", "7"),
-              ("van", "Mercedes Sprinter", "17–18"), ("bus", "Tourist coach", "40–84")]
+# footer "Our fleet" column: every vehicle in VEH, with a car / van / bus icon
+FOOT_FLEET = [({"e": "car", "rr": "car", "tg": "car", "sk": "car", "v": "van", "sp": "van", "bus": "bus"}[k], n, seats)
+              for k, n, seats, *_ in VEH]
 
 
 def contact_modal(lang):
