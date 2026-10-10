@@ -28,12 +28,12 @@ TXT = {
                people="people", per="per vehicle", book="Book", one_way="One way", note="Price for the whole private vehicle, one way.",
                inc_h="Always included", inc=["Private air-conditioned vehicle", "Professional driver", "Fuel and tolls", "Pick-up at your hotel or riad", "Luggage included"],
                other="Another route?", other_p="We drive everywhere in Morocco. Tell us your route and we send you a price.", other_b="Ask for a price",
-               wa="Hello All in Marrakech, I would like to book a transfer: %s → %s, %s people (%d €)."),
+               wa="Hello All in Marrakech, I would like to book a transfer: %s, %s people (%d €)."),
     "fr": dict(h1="Transferts inter-villes", sub="Prix fixes par véhicule privé, pas par personne. Choisissez votre trajet et votre groupe, puis réservez en un clic sur WhatsApp.",
                people="pers.", per="par véhicule", book="Réserver", one_way="Aller simple", note="Prix pour tout le véhicule privé, aller simple.",
                inc_h="Toujours inclus", inc=["Véhicule privé climatisé", "Chauffeur professionnel", "Carburant et péages", "Prise en charge à votre hôtel ou riad", "Bagages inclus"],
                other="Un autre trajet ?", other_p="Nous roulons partout au Maroc. Indiquez-nous votre trajet et nous vous envoyons un prix.", other_b="Demander un prix",
-               wa="Bonjour All in Marrakech, je souhaite réserver un transfert : %s → %s, %s personnes (%d €)."),
+               wa="Bonjour All in Marrakech, je souhaite réserver un transfert : %s, %s personnes (%d €)."),
 }
 
 
@@ -48,31 +48,94 @@ def _wa(text):
     return "https://wa.me/212662667975?text=" + quote(text)
 
 
-def route_card(lang, frm, to, km, dur, prices):
+def route_card(lang, frm, to, meta, prices, js=False):
+    """frm/to: place names (to may be empty for a single-place service); meta: header extras html."""
     t = TXT[lang]
+    label = "%s → %s" % (frm, to) if to else frm
     tiles = ""
     for (en, fr, n, v_en, v_fr), price in zip(SIZES, prices):
         lbl = en if lang == "en" else fr
-        tiles += ('<a class="aim-tp" href="%s" target="_blank" rel="noopener"><span class="aim-tpi">%s</span>'
+        tiles += ('<a class="aim-tp" href="%s"' + ('' if js else ' target="_blank" rel="noopener"') + '><span class="aim-tpi">%s</span>'
                   '<span class="aim-tpn">%s %s</span><span class="aim-tpv">%s</span><b>%d €</b><span class="aim-tpb">%s %s</span></a>') % (
-            _wa(t["wa"] % (frm, to, lbl, price)), P_USE * n, lbl, t["people"], v_en if lang == "en" else v_fr, price, W_USE, t["book"])
-    return ('<div class="aim-tr aim-rv"><div class="aim-trh"><div class="aim-trr"><span>%s</span><i>→</i><span>%s</span></div>'
-            '<div class="aim-trm"><span>%s %s</span><span>%s %s</span><span>%s</span></div></div><div class="aim-tps">%s</div></div>') % (
-        frm, to, PIN, km, CLOCK, dur, t["one_way"], tiles)
+            ("https://wa.me/212662667975" if js else _wa(t["wa"] % (label, lbl, price))), ("<i></i>" * n if js else P_USE * n), lbl, t["people"], v_en if lang == "en" else v_fr, price, ("<s></s>" if js else W_USE), t["book"])
+    title = ('<span>%s</span><i>→</i><span>%s</span>' % (frm, to)) if to else '<span>%s</span>' % frm
+    return ('<div class="aim-tr aim-rv"><div class="aim-trh"><div class="aim-trr">%s</div>'
+            '<div class="aim-trm">%s<span>%s</span></div></div><div class="aim-tps">%s</div></div>') % (title, meta, t["one_way"], tiles)
+
+
+# airport & Marrakech transfers, grouped: (section EN, section FR, [(from FR, to FR, from EN, to EN, prices)])
+AIR = [
+    ("From Marrakech airport (RAK)", "Depuis l'aéroport de Marrakech (RAK)", [
+        ("Aéroport de Marrakech", "Guéliz", "Marrakech Airport", "Guéliz", [29, 31, 48, 60]),
+        ("Aéroport de Marrakech", "Médina", "Marrakech Airport", "Medina", [29, 31, 48, 60]),
+        ("Aéroport de Marrakech", "Hivernage", "Marrakech Airport", "Hivernage", [29, 31, 48, 60]),
+        ("Aéroport de Marrakech", "Centre-ville", "Marrakech Airport", "City centre", [29, 31, 48, 60]),
+        ("Aéroport de Marrakech", "Zone touristique Agdal", "Marrakech Airport", "Agdal tourist zone", [30, 33, 48, 60]),
+        ("Aéroport de Marrakech", "Targa", "Marrakech Airport", "Targa", [15, 18, 35, 45]),
+        ("Aéroport de Marrakech", "Palmeraie (jusqu'à 7 km)", "Marrakech Airport", "Palmeraie (up to 7 km)", [30, 33, 50, 60]),
+        ("Aéroport de Marrakech", "Palmeraie (jusqu'à 15 km)", "Marrakech Airport", "Palmeraie (up to 15 km)", [35, 40, 55, 65]),
+    ]),
+    ("Inside Marrakech", "Dans Marrakech", [
+        ("Guéliz ou Médina", "Palmeraie (jusqu'à 7 km)", "Guéliz or Medina", "Palmeraie (up to 7 km)", [29, 31, 50, 60]),
+        ("Guéliz ou Médina", "Palmeraie (jusqu'à 15 km)", "Guéliz or Medina", "Palmeraie (up to 15 km)", [29, 35, 50, 65]),
+        ("Hôtel centre-ville", "Palmeraie", "City-centre hotel", "Palmeraie", [29, 31, 48, 60]),
+        ("Centre-ville", "Spa", "City centre", "Spa", [29, 31, 48, 60]),
+        ("Palmeraie", "Spa", "Palmeraie", "Spa", [29, 31, 48, 60]),
+        ("Hôtel La Mamounia", "Hôtel Royal Mansour", "La Mamounia hotel", "Royal Mansour hotel", [29, 31, 48, 60]),
+        ("Hôtel La Mamounia", "Palais des congrès", "La Mamounia hotel", "Palais des Congrès", [29, 31, 48, 60]),
+        ("Hôtel Royal Mansour", "Palais des congrès", "Royal Mansour hotel", "Palais des Congrès", [29, 31, 48, 60]),
+    ]),
+    ("Garden visits & outer zones", "Visites de jardins & zones", [
+        ("Visite du jardin Majorelle", "", "Majorelle Garden visit", "", [29, 31, 48, 60]),
+        ("Visite du Jardin Secret", "", "Le Jardin Secret visit", "", [29, 31, 48, 60]),
+        ("Visite du jardin Anima", "", "Anima Garden visit", "", [29, 31, 48, 60]),
+        ("Visite du jardin Front du Paradis", "", "Front du Paradis garden visit", "", [29, 31, 48, 60]),
+        ("Zone route de l'Ourika", "", "Ourika road zone", "", [29, 31, 48, 60]),
+        ("Zone route de Fès", "", "Fes road zone", "", [29, 31, 48, 60]),
+        ("Zone route d'Agadir", "", "Agadir road zone", "", [29, 31, 48, 60]),
+    ]),
+]
+
+AIR_TXT = {
+    "en": dict(h1="Airport transfers", sub="Marrakech airport and city transfers at fixed prices per private vehicle. Your driver waits for you at arrivals with a name sign.",
+               extra=["Flight followed, free waiting time", "Meet & greet with name sign"]),
+    "fr": dict(h1="Transferts aéroport", sub="Transferts depuis l'aéroport de Marrakech et dans la ville, à prix fixe par véhicule privé. Votre chauffeur vous attend à l'arrivée avec une pancarte à votre nom.",
+               extra=["Vol suivi, attente offerte", "Accueil avec pancarte à votre nom"]),
+}
 
 
 def transfer_page(lang, kind, url, crumbs_home):
     t = TXT[lang]
-    routes = CITY
-    fr_from = {"Agadir Airport (AGA)": "Aéroport d'Agadir (AGA)"}
-    cards = "".join(route_card(lang, f if lang == "en" else fr_from.get(f, f), to_en if lang == "en" else to_fr, km, d, p)
-                    for f, to_en, to_fr, km, d, p in routes)
-    inc = "".join("<li>%s %s</li>" % (CHECK, x) for x in t["inc"])
+    inc_list = list(t["inc"])
+    if kind == "city":
+        h1, sub = t["h1"], t["sub"]
+        fr_from = {"Agadir Airport (AGA)": "Aéroport d'Agadir (AGA)"}
+        body = '<div class="aim-trs">%s</div>' % "".join(
+            route_card(lang, f if lang == "en" else fr_from.get(f, f), to_en if lang == "en" else to_fr,
+                       "<span>%s %s</span><span>%s %s</span>" % (PIN, km, CLOCK, d), p)
+            for f, to_en, to_fr, km, d, p in CITY)
+    else:
+        a = AIR_TXT[lang]
+        h1, sub = a["h1"], a["sub"]
+        inc_list = a["extra"] + inc_list
+        chips, body = "", ""
+        for n, (sec_en, sec_fr, routes) in enumerate(AIR):
+            sec = sec_en if lang == "en" else sec_fr
+            chips += '<a href="#aim-air%d">%s</a>' % (n, sec)
+            cards = "".join(route_card(lang, fe if lang == "en" else ff, te if lang == "en" else tf, "", p, js=True) for ff, tf, fe, te, p in routes)
+            body += '<h2 class="aim-trsh" id="aim-air%d">%s</h2><div class="aim-trs aim-trs2">%s</div>' % (n, sec, cards)
+        pre, post = t["wa"].split("%s, %s")
+        js = ("<script>(function(){document.querySelectorAll('.aim-trs2 .aim-tp').forEach(function(a){a.addEventListener('click',function(){"
+              "var c=a.closest('.aim-tr'),r=[].map.call(c.querySelectorAll('.aim-trr span'),function(x){return x.textContent}).join(' → '),"
+              "n=a.querySelector('.aim-tpn').textContent.split(' ')[0],p=a.querySelector('b').textContent;"
+              "a.target='_blank';a.rel='noopener';a.href='https://wa.me/212662667975?text='+encodeURIComponent('" + pre.replace("'", "’") + "'+r+', '+n+'" + post.split("(")[0].replace("'", "’") + "('+p+').')})})})();</script>")
+        body = '<div class="aim-trchips">%s</div>%s%s' % (chips, body, js)
+    inc = "".join("<li>%s %s</li>" % (CHECK, x) for x in inc_list)
     return ('<section class="aim-dhead"><div class="aim-wrap"><div class="aim-crumb"><a href="%s">%s</a> / %s</div><h1>%s</h1><p>%s</p></div></section>'
-            '<section class="aim-sec aim-dsec"><div class="aim-wrap">' + SPRITE + '<div class="aim-trs">%s</div>'
+            '<section class="aim-sec aim-dsec"><div class="aim-wrap">' + (SPRITE if kind == "city" else "") + '%s'
             '<div class="aim-trinfo"><div><h3>%s</h3><ul>%s</ul></div><div class="aim-trother"><h3>%s</h3><p>%s</p>'
             '<a class="aim-btn" href="#book">%s</a></div></div></div></section>') % (
-        url("home", lang), crumbs_home, t["h1"], t["h1"], t["sub"], cards, t["inc_h"], inc, t["other"], t["other_p"], t["other_b"])
+        url("home", lang), crumbs_home, h1, h1, sub, body, t["inc_h"], inc, t["other"], t["other_p"], t["other_b"])
 
 
 CSS = """/* transfer price pages */
@@ -106,4 +169,21 @@ CSS = """/* transfer price pages */
 .aim-trother p{color:var(--aim-muted);margin:0 0 16px}
 @media (max-width:760px){.aim-tps{grid-template-columns:repeat(2,1fr)}.aim-tp:nth-child(2){border-right:0}.aim-tp:nth-child(-n+2){border-bottom:1px solid var(--aim-line)}
  .aim-trr{font-size:19px}.aim-trh{padding:16px 18px}.aim-tp b{font-size:24px}.aim-trinfo{grid-template-columns:1fr}.aim-trinfo ul{grid-template-columns:1fr}}
+/* airport transfers: section chips + 2-column compact cards */
+.aim-trchips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.aim-trchips a{padding:10px 18px;border-radius:999px;background:var(--aim-sand);color:var(--aim-ink);font-weight:600;font-size:14px;border:1px solid var(--aim-line)}
+.aim-trchips a:hover{background:var(--aim-red);color:#fff;border-color:var(--aim-red)}
+.aim-trsh{font-size:26px;margin:38px 0 18px;scroll-margin-top:100px}
+.aim-trs2{grid-template-columns:1fr 1fr}
+.aim-trs2 .aim-trr{font-size:18px;flex-wrap:wrap;gap:4px 10px}
+.aim-trs2 .aim-trh{padding:15px 18px}
+.aim-trs2 .aim-tp{padding:16px 6px 14px}
+.aim-trs2 .aim-tp b{font-size:24px;margin:4px 0 6px}
+.aim-trs2 .aim-tpb{padding:7px 12px;font-size:12.5px}
+.aim-trs2 .aim-tpi svg{width:20px;height:20px}
+.aim-trs2 .aim-tpi svg:nth-child(n+2){width:16px;height:16px}
+@media (max-width:1080px){.aim-trs2{grid-template-columns:1fr}}
+.aim-tpi i{display:block;width:20px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23970000' d='M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z'/%3E%3C/svg%3E") center/contain no-repeat}
+.aim-tpi i+i{width:16px;height:16px;opacity:.85}
+.aim-tpb s{display:block;width:15px;height:15px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.9.9 3.9.8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.3zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.8L.1 24l6.3-1.7A11.8 11.8 0 0 0 24 12a11.7 11.7 0 0 0-3.6-8.4z'/%3E%3C/svg%3E") center/contain no-repeat}
 """

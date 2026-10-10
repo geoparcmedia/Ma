@@ -47,6 +47,7 @@ SLUG = {
     "fleet": {"en": "transfers-and-fleet", "fr": "transferts-et-flotte"},
     "dest": {"en": "destinations", "fr": "destinations-maroc"},
     "city": {"en": "inter-city-transfers", "fr": "transferts-inter-villes"},
+    "air": {"en": "airport-transfers", "fr": "transferts-aeroport"},
     "about": {"en": "about-us", "fr": "a-propos"},
     "contact": {"en": "contact-us", "fr": "contactez-nous"},
 }
@@ -72,7 +73,7 @@ T = {
                inc_l=["Private air-conditioned vehicle", "Professional driver", "Fuel and tolls", "Pick-up and drop-off at your hotel or riad in Marrakech"],
                exc_l=["Accommodation (we can book it for you)", "Meals and drinks", "Entrance tickets and local guides", "Optional activities (camel, quad, boat...)"],
                form_t="Book or ask a question", form_p="Send us your dates and number of travellers. We reply quickly by email or WhatsApp with a clear price, no commitment.",
-               related="You may also like", crumbs_home="Home", sub_tr=[("city", "Inter-city transfers"), ("fleet", "Our fleet")]),
+               related="You may also like", crumbs_home="Home", sub_tr=[("air", "Airport transfers"), ("city", "Inter-city transfers"), ("fleet", "Our fleet")]),
     "fr": dict(nav=[("home", "Accueil"), ("dest", "Destinations"), ("tours", "Circuits"), ("days", "Excursions"), ("fleet", "Transferts"), ("about", "À propos"), ("contact", "Contact")],
                book="Réserver", from_="À partir de", per="par véhicule privé", more="Voir le détail", wa_msg="Bonjour All in Marrakech, je souhaite des informations sur : ",
                tagline="Transport touristique, transferts aéroport et circuits privés au Maroc, au départ de Marrakech.", fleet_h="Notre flotte", seats="places",
@@ -85,7 +86,7 @@ T = {
                inc_l=["Véhicule privé climatisé", "Chauffeur professionnel", "Carburant et péages", "Prise en charge et retour à votre hôtel ou riad à Marrakech"],
                exc_l=["Hébergement (nous pouvons le réserver pour vous)", "Repas et boissons", "Entrées des sites et guides locaux", "Activités en option (dromadaire, quad, bateau...)"],
                form_t="Réserver ou poser une question", form_p="Envoyez-nous vos dates et le nombre de voyageurs. Nous répondons vite par e-mail ou WhatsApp avec un prix clair, sans engagement.",
-               related="Vous aimerez aussi", crumbs_home="Accueil", sub_tr=[("city", "Transferts inter-villes"), ("fleet", "Notre flotte")]),
+               related="Vous aimerez aussi", crumbs_home="Accueil", sub_tr=[("air", "Transferts aéroport"), ("city", "Transferts inter-villes"), ("fleet", "Notre flotte")]),
 }
 
 # --- small inline icons
@@ -502,6 +503,7 @@ def build():
         out[("tours", lang)] = listing("tours", lang)
         out[("days", lang)] = listing("days", lang)
         out[("fleet", lang)] = fleet(lang)
+        out[("air", lang)] = page(lang, "air", "air", transfer_page(lang, "air", url, T[lang]["crumbs_home"]))
         out[("city", lang)] = page(lang, "city", "city", transfer_page(lang, "city", url, T[lang]["crumbs_home"]))
         out[("dest", lang)] = page(lang, "dest", "dest", destinations(lang, url, card, T[lang]["crumbs_home"]), book=False)
         out[("about", lang)] = about(lang)
@@ -515,6 +517,7 @@ TITLES = {
     ("home", "en"): "Home", ("home", "fr"): "Accueil",
     ("tours", "en"): "Morocco Tours", ("tours", "fr"): "Circuits au Maroc",
     ("days", "en"): "Day Trips from Marrakech", ("days", "fr"): "Excursions depuis Marrakech",
+    ("air", "en"): "Airport Transfers", ("air", "fr"): "Transferts aéroport",
     ("city", "en"): "Inter-city Transfers", ("city", "fr"): "Transferts inter-villes",
     ("dest", "en"): "Destinations", ("dest", "fr"): "Destinations",
     ("fleet", "en"): "Transfers & Fleet", ("fleet", "fr"): "Transferts & flotte",
