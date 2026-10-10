@@ -162,29 +162,32 @@ def contact_modal(lang):
 def footer(lang):
     t = T[lang]
     subs = {"tours": t["sub_to"], "fleet": t["sub_tr"]}
-    links = "".join('<li><a href="%s">%s</a></li>' % (url(sk, lang), sl)
-                    for k, lbl in t["nav"][1:] for sk, sl in subs.get(k, [(k, lbl)]))
+    links = "".join('<a href="%s">%s</a>' % (url(sk, lang), sl)
+                    for k, lbl in t["nav"][1:] if k != "tours" for sk, sl in subs.get(k, [(k, lbl)]))
     name = {"Tourist coach": "Autocar de tourisme"} if lang == "fr" else {}
-    fleet = "".join('<li><a href="%s"><span class="aim-fi">%s</span><span>%s<small>%s %s</small></span></a></li>' % (
-        url("fleet", lang), I[ic], name.get(n, n), seats, t["seats"])
-        for ic, n, seats in FOOT_FLEET + [("bus" if int(s) > 17 else "van", n, s) for n, s in t["tiers"]])
+    fleet = "".join('<li><a href="%s">%s <small>%s %s</small></a></li>' % (url("fleet", lang), name.get(n, n), seats, t["seats"])
+                    for _, n, seats in FOOT_FLEET + [(None, n, s) for n, s in t["tiers"]])
+    allv = "View all" if lang == "en" else "Voir tout"
+
+    def progs(kind, page):
+        return "".join('<li><a href="%s">%s</a></li>' % (url(p["key"], lang), p[lang]["title"]) for p in P if p["kind"] == kind) + \
+            '<li class="aim-fall"><a href="%s">%s →</a></li>' % (url(page, lang), allv)
+    (_, h_to), (_, h_day) = t["sub_to"]
     return '<div class="aim">' + (
-        '<footer class="aim-ftr"><div class="aim-wrap"><div class="aim-cols">'
+        '<footer class="aim-ftr"><div class="aim-wrap"><div class="aim-fcols">'
         '<div class="aim-fabout"><a class="aim-logo" href="%s"><img src="%s" alt="All in Marrakech" width="210" height="70"></a><p>%s</p>'
-        '<div class="aim-fbtns"><a class="aim-fbtn aim-fbtn-wa" href="%s" target="_blank" rel="noopener">%s WhatsApp</a><a class="aim-fbtn" href="mailto:%s">%s E-mail</a></div></div>'
-        '<div><h4>%s</h4><ul class="aim-ffleet">%s</ul></div>'
-        '<div><h4>%s</h4><ul class="aim-flinks">%s</ul></div>'
-        '<div><h4>%s</h4><ul class="aim-contact">'
-        '<li><span class="aim-ic">%s</span><span><b>WhatsApp</b><a href="%s" target="_blank" rel="noopener">%s</a></span></li>'
-        '<li><span class="aim-ic">%s</span><span><b>E-mail</b><a href="mailto:%s">%s</a></span></li>'
-        '<li><span class="aim-ic">%s</span><span><b>Marrakech</b>%s</span></li></ul></div>'
-        '</div><div class="aim-copy"><span>© 2026 All in Marrakech. %s</span></div></div></footer>'
+        '<div class="aim-fbtns"><a class="aim-fbtn aim-fbtn-wa" href="%s" target="_blank" rel="noopener">%s WhatsApp</a><a class="aim-fbtn" href="mailto:%s">%s E-mail</a></div>'
+        '<ul class="aim-fcontact"><li><b>WhatsApp</b><a href="%s" target="_blank" rel="noopener">%s</a></li><li><b>E-mail</b><a href="mailto:%s">%s</a></li>'
+        '<li><b>%s</b>Marrakech, %s</li></ul></div>'
+        '<div><h4>%s</h4><ul class="aim-flist">%s</ul></div>'
+        '<div><h4>%s</h4><ul class="aim-flist">%s</ul></div>'
+        '<div><h4>%s</h4><ul class="aim-flist">%s</ul></div>'
+        '</div><nav class="aim-fnav">%s</nav><div class="aim-copy"><span>© 2026 All in Marrakech. %s</span></div></div></footer>'
         '<a class="aim-wa-float" href="%s" target="_blank" rel="noopener" aria-label="WhatsApp">%s</a>%s'
     ) % (url("home", lang), LOGO, t["tagline"], wa_link(lang), I["wa"], EMAIL, I["mail"],
-         t["fleet_h"], fleet, t["links"], links, t["info"],
-         I["wa"], wa_link(lang), PHONE, I["mail"], EMAIL, EMAIL, I["pin"], "Morocco" if lang == "en" else "Maroc",
-         t["rights"], wa_link(lang), I["wa"], contact_modal(lang)) + '</div>' + JS
-
+         wa_link(lang), PHONE, EMAIL, EMAIL, "Address" if lang == "en" else "Adresse", "Morocco" if lang == "en" else "Maroc",
+         t["fleet_h"], fleet, h_to, progs("circuit", "tours"), h_day, progs("day", "days"),
+         links, t["rights"], wa_link(lang), I["wa"], contact_modal(lang)) + '</div>' + JS
 
 JS = ("<script>(function(){var d=document.documentElement;d.classList.add('aim-js');"
       "var r=document.querySelectorAll('.aim-rv');if(!('IntersectionObserver' in window)){r.forEach(function(e){e.classList.add('in')});return}"

@@ -407,16 +407,22 @@ body.page-template-elementor_canvas{margin:0;background:#fff}
 .aim-ptab .aim-tps6 .aim-tp:nth-child(3n){border-right:0}
 .aim-ptab .aim-tps6 .aim-tp:nth-child(-n+3){border-bottom:1px solid var(--aim-line)}
 @media (max-width:1100px) and (min-width:901px),(max-width:760px){.aim-ptab .aim-tps6{grid-template-columns:repeat(2,1fr)}.aim-ptab .aim-tps6 .aim-tp,.aim-ptab .aim-tps6 .aim-tp:nth-child(3n){border-right:1px solid var(--aim-line);border-bottom:0}.aim-ptab .aim-tps6 .aim-tp:nth-child(2n){border-right:0}.aim-ptab .aim-tps6 .aim-tp:nth-child(-n+4){border-bottom:1px solid var(--aim-line)}}
-/* footer fleet: two columns */
-.aim-ftr .aim-cols{grid-template-columns:.95fr 1.9fr .75fr 1.45fr;gap:30px}
-.aim-ffleet{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px;font-size:14px}
-.aim-ffleet a{gap:10px}
-.aim-ffleet .aim-fi{width:32px;height:32px;border-radius:9px}
-.aim-ffleet .aim-fi svg{width:17px;height:17px}
-.aim-ffleet li{margin-bottom:8px}
-@media (max-width:1080px){.aim-ftr .aim-cols{grid-template-columns:1fr 1fr}.aim-ftr .aim-cols>div:nth-child(2){grid-column:1/-1}}
-@media (max-width:640px){.aim-ftr .aim-cols{grid-template-columns:1fr}}
-@media (max-width:360px){.aim-ffleet{grid-template-columns:1fr}}
+/* footer v4: fleet, tours and day trips as text lists */
+.aim-fcols{display:grid;grid-template-columns:1.15fr .95fr 1.2fr 1.2fr;gap:40px}
+.aim-flist{font-size:14.5px;line-height:1.45}
+.aim-flist li{margin-bottom:9px}
+.aim-flist a{color:#b5b0aa;transition:color .2s}
+.aim-flist a:hover{color:#fff}
+.aim-flist small{color:#77726b;font-size:12.5px;white-space:nowrap}
+.aim-flist .aim-fall a{color:var(--aim-gold);font-weight:600}
+.aim-ftr .aim-fcontact{margin-top:24px;font-size:14px}
+.aim-fcontact li{margin-bottom:8px;word-break:break-word}
+.aim-fcontact b{display:block;color:#fff;font-size:13px}
+.aim-fnav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;border-top:1px solid #222;margin-top:46px;padding-top:22px;font-size:14px}
+.aim-fnav a{color:#b5b0aa}.aim-fnav a:hover{color:#fff}
+.aim-fnav+.aim-copy{border-top:0;margin-top:0;padding-top:12px}
+@media (max-width:1080px){.aim-fcols{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.aim-fcols{grid-template-columns:1fr;gap:34px}}
 /* nav dropdown */
 .aim-dd{position:relative;display:flex;align-items:center}
 .aim-dd>a:after{content:"";display:inline-block;border:4px solid transparent;border-top-color:currentColor;margin-left:6px;transform:translateY(2px)}
