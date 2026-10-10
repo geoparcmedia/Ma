@@ -200,7 +200,7 @@ add(key="gardens", kind="day", img="majorelle", price=70, tiers=[70, 80, 100, 11
             hl=["Le jardin Majorelle et son bleu célèbre", "Les jardins de la Ménara et leur bassin face à l'Atlas", "Tour dans la Palmeraie", "Heure de départ flexible"],
             days=[("Matin ou après-midi", "Prise en charge à votre riad. Visite du jardin Majorelle (billet non inclus), puis les jardins de la Ménara et leur bassin du XIIe siècle, et un tour dans la Palmeraie. Environ 4 heures.")]))
 
-add(key="medina", kind="day", img="koutoubia", price=85,
+add(key="medina", kind="day", img="koutoubia", price=85, tiers=[85, 95, 145, 155, 230, 340],
     en=dict(slug="marrakech-medina-day-tour", title="Marrakech Medina Day Tour", dur="Full day",
             short="Koutoubia, Bahia Palace, Saadian Tombs, the souks and Jemaa el-Fnaa.",
             intro="All the must-sees of the old city in one day, with a driver to take you between the different areas and save your legs.",
@@ -214,7 +214,7 @@ add(key="medina", kind="day", img="koutoubia", price=85,
             days=[("Matin", "La Koutoubia et ses jardins, puis le quartier de la Kasbah avec les tombeaux saadiens et le palais de la Bahia."),
                   ("Après-midi", "La médersa Ben Youssef et les souks, pause déjeuner dans la médina, et Jemaa el-Fna en fin de journée. Guide officiel local sur demande.")]))
 
-add(key="ourika", kind="day", img="ourika", price=90,
+add(key="ourika", kind="day", img="ourika", price=90, tiers=[90, 105, 150, 160],
     en=dict(slug="ourika-valley-day-trip", title="Ourika Valley & Setti Fatma Waterfalls", dur="Full day · 8:30",
             short="Berber villages, an argan cooperative and a walk to the waterfalls of Setti Fatma.",
             intro="The closest Atlas valley to Marrakech, green all year round. A great first contact with the mountains and Berber life.",
