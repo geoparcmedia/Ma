@@ -70,7 +70,10 @@ T = {
                svc=["Airport transfers", "Private tours", "Day trips", "Group transport", "Weddings & events"],
                days_lbl="Day", hl="Highlights", itin="Itinerary", inc="Included", exc="Not included", req="Request this trip", wa_btn="Ask on WhatsApp",
                dur="Duration", dep="Departure", dep_v="Marrakech, from your hotel or riad", grp="Group size", grp_v="Private, 1 to 84 people",
-               pnote="Price for a private vehicle with driver, for 1 to 4 travellers. Bigger groups travel in a V-Class, minibus or coach: ask us for the price.",
+               pnote="Prices are per private vehicle with driver, not per person. Bigger group? Ask us for a quote.",
+               ptab="Price table", ptab_p="One price for the whole vehicle, driver and fuel included. Pick the size that fits your group.", ptab_book="Book",
+               tiers={"day": [("Comfort minibus", "4"), ("Family minibus", "7"), ("Group minibus", "14"), ("Large group minibus", "17")],
+                      "circuit": [("Comfort minibus", "4"), ("Standard minibus", "7"), ("Group minibus", "14"), ("Large minibus", "17"), ("Comfort coach", "29"), ("Premium coach", "40–48")]},
                inc_l=["Private air-conditioned vehicle", "Professional driver", "Fuel and tolls", "Pick-up and drop-off at your hotel or riad in Marrakech"],
                exc_l=["Accommodation (we can book it for you)", "Meals and drinks", "Entrance tickets and local guides", "Optional activities (camel, quad, boat...)"],
                form_t="Book or ask a question", form_p="Send us your dates and number of travellers. We reply quickly by email or WhatsApp with a clear price, no commitment.",
@@ -83,7 +86,10 @@ T = {
                svc=["Transferts aéroport", "Circuits privés", "Excursions", "Transport de groupes", "Mariages & événements"],
                days_lbl="Jour", hl="Points forts", itin="Programme", inc="Inclus", exc="Non inclus", req="Demander ce circuit", wa_btn="Demander sur WhatsApp",
                dur="Durée", dep="Départ", dep_v="Marrakech, depuis votre hôtel ou riad", grp="Groupe", grp_v="Privé, de 1 à 84 personnes",
-               pnote="Prix pour un véhicule privé avec chauffeur, de 1 à 4 voyageurs. Les groupes plus grands voyagent en Classe V, minibus ou autocar : demandez-nous le prix.",
+               pnote="Prix par véhicule privé avec chauffeur, pas par personne. Groupe plus grand ? Demandez-nous un devis.",
+               ptab="Tableau des prix", ptab_p="Un seul prix pour tout le véhicule, chauffeur et carburant compris. Choisissez la taille adaptée à votre groupe.", ptab_book="Réserver",
+               tiers={"day": [("Minibus Confort", "4"), ("Minibus Familial", "7"), ("Minibus Groupe", "14"), ("Minibus Grand Groupe", "17")],
+                      "circuit": [("Minibus Confort", "4"), ("Minibus Standard", "7"), ("Minibus Groupe", "14"), ("Minibus Large", "17"), ("Autocar Confort", "29"), ("Autocar Premium", "40–48")]},
                inc_l=["Véhicule privé climatisé", "Chauffeur professionnel", "Carburant et péages", "Prise en charge et retour à votre hôtel ou riad à Marrakech"],
                exc_l=["Hébergement (nous pouvons le réserver pour vous)", "Repas et boissons", "Entrées des sites et guides locaux", "Activités en option (dromadaire, quad, bateau...)"],
                form_t="Réserver ou poser une question", form_p="Envoyez-nous vos dates et le nombre de voyageurs. Nous répondons vite par e-mail ou WhatsApp avec un prix clair, sans engagement.",
@@ -382,6 +388,24 @@ def listing(kind, lang):
 
 
 # ------------------------------------------------------------------ PROGRAM
+# extra price per vehicle size over the base ("from") price, taken from the reference price tables
+TIER_ADD = {"day": [0, 10, 20, 30], "circuit": [0, 10, 40, 55, 230, 430]}
+
+
+def price_table(p, lang):
+    """Per-vehicle price table. Day trips: 4 minibus sizes; circuits: 4 minibuses + 2 coaches.
+    A program can set its own 'tiers' list of prices to override the default steps."""
+    t, c = T[lang], p[lang]
+    prices = p.get("tiers") or [p["price"] + x for x in TIER_ADD[p["kind"]]]
+    tiles = ""
+    for n, ((name, seats), price) in enumerate(zip(t["tiers"][p["kind"]], prices), 1):
+        tiles += ('<a class="aim-tp" href="%s" target="_blank" rel="noopener"><span class="aim-tpi">%s</span><span class="aim-tpn">%s %s</span>'
+                  '<span class="aim-tpv">%s</span><b>%d €</b><span class="aim-tpb"><s></s> %s</span></a>') % (
+            wa_link(lang, "%s, %s %s %s (%d €)" % (c["title"], name, seats, t["seats"], price)), "<i></i>" * n, seats, t["seats"], name, price, t["ptab_book"])
+    return ('<div class="aim-tr aim-ptab aim-rv"><div class="aim-trh"><div class="aim-trr"><span>%s</span></div><div class="aim-trm"><span>%s</span></div></div>'
+            '<div class="aim-tps%s">%s</div></div>') % (t["ptab"], t["ptab_p"], " aim-tps6" if len(prices) == 6 else "", tiles)
+
+
 def program(p, lang):
     t, c = T[lang], p[lang]
     kind = "tours" if p["kind"] == "circuit" else "days"
@@ -397,13 +421,14 @@ def program(p, lang):
             '<p class="aim-note">%s</p></div></aside>') % (
         t["from_"], p["price"], t["per"], t["dur"], c["dur"], t["dep"], "Marrakech", t["grp"], t["grp_v"].split(",")[0],
         t["req"], wa_link(lang, c["title"]), I["wa"], t["wa_btn"], t["pnote"])
-    main = ('<div><p class="aim-intro aim-rv">%s</p>'
+    main = ('<div><p class="aim-intro aim-rv">%s</p>[PTAB]'
             '<div class="aim-box aim-rv"><h3>%s</h3><ul class="aim-checks">%s</ul></div>'
             '<h2 class="aim-rv">%s</h2><ul class="aim-tl aim-rv">%s</ul>'
             '<div class="aim-two aim-rv"><div class="aim-box" style="margin:10px 0"><h3>%s</h3><ul class="aim-checks">%s</ul></div>'
             '<div class="aim-box" style="margin:10px 0"><h3>%s</h3><ul class="aim-checks aim-x">%s</ul></div></div></div>') % (
         c["intro"], t["hl"], "".join("<li>%s</li>" % x for x in c["hl"]), t["itin"], days,
         t["inc"], "".join("<li>%s</li>" % x for x in t["inc_l"]), t["exc"], "".join("<li>%s</li>" % x for x in t["exc_l"]))
+    main = main.replace("[PTAB]", price_table(p, lang))
     body = ('<section class="aim-hero aim-phero"><img src="%s" alt="%s" fetchpriority="high"><div class="aim-wrap">'
             '<div class="aim-crumb"><a href="%s">%s</a> / <a href="%s">%s</a></div><h1>%s</h1><p class="aim-lead" style="margin-bottom:6px">%s</p>'
             '<div class="aim-pills"><span class="aim-pill">%s %s</span><span class="aim-pill">%s <b>€%d</b></span><span class="aim-pill">%s</span></div></div></section>') % (
