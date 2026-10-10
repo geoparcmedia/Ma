@@ -166,7 +166,8 @@ def footer(lang):
                     for k, lbl in t["nav"][1:] for sk, sl in subs.get(k, [(k, lbl)]))
     name = {"Tourist coach": "Autocar de tourisme"} if lang == "fr" else {}
     fleet = "".join('<li><a href="%s"><span class="aim-fi">%s</span><span>%s<small>%s %s</small></span></a></li>' % (
-        url("fleet", lang), I[ic], name.get(n, n), seats, t["seats"]) for ic, n, seats in FOOT_FLEET)
+        url("fleet", lang), I[ic], name.get(n, n), seats, t["seats"])
+        for ic, n, seats in FOOT_FLEET + [("bus" if int(s) > 17 else "van", n, s) for n, s in t["tiers"]])
     return '<div class="aim">' + (
         '<footer class="aim-ftr"><div class="aim-wrap"><div class="aim-cols">'
         '<div class="aim-fabout"><a class="aim-logo" href="%s"><img src="%s" alt="All in Marrakech" width="210" height="70"></a><p>%s</p>'
@@ -464,6 +465,16 @@ def fleet(lang):
         wa_link(lang, tr_h), I["wa"], T[lang]["wa_btn"])
     body += ('<section class="aim-sec aim-sand"><div class="aim-wrap"><div class="aim-head aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p></div>'
              '<div class="aim-grid">%s</div></div></section>') % ("Fleet" if lang == "en" else "Flotte", fh, fp, "".join(vcard(v, lang) for v in VEH))
+    t = T[lang]
+    ch, cp, ask = (("Minibus & coaches for tours", "The vehicle sizes used in our tour and day-trip price tables. Tell us your group size and we pick the right one.", "Ask")
+                   if lang == "en" else
+                   ("Minibus & autocars pour les circuits", "Les tailles de véhicules de nos tableaux de prix des circuits et excursions. Dites-nous combien vous êtes, nous choisissons le bon.", "Demander"))
+    tiles = "".join(('<a class="aim-tp" href="%s" target="_blank" rel="noopener"><span class="aim-tpi">%s</span><span class="aim-tpn">%s %s</span>'
+                     '<span class="aim-tpv">%s</span><span class="aim-tpb"><s></s> %s</span></a>') % (
+        wa_link(lang, "%s %s %s" % (n, s, t["seats"])), "<i></i>" * i, s, t["seats"], n, ask) for i, (n, s) in enumerate(t["tiers"], 1))
+    body += ('<section class="aim-sec"><div class="aim-wrap"><div class="aim-head aim-rv"><span class="aim-eyebrow">%s</span><h2>%s</h2><p>%s</p></div>'
+             '<div class="aim-tr aim-ptab aim-rv"><div class="aim-tps aim-tps6">%s</div></div></div></section>') % (
+        "Groups" if lang == "en" else "Groupes", ch, cp, tiles)
     return page(lang, "fleet", "fleet", body, trip="Airport transfer" if lang == "en" else "Transfert aéroport")
 
 
