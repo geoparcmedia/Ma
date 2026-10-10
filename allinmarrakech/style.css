@@ -294,6 +294,45 @@ body.page-template-elementor_canvas{margin:0;background:#fff}
 .aim-dback{font-weight:600;color:var(--aim-red)}
 @media (max-width:1080px){.aim-dgrid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:760px){.aim-dgrid{grid-template-columns:repeat(2,1fr);gap:20px 14px}.aim-dhead{padding:40px 0 18px}.aim-dq{flex:1 1 100%}.aim-dsort{width:100%;justify-content:space-between}.aim-dcard h3{font-size:16px}}
+/* transfer price pages */
+.aim-trs{display:grid;grid-template-columns:1fr;gap:22px}
+.aim-tr{background:#fff;border:1px solid var(--aim-line);border-radius:18px;box-shadow:0 8px 28px rgba(40,25,10,.07);overflow:hidden}
+.aim-trh{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 22px;background:var(--aim-dark);color:#fff}
+.aim-trr{display:flex;align-items:center;gap:12px;font-family:"Playfair Display",serif;font-size:22px;font-weight:700}
+.aim-trr i{font-style:normal;color:var(--aim-gold);font-family:Poppins,sans-serif}
+.aim-trm{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;color:#cfc8bf}
+.aim-trm span{display:inline-flex;align-items:center;gap:6px}
+.aim-trm svg{width:16px;height:16px;fill:var(--aim-gold)}
+.aim-tps{display:grid;grid-template-columns:repeat(4,1fr)}
+.aim-tp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:20px 12px 18px;border-right:1px solid var(--aim-line);color:var(--aim-ink);transition:background .2s}
+.aim-tp:last-child{border-right:0}
+.aim-tp:hover{background:var(--aim-sand)}
+.aim-tpi{display:flex;gap:1px;height:30px;align-items:flex-end;margin-bottom:4px}
+.aim-tpi svg{width:24px;height:24px;fill:var(--aim-red)}
+.aim-tpi svg:nth-child(n+2){width:20px;height:20px;opacity:.85}
+.aim-tpn{font-weight:700;font-size:15px}
+.aim-tpv{font-size:12.5px;color:var(--aim-muted)}
+.aim-tp b{font-family:"Playfair Display",serif;font-size:28px;color:var(--aim-red);line-height:1.2;margin:6px 0 8px}
+.aim-tpb{display:inline-flex;align-items:center;gap:6px;background:var(--aim-wa);color:#fff;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:999px}
+.aim-tpb svg{width:15px;height:15px;fill:#fff}
+.aim-tp:hover .aim-tpb{background:#1ebe5b}
+.aim-trinfo{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:34px}
+.aim-trinfo>div{background:var(--aim-sand);border-radius:18px;padding:26px}
+.aim-trinfo h3{margin:0 0 14px;font-size:21px}
+.aim-trinfo ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.aim-trinfo li{display:flex;align-items:center;gap:8px;font-size:14.5px}
+.aim-trinfo li svg{width:18px;height:18px;fill:var(--aim-red);flex:none}
+.aim-trother p{color:var(--aim-muted);margin:0 0 16px}
+@media (max-width:760px){.aim-tps{grid-template-columns:repeat(2,1fr)}.aim-tp:nth-child(2){border-right:0}.aim-tp:nth-child(-n+2){border-bottom:1px solid var(--aim-line)}
+ .aim-trr{font-size:19px}.aim-trh{padding:16px 18px}.aim-tp b{font-size:24px}.aim-trinfo{grid-template-columns:1fr}.aim-trinfo ul{grid-template-columns:1fr}}
+/* nav dropdown */
+.aim-dd{position:relative;display:flex;align-items:center}
+.aim-dd>a:after{content:"";display:inline-block;border:4px solid transparent;border-top-color:currentColor;margin-left:6px;transform:translateY(2px)}
+.aim-ddm{position:absolute;top:100%;left:0;min-width:230px;background:#fff;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.25);padding:8px;display:none;z-index:1000}
+.aim-dd:hover .aim-ddm,.aim-dd:focus-within .aim-ddm{display:block}
+.aim-nav .aim-ddm a{display:block;color:var(--aim-ink);padding:11px 14px;border-radius:8px;font-size:14.5px}
+.aim-nav .aim-ddm a:hover{background:var(--aim-sand);color:var(--aim-red)}
+@media (max-width:960px){.aim-dd{display:block}.aim-dd>a{display:block}.aim-dd>a:after{display:none}.aim-ddm{position:static;display:block;box-shadow:none;background:transparent;padding:0 0 0 16px;min-width:0}.aim-nav .aim-ddm a{color:#bdb6ad;border-radius:0;padding:11px 6px}}
 /* reveal */
 .aim-js .aim-rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.aim-js .aim-rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.aim-js .aim-rv{opacity:1;transform:none;transition:none}}
