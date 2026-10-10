@@ -73,7 +73,7 @@ T = {
                pnote="Prices are per private vehicle with driver, not per person. Bigger group? Ask us for a quote.",
                ptab="Price table", ptab_p="One price for the whole vehicle, driver and fuel included. Pick the size that fits your group.", ptab_book="Book",
                tiers={"day": [("Comfort minibus", "4"), ("Family minibus", "7"), ("Group minibus", "14"), ("Large group minibus", "17")],
-                      "circuit": [("Comfort minibus", "4"), ("Standard minibus", "7"), ("Group minibus", "14"), ("Large minibus", "17"), ("Comfort coach", "29"), ("Premium coach", "40–48")]},
+                      "circuit": [("Comfort minibus", "4"), ("Standard minibus", "7"), ("Group minibus", "14"), ("Large minibus", "17"), ("Comfort coach", "29"), ("Premium coach", "48")]},
                inc_l=["Private air-conditioned vehicle", "Professional driver", "Fuel and tolls", "Pick-up and drop-off at your hotel or riad in Marrakech"],
                exc_l=["Accommodation (we can book it for you)", "Meals and drinks", "Entrance tickets and local guides", "Optional activities (camel, quad, boat...)"],
                form_t="Book or ask a question", form_p="Send us your dates and number of travellers. We reply quickly by email or WhatsApp with a clear price, no commitment.",
@@ -89,7 +89,7 @@ T = {
                pnote="Prix par véhicule privé avec chauffeur, pas par personne. Groupe plus grand ? Demandez-nous un devis.",
                ptab="Tableau des prix", ptab_p="Un seul prix pour tout le véhicule, chauffeur et carburant compris. Choisissez la taille adaptée à votre groupe.", ptab_book="Réserver",
                tiers={"day": [("Minibus Confort", "4"), ("Minibus Familial", "7"), ("Minibus Groupe", "14"), ("Minibus Grand Groupe", "17")],
-                      "circuit": [("Minibus Confort", "4"), ("Minibus Standard", "7"), ("Minibus Groupe", "14"), ("Minibus Large", "17"), ("Autocar Confort", "29"), ("Autocar Premium", "40–48")]},
+                      "circuit": [("Minibus Confort", "4"), ("Minibus Standard", "7"), ("Minibus Groupe", "14"), ("Minibus Large", "17"), ("Autocar Confort", "29"), ("Autocar Premium", "48")]},
                inc_l=["Véhicule privé climatisé", "Chauffeur professionnel", "Carburant et péages", "Prise en charge et retour à votre hôtel ou riad à Marrakech"],
                exc_l=["Hébergement (nous pouvons le réserver pour vous)", "Repas et boissons", "Entrées des sites et guides locaux", "Activités en option (dromadaire, quad, bateau...)"],
                form_t="Réserver ou poser une question", form_p="Envoyez-nous vos dates et le nombre de voyageurs. Nous répondons vite par e-mail ou WhatsApp avec un prix clair, sans engagement.",
@@ -403,7 +403,7 @@ def price_table(p, lang):
                   '<span class="aim-tpv">%s</span><b>%d €</b><span class="aim-tpb"><s></s> %s</span></a>') % (
             wa_link(lang, "%s, %s %s %s (%d €)" % (c["title"], name, seats, t["seats"], price)), "<i></i>" * n, seats, t["seats"], name, price, t["ptab_book"])
     return ('<div class="aim-tr aim-ptab aim-rv"><div class="aim-trh"><div class="aim-trr"><span>%s</span></div><div class="aim-trm"><span>%s</span></div></div>'
-            '<div class="aim-tps%s">%s</div></div>') % (t["ptab"], t["ptab_p"], " aim-tps6" if len(prices) == 6 else "", tiles)
+            '<div class="aim-tps%s">%s</div></div>') % (t["ptab"], t["ptab_p"], " aim-tps6" if len(prices) > 4 else "", tiles)
 
 
 def program(p, lang):

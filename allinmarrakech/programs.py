@@ -1,5 +1,6 @@
 # All in Marrakech – tours and day trips (EN + FR).
 # Prices are "from" prices in EUR for a private vehicle with driver (1–4 travellers).
+# tiers = per-vehicle price table (reference price + 20 EUR), one entry per vehicle size; programs without it use site.TIER_ADD steps.
 U = "https://allinmarrakech.com/wp-content/uploads/2026/10/"
 
 IMG = {
@@ -48,7 +49,7 @@ def add(**k):
 
 
 # ---------------------------------------------------------------- CIRCUITS
-add(key="chefchaouen", kind="circuit", img="chefchaouen", price=720,
+add(key="chefchaouen", kind="circuit", img="chefchaouen", price=720, tiers=[720, 770, 820, 920, 1520],
     en=dict(slug="marrakech-chefchaouen-tour", title="Marrakech to Chefchaouen: the Blue City Tour",
             dur="5 days / 4 nights",
             short="Casablanca, Rabat, two nights in the blue medina of Chefchaouen and Fes on the way back.",
@@ -74,7 +75,7 @@ add(key="chefchaouen", kind="circuit", img="chefchaouen", price=720,
                   ("Chefchaouen – Fès", "Route vers le sud à travers les oliveraies jusqu'à Fès (environ 4 heures). Après-midi à Fès el Bali : Bab Boujloud, la médersa Bou Inania et la vue sur les tanneries Chouara depuis une terrasse. Nuit à Fès."),
                   ("Fès – Ifrane – Marrakech", "Traversée du Moyen Atlas jusqu'à Ifrane, la « Suisse marocaine », et la forêt de cèdres d'Azrou où vivent les singes en liberté. Pause déjeuner en route, puis descente par Béni Mellal et arrivée à Marrakech le soir.")]))
 
-add(key="merzouga", kind="circuit", img="merzouga", price=470,
+add(key="merzouga", kind="circuit", img="merzouga", price=470, tiers=[470, 520, 590, 620, 1120, 1620],
     en=dict(slug="dades-gorges-merzouga-desert-tour", title="Dades Gorges & Merzouga Desert Tour",
             dur="3 days / 2 nights",
             short="Over the High Atlas to the Dades and Todra gorges, then a night in a camp in the Erg Chebbi dunes.",
@@ -94,7 +95,7 @@ add(key="merzouga", kind="circuit", img="merzouga", price=470,
                   ("Dadès – Todra – Merzouga", "Arrêt photo le matin sur la célèbre route en zigzag, puis les gorges du Todra et leurs parois de 300 m. Par Erfoud jusqu'à Merzouga, où les dromadaires attendent au pied des dunes. Balade au coucher du soleil jusqu'au camp, dîner et nuit dans le désert."),
                   ("Merzouga – Marrakech", "Réveil tôt pour le lever du soleil sur les dunes, retour à dromadaire et petit-déjeuner. Longue mais belle route du retour par la région du Drâa et de Ouarzazate, arrivée à Marrakech le soir.")]))
 
-add(key="imperial", kind="circuit", img="fes", price=670,
+add(key="imperial", kind="circuit", img="fes", price=670, tiers=[670, 720, 780, 845, 1120, 1800],
     en=dict(slug="imperial-cities-tour", title="Imperial Cities Tour: 5 Cities in 5 Days",
             dur="5 days / 4 nights",
             short="Casablanca, Rabat, Meknes, Volubilis and Fes, finishing with a guided day in Marrakech.",
@@ -118,7 +119,7 @@ add(key="imperial", kind="circuit", img="fes", price=670,
                   ("Fès – Moyen Atlas – Marrakech", "Par Ifrane et la forêt de cèdres d'Azrou, où vivent les singes magots, puis descente vers les plaines de Béni Mellal et route vers Marrakech."),
                   ("Marrakech", "Une journée pour découvrir Marrakech : la Koutoubia, le palais de la Bahia, les tombeaux saadiens, les souks et, en fin de journée, la place Jemaa el-Fna. Dépôt à votre riad ou à l'aéroport.")]))
 
-add(key="zagora", kind="circuit", img="zagora", price=140,
+add(key="zagora", kind="circuit", img="zagora", price=140, tiers=[140, 150, 180, 195, 370, 570],
     en=dict(slug="ouarzazate-zagora-tour", title="Ouarzazate & Zagora Desert Tour",
             dur="3 days / 2 nights",
             short="Aït Ben Haddou, Ouarzazate and the endless palm groves of the Draa Valley down to Zagora.",
@@ -138,7 +139,7 @@ add(key="zagora", kind="circuit", img="zagora", price=140,
                   ("Ouarzazate – vallée du Drâa – Zagora", "Par Agdz et les montagnes du Kissane, la route suit l'oued Drâa et ses palmeraies. Arrivée à Zagora l'après-midi ; balade à dromadaire possible au coucher du soleil. Nuit à Zagora."),
                   ("Zagora – Tamegroute – Marrakech", "Visite le matin de Tamegroute, connue pour sa poterie verte et son ancienne bibliothèque, puis route vers le nord et arrivée à Marrakech le soir.")]))
 
-add(key="ouzoud2", kind="circuit", img="binelouidane", price=140,
+add(key="ouzoud2", kind="circuit", img="binelouidane", price=140, tiers=[140, 150, 180, 195, 370, 570],
     en=dict(slug="ouzoud-bin-el-ouidane-tour", title="Ouzoud Waterfalls & Bin El Ouidane Lake",
             dur="2 days / 1 night",
             short="The highest waterfalls in Morocco, a night by a turquoise lake and the natural bridge of Imi n'Ifri.",
@@ -156,7 +157,7 @@ add(key="ouzoud2", kind="circuit", img="binelouidane", price=140,
             days=[("Marrakech – Ouzoud – Bin El Ouidane", "Départ à 8h vers le Moyen Atlas. Descente à pied jusqu'au pied des cascades d'Ouzoud, déjeuner au bord de l'eau, puis route vers Bin El Ouidane. Nuit dans un lodge au bord du lac."),
                   ("Bin El Ouidane – Demnate – Marrakech", "Matinée libre sur le lac (bateau, kayak ou baignade en saison). Retour par Demnate et le pont de roche naturel d'Imi n'Ifri. Arrivée à Marrakech en fin d'après-midi.")]))
 
-add(key="todra2", kind="circuit", img="todra", price=140,
+add(key="todra2", kind="circuit", img="todra", price=140, tiers=[140, 150, 180, 195, 370, 570],
     en=dict(slug="ouarzazate-todra-gorge-tour", title="Ouarzazate & Todra Gorge Tour",
             dur="2 days / 1 night",
             short="Aït Ben Haddou, the Valley of Roses and the canyon of Todra in a short two-day loop.",
