@@ -12,6 +12,7 @@ from urllib.parse import quote
 from programs import P, IMG, CREDITS
 from dest import destinations
 from transfers import transfer_page
+from tours import tour_list
 from hero import hero as hero_v2
 
 SITE = "https://allinmarrakech.com/"
@@ -61,7 +62,7 @@ def url(key, lang):
 
 
 T = {
-    "en": dict(nav=[("home", "Home"), ("dest", "Destinations"), ("tours", "Tours"), ("days", "Day trips"), ("fleet", "Transfers"), ("about", "About"), ("contact", "Contact")],
+    "en": dict(nav=[("home", "Home"), ("dest", "Destinations"), ("tours", "Tours"), ("fleet", "Transfers"), ("about", "About"), ("contact", "Contact")],
                book="Book now", from_="From", per="per private vehicle", more="View details", wa_msg="Hello All in Marrakech, I would like information about: ",
                tagline="Tourist transport, airport transfers and private tours in Morocco, from Marrakech.", fleet_h="Our fleet", seats="seats",
                cm_h="How would you like to contact us?", cm_p="Choose what is easiest for you. We usually reply within a few hours.", cm_wa="Fastest reply", cm_form="Or fill in our booking form",
@@ -73,8 +74,8 @@ T = {
                inc_l=["Private air-conditioned vehicle", "Professional driver", "Fuel and tolls", "Pick-up and drop-off at your hotel or riad in Marrakech"],
                exc_l=["Accommodation (we can book it for you)", "Meals and drinks", "Entrance tickets and local guides", "Optional activities (camel, quad, boat...)"],
                form_t="Book or ask a question", form_p="Send us your dates and number of travellers. We reply quickly by email or WhatsApp with a clear price, no commitment.",
-               related="You may also like", crumbs_home="Home", sub_tr=[("air", "Airport transfers"), ("city", "Inter-city transfers"), ("fleet", "Our fleet")]),
-    "fr": dict(nav=[("home", "Accueil"), ("dest", "Destinations"), ("tours", "Circuits"), ("days", "Excursions"), ("fleet", "Transferts"), ("about", "À propos"), ("contact", "Contact")],
+               related="You may also like", crumbs_home="Home", sub_to=[("tours", "Multi-day tours"), ("days", "Day trips")], sub_tr=[("air", "Airport transfers"), ("city", "Inter-city transfers"), ("fleet", "Our fleet")]),
+    "fr": dict(nav=[("home", "Accueil"), ("dest", "Destinations"), ("tours", "Tours"), ("fleet", "Transferts"), ("about", "À propos"), ("contact", "Contact")],
                book="Réserver", from_="À partir de", per="par véhicule privé", more="Voir le détail", wa_msg="Bonjour All in Marrakech, je souhaite des informations sur : ",
                tagline="Transport touristique, transferts aéroport et circuits privés au Maroc, au départ de Marrakech.", fleet_h="Notre flotte", seats="places",
                cm_h="Comment souhaitez-vous nous contacter ?", cm_p="Choisissez ce qui vous convient le mieux. Nous répondons en général en quelques heures.", cm_wa="Réponse la plus rapide", cm_form="Ou remplissez notre formulaire de réservation",
@@ -86,7 +87,7 @@ T = {
                inc_l=["Véhicule privé climatisé", "Chauffeur professionnel", "Carburant et péages", "Prise en charge et retour à votre hôtel ou riad à Marrakech"],
                exc_l=["Hébergement (nous pouvons le réserver pour vous)", "Repas et boissons", "Entrées des sites et guides locaux", "Activités en option (dromadaire, quad, bateau...)"],
                form_t="Réserver ou poser une question", form_p="Envoyez-nous vos dates et le nombre de voyageurs. Nous répondons vite par e-mail ou WhatsApp avec un prix clair, sans engagement.",
-               related="Vous aimerez aussi", crumbs_home="Accueil", sub_tr=[("air", "Transferts aéroport"), ("city", "Transferts inter-villes"), ("fleet", "Notre flotte")]),
+               related="Vous aimerez aussi", crumbs_home="Accueil", sub_to=[("tours", "Circuits"), ("days", "Excursions")], sub_tr=[("air", "Transferts aéroport"), ("city", "Transferts inter-villes"), ("fleet", "Notre flotte")]),
 }
 
 # --- small inline icons
@@ -118,9 +119,10 @@ def wa_link(lang, topic=""):
 def header(lang):
     t = T[lang]
     def item(k, lbl):
-        if k != "fleet":
+        subs = {"fleet": t["sub_tr"], "tours": t["sub_to"]}.get(k)
+        if not subs:
             return '<a href="%s">%s</a>' % (url(k, lang), lbl)
-        sub = "".join('<a href="%s">%s</a>' % (url(sk, lang), sl) for sk, sl in t["sub_tr"])
+        sub = "".join('<a href="%s">%s</a>' % (url(sk, lang), sl) for sk, sl in subs)
         return '<div class="aim-dd"><a href="%s">%s</a><div class="aim-ddm">%s</div></div>' % (url(k, lang), lbl, sub)
     nav = "".join(item(k, lbl) for k, lbl in t["nav"])
     lang_sw = '<span class="aim-lang"><a id="aim-l-en" href="%s"%s>EN</a><a id="aim-l-fr" href="%s"%s>FR</a></span>' % (
@@ -154,8 +156,9 @@ def contact_modal(lang):
 
 def footer(lang):
     t = T[lang]
-    links = "".join('<li><a href="%s">%s</a></li>' % (url(k, lang), lbl) for k, lbl in t["nav"][1:] if k != "fleet")
-    links += "".join('<li><a href="%s">%s</a></li>' % (url(k, lang), lbl) for k, lbl in t["sub_tr"])
+    subs = {"tours": t["sub_to"], "fleet": t["sub_tr"]}
+    links = "".join('<li><a href="%s">%s</a></li>' % (url(sk, lang), sl)
+                    for k, lbl in t["nav"][1:] for sk, sl in subs.get(k, [(k, lbl)]))
     name = {"Tourist coach": "Autocar de tourisme"} if lang == "fr" else {}
     fleet = "".join('<li><a href="%s"><span class="aim-fi">%s</span><span>%s<small>%s %s</small></span></a></li>' % (
         url("fleet", lang), I[ic], name.get(n, n), seats, t["seats"]) for ic, n, seats in FOOT_FLEET)
@@ -375,22 +378,14 @@ def custom_card(lang):
 
 
 def listing(kind, lang):
-    ey, h1, intro, img = LIST[(kind, lang)]
-    items = [p for p in P if p["kind"] == ("circuit" if kind == "tours" else "day")]
-    other = "days" if kind == "tours" else "tours"
-    body = ('<section class="aim-hero aim-phero"><img src="%s" alt="%s" fetchpriority="high"><div class="aim-wrap">'
-            '<div class="aim-crumb"><a href="%s">%s</a> / %s</div><span class="aim-eyebrow">%s</span><h1>%s</h1><p class="aim-lead">%s</p></div></section>') % (
-        IMG[img], h1, url("home", lang), T[lang]["crumbs_home"], ey, ey, h1, intro)
-    body += '<section class="aim-sec aim-sand"><div class="aim-wrap"><div class="aim-grid">%s%s</div></div></section>' % (
-        "".join(card(p, lang) for p in items), custom_card(lang))
-    return page(lang, kind, kind, body)
+    return page(lang, kind, kind, tour_list(kind, lang, url, T[lang]["crumbs_home"]))
 
 
 # ------------------------------------------------------------------ PROGRAM
 def program(p, lang):
     t, c = T[lang], p[lang]
     kind = "tours" if p["kind"] == "circuit" else "days"
-    kind_lbl = dict(T[lang]["nav"])[kind]
+    kind_lbl = {"en": {"tours": "Tours", "days": "Day trips"}, "fr": {"tours": "Circuits", "days": "Excursions"}}[lang][kind]
     days = ""
     for i, (h, txt) in enumerate(c["days"], 1):
         lbl = ("%s %d" % (t["days_lbl"], i)) if p["kind"] == "circuit" else h
