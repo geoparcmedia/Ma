@@ -396,7 +396,8 @@ def price_table(p, lang):
     t, c = T[lang], p[lang]
     prices = p.get("tiers") or [p["price"] + x for x in TIER_ADD[p["kind"]]]
     tiles = ""
-    for n, ((name, seats), price) in enumerate(zip(t["tiers"], prices), 1):
+    names = [(n, seats) for n, (_, seats) in zip(p["tier_names"][lang], t["tiers"])] if p.get("tier_names") else t["tiers"]
+    for n, ((name, seats), price) in enumerate(zip(names, prices), 1):
         tiles += ('<a class="aim-tp" href="%s" target="_blank" rel="noopener"><span class="aim-tpi">%s</span><span class="aim-tpn">%s %s</span>'
                   '<span class="aim-tpv">%s</span><b>%d €</b><span class="aim-tpb"><s></s> %s</span></a>') % (
             wa_link(lang, "%s, %s %s %s (%d €)" % (c["title"], name, seats, t["seats"], price)), "<i></i>" * n, seats, t["seats"], name, price, t["ptab_book"])

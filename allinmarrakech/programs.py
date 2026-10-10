@@ -291,6 +291,7 @@ add(key="ouarzazate", kind="day", img="aitbenhaddou", price=155, tiers=[155, 170
             days=[("Journée", "Départ à 7h par le col du Tizi n'Tichka avec arrêts photo. Visite d'Aït Ben Haddou, déjeuner, puis Ouarzazate : les studios de cinéma et la kasbah de Taourirt (entrées non incluses). Retour à Marrakech vers 20h.")]))
 
 add(key="3valleys", kind="day", img="dades", price=170, tiers=[170, 180, 190, 200],
+    tier_names={"en": ["Comfort minibus", "Family minibus", "Group minibus", "Large group minibus"], "fr": ["Minibus Confort", "Minibus Familial", "Minibus Groupe", "Minibus Grand Groupe"]},
     en=dict(slug="three-valleys-atlas-day-trip", title="Three Valleys of the Atlas Day Trip", dur="Full day",
             short="Ourika, Imlil and Ouirgane in one big loop, finishing at Lalla Takerkoust lake.",
             intro="A full loop through three different Atlas valleys, for travellers who want to see a lot of mountain landscapes in one day.",
