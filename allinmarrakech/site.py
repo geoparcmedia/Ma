@@ -120,27 +120,66 @@ def wa_link(lang, topic=""):
     return "https://wa.me/" + WA + "?text=" + quote(T[lang]["wa_msg"] + topic)
 
 
+HDR_JS = ("<script>(function(){var h=document.getElementById('aim-hdr');if(!h)return;"
+          "function sc(){h.classList.toggle('sc',window.scrollY>30)}sc();window.addEventListener('scroll',sc,{passive:true});"
+          "var b=h.querySelector('.aim-bgr'),ov=h.querySelector('.aim-ov');"
+          "function tg(o){h.classList.toggle('mo',o);b.setAttribute('aria-expanded',o?'true':'false');document.documentElement.style.overflow=o?'hidden':''}"
+          "b.addEventListener('click',function(){tg(!h.classList.contains('mo'))});ov.addEventListener('click',function(){tg(false)});"
+          "h.querySelectorAll('[data-mclose]').forEach(function(x){x.addEventListener('click',function(){tg(false)})});"
+          "h.querySelectorAll('.aim-ddb').forEach(function(x){x.addEventListener('click',function(e){e.preventDefault();var d=x.parentNode,o=!d.classList.contains('op');"
+          "h.querySelectorAll('.aim-md.op').forEach(function(y){y.classList.remove('op')});d.classList.toggle('op',o);x.setAttribute('aria-expanded',o?'true':'false')})});"
+          "h.querySelectorAll('.aim-mn a').forEach(function(a){if(a.href===location.href)a.classList.add('on');a.addEventListener('click',function(){tg(false)})});"
+          "document.addEventListener('keydown',function(e){if(e.key==='Escape')tg(false)})})();</script>")
+
+
 def header(lang):
     t = T[lang]
+    en = lang == "en"
+    eur = lambda n: ("from %d €" if en else "dès %d €") % n
+    # Tours mega menu: circuits + day trips with duration and starting price, and a promo card
+    def plist(kind):
+        return "".join('<a href="%s"><span>%s</span><small>%s · %s</small></a>' % (url(p["key"], lang), p[lang]["title"], p[lang]["dur"], eur(p["price"]))
+                       for p in P if p["kind"] == kind)
+    (k_to, h_to), (k_day, h_day) = t["sub_to"]
+    allv = "View all" if en else "Voir tout"
+    tours = ('<div class="aim-mega aim-mega-t"><div class="aim-mcol"><div class="aim-mh"><b>%s</b><a href="%s">%s →</a></div><div class="aim-ml">%s</div></div>'
+             '<div class="aim-mcol"><div class="aim-mh"><b>%s</b><a href="%s">%s →</a></div><div class="aim-ml aim-ml2">%s</div></div>'
+             '<a class="aim-mpromo" href="%s"><img src="%s" alt="" loading="lazy"><span><small>%s</small><b>%s</b><i>%s →</i></span></a></div>') % (
+        h_to, url(k_to, lang), allv, plist("circuit"), h_day, url(k_day, lang), allv, plist("day"),
+        url("dest", lang), IMG["merzouga"], "Destinations", "Morocco, your way" if en else "Le Maroc à votre façon",
+        "Explore destinations" if en else "Voir les destinations")
+    # Transfers mega menu: three cards
+    desc = {"air": ("Marrakech airport and city transfers, driver waiting at arrivals." if en else "Aéroport et ville de Marrakech, chauffeur à l'arrivée.", eur(35), "plane"),
+            "city": ("Private rides to Casablanca, Essaouira, Merzouga and more." if en else "Trajets privés vers Casablanca, Essaouira, Merzouga…", eur(140), "map"),
+            "fleet": ("From a 3-seat sedan to an 84-seat coach." if en else "De la berline 3 places à l'autocar de 84 places.", "13 " + ("vehicles" if en else "véhicules"), "bus")}
+    trans = '<div class="aim-mega aim-mega-c">%s</div>' % "".join(
+        '<a class="aim-mc" href="%s"><span class="aim-mci">%s</span><b>%s</b><span>%s</span><i>%s</i></a>' % (url(k, lang), I[desc[k][2]], lbl, desc[k][0], desc[k][1])
+        for k, lbl in t["sub_tr"])
+    megas = {"tours": tours, "fleet": trans}
+
     def item(k, lbl):
-        subs = {"fleet": t["sub_tr"], "tours": t["sub_to"]}.get(k)
-        if not subs:
-            return '<a href="%s">%s</a>' % (url(k, lang), lbl)
-        sub = "".join('<a href="%s">%s</a>' % (url(sk, lang), sl) for sk, sl in subs)
-        return '<div class="aim-dd"><a href="%s">%s</a><div class="aim-ddm">%s</div></div>' % (url(k, lang), lbl, sub)
+        if k not in megas:
+            return '<a class="aim-ni" href="%s">%s</a>' % (url(k, lang), lbl)
+        return ('<div class="aim-md"><a class="aim-ni" href="%s">%s</a><button type="button" class="aim-ddb" aria-expanded="false" aria-label="%s"><i></i></button>%s</div>') % (
+            url(k, lang), lbl, lbl, megas[k])
     nav = "".join(item(k, lbl) for k, lbl in t["nav"])
     lang_sw = '<span class="aim-lang"><a id="aim-l-en" href="%s"%s>EN</a><a id="aim-l-fr" href="%s"%s>FR</a></span>' % (
-        url("home", "en"), ' class="on"' if lang == "en" else "", url("home", "fr"), ' class="on"' if lang == "fr" else "")
-    return '<div class="aim">' + (
+        url("home", "en"), ' class="on"' if en else "", url("home", "fr"), ' class="on"' if not en else "")
+    return '<div class="aim aim-hbox">' + (
         '<div class="aim-top"><div class="aim-wrap"><div>'
         '<a href="tel:%s">%s %s</a><a class="aim-hide" href="mailto:%s">%s %s</a></div>%s</div></div>'
-        '<header class="aim-hdr"><div class="aim-wrap" style="position:relative">'
+        '<header class="aim-hdr aim-hdr2" id="aim-hdr"><div class="aim-wrap aim-hwrap">'
         '<a class="aim-logo" href="%s"><img src="%s" alt="All in Marrakech" width="180" height="60"></a>'
-        '<input type="checkbox" id="aim-mt"><label class="aim-burger" for="aim-mt" aria-label="Menu">%s</label>'
-        '<nav class="aim-nav">%s<a class="aim-btn" href="%s#book">%s</a></nav></div></header>'
-    ) % (TEL, I["phone"], PHONE, EMAIL, I["mail"], EMAIL, lang_sw, url("home", lang), LOGO, I["menu"], nav,
-         url("contact", lang), t["book"]) + '</div>'
-
+        '<nav class="aim-mn" aria-label="Menu"><div class="aim-mn-h"><img src="%s" alt="All in Marrakech" width="150" height="50"><button type="button" class="aim-mx" data-mclose aria-label="Close">×</button></div>'
+        '%s<div class="aim-mn-f"><a class="aim-btn" href="%s#book">%s</a><a class="aim-btn aim-btn-wa" href="%s" target="_blank" rel="noopener">%s WhatsApp</a>'
+        '<a class="aim-mn-tel" href="tel:%s">%s %s</a></div></nav>'
+        '<div class="aim-hact"><a class="aim-hwa" href="%s" target="_blank" rel="noopener" aria-label="WhatsApp">%s</a>'
+        '<a class="aim-btn aim-hbook" href="%s#book">%s</a>'
+        '<button type="button" class="aim-bgr" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button></div>'
+        '</div><div class="aim-ov"></div></header>'
+    ) % (TEL, I["phone"], PHONE, EMAIL, I["mail"], EMAIL, lang_sw, url("home", lang), LOGO, LOGO,
+         nav, url("contact", lang), t["book"], wa_link(lang), I["wa"], TEL, I["phone"], PHONE,
+         wa_link(lang), I["wa"], url("contact", lang), t["book"]) + '</div>' + HDR_JS
 
 # footer "Our fleet" column: every vehicle in VEH, with a car / van / bus icon
 FOOT_FLEET = [({"e": "car", "rr": "car", "tg": "car", "sk": "car", "v": "van", "sp": "van", "bus": "bus"}[k], n, seats)
