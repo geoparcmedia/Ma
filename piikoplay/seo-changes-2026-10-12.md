@@ -27,3 +27,16 @@ post's `mabp_description` / `mabp_instructions` meta.
 ## Not verifiable from here
 Old /index.php/... URLs still in Google. WordPress normally 301-redirects them to
 the /%postname%/ URL; check one in a browser (e.g. /index.php/category/horror/).
+
+## New list pages (built by `piikoplay/list_pages.py`, same block format as /best-car-games/)
+- 1214 /best-survival-games/ – 8 games
+- 1217 /best-horror-games/ – 7 games
+- 1220 /best-simulator-games/ – 9 games
+Each has a Rank Math title, description and focus keywords. Game blurbs only use
+facts from the games' own pages.
+
+## Internal links to the new pages
+- "More lists" sentence on /best-car-games/, /best-obby-games/ (also fixed a missing
+  comma), /best-idle-games/, /2-player-games/, /best-shooting-games/
+- One closing line on each of the 20 games in the lists (IDs 1053, 971, 1038, 965,
+  1016, 954, 953, 675, 645, 1008, 1019, 951, 665, 1010, 1012, 1003, 671, 1048, 655, 1028)
