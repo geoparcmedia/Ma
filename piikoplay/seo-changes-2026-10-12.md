@@ -40,3 +40,9 @@ facts from the games' own pages.
   comma), /best-idle-games/, /2-player-games/, /best-shooting-games/
 - One closing line on each of the 20 games in the lists (IDs 1053, 971, 1038, 965,
   1016, 954, 953, 675, 645, 1008, 1019, 951, 665, 1010, 1012, 1003, 671, 1048, 655, 1028)
+
+## Menus
+The three new pages were added automatically to "MENU" (id 155, the slide-out menu the
+theme shows) and "Main Menu" (164), because both menus have "auto add new top-level
+pages" on (`nav_menu_options.auto_add`). Same as the earlier best-* pages; the items use
+the page title as label. Menu items: 1215/1216, 1218/1219, 1221/1222.
