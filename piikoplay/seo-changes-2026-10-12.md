@@ -46,3 +46,8 @@ The three new pages were added automatically to "MENU" (id 155, the slide-out me
 theme shows) and "Main Menu" (164), because both menus have "auto add new top-level
 pages" on (`nav_menu_options.auto_add`). Same as the earlier best-* pages; the items use
 the page title as label. Menu items: 1215/1216, 1218/1219, 1221/1222.
+Labels set on both menus (item title; the page title is no longer used as label):
+🧗 Best Obby Games (1087/1088), 🚗 Best Car Games (1090/1091), 💰 Best Idle Games (1093/1094),
+👥 2 Player Games (1097/1098), 🔫 Best Shooting Games (1100/1101),
+🏕️ Best Survival Games (1215/1216), 👻 Best Horror Games (1218/1219),
+🚌 Best Simulator Games (1221/1222). Clearing an item's title restores the page title.
