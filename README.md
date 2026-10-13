@@ -14,3 +14,7 @@
 - `amasir/build.py` – builds the updated `_elementor_data` into `amasir/out/`.
   When writing a value with the MCP `wp_update_post_meta` tool, double every backslash first
   (WordPress unslashes meta values). `out/custom-full.css` is the site's Additional CSS (post 7424).
+- Full redesign (Oct 2026): `amasir/design.css` + `amasir/redesign.py` build header (38), footer (41),
+  Home (8276), About (8277), Contact (8279) and Activities (8533) into `amasir/out2/`.
+  Global header switched from 35 to 38 and theme colours changed in option `travolo_opt`
+  (original in `backups/amasir/travolo_opt.json`).
