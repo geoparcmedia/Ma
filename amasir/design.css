@@ -268,7 +268,7 @@ a.am-cc:hover{border-color:var(--am-terra);transform:translateX(4px)}
 .amf-c li{display:flex;gap:12px;align-items:flex-start}
 .amf-c svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--am-saffron)}
 .amf-bot{margin-top:70px;border-top:1px solid rgba(255,255,255,.1);padding:24px 0 30px;display:flex;justify-content:space-between;gap:20px;font-size:14px;color:rgba(255,255,255,.5)}
-.amf-bot .am-hand{font-size:22px;color:var(--am-saffron)}
+.amf-dev b{color:#fff;font-weight:600}
 
 /* ===== responsive ===== */
 @media (max-width:1024px){

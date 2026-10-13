@@ -217,7 +217,7 @@ F = ("<footer class='amf'><div class='am-w'><div class='amf-g'>"
      "<li>%s<span><a href='tel:%s'>%s</a><br><a href='tel:%s'>%s</a></span></li>"
      "<li>%s<a href='mailto:%s'>%s</a></li>"
      "<li>%s<span>Lot El Massar N&#176; 1106, 3&#232;me &#233;tage<br>Marrakech, Morocco</span></li></ul></div>"
-     "</div><div class='amf-bot'><span>&#169; 2026 Amasir Voyage, Marrakech. All rights reserved.</span><span class='am-hand'>Shukran for visiting</span></div></div></footer>"
+     "</div><div class='amf-bot'><span>&#169; 2026 Amasir Voyage, Marrakech. All rights reserved.</span><span class='amf-dev'>Developed by <b>majdoulineab</b></span></div></div></footer>"
      ) % (S, LOGO, WA, I_WA,
           ''.join("<li><a href='%s%s'>%s</a></li>" % (S, h, t) for t, h in NAV[1:] + [('All trips', '/trip-search-result/')]),
           ''.join("<li><a href='%s/trip/%s/'>%s</a></li>" % (S, t[1], t[0].replace('&', '&amp;')) for t in popular),
@@ -268,7 +268,6 @@ H1 = ("<section class='am am-hero'>%s<div class='am-hero-note'>your trip could<b
       "<h1>Morocco, shown by people who <em>live here</em></h1>"
       "<p class='am-hero-lead'>Private day trips, desert tours and airport pickups from Marrakech. Small team, local drivers and guides, and plans built around you.</p>"
       "%s<div class='am-btns' style='margin-top:18px'><a class='am-btn am-btn--terra' href='#day-trips'>Browse our trips</a><a class='am-btn am-btn--ghost' href='%s' target='_blank' rel='noopener'>%s Ask us on WhatsApp</a></div>"
-      "<div class='am-facts'><span>Private trips only</span><span>Pickups at the airport, riad or hotel</span><span>Day trips, tours &amp; activities</span></div>"
       "</div></section>") % (hero_bg(HERO_HOME, 'Travellers in the Moroccan desert on an Amasir Voyage trip'), SEARCH, WA, I_WA)
 H2 = ("<section class='am am-sec'><div class='am-w'><div class='am-sh'><div><span class='am-eb'>Where to start</span><h2>Pick the <em>kind</em> of trip you have time for</h2></div>"
       "<p>One free day, a few nights in the desert or the whole country. Choose a starting point and we'll adjust the details with you.</p></div><div class='am-kinds'>"
