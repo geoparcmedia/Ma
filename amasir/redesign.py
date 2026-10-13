@@ -297,7 +297,43 @@ H6 = ("<section class='am am-sec'><div class='am-w'><div class='am-sh am-sh--c'>
 H7 = ("<section class='am am-sec am-sec--sand'><div class='am-w'><div class='am-sh'><div><span class='am-eb'>Activities</span><h2>Got a free <em>afternoon</em>?</h2></div>"
       "<p>Short experiences around Marrakech. Book one on its own or add it to a day trip.</p></div>"
       "<div class='am-acts'>" + ''.join(act_card(a) for a in ACTS) + "</div></div></section>")
-home_html = [H1, H2, H3, H4, H5, H6, H7, steps(), cta("Tell us your dates. <em>We'll do the rest.</em>",
+TRIP_OPTS = ''.join("<option>%s</option>" % t[0].replace('&', '&amp;') for t in DAY + TOURS + ACTS)
+STARS = ''.join("<input type='radio' name='am-rate' id='am-r%d' value='%d'%s><label for='am-r%d' title='%d/5'>&#9733;</label>"
+                % (n, n, " checked" if n == 5 else "", n, n) for n in range(5, 0, -1))
+H8 = ("<section class='am am-sec' id='reviews'><div class='am-w'><div class='am-sh am-sh--c'><span class='am-hand'>In your own words</span>"
+      "<h2>Travelled with us? <em>Tell us how it went</em></h2><p>Short or long, good or not so good. Every review is read by the team and shown here once we've checked it's not spam.</p></div>"
+      "<div class='am-rv-list' id='am-rv-list'><div class='am-rv-empty'><b>No reviews yet.</b> Be the first to share your trip with future travellers.</div></div>"
+      "<form class='am-rv-form' id='am-rv-form' novalidate><h3>Leave a review</h3>"
+      "<div class='am-rv-stars' role='radiogroup' aria-label='Your rating'>" + STARS + "</div>"
+      "<div class='am-rv-g'><label>Your name<input name='author' required maxlength='60' autocomplete='name'></label>"
+      "<label>Email <small>(never shown)</small><input name='email' type='email' required maxlength='100' autocomplete='email'></label>"
+      "<label>Where are you from? <small>(optional)</small><input name='am-from' maxlength='40' autocomplete='country-name'></label>"
+      "<label>Which trip? <small>(optional)</small><select name='am-trip'><option value=''>Choose a trip</option>" + TRIP_OPTS + "<option>Airport transfer</option><option>Custom trip</option></select></label></div>"
+      "<label>Your experience<textarea name='am-msg' required rows='5' maxlength='2000' placeholder='What did you enjoy? Anything we could do better?'></textarea></label>"
+      "<input name='am-hp' class='am-rv-hp' tabindex='-1' autocomplete='off' aria-hidden='true'>"
+      "<div class='am-rv-foot'><button class='am-btn am-btn--terra' type='submit'>Send my review</button><p class='am-rv-msg' id='am-rv-msg' role='status'></p></div></form>"
+      "</div></section>"
+      "<script>(function(){var L=document.getElementById('am-rv-list'),F=document.getElementById('am-rv-form'),M=document.getElementById('am-rv-msg');if(!L||!F)return;"
+      "function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e}"
+      "fetch('/wp-json/wp/v2/comments?post=8276&per_page=30&_='+Date.now()).then(function(r){return r.ok?r.json():[]}).then(function(a){if(!a||!a.length)return;L.innerHTML='';"
+      "a.forEach(function(c){var d=document.createElement('div');d.innerHTML=c.content.rendered;var ps=[].slice.call(d.querySelectorAll('p')),s=5,trip='',from='';"
+      "if(ps.length&&ps[0].textContent.trim().charAt(0)==='★'){var m=ps.shift().textContent.split(' · ');s=(m[0].match(/★/g)||[]).length;trip=(m[1]||'').trim();from=(m[2]||'').trim()}"
+      "var txt=ps.map(function(p){return p.textContent.trim()}).filter(Boolean);if(!txt.length)txt=[d.textContent.trim()];"
+      "var k=el('article','am-rv'),st=el('div','am-rv-s','★★★★★'.slice(0,s)+'☆☆☆☆☆'.slice(0,5-s));st.setAttribute('aria-label',s+' out of 5');k.appendChild(st);"
+      "if(trip)k.appendChild(el('span','am-rv-t',trip));txt.forEach(function(t){k.appendChild(el('p','',t))});"
+      "var w=el('div','am-rv-who'),n=c.author_name||'Guest';w.appendChild(el('i','',n.charAt(0).toUpperCase()));var b=el('div');b.appendChild(el('b','',n));"
+      "var dt=new Date(c.date).toLocaleDateString('en-GB',{month:'long',year:'numeric'});b.appendChild(el('small','',(from?from+' · ':'')+dt));w.appendChild(b);k.appendChild(w);L.appendChild(k)})}).catch(function(){});"
+      "F.addEventListener('submit',function(ev){ev.preventDefault();var f=F.elements;if(f['am-hp'].value)return;"
+      "if(!f.author.value.trim()||!f.email.value.trim()||!f['am-msg'].value.trim()){M.className='am-rv-msg err';M.textContent='Please add your name, email and a few words about your trip.';return}"
+      "if(!f.email.checkValidity()){M.className='am-rv-msg err';M.textContent='That email address does not look right.';return}"
+      "var r=(F.querySelector('input[name=am-rate]:checked')||{value:5}).value,nl=String.fromCharCode(10,10);"
+      "var body='★★★★★'.slice(0,r)+' · '+f['am-trip'].value+' · '+f['am-from'].value.trim()+nl+f['am-msg'].value.trim();"
+      "var p=new URLSearchParams();p.append('comment_post_ID','8276');p.append('comment_parent','0');p.append('author',f.author.value.trim());p.append('email',f.email.value.trim());p.append('url','');p.append('comment',body);"
+      "var btn=F.querySelector('button');btn.disabled=true;M.className='am-rv-msg';M.textContent='Sending...';"
+      "fetch('/wp-comments-post.php',{method:'POST',body:p,credentials:'same-origin'}).then(function(res){if(res.redirected){F.reset();M.className='am-rv-msg ok';M.textContent='Thank you! Your review will appear here once the team has checked it.';btn.disabled=false;return}"
+      "return res.text().then(function(h){var d=document.createElement('div');d.innerHTML=h;var e=d.querySelector('.wp-die-message,p');throw new Error(e?e.textContent:'')})})"
+      ".catch(function(e){btn.disabled=false;M.className='am-rv-msg err';M.textContent=(e&&e.message)||'Something went wrong. Please try again, or send us your review on WhatsApp.'})})})();</script>")
+home_html = [H1, H2, H3, H4, H5, H6, H7, H8, steps(), cta("Tell us your dates. <em>We'll do the rest.</em>",
              "A quick message is enough to start: when you arrive, how many of you, and what you'd love to see.")]
 home = [con('am0home', [w_html('amh%02dw' % i, x) for i, x in enumerate(home_html)])]
 
