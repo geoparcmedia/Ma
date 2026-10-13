@@ -18,3 +18,6 @@
   Home (8276), About (8277), Contact (8279) and Activities (8533) into `amasir/out2/`.
   Global header switched from 35 to 38 and theme colours changed in option `travolo_opt`
   (original in `backups/amasir/travolo_opt.json`).
+- Elementor "element caching" stores the rendered page in post meta `_elementor_element_cache`.
+  After writing `_elementor_data` directly, delete that meta (and `_elementor_css`), otherwise the old
+  render keeps showing. Element caching was turned off (`elementor_element_cache_ttl` = disable).
