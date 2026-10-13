@@ -217,7 +217,7 @@ F = ("<footer class='amf'><div class='am-w'><div class='amf-g'>"
      "<li>%s<span><a href='tel:%s'>%s</a><br><a href='tel:%s'>%s</a></span></li>"
      "<li>%s<a href='mailto:%s'>%s</a></li>"
      "<li>%s<span>Lot El Massar N&#176; 1106, 3&#232;me &#233;tage<br>Marrakech, Morocco</span></li></ul></div>"
-     "</div><div class='amf-bot'><span>&#169; 2026 Amasir Voyage, Marrakech. All rights reserved.</span><span class='amf-dev'>Developed by <b>majdoulineab</b></span></div></div></footer>"
+     "</div><div class='amf-bot'><span>&#169; 2026 Amasir Voyage, Marrakech. All rights reserved.</span><span class='amf-dev'>By <a href='https://www.majdoulinean.com' target='_blank' rel='noopener'>majdoulinean</a></span></div></div></footer>"
      ) % (S, LOGO, WA, I_WA,
           ''.join("<li><a href='%s%s'>%s</a></li>" % (S, h, t) for t, h in NAV[1:] + [('All trips', '/trip-search-result/')]),
           ''.join("<li><a href='%s/trip/%s/'>%s</a></li>" % (S, t[1], t[0].replace('&', '&amp;')) for t in popular),
