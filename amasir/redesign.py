@@ -90,6 +90,10 @@ STAMP = ("<div class='am-stamp' aria-hidden='true'><svg viewBox='0 0 136 136'><d
          "<text font-family='Inter,sans-serif' font-size='11.5' font-weight='600' letter-spacing='3.2' fill='%s'><textPath href='#amc'>PRIVATE TOURS &#183; MARRAKECH &#183; MOROCCO &#183; </textPath></text></svg><b>&#10022;</b></div>")
 
 
+def hero_bg(src, alt):
+    return "<div class='am-hero-bg'>%s</div>" % img_tag(src, alt, eager=True)
+
+
 def img_tag(src, alt, w=None, h=None, full=None, eager=False, cls=''):
     a = " width='%d' height='%d'" % (w, h) if w else ''
     f = " data-full='%s' onerror='this.onerror=null;this.src=this.dataset.full'" % full if full and full != src else ''
@@ -125,9 +129,9 @@ def wall(keys):
 
 def cta(title, text):
     return ("<section class='am am-sec am-sec--white' style='padding-top:40px'><div class='am-w'><div class='am-cta'>"
-            "<div><span class='am-hand'>Yalla, let's plan it</span><h2>%s</h2><p>%s</p></div>"
+            "<div><span class='am-hand'>Yalla, let's plan it</span><h2>%s</h2></div>"
             "<div class='am-btns'><a class='am-btn am-btn--white' href='%s' target='_blank' rel='noopener'>%s WhatsApp us</a>"
-            "<a class='am-btn am-btn--ghost' href='%s/contact/'>Send a message</a></div></div></div></section>") % (title, text, WA, I_WA, S)
+            "<a class='am-btn am-btn--ghost' href='%s/contact/'>Send a message</a></div></div></div></section>") % (title, WA, I_WA, S)
 
 
 def steps():
@@ -221,6 +225,41 @@ F = ("<footer class='amf'><div class='am-w'><div class='amf-g'>"
 footer = [con('af00001', [w_html('af0001w', F)])]
 
 # ================================ HOME ================================
+KEYS = {  # extra words people type when looking for a trip
+    'agafay-desert-day-trip': 'agafay desert camel quad sunset dinner camp',
+    'imlil-high-atlas-mountains-day-trip': 'imlil atlas mountains toubkal berber villages hiking',
+    'ouzoud-waterfalls-day-trip': 'ouzoud waterfalls cascades monkeys macaques',
+    'essaouira-day-trip-from-marrakech': 'essaouira coast ocean beach port mogador',
+    'ourika-valley-day-trip-from-marrakech': 'ourika valley river atlas setti fatma',
+    '3-day-merzouga-desert-adventure': 'merzouga sahara desert erg chebbi camel camp dunes 3 days',
+    'blue-city-to-sahara': 'chefchaouen blue city tangier fes sahara merzouga 4 days',
+    '5-day-sahara-trekking-adventure': 'sahara desert trekking walking camel 5 days',
+    '8-day-morocco-desert-coast-escape': 'desert coast sahara essaouira kasbah 8 days',
+    '15-day-grand-morocco-discovery': 'grand tour imperial cities fes rabat chefchaouen sahara 15 days',
+    'marrakech-hot-air-balloon-adventure': 'hot air balloon sunrise montgolfiere',
+    'agafay-desert-dinner-live-show': 'agafay dinner show music evening',
+    'quad-biking': 'quad atv buggy palmeraie',
+    'dromedary-ride': 'dromedary camel ride sunset',
+}
+SDATA = ([{'t': t[0], 'u': S + '/trip/' + t[1] + '/', 'c': t[4], 'k': KEYS[t[1]]} for t in DAY + TOURS]
+         + [{'t': a[0], 'u': S + '/trip/' + a[1] + '/', 'c': 'Activity', 'k': KEYS[a[1]]} for a in ACTS])
+I_SRCH = ic("<circle cx='11' cy='11' r='7'/><path d='m20 20-3.5-3.5'/>")
+SEARCH = ("<form class='am-search' role='search' autocomplete='off'><label>%s"
+          "<input type='search' placeholder='Where to? Agafay, Merzouga, Essaouira...' aria-label='Search a trip'>"
+          "<button type='submit'>Search</button></label><ul class='am-sr' hidden></ul></form>"
+          "<script>(function(){var T=%s,f=document.querySelector('.am-search');if(!f)return;"
+          "var i=f.querySelector('input'),l=f.querySelector('.am-sr'),r=[];"
+          "function n(x){return x.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'')}"
+          "function e(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}"
+          "function show(){var q=n(i.value.trim());if(!q){l.hidden=true;return}"
+          "var w=q.split(/\\s+/);r=T.filter(function(t){var h=n(t.t+' '+t.k);return w.every(function(x){return h.indexOf(x)>-1})});"
+          "l.innerHTML=r.length?r.slice(0,8).map(function(t,j){return '<li><a href=\"'+t.u+'\"'+(j?'':' class=\"on\"')+'>'+e(t.t)+'<small>'+e(t.c)+'</small></a></li>'}).join('')"
+          ":'<li class=\"am-none\">No trip with that name yet. <a href=\"%s\" target=\"_blank\" rel=\"noopener\">Ask us on WhatsApp</a>, we can plan it.</li>';l.hidden=false}"
+          "i.addEventListener('input',show);i.addEventListener('focus',show);"
+          "f.addEventListener('submit',function(ev){ev.preventDefault();show();if(r.length)location.href=r[0].u});"
+          "document.addEventListener('click',function(ev){if(!f.contains(ev.target))l.hidden=true});"
+          "i.addEventListener('keydown',function(ev){if(ev.key==='Escape')l.hidden=true})})();</script>"
+          ) % (I_SRCH, json.dumps(SDATA, ensure_ascii=False), WA)
 k = lambda title, n, href, img, full, text: (
     "<a class='am-kind' href='%s'>%s<div class='am-kind-b'><span class='am-kind-n'>%s</span><h3>%s</h3><p>%s</p><span class='am-go'>Show me</span></div></a>"
     % (href, img_tag(img, title, full=full), n, title, text))
@@ -228,9 +267,9 @@ H1 = ("<section class='am am-hero'>%s<div class='am-hero-note'>your trip could<b
       "<div class='am-w'><span class='am-eb'>Amasir Voyage &#183; Marrakech</span>"
       "<h1>Morocco, shown by people who <em>live here</em></h1>"
       "<p class='am-hero-lead'>Private day trips, desert tours and airport pickups from Marrakech. Small team, local drivers and guides, and plans built around you.</p>"
-      "<div class='am-btns'><a class='am-btn am-btn--terra' href='#day-trips'>Browse our trips</a><a class='am-btn am-btn--ghost' href='%s' target='_blank' rel='noopener'>%s Ask us on WhatsApp</a></div>"
+      "%s<div class='am-btns' style='margin-top:18px'><a class='am-btn am-btn--terra' href='#day-trips'>Browse our trips</a><a class='am-btn am-btn--ghost' href='%s' target='_blank' rel='noopener'>%s Ask us on WhatsApp</a></div>"
       "<div class='am-facts'><span>Private trips only</span><span>Pickups at the airport, riad or hotel</span><span>Day trips, tours &amp; activities</span></div>"
-      "</div></section>") % (img_tag(HERO_HOME, 'Travellers in the Moroccan desert on an Amasir Voyage trip', eager=True), WA, I_WA)
+      "</div></section>") % (hero_bg(HERO_HOME, 'Travellers in the Moroccan desert on an Amasir Voyage trip'), SEARCH, WA, I_WA)
 H2 = ("<section class='am am-sec'><div class='am-w'><div class='am-sh'><div><span class='am-eb'>Where to start</span><h2>Pick the <em>kind</em> of trip you have time for</h2></div>"
       "<p>One free day, a few nights in the desert or the whole country. Choose a starting point and we'll adjust the details with you.</p></div><div class='am-kinds'>"
       + k('Day trips', '5 trips', '#day-trips', u('buggy-tour-agafay-desert-view-1536x864-1-600x810.jpg'), u('buggy-tour-agafay-desert-view-1536x864-1.jpg'), 'Out of Marrakech in the morning, back for dinner.')
@@ -266,7 +305,7 @@ home = [con('am0home', [w_html('amh%02dw' % i, x) for i, x in enumerate(home_htm
 # ================================ ABOUT ================================
 A1 = ("<section class='am am-hero am-hero--sm'>%s<div class='am-w'><span class='am-eb'>About us</span>"
       "<h1>A small Marrakech team, <em>not a call centre</em></h1>"
-      "<p class='am-hero-lead'>Drivers and guides who live here, planning private trips we'd be happy to take our own families on.</p></div></section>") % img_tag(HERO_ABOUT, 'Amasir Voyage guide with travellers in Morocco', eager=True)
+      "<p class='am-hero-lead'>Drivers and guides who live here, planning private trips we'd be happy to take our own families on.</p></div></section>") % hero_bg(HERO_ABOUT, 'Amasir Voyage guide with travellers in Morocco')
 src, w, h, alt = G['family']
 A2 = ("<section class='am am-sec am-sec--white'><div class='am-w am-split'>"
       "<div class='am-tx'><span class='am-eb'>Our story, in short</span><h2>Trips built around <em>people</em>, not packages</h2>"
@@ -293,7 +332,7 @@ about = [con('am0abou', [w_html('ama%02dw' % i, x) for i, x in enumerate([A1, A2
 src, w, h, alt = G['welcome']
 C1 = ("<section class='am am-hero am-hero--sm'>%s<div class='am-w'><span class='am-eb'>Contact</span>"
       "<h1>Tell us about <em>your trip</em></h1>"
-      "<p class='am-hero-lead'>Your dates, how many of you, and roughly what you'd like to see. We'll reply with a plan and a price, with no obligation to book.</p></div></section>") % img_tag(src, alt, w, h, eager=True)
+      "<p class='am-hero-lead'>Your dates, how many of you, and roughly what you'd like to see. We'll reply with a plan and a price, with no obligation to book.</p></div></section>") % hero_bg(src, alt)
 cc = lambda cls, href, icon, t, d: ("<a class='am-cc %s' href='%s'%s><i>%s</i><span><b>%s</b>%s</span></a>" % (cls, href, " target='_blank' rel='noopener'" if href.startswith('http') else '', icon, t, d))
 C_LEFT = ("<div class='am'><span class='am-eb'>Reach us directly</span><h2 style='font-size:clamp(30px,3vw,40px);margin-bottom:24px'>The quickest way is <em>WhatsApp</em></h2>"
           "<div class='am-cards'>"
@@ -317,7 +356,7 @@ contact = [con('am0cont', [
 # ================================ ACTIVITIES ================================
 X1 = ("<section class='am am-hero am-hero--sm'>%s<div class='am-w'><span class='am-eb'>Activities</span>"
       "<h1>Short adventures <em>around Marrakech</em></h1>"
-      "<p class='am-hero-lead'>A few hours is enough. Book one on its own, or add it to any of our day trips.</p></div></section>") % img_tag(u('pexels-leos-37736075-scaled.jpg'), 'Hot air balloons at sunrise near Marrakech', eager=True)
+      "<p class='am-hero-lead'>A few hours is enough. Book one on its own, or add it to any of our day trips.</p></div></section>") % hero_bg(u('pexels-leos-37736075-scaled.jpg'), 'Hot air balloons at sunrise near Marrakech')
 X2 = ("<section class='am am-sec'><div class='am-w'><div class='am-acts am-acts--big'>"
       + ''.join(("<a class='am-act' href='%s/trip/%s/'><div class='am-act-i'>%s</div><div><span class='am-eb'>Activity</span><h3>%s</h3><p>%s</p><span class='am-go'>See details</span></div></a>")
                 % (S, a[1], img_tag(a[3], a[0], full=a[2]), a[0].replace('&', '&amp;'), a[4]) for a in ACTS)
