@@ -24,8 +24,11 @@ Create it at https://business.google.com with the email you check every day.
 Send this on WhatsApp the day after the tour ends, with the two review links:
 
 > Hi [name], thank you for riding with us! We hope you loved Morocco as much as we loved having you. If you have two minutes, a short review would help us a lot – it is how other travellers find small local teams like ours:
+>
 > Google: [your Google review link]
+>
 > Tripadvisor: [your Tripadvisor review link]
+>
 > Shukran bzaf, and see you on the trails again! – Marouane & the We Gravel Morocco team
 
 Goal: 3 to 5 new reviews a month. Answer every review, good or bad.
@@ -35,17 +38,20 @@ Goal: 3 to 5 new reviews a month. Answer every review, good or bad.
 Each listing below gives the site a link and brings bookings on its own.
 
 **Tour marketplaces** (list each tour, with a link to the matching page on wegravelmorocco.com where allowed):
+
 - TourRadar
 - BookAtrekking
 - GetYourGuide
 - Viator (Tripadvisor Experiences)
 
 **Cycling and outdoor platforms** (publish the routes, add the website in the profile and route description):
+
 - Komoot – one "collection" per tour (Caravan Road, Atlas to Sahara, Happy Valley)
 - Strava – club "We Gravel Morocco", routes and the guides' rides
 - Wikiloc and AllTrails – Toubkal and M'Goun treks
 
 **Partners** (ask each one for a link to your site on their "activities" or "excursions" page):
+
 - Riads and hotels in Marrakech where your clients sleep
 - Guesthouses (gîtes) in the Ait Bouguemez and Imlil
 - Desert camps in Chegaga / M'Hamid
@@ -65,8 +71,8 @@ Each listing below gives the site a link and brings bookings on its own.
 >
 > Our guides: https://wegravelmorocco.com/cycling-in-morocco-guide/ and https://wegravelmorocco.com/mount-toubkal-trek-guide/
 >
-> Shukran,
-> Marouane – We Gravel Morocco
+> Shukran,\
+> Marouane – We Gravel Morocco\
 > +212 660 435 569 · marouanguide@yahoo.fr
 
 ## 4. Social profiles
