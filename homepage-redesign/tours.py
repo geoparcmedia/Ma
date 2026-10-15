@@ -13,15 +13,15 @@ CYCLING = [
 TREKKING = [
     ("classic-toubkal-mountain-trek/", "5431893337830453170-580x450.jpg", "Trekking", "Classic Toubkal Trek",
      "Marrakech to the summit of Toubkal (4167 m), the highest peak in North Africa.", "3 days · Moderate to hard", 380),
-    ("climb-mount-toubkal-4167-m-13671-ft/", "la-vallee-de-latlas-et-le-mont-toubkal-au-maroc-boerez-benjamin-40758-580x450.jpg", "Trekking", "Berber Villages &amp; Toubkal Peak",
+    ("toubkal-trek-berber-villages/", "la-vallee-de-latlas-et-le-mont-toubkal-au-maroc-boerez-benjamin-40758-580x450.jpg", "Trekking", "Berber Villages &amp; Toubkal Peak",
      "Tamsoult valley, Agulzim pass and the Toubkal summit, with a guided tour of Marrakech.", "6 days · Moderate to hard", 600),
-    ("climb-mount-mgoun4071m-13356-ft/", "pianchette-top-7989881_1920-1-580x450.jpg", "Trekking", "Happy Valley &amp; M’Goun Summit",
+    ("mount-mgoun-trek/", "pianchette-top-7989881_1920-1-580x450.jpg", "Trekking", "Happy Valley &amp; M’Goun Summit",
      "Climb M’Goun (4071 m), the second highest peak in North Africa, on old nomad paths.", "8 days · Moderate to hard", 950),
-    ("hiking-in-bougmaz-valleykigdom-of-berbers/", "Vue-panoramique-sur-la-vallee-dait-bouguemez-2-scaled-1-580x450.jpg", "Trekking", "Bougmaz Valley: Kingdom of the Berbers",
+    ("ait-bouguemez-happy-valley-trek/", "Vue-panoramique-sur-la-vallee-dait-bouguemez-2-scaled-1-580x450.jpg", "Trekking", "Bougmaz Valley: Kingdom of the Berbers",
      "Five easy hiking days village to village in the Happy Valley, with Ouzoud Waterfall.", "8 days · Easy", 890),
     ("edge-of-the-sahara-desert-trek/", "fullsizeoutput_1d1-580x450.jpeg", "Desert Trek", "Sahara Desert Trek",
      "Walk with camels across the dunes of M’hamid El Ghizlan and sleep in desert camps.", "8 days · Easy", 1050),
-    ("toubkal-ascent-essaouira-city-4167-m-13671-ft/", "citadelle_essaouira-scaled-1-580x450.jpg", "Trek &amp; Relax", "Toubkal Challenge &amp; Essaouira",
+    ("toubkal-trek-and-essaouira/", "citadelle_essaouira-scaled-1-580x450.jpg", "Trek &amp; Relax", "Toubkal Challenge &amp; Essaouira",
      "A 3-day Toubkal ascent followed by relaxing days in the seaside town of Essaouira.", "7 days · Moderate to hard", 680),
 ]
 
