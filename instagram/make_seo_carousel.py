@@ -63,14 +63,61 @@ th{{background:{DARK};color:#fff;text-align:left;padding:12px 12px;font-size:20p
 td{{padding:12px 12px;border-bottom:2px solid #EEF1F8;vertical-align:top;line-height:1.3}}
 td:first-child{{font-weight:900;color:{BLUE};font-size:24px}}
 """
+CSS += """
+/* vivid theme */
+body.v{background:var(--bg);color:#fff}
+body.v:before,body.v:after{content:"";position:absolute;border-radius:50%;filter:blur(10px);opacity:.35;z-index:0}
+body.v:before{width:620px;height:620px;right:-260px;top:-200px;background:var(--b1)}
+body.v:after{width:520px;height:520px;left:-240px;bottom:120px;background:var(--b2)}
+body.v>*{position:relative;z-index:1}
+body.v>.next,body.v>.dots{position:absolute}
+body.v .card{color:#22253A}
+body.v .top{color:rgba(255,255,255,.85)}
+body.v .handle{display:flex;align-items:center;gap:12px;color:#fff}
+body.v .handle .av{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
+body.v .kicker{color:var(--k)}
+body.v h1{color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.18)}
+body.v .full{color:rgba(255,255,255,.92)!important}
+body.v .card{border:0;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+body.v .brace{border-color:#fff}
+body.v .brace:after{border-color:#fff}
+body.v .goal{color:#fff}
+body.v .goal small{color:rgba(255,255,255,.85)}
+body.v .do div{color:rgba(255,255,255,.95)}
+body.v .do b{color:#fff}
+body.v .do div:before{background:#fff;color:var(--acc)}
+body.v .next{background:#fff;color:#22253A;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+body.v .next span{color:var(--acc)}
+body.v .dots{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:10px}
+body.v .dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.45)}
+body.v .dots i.on{width:34px;border-radius:6px;background:#fff}
+"""
+
+THEMES = {
+ 1: ("linear-gradient(150deg,#4F46E5 0%,#7C3AED 45%,#DB2777 100%)", "#F472B6", "#22D3EE", "#FDE047", "#7C3AED"),
+ 2: ("linear-gradient(150deg,#2563EB 0%,#1D4ED8 40%,#7C3AED 100%)", "#22D3EE", "#A78BFA", "#FDE047", "#2563EB"),
+ 3: ("linear-gradient(150deg,#059669 0%,#0D9488 45%,#0EA5E9 100%)", "#A3E635", "#22D3EE", "#FEF08A", "#0D9488"),
+ 4: ("linear-gradient(150deg,#F97316 0%,#EF4444 50%,#DB2777 100%)", "#FDE047", "#F472B6", "#FEF3C7", "#EF4444"),
+ 5: ("linear-gradient(150deg,#7C3AED 0%,#6D28D9 45%,#2563EB 100%)", "#F0ABFC", "#38BDF8", "#FDE047", "#7C3AED"),
+ 6: ("linear-gradient(150deg,#EC4899 0%,#F43F5E 45%,#F59E0B 100%)", "#FDE047", "#A78BFA", "#FFF7ED", "#F43F5E"),
+ 7: ("linear-gradient(150deg,#0F172A 0%,#1E3A8A 55%,#7C3AED 100%)", "#22D3EE", "#F472B6", "#FDE047", "#2563EB"),
+ 8: ("linear-gradient(150deg,#F59E0B 0%,#F97316 40%,#E11D48 100%)", "#FDE047", "#DB2777", "#FFFFFF", "#F97316"),
+}
 
 def page(n, body):
+    bg, b1, b2, k, acc = THEMES[n]
+    dots = "".join(f'<i class="{"on" if i == n else ""}"></i>' for i in range(1, 9))
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head>
+<body class="v" style="--bg:{bg};--b1:{b1};--b2:{b2};--k:{k};--acc:{acc}">
+<div class="top"><div class="handle"><div class="av">W</div>@wegravel_morocco</div><div>{n}/8</div></div>{body}<div class="dots">{dots}</div></body></html>"""
+
+def _old_page(n, body):
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>
-<div class="top"><div>SEARCH IN 2026</div><div>{n}/8</div></div>{body}</body></html>"""
+{body}</body></html>"""
 
 def nxt(label, last=False):
     if last:
-        return f'<div class="next" style="background:{ORANGE}"><div>Save it · Share it with your team</div><div>↗</div></div>'
+        return '<div class="next"><div>Save it · Follow <span>@wegravel_morocco</span></div><div>↗</div></div>'
     return f'<div class="next"><div>Next: <span>{label}</span></div><div style="font-size:40px">→</div></div>'
 
 def section(n, kicker, title, full, card, goal, goal_sub, todo, next_label):
@@ -125,9 +172,9 @@ SXO_CARD = """<div style="display:flex;align-items:center;gap:14px;margin-top:6p
 SLIDES = [
     page(1, f"""<div class="kicker">Search has changed</div>
 <h1 style="font-size:104px">SEO is not<br>enough<br>anymore.</h1>
-<div class="full" style="color:#3B3F55;font-size:36px;line-height:1.35;margin-top:10px">People now find brands on Google, in AI answers and in chat assistants. Here are the <b>5 optimizations</b> your website needs in 2026.</div>
+<div class="full" style="font-size:36px;line-height:1.35;margin-top:10px">People now find brands on Google, in AI answers and in chat assistants. Here are the <b style="color:#FDE047">5 optimizations</b> your website needs in 2026.</div>
 <div style="margin:44px 60px 0;display:flex;flex-direction:column;gap:16px">
-""" + "".join(f'<div style="display:flex;align-items:center;gap:22px;background:#fff;border:2px solid #DCE4F7;border-radius:22px;padding:18px 24px"><div style="width:120px;font-size:40px;font-weight:900;color:{BLUE}">{a}</div><div style="font-size:28px;font-weight:700">{b}</div></div>' for a, b in [("SEO","Rank on page 1"),("AEO","Be in the answer box"),("GEO","Be the AI recommendation"),("AIO","Be understood by AI"),("SXO","Turn visits into clients")]) + "</div>" + nxt("SEO, the foundation")),
+""" + "".join(f'<div style="display:flex;align-items:center;gap:22px;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.35);border-radius:22px;padding:18px 24px"><div style="width:120px;font-size:40px;font-weight:900;color:#FDE047">{a}</div><div style="font-size:28px;font-weight:700;color:#fff">{b}</div></div>' for a, b in [("SEO","Rank on page 1"),("AEO","Be in the answer box"),("GEO","Be the AI recommendation"),("AIO","Be understood by AI"),("SXO","Turn visits into clients")]) + "</div>" + nxt("SEO, the foundation")),
     section(2, "01 · The foundation", "SEO", "Search Engine Optimization", SEO_CARD,
             "Rankings", "Rank on page 1 of Google",
             ["<b>One page per search intent</b>, with the keyword in the title, H1 and URL",
@@ -172,7 +219,7 @@ SLIDES = [
         for a, b in [("SEO", "My main pages rank in the top 10"), ("AEO", "Each page answers the question in 2 sentences"),
                      ("GEO", "Other sites mention my brand"), ("AIO", "My site has schema markup"),
                      ("SXO", "A visitor can buy or book in 2 clicks")]) + f"""</div>
-<div class="brace"></div><div class="goal">Missed one?<small>Follow for one practical tip a week</small></div>
+<div class="brace"></div><div class="goal">Missed one?<small>Follow @wegravel_morocco for more</small></div>
 {nxt("", last=True)}"""),
 ]
 
