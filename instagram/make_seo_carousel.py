@@ -169,7 +169,8 @@ SXO_CARD = """<div style="display:flex;align-items:center;gap:14px;margin-top:6p
 <div style="display:flex;gap:12px;margin-top:26px">
 <div class="pill" style="flex:1;font-size:19px">🎯 Intent match</div><div class="pill" style="flex:1;font-size:19px">⚡ Fast page</div><div class="pill" style="flex:1;font-size:19px">➡️ Clear next step</div></div>"""
 
-SLIDES = [
+def build_slides():
+  return [
     page(1, f"""<div class="kicker">Search has changed</div>
 <h1 style="font-size:104px">SEO is not<br>enough<br>anymore.</h1>
 <div class="full" style="font-size:36px;line-height:1.35;margin-top:10px">People now find brands on Google, in AI answers and in chat assistants. Here are the <b style="color:#FDE047">5 optimizations</b> your website needs in 2026.</div>
@@ -223,13 +224,16 @@ SLIDES = [
 {nxt("", last=True)}"""),
 ]
 
-for i, html_text in enumerate(SLIDES, 1):
-    html = TMP / f"slide-{i}.html"
-    html.write_text(html_text, encoding="utf-8")
-    png = OUT / f"slide-{i}.png"
-    subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
-                    "--force-device-scale-factor=1", "--window-size=1080,1600",
-                    f"--screenshot={png}", html.as_uri()],
-                   check=True, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
-    Image.open(png).convert("RGB").crop((0, 0, 1080, 1350)).save(png)
-    print(png)
+
+if __name__ == "__main__":
+ SLIDES = build_slides()
+ for i, html_text in enumerate(SLIDES, 1):
+     html = TMP / f"slide-{i}.html"
+     html.write_text(html_text, encoding="utf-8")
+     png = OUT / f"slide-{i}.png"
+     subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
+                     "--force-device-scale-factor=1", "--window-size=1080,1600",
+                     f"--screenshot={png}", html.as_uri()],
+                    check=True, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+     Image.open(png).convert("RGB").crop((0, 0, 1080, 1350)).save(png)
+     print(png)
