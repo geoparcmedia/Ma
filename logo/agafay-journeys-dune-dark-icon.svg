@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="512" height="512"><rect width="128" height="128" rx="28" fill="#1E1814"/><g transform="translate(10 14)"><defs><clipPath id="cndarki"><path d="M6 92 C28 74 42 44 54 10 C66 44 80 74 102 92 Z"/></clipPath></defs>
+<circle cx="84" cy="24" r="10" fill="#D9954A"/>
+<g clip-path="url(#cndarki)"><rect x="0" y="0" width="110" height="100" fill="#B4652F"/><path d="M0 0 H54 C58 34 50 62 70 100 H0 Z" fill="#E7B57A"/>
+<path d="M22 96 C40 86 74 86 66 72 C60 62 46 62 52 50 C55 44 60 42 62 38" stroke="#1E1814" stroke-width="2.1" stroke-dasharray="3 2.4" fill="none"/>
+<path d="M28 100 C48 90 82 88 72 71 C66 61 53 63 58 52 C61 46 65 44 67 40" stroke="#1E1814" stroke-width="2.1" stroke-dasharray="3 2.4" fill="none"/></g></g></svg>
